@@ -34,6 +34,7 @@ function App() {
         <p>
           Brynn Maleryn 
           Julia was here
+          Grace was here
         </p>
         <a
           className="App-link"
