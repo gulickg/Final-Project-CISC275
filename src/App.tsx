@@ -35,6 +35,7 @@ function App() {
           Brynn Maleryn 
           Julia was here
           Grace was here
+          Alexis Vogt
         </p>
         <a
           className="App-link"
