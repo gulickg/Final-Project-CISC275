@@ -1,0 +1,19 @@
+#navbar{
+    display: flex;
+    justify-content: center;
+    background-color: green;
+}
+
+.navButton{
+    margin: 10px;
+    background-color: lightyellow;
+    border-radius: 0%;
+    color: black;
+    border-color: black;
+}
+
+.navButton:hover {
+    background-color: bisque;
+    color: black;
+    border-color: black;
+}

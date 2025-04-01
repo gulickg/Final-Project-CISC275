@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
-import './Components/Navigation'
+import {Navigation} from './Components/Navigation'
+import { Homepage } from './Components/Homepage';
+import { DetailedQuestions } from './Components/DetailedQuestions';
+import { BasicQuestions } from './Components/BasicQuestions';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -13,6 +16,7 @@ if (prevKey !== null) {
 }
 
 function App() {
+  const [page, setPage] = useState<string>("homepage");
   // const [key, setKey] = useState<string>(keyData); //for api key input
   
   // //sets the local storage item to the api key the user inputed
@@ -33,6 +37,17 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form> */}
+      <header>
+        <Navigation></Navigation>
+      </header>
+      <div>
+        {page === 'homepage' && (<div><Homepage></Homepage></div>)}
+        {page === 'basicQuestions' && (<div><Homepage></Homepage></div>)}
+        {page === 'detaledQuestions' && (<div><Homepage></Homepage></div>)}
+      </div>
+      <div>
+        
+      </div>
     </div>
   );
 }
