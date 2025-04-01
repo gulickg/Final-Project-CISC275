@@ -45,9 +45,9 @@ function App() {
         {page === 'basicQuestions' && (<div><BasicQuestions></BasicQuestions></div>)}
         {page === 'detaledQuestions' && (<div><DetailedQuestions></DetailedQuestions></div>)}
       </div>
-      <div>
-        
-      </div>
+      <footer>
+        <Navigation setPage={setPage}></Navigation>
+      </footer>
     </div>
   );
 }

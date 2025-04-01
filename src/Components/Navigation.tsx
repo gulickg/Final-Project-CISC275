@@ -7,7 +7,6 @@ interface NavigationProps {
 }
 
 export function Navigation({setPage}: NavigationProps):React.JSX.Element{
-
     return(<div id='navbar'>
         <div><Button className='navButton' onClick={() => setPage('homepage')}>Home</Button></div>
         <div><Button className='navButton' onClick={() => setPage('basicQuestions')}>Basic Questions</Button></div>
