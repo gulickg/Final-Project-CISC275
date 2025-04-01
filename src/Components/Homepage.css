@@ -1,6 +1,6 @@
 #title{
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #content-box {
@@ -15,5 +15,6 @@
     justify-content: center;
     border: solid;
     border-width: 1px;
-    margin: 5px
+    margin: 5px;
+    height: 400px;
 }
