@@ -1,3 +1,19 @@
 #title{
     margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#content-box {
+    display: flex;
+    justify-content: center;
+}
+
+.quiz {
+    display: flex;
+    width: 40%;
+    text-align: center;
+    justify-content: center;
+    border: solid;
+    border-width: 1px;
+    margin: 5px
 }
