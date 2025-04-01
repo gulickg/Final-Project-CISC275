@@ -12,18 +12,33 @@ if (prevKey !== null) {
 }
 
 function App() {
+  //state to change pages when buttons are clicked
+  type page= 'home'|'Detailed Quest Page'| "Basic Quest Page"
+  const [currentPage, setCurrentPage]=useState<page>('home');
+
+
   const [key, setKey] = useState<string>(keyData); //for api key input
-  
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
   }
-
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+
+  //function to change the current page to the detailed questions when detailed question button is pressed
+  function goToDetailedQuestPage(){
+    setCurrentPage('Detailed Quest Page');
+  }
+
+  //function to set the current page to the basic question page when the button is clicked
+  function gotToBasicQuestPage(){
+    setCurrentPage("Basic Quest Page");
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -52,6 +67,16 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form>
+
+
+{/*working on buttons and descriptions*/}
+      <div>
+        <button className="basicButton" onClick={gotToBasicQuestPage}>Basic Career Assesment</button>
+        <div className='basicDescript'>This assessment will quickly and efficiently evaluate what career fits your lifestyle and interests best. This assessment is great if you are short for time or do not like longer and more in depth quizzes. </div>
+        <button className="detailedButton" onClick={goToDetailedQuestPage}>Detailed Career Assesment</button>
+        <div className="detailedDescript">The following quiz will assess your personality and decide which career fits your lifestyle and interests best. This is a detailed quiz with multiple open-ended questions; you should block out at least fifteen minutes to take this quiz. Please answer as honestly and elaborately as you can. </div>
+      </div>
+
     </div>
   );
 }

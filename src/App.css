@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.basicDescript{
+  display:none;
+}
+.detailedDescript{
+  display:none;
+}
+.basicButton:hover+.basicDescript{
+  display:block;
+  color:beige;
+}
+.detailedButton:hover+.detailedDescript{
+  display:block;
+  color:beige;
+}
