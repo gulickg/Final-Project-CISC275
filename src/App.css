@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+footer > #navbar{
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  position:absolute;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+}
+
+footer > #navbar > div > .navButton{
+  background-color: white;
+  border: none;
+  border-bottom: solid;
+  color: blue;
+  padding-left: 0%;
+  padding-right: 0%
+}

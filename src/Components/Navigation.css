@@ -1,0 +1,25 @@
+#navbar{
+    display: flex;
+    justify-content: center;
+    background-color: green;
+}
+
+.navButton{
+    margin: 10px;
+    background-color: lightyellow;
+    border-radius: 0%;
+    color: black;
+    border-color: black;
+}
+
+.navButton:hover {
+    background-color: darkseagreen;
+    color: white;
+    border-color: black;
+}
+
+.navButton:focus{
+    background-color: darkseagreen;
+    box-shadow: none;
+    border-color: black;
+}
