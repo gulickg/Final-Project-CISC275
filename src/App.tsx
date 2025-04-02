@@ -6,6 +6,7 @@ import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage';
 import { DetailedQuestions } from './Components/DetailedQuestions';
 import { BasicQuestions } from './Components/BasicQuestions';
+import { Report } from './Components/Report';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 let keyData = "";
@@ -42,9 +43,10 @@ function App() {
         <Navigation setPage={setPage}></Navigation>
       </header>
       <div id='page-content'>
-        {page === 'homepage' && (<div><Homepage setPage={setPage}></Homepage></div>)}
-        {page === 'basicQuestions' && (<div><BasicQuestions></BasicQuestions></div>)}
+        {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
+        {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions></DetailedQuestions></div>)}
+        {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
       <footer id='footer'>
         <Navigation setPage={setPage}></Navigation>

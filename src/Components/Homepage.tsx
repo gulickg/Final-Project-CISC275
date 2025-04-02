@@ -8,7 +8,7 @@ interface HomepageProps{
 
 export function Homepage({setPage}: HomepageProps):React.JSX.Element{
 
-    return(<div>
+    return(<div id='homepage-box'>
         <h1 id='title'>Welcome to the Career Helpi!</h1>
         <div id='content-box'>
             <div className='quiz' id='basic-info'>

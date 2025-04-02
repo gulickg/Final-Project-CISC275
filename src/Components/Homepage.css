@@ -6,6 +6,8 @@
 #content-box {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .quiz {
@@ -17,4 +19,10 @@
     border-width: 1px;
     margin: 5px;
     height: 400px;
+}
+
+#homepage-box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
