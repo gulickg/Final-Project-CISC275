@@ -1,0 +1,20 @@
+#question-type-title{
+    font-size: larger;
+}
+
+#desc{
+    font-size: small;
+}
+
+/* #continue-button{
+} */
+
+#button-box{
+    justify-content: left;
+}
+
+#description-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
