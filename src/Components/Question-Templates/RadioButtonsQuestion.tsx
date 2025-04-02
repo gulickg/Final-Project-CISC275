@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Form, Button} from 'react-bootstrap'
 import './Questions.css'
+import questionMark from './question-mark.png'
 
 interface RadioQuestionProps {
     question: string;
@@ -21,6 +22,7 @@ export function RadioButtonQuestion({question, choices, addCompleted}: RadioQues
     return(<div className='radio-question'>
         <div className='question-number'>
             Question 1:
+            <img id='more-info' src={questionMark} alt='question mark'></img>
         </div>
         <div className='question-text'>
             {question}

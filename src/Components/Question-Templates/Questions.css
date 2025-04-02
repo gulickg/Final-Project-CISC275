@@ -9,12 +9,14 @@
 }
 
 .question-number{
+    display: flex;
     background-color: gainsboro;
     width: 100%;
     justify-self: center;
     margin: 10px 0px 10px 0px;
     padding: 10px 10px 10px 10px;
     text-align: left;
+    justify-content: space-between;
 }
 
 .question-text{
@@ -23,4 +25,8 @@
 
 .radio-choices{
     margin: 0px 10px 0px 10px;
+}
+
+#more-info{
+    height:20px
 }
