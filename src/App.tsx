@@ -37,17 +37,19 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form> */}
+      <div id='app-content'>
       <header>
         <Navigation setPage={setPage}></Navigation>
       </header>
-      <div>
-        {page === 'homepage' && (<div><Homepage></Homepage></div>)}
+      <div id='page-content'>
+        {page === 'homepage' && (<div><Homepage setPage={setPage}></Homepage></div>)}
         {page === 'basicQuestions' && (<div><BasicQuestions></BasicQuestions></div>)}
-        {page === 'detaledQuestions' && (<div><DetailedQuestions></DetailedQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions></DetailedQuestions></div>)}
       </div>
-      <footer>
+      <footer id='footer'>
         <Navigation setPage={setPage}></Navigation>
       </footer>
+      </div>
     </div>
   );
 }

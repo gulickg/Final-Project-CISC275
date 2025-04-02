@@ -37,12 +37,14 @@
   }
 }
 
+footer{
+  justify-content: center;
+  width: 100%;
+}
+
 footer > #navbar{
   display: flex;
   background-color: rgb(255, 255, 255);
-  position:absolute;
-  justify-content: center;
-  bottom: 0;
   width: 100%;
 }
 
@@ -54,3 +56,14 @@ footer > #navbar > div > .navButton{
   padding-left: 0%;
   padding-right: 0%
 }
+
+#app-content{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+/* #page-content{
+ 
+} */
