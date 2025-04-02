@@ -9,7 +9,9 @@ export function BasicQuestions():React.JSX.Element{
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
     const totalQuestions = 7;
 
-    const progressBarSize = Math.ceil(questionsCompleted / totalQuestions * 185);
+    const progressPercent = Math.ceil(questionsCompleted / totalQuestions * 100)
+    const progressBarSize = progressPercent / 100 * 185 > 185 ? 185 : Math.ceil(progressPercent / 100 * 185);
+
 
     return(<div id='basic-questions-page'>
         <h1 id='title'>Basic Quiz Questions</h1>
@@ -17,5 +19,6 @@ export function BasicQuestions():React.JSX.Element{
         <div id='basic-progress-bar-box'>
             <div id='basic-progress-bar' style={{ width: progressBarSize}}></div>
         </div>
+        {progressPercent}%
     </div>);
 }
