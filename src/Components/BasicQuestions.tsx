@@ -12,9 +12,11 @@ export function BasicQuestions():React.JSX.Element{
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
     const totalQuestions = 1;
 
+    // find the percent of questions completed
     let progressPercent:number = Math.ceil(questionsCompleted / totalQuestions * 100)
     let progressBarSize = progressPercent / 100 * 185 > 185 ? 185 : Math.ceil(progressPercent / 100 * 185);
 
+    // pass to each question: updates questions completed
     function addCompleted(){
         setQuestionsCompleted(questionsCompleted + 1);
     }

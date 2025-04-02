@@ -3,6 +3,10 @@ import { Button } from 'react-bootstrap';
 import './Homepage.css'
 import './DescriptionBox.css'
 
+/*
+This is the boxes that have the descriptions of each quiz
+*/
+
 interface DescriptionProps{
     questionType:string;
     questionDescription: string;

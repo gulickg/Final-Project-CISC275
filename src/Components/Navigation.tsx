@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import { Button } from 'react-bootstrap';
 import "./Navigation.css"
 
+/* 
+This is the navigation bar in the header and footer
+*/
+
 interface NavigationProps {
     setPage: (page: string) => void
 }

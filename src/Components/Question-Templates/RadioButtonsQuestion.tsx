@@ -3,6 +3,11 @@ import { Form, Button} from 'react-bootstrap'
 import './Questions.css'
 import questionMark from './question-mark.png'
 
+/*
+template for radio box question
+*/
+
+
 interface RadioQuestionProps {
     question: string;
     choices: string[];
@@ -12,10 +17,15 @@ interface RadioQuestionProps {
 export function RadioButtonQuestion({question, choices, addCompleted}: RadioQuestionProps):React.JSX.Element{
     const [selectedChoice, setSelectedChoice] = useState<string>('');
 
+
+    // changes the selected choice when the user inputs something. only changes questions completed if it changes
+    // from no choice to a choice
     function updateInput(event: React.ChangeEvent<HTMLInputElement>){
         if (selectedChoice === '' && event.target.value !== ''){
             setSelectedChoice(event.target.value);
             addCompleted();
+        } else if (selectedChoice !== event.target.value){
+            setSelectedChoice(event.target.value);
         }
     }
 

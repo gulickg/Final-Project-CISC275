@@ -2,6 +2,11 @@ import React, {useState} from 'react'
 import { Form, Button} from 'react-bootstrap'
 import './Questions.css'
 
+/*
+template for text input question
+*/
+
+
 interface TextQuestionProps {
     question: string;
 }

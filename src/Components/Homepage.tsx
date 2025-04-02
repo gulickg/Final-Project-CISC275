@@ -2,6 +2,11 @@ import React from 'react'
 import './Homepage.css'
 import { Description } from './DescriptionBox';
 
+/*
+This is the homepage that holds the descriptions
+*/
+
+
 interface HomepageProps{
     setPage: (page:string) => void
 }
