@@ -1,9 +1,12 @@
 #question-type-title{
-    font-size: larger;
+    margin-top: 50px;
+    font-size:xx-large;
 }
 
 #desc{
-    font-size: small;
+    font-size:large;
+    margin: 0px 100px 0px 100px;
+    height: 50%
 }
 
 /* #continue-button{
@@ -11,7 +14,7 @@
 
 #button-box{
     justify-content: left;
-}
+}<p id="desc">…</p>
 
 #description-box{
     display: flex;
