@@ -17,3 +17,7 @@
     justify-self: left;
     background-color: aquamarine;
 }
+
+#progress-holder{
+    margin-bottom: 40px;
+}

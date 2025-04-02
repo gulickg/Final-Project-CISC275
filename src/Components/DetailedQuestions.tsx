@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import './DetailedQuestions.css'
+import './BasicQuestions.css'
+import './Question-Templates/RadioButtonsQuestion'
+import './Question-Templates/TextInputQuestion'
 
 interface ProgressBarProps{
     width: number
