@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+// import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage';
 import { DetailedQuestions } from './Components/DetailedQuestions';
@@ -9,12 +9,12 @@ import { BasicQuestions } from './Components/BasicQuestions';
 import { Report } from './Components/Report';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-let keyData = "";
-const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
-if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
-}
+// let keyData = "";
+// const saveKeyData = "MYKEY";
+// const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+// if (prevKey !== null) {
+//   keyData = JSON.parse(prevKey);
+// }
 
 function App() {
   const [page, setPage] = useState<string>("homepage");

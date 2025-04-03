@@ -4,9 +4,6 @@ import './Question-Templates/RadioButtonsQuestion'
 import './Question-Templates/TextInputQuestion'
 import { RadioButtonQuestion } from './Question-Templates/RadioButtonsQuestion'
 
-interface ProgressBarProps{
-    width: number
-}
 
 export function BasicQuestions():React.JSX.Element{
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
@@ -21,9 +18,9 @@ export function BasicQuestions():React.JSX.Element{
         setQuestionsCompleted(questionsCompleted + 1);
     }
 
-    function removeCompleted(){
-        setQuestionsCompleted(questionsCompleted - 1);
-    }
+    // function removeCompleted(){
+    //     setQuestionsCompleted(questionsCompleted - 1);
+    // }
 
     return(<div id='basic-questions-page'>
         <h1 id='title'>Basic Quiz Questions</h1>
