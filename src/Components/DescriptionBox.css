@@ -9,12 +9,9 @@
     height: 50%
 }
 
-/* #continue-button{
-} */
-
 #button-box{
     justify-content: left;
-}<p id="desc">…</p>
+}
 
 #description-box{
     display: flex;
