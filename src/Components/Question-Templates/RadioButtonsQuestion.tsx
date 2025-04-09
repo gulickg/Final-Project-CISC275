@@ -9,12 +9,13 @@ template for radio box question
 
 
 interface RadioQuestionProps {
+    order: number;
     question: string;
     choices: string[];
     addCompleted: () => void;
 }
 
-export function RadioButtonQuestion({question, choices, addCompleted}: RadioQuestionProps):React.JSX.Element{
+export function RadioButtonQuestion({order, question, choices, addCompleted}: RadioQuestionProps):React.JSX.Element{
     const [selectedChoice, setSelectedChoice] = useState<string>('');
 
 
@@ -31,7 +32,7 @@ export function RadioButtonQuestion({question, choices, addCompleted}: RadioQues
 
     return(<div className='radio-question'>
         <div className='question-number'>
-            Question 1:
+            Question {order}:
             <img id='more-info' src={questionMark} alt='question mark'></img>
         </div>
         <div className='question-text'>
@@ -39,15 +40,18 @@ export function RadioButtonQuestion({question, choices, addCompleted}: RadioQues
         </div>
         <div>
             {/* when implementing for real, map the choices & update id + labels */}
-            <Form.Check
+            {choices.map((c: string) => (
+                <Form.Check
                 className='radio-choices'
                 type='radio'
                 name='options'
                 id='check'
-                label='done?'
-                value='done'
+                label= {c}
+                value= {c}
                 onChange={updateInput}
                 />
+            ))}
+            
         </div>
     </div>)
 }

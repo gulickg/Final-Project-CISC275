@@ -7,7 +7,8 @@ import { RadioButtonQuestion } from './Question-Templates/RadioButtonsQuestion'
 
 export function BasicQuestions():React.JSX.Element{
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
-    const totalQuestions = 1;
+    const totalQuestions = 3;
+    const [selected, setSelected] = useState<string[]>([""]);
 
     // find the percent of questions completed
     let progressPercent:number = Math.ceil(questionsCompleted / totalQuestions * 100)
@@ -32,7 +33,9 @@ export function BasicQuestions():React.JSX.Element{
             {progressPercent}%
         </div>
         <div id='question-container'>
-            <RadioButtonQuestion question={"This is an example question"} choices={['one', 'two']} addCompleted={addCompleted}></RadioButtonQuestion>
+            <RadioButtonQuestion order={1} question={"How much time do you usually dedicate per week to hobbies?"} choices={['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours']} addCompleted={addCompleted}></RadioButtonQuestion>
+            <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
+            <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
         </div>
     </div>);
 }
