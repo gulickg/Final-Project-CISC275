@@ -38,6 +38,8 @@
 }
 
 footer{
+  position:fixed;
+  bottom: 0px;
   justify-content: center;
   width: 100%;
 }
@@ -49,7 +51,7 @@ footer > #navbar{
 }
 
 footer > #navbar > div > .navButton{
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: none;
   border-bottom: solid;
   color: blue;

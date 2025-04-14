@@ -4,11 +4,12 @@ import './Question-Templates/RadioButtonsQuestion'
 import './Question-Templates/TextInputQuestion'
 import { RadioButtonQuestion } from './Question-Templates/RadioButtonsQuestion'
 import { SliderRangeQuestion } from './Question-Templates/SliderQuestion'
+import { SwitchQuestion } from './Question-Templates/SwitchQuestion'
 
 
 export function BasicQuestions():React.JSX.Element{
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
-    const totalQuestions = 5;
+    const totalQuestions = 6;
     // const [answers, setAnswers] = useState([]);
 
     // find the percent of questions completed
@@ -30,6 +31,7 @@ export function BasicQuestions():React.JSX.Element{
 
     return(<div id='basic-questions-page'>
         <h1 id='title'>Basic Quiz Questions</h1>
+        <p>For sliding bar questions, please review all options before selecting your answer.</p>
         <div id='progress-holder'>
             Progress:
             <div id='basic-progress-bar-box'>
@@ -42,7 +44,46 @@ export function BasicQuestions():React.JSX.Element{
             <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion>
-            <SliderRangeQuestion order={5} question={"Would you consider yourself an introvert or extrovert?"} choices={['Introvert', 'Im a little quiet', 'Ambivert', 'Im a little loud', 'Extrovert']} addCompleted={addCompleted}></SliderRangeQuestion>
+            <SliderRangeQuestion order={5} question={"Would you consider yourself an introvert or extrovert?"} choices={['Introvert', 'I\'m a little quiet', 'Ambivert', 'I\'m a little loud', 'Extrovert']} addCompleted={addCompleted}></SliderRangeQuestion>
+            <SliderRangeQuestion order={6} question={"Do you like to work by yourself or in a group?"} choices={['Alone', 'I prefer to be alone', 'I\'ll collaborate', 'I like working with others', 'Team work makes the dream work!']} addCompleted={addCompleted}></SliderRangeQuestion>
+            <SwitchQuestion order={7} question={"What working environment do you prefer?"} addCompleted={addCompleted}></SwitchQuestion>
+        </div>
+        <div className='bottom-space'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     </div>);
 }

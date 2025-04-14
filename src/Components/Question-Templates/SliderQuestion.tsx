@@ -51,7 +51,4 @@ export function SliderRangeQuestion({order, question, choices, addCompleted}: Sl
                 <div>{choices[selectedIndex]}</div>
         </div>
     </div>
-
-
-
 }

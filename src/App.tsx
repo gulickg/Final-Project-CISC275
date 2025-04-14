@@ -39,7 +39,7 @@ function App() {
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form> */}
       <div id='app-content'>
-      <header>
+      <header id='header'>
         <Navigation setPage={setPage}></Navigation>
       </header>
       <div id='page-content'>
