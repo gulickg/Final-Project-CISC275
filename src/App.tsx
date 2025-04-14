@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
+// import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage';
 import { DetailedQuestions } from './Components/DetailedQuestions';
 import { BasicQuestions } from './Components/BasicQuestions';
+import { Report } from './Components/Report';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
-let keyData = "";
-const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
-if (prevKey !== null) {
-  keyData = JSON.parse(prevKey);
-}
+// let keyData = "";
+// const saveKeyData = "MYKEY";
+// const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+// if (prevKey !== null) {
+//   keyData = JSON.parse(prevKey);
+// }
 
 function App() {
   const [page, setPage] = useState<string>("homepage");
@@ -37,17 +38,20 @@ function App() {
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
       </Form> */}
+      <div id='app-content'>
       <header>
         <Navigation setPage={setPage}></Navigation>
       </header>
-      <div>
-        {page === 'homepage' && (<div><Homepage></Homepage></div>)}
-        {page === 'basicQuestions' && (<div><BasicQuestions></BasicQuestions></div>)}
-        {page === 'detaledQuestions' && (<div><DetailedQuestions></DetailedQuestions></div>)}
+      <div id='page-content'>
+        {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
+        {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions></DetailedQuestions></div>)}
+        {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
-      <footer>
+      <footer id='footer'>
         <Navigation setPage={setPage}></Navigation>
       </footer>
+      </div>
     </div>
   );
 }

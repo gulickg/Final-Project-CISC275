@@ -1,0 +1,32 @@
+.radio-question{
+    justify-self: center;
+    height: 300px;
+    border: solid;
+    border-width: 1px;
+    width: 50%;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+}
+
+.question-number{
+    display: flex;
+    background-color: gainsboro;
+    width: 100%;
+    justify-self: center;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    justify-content: space-between;
+}
+
+.question-text{
+    margin: 0px 10px 10px 10px;
+}
+
+.radio-choices{
+    margin: 0px 10px 0px 10px;
+}
+
+#more-info{
+    height:20px
+}

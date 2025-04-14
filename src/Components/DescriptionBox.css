@@ -1,0 +1,20 @@
+#question-type-title{
+    margin-top: 50px;
+    font-size:xx-large;
+}
+
+#desc{
+    font-size:large;
+    margin: 0px 100px 0px 100px;
+    height: 50%
+}
+
+#button-box{
+    justify-content: left;
+}
+
+#description-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

@@ -1,0 +1,19 @@
+#detailed-progress-bar-box{
+    display: flex;
+    border: solid;
+    border-color: black;
+    border-width: 2px;
+    height: 20px;
+    width: 200px;
+    justify-self: center;
+    justify-content: left;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#detailed-progress-bar{
+    margin-left: 5px;
+    height: 10px;
+    justify-self: left;
+    background-color: aquamarine;
+}
