@@ -3,11 +3,12 @@ import './BasicQuestions.css'
 import './Question-Templates/RadioButtonsQuestion'
 import './Question-Templates/TextInputQuestion'
 import { RadioButtonQuestion } from './Question-Templates/RadioButtonsQuestion'
+import { SliderRangeQuestion } from './Question-Templates/SliderQuestion'
 
 
 export function BasicQuestions():React.JSX.Element{
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
-    const totalQuestions = 4;
+    const totalQuestions = 5;
     // const [answers, setAnswers] = useState([]);
 
     // find the percent of questions completed
@@ -41,7 +42,7 @@ export function BasicQuestions():React.JSX.Element{
             <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion>
-
+            <SliderRangeQuestion order={5} question={"Would you consider yourself an introvert or extrovert?"} choices={['Introvert', 'Im a little quiet', 'Ambivert', 'Im a little loud', 'Extrovert']} addCompleted={addCompleted}></SliderRangeQuestion>
         </div>
     </div>);
 }

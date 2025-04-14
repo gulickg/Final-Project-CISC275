@@ -11,20 +11,21 @@ template for slider box question
 interface SliderQuestionProps {
     order: number;
     question: string;
-    choices: [];
+    choices: string[];
     addCompleted: () => void;
 }
 
 export function SliderRangeQuestion({order, question, choices, addCompleted}: SliderQuestionProps): React.JSX.Element {
-    const [selectedChoice, setSelectedChoice] = useState<string>('');
+    const [selectedIndex, setSelectedChoice] = useState<number>(Math.floor(choices.length / 2));
 
     // updating the selected answer and marking as completed
     function updateInput(event: React.ChangeEvent<HTMLInputElement>) {
-        if (selectedChoice === '' && event.target.value !== '') {
-            setSelectedChoice(event.target.value);
+        const newIndex = Number(event.target.value);
+        if (selectedIndex === 0 && newIndex !== 0) {
+            setSelectedChoice(newIndex);
             addCompleted();
-        } else if (selectedChoice !== event.target.value){
-            setSelectedChoice(event.target.value);
+        } else if (selectedIndex !== newIndex){
+            setSelectedChoice(newIndex);
         }
     }
 
@@ -39,11 +40,15 @@ export function SliderRangeQuestion({order, question, choices, addCompleted}: Sl
         </div>
 
         <div>
-            {choices.map((c: string) => (
-                <Form.Check
-                    className=''
-                    
-            ))}
+                <Form.Range
+                    className='slider-container'
+                    min={0}
+                    max={choices.length-1}
+                    step={1}
+                    value={selectedIndex}
+                    onChange={updateInput}
+                />
+                <div>{choices[selectedIndex]}</div>
         </div>
     </div>
 
