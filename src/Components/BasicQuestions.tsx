@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React,{ useState } from 'react'
 import './BasicQuestions.css'
 import './Question-Templates/RadioButtonsQuestion'
 import './Question-Templates/TextInputQuestion'
 import { RadioButtonQuestion } from './Question-Templates/RadioButtonsQuestion'
 import { SliderRangeQuestion } from './Question-Templates/SliderQuestion'
 import { SwitchQuestion } from './Question-Templates/SwitchQuestion'
+import { Button } from 'react-bootstrap'
 
 
 export function BasicQuestions():React.JSX.Element{
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
-    const totalQuestions = 6;
+    const totalQuestions = 7;
     // const [answers, setAnswers] = useState([]);
 
     // find the percent of questions completed
@@ -51,37 +52,7 @@ export function BasicQuestions():React.JSX.Element{
         <div className='bottom-space'>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <Button>SUBMIT</Button>
 
 
         </div>

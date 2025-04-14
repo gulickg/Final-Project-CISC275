@@ -10,7 +10,7 @@
 
 .question-number{
     display: flex;
-    background-color: gainsboro;
+    background-color: rgb(234, 244, 254);
     width: 100%;
     justify-self: center;
     margin: 10px 0px 10px 0px;
