@@ -4,25 +4,23 @@ import './Questions.css'
 import questionMark from './question-mark.png'
 
 /*
-template for radio box question
+template for slider box question
 */
 
 
-interface RadioQuestionProps {
+interface SliderQuestionProps {
     order: number;
     question: string;
-    choices: string[];
+    choices: [];
     addCompleted: () => void;
 }
 
-export function RadioButtonQuestion({order, question, choices, addCompleted}: RadioQuestionProps):React.JSX.Element{
+export function SliderRangeQuestion({order, question, choices, addCompleted}: SliderQuestionProps): React.JSX.Element {
     const [selectedChoice, setSelectedChoice] = useState<string>('');
 
-
-    // changes the selected choice when the user inputs something. only changes questions completed if it changes
-    // from no choice to a choice
-    function updateInput(event: React.ChangeEvent<HTMLInputElement>){
-        if (selectedChoice === '' && event.target.value !== ''){
+    // updating the selected answer and marking as completed
+    function updateInput(event: React.ChangeEvent<HTMLInputElement>) {
+        if (selectedChoice === '' && event.target.value !== '') {
             setSelectedChoice(event.target.value);
             addCompleted();
         } else if (selectedChoice !== event.target.value){
@@ -30,27 +28,25 @@ export function RadioButtonQuestion({order, question, choices, addCompleted}: Ra
         }
     }
 
-    return(<div className='radio-question'>
+    return <div className='slider-question'>
         <div className='question-number'>
             Question {order}:
             <img id='more-info' src={questionMark} alt='question mark'></img>
         </div>
+
         <div className='question-text'>
             {question}
         </div>
+
         <div>
             {choices.map((c: string) => (
                 <Form.Check
-                className='radio-choices'
-                type='radio'
-                name={question}
-                id='check'
-                label= {c}
-                value= {c}
-                onChange={updateInput}
-                />
+                    className=''
+                    
             ))}
-            
         </div>
-    </div>)
+    </div>
+
+
+
 }

@@ -30,3 +30,13 @@
 #more-info{
     height:20px
 }
+
+.slider-question{
+    justify-self: center;
+    height: 300px;
+    border: solid;
+    border-width: 1px;
+    width: 50%;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+}
