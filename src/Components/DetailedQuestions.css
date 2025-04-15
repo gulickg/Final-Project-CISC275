@@ -8,7 +8,8 @@
     justify-self: center;
     justify-content: left;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 5px;
+    background-color: white;
 }
 
 #detailed-progress-bar{
@@ -16,4 +17,32 @@
     height: 10px;
     justify-self: left;
     background-color: aquamarine;
+}
+
+.text-input-question{
+    margin-bottom: 20px;
+    margin-top:20px;
+}
+
+#detailed-prog-bar{
+    position: sticky;
+    top:0;
+    background-color: darkseagreen;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+#title{
+    margin-top:20px;
+    margin-bottom: 10px;
+}
+
+#submit-area{
+    padding: 40px;
+}
+
+#detailed-submit{
+    margin-bottom:20px;
+    box-shadow: none;
+    outline: 1px;
 }

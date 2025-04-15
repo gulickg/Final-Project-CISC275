@@ -5,16 +5,24 @@
 
 #desc{
     font-size:large;
-    margin: 0px 100px 0px 100px;
-    height: 50%
+    width: 90%;
+    height: 100%;
+    text-align: center;
 }
 
 #button-box{
     justify-content: left;
+    margin-bottom: 10px;
 }
 
 #description-box{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+    flex-basis: auto;
+}
+
+#continue-button:focus{
+    box-shadow: none;
 }
