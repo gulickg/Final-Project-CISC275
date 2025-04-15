@@ -93,4 +93,5 @@ footer > #navbar{
   background-color: gray;
   opacity: 1;
   border-color: black;
+  cursor: not-allowed;
 }
