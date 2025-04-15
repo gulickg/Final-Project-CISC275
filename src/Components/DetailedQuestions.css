@@ -6,17 +6,17 @@
     height: 20px;
     width: 200px;
     justify-self: center;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     margin-top: 5px;
     background-color: white;
 }
 
 #detailed-progress-bar{
-    margin-left: 5px;
     height: 10px;
     justify-self: left;
     background-color: aquamarine;
+    transition: width .5s;
 }
 
 .text-input-question{
