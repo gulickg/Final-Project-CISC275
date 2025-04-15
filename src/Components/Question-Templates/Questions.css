@@ -30,3 +30,52 @@
 #more-info{
     height:20px
 }
+
+#img-holder{
+    display: flex;
+    align-items: center;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    visibility: visible;
+    opacity: 1;
+}
+  
+  /* Tooltip text */
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    opacity: 0;
+    bottom: 150%;
+    right: -250%;
+    transition: opacity .5s;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+
+    --b: 2em; /* base */
+  --h: 1em; /* height*/
+  
+  --p: 50%;
+
+  border-image: fill 0//var(--h)
+    conic-gradient(var(--c,#333333) 0 0);
+  clip-path: 
+    polygon(0 100%,0 0,100% 0,100% 100%,
+      calc(var(--p) + var(--b)/2) 100%,
+      var(--p) calc(100% + var(--h)),
+      calc(var(--p) - var(--b)/2) 100%);
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: .95;
+  }

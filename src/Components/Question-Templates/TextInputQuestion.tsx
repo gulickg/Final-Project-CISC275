@@ -29,7 +29,10 @@ export function TextInputQuestion({question, qNumber, response}: TextQuestionPro
     return(<div className='text-input-question'>
         <div className='question-number'>
             Question {qNumber}:
-            <img id='more-info' src={questionMark} alt='question mark'></img>
+            <div id='img-holder' className='tooltip'>
+                <img id='more-info' src={questionMark} alt='question mark'></img>
+                <div className='tooltiptext'>hey</div>
+            </div>
         </div>
         <div>
             <Form.Group controlId='text-answer'>
