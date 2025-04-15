@@ -22,3 +22,10 @@
     margin-bottom: 40px;
 }
 
+
+#bottom-space{
+    justify-self: center;
+    margin-bottom: 100px;
+    height: 350px;
+    width: 200px;
+}
