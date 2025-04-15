@@ -6,12 +6,13 @@
 #desc{
     font-size:large;
     width: 90%;
-    height: 50%;
+    height: 100%;
     text-align: center;
 }
 
 #button-box{
     justify-content: left;
+    margin-bottom: 10px;
 }
 
 #description-box{
@@ -19,6 +20,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    flex-basis: auto;
 }
 
 #continue-button:focus{
