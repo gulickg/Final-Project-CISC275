@@ -1,12 +1,12 @@
-.radio-question{
+.radio-question, .text-input-question{
     justify-self: center;
-    height: 300px;
     border: solid;
     border-width: 1px;
     width: 50%;
     text-align: left;
     padding: 10px 10px 10px 10px;
 }
+
 
 .question-number{
     display: flex;
