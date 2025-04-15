@@ -10,7 +10,7 @@
 
 .question-number{
     display: flex;
-    background-color: gainsboro;
+    background-color: rgb(234, 244, 254);
     width: 100%;
     justify-self: center;
     margin: 10px 0px 10px 0px;
@@ -79,3 +79,35 @@
     visibility: visible;
     opacity: .95;
   }
+
+.slider-question{
+    justify-self: center;
+    height: 300px;
+    border: solid;
+    border-width: 1px;
+    width: 50%;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+}
+
+.slider-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.switch-question{
+    justify-self: center;
+    height: 300px;
+    border: solid;
+    border-width: 1px;
+    width: 50%;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+}
+
+.switch-props{
+    size:50%;
+    background-color: rgb(21, 88, 187);
+}
+
