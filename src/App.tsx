@@ -18,6 +18,13 @@ import { Report } from './Components/Report';
 
 function App() {
   const [page, setPage] = useState<string>("homepage");
+  const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
+  const detailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+
+  function updateCompleted(answers:string[]){
+    setDetailedAnswers(answers);
+}
+  
   // const [key, setKey] = useState<string>(keyData); //for api key input
   
   // //sets the local storage item to the api key the user inputed
@@ -45,7 +52,7 @@ function App() {
       <div id='page-content'>
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions></DetailedQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={detailedCompleted}></DetailedQuestions></div>)}
         {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
       <footer id='footer'>

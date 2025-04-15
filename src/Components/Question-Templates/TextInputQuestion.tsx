@@ -13,15 +13,13 @@ interface TextQuestionProps {
     question: string;
     qNumber: number;
     response: (num:number, ans:string)=>void;
+    answer: string
 }
 
-export function TextInputQuestion({question, qNumber, response}: TextQuestionProps):React.JSX.Element{
-    const [answer, setAnswer] = useState<string>("");
-    const [empty, setEmpty] = useState<boolean>(false);
+export function TextInputQuestion({question, qNumber, response, answer}: TextQuestionProps):React.JSX.Element{
 
     function updateAnswer(event:React.ChangeEvent<HTMLTextAreaElement>){
         const newAnswer = event.target.value;
-        setAnswer(newAnswer);
         response(qNumber, newAnswer);
     }
 

@@ -19,6 +19,12 @@
     transition: width .5s;
 }
 
+#wrapper{
+    display: flex;
+    width: 97%;
+    justify-content: left;
+}
+
 .text-input-question{
     margin-bottom: 20px;
     margin-top:20px;
