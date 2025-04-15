@@ -74,8 +74,10 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
             </div>
             <h1 id='title'>Detailed Quiz Questions</h1>
             {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer}></TextInputQuestion>)}
-            <div>
-                <Button id='detailed-submit' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+            <div id='ds-wrapper'>
+                <div id='dsb-wrapper'>
+                    <Button id='detailed-submit' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+                </div>
             </div>
         </div>);
 
