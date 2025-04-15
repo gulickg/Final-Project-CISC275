@@ -28,7 +28,7 @@ export function TextInputQuestion({question, qNumber, response}: TextQuestionPro
 
     return(<div className='text-input-question'>
         <div className='question-number'>
-            Question 1:
+            Question {qNumber}:
             <img id='more-info' src={questionMark} alt='question mark'></img>
         </div>
         <div>

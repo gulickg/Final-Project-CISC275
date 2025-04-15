@@ -9,6 +9,7 @@
     justify-content: left;
     align-items: center;
     margin-top: 10px;
+    background-color: white;
 }
 
 #detailed-progress-bar{
@@ -16,4 +17,22 @@
     height: 10px;
     justify-self: left;
     background-color: aquamarine;
+}
+
+.text-input-question{
+    margin-bottom: 20px;
+    margin-top:20px;
+}
+
+#detailed-prog-bar{
+    position: sticky;
+    top:0;
+    background-color: darkseagreen;
+    padding-bottom: 15px;
+    padding-top: 10px;
+}
+
+#title{
+    margin-top:20px;
+    margin-bottom: 10px;
 }
