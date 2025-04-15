@@ -44,7 +44,8 @@ footer > #navbar > div > .navButton{
   border-bottom: solid;
   color: blue;
   padding-left: 0%;
-  padding-right: 0%
+  padding-right: 0%;
+  margin: 5px;
 }
 
 #app-content{
@@ -73,4 +74,24 @@ footer > #navbar{
   display: flex;
   background-color: rgb(255, 255, 255);
   width: 100%;
+}
+
+.btn-primary{
+  background-color: darkseagreen;
+  border-color: #282c34;
+  outline: 1px;
+}
+
+.btn-primary:hover{
+  background-color: green;
+}
+
+.btn-primary:focus{
+  background-color: darkseagreen;
+}
+
+.btn-primary:disabled{
+  background-color: gray;
+  opacity: 1;
+  border-color: black;
 }
