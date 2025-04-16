@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './DetailedQuestions.css'
 import './BasicQuestions.css'
 import './Question-Templates/RadioButtonsQuestion'

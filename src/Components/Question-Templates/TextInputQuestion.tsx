@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Form } from 'react-bootstrap'
 import questionMark from './question-mark.png'
 import './Questions.css'
-import ProgressBar from 'react-bootstrap'
 
 /*
 template for text input question
