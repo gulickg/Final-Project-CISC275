@@ -18,7 +18,6 @@ interface DetailedProps{
 
 export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
-    let textBoxDisabled = '';
 
 
     interface Question{
