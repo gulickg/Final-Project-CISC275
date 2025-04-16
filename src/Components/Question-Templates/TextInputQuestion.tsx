@@ -28,7 +28,7 @@ export function TextInputQuestion({question, qNumber, response, answer}: TextQue
             Question {qNumber}:
             <div id='img-holder' className='tooltip'>
                 <img id='more-info' src={questionMark} alt='question mark'></img>
-                <div className='tooltiptext'>hey</div>
+                <div className='tooltiptext'>Hint</div>
             </div>
         </div>
         <div>
