@@ -41,6 +41,7 @@ function App() {
   }
 
 
+
   
   // const [key, setKey] = useState<string>(keyData); //for api key input
   
@@ -67,8 +68,6 @@ function App() {
       <header id='header'>
         <Navigation setPage={setPage}></Navigation>
       </header>
-      {detailedDone? 'true' : 'false'}
-      {numberDetailedCompleted}
       <div id='page-content'>
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}

@@ -9,7 +9,7 @@ interface PopUpProps{
 
 export function PopUp({disablePopUp}:PopUpProps):React.JSX.Element{
     return (<div>
-        <div id='detailed-screen'>
+        <div id='screen'>
             <div id='overlay'>
             </div>
         </div>
