@@ -7,6 +7,7 @@ import { Homepage } from './Components/Homepage';
 import { DetailedQuestions } from './Components/DetailedQuestions';
 import { BasicQuestions } from './Components/BasicQuestions';
 import { Report } from './Components/Report';
+import { PopUp } from './Components/Popup';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 // let keyData = "";
@@ -19,11 +20,27 @@ import { Report } from './Components/Report';
 function App() {
   const [page, setPage] = useState<string>("homepage");
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
-  const detailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+  const [detailedDone, setDetailedDone] = useState<boolean>(false);
+  
+  //const [detailedSubmitted, setDetailedSubmitted] = useState<boolean>(false);
+  
+  const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+  const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
 
   function updateCompleted(answers:string[]){
     setDetailedAnswers(answers);
-}
+    if (numberDetailedCompleted === 7){
+      setDetailedDone(true);
+    } if (numberDetailedCompleted !== 7){
+      setDetailedDone(false);
+    }
+  }
+
+  function disablePopUp(){
+    setDetailedDone(true);
+  }
+
+
   
   // const [key, setKey] = useState<string>(keyData); //for api key input
   
@@ -37,8 +54,9 @@ function App() {
   // function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
   //   setKey(event.target.value);
   // }
+ 
   return (
-    <div className="App">
+    <div className="App" style={{overflow: popUp ? 'hidden' : ''}}>
       {/* <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
@@ -49,10 +67,13 @@ function App() {
       <header id='header'>
         <Navigation setPage={setPage}></Navigation>
       </header>
+      {detailedDone? 'true' : 'false'}
+      {numberDetailedCompleted}
       <div id='page-content'>
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={detailedCompleted}></DetailedQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
+        {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
         {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
       <footer id='footer'>
@@ -60,6 +81,7 @@ function App() {
       </footer>
       </div>
     </div>
+    
   );
 }
 
