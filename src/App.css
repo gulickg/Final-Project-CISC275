@@ -37,24 +37,14 @@
   }
 }
 
-footer{
-  justify-content: center;
-  width: 100%;
-}
-
-footer > #navbar{
-  display: flex;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-}
-
 footer > #navbar > div > .navButton{
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: none;
   border-bottom: solid;
   color: blue;
   padding-left: 0%;
-  padding-right: 0%
+  padding-right: 0%;
+  margin: 5px;
 }
 
 #app-content{
@@ -65,6 +55,43 @@ footer > #navbar > div > .navButton{
 }
 
 #page-content{
-  height: 100%;
   justify-content: center;
+}
+
+#footer{
+  position:sticky;
+  bottom: 0;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+}
+
+
+footer > #navbar{
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+}
+
+.btn-primary{
+  background-color: darkseagreen;
+  border-color: #282c34;
+  outline: 1px;
+}
+
+.btn-primary:hover{
+  background-color: green;
+}
+
+.btn-primary:focus{
+  background-color: darkseagreen;
+}
+
+.btn-primary:disabled{
+  background-color: gray;
+  opacity: 1;
+  border-color: black;
+  cursor: not-allowed;
 }

@@ -18,7 +18,8 @@
     border: solid;
     border-width: 1px;
     margin: 5px;
-    height: 400px;
+    flex-basis: auto;
+    height: 100%;
 }
 
 #homepage-box{
