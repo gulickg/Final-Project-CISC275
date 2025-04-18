@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Form } from 'react-bootstrap'
 import questionMark from './question-mark.png'
 import './Questions.css'
-import ProgressBar from 'react-bootstrap'
 
 /*
 template for text input question
@@ -29,7 +28,7 @@ export function TextInputQuestion({question, qNumber, response, answer}: TextQue
             Question {qNumber}:
             <div id='img-holder' className='tooltip'>
                 <img id='more-info' src={questionMark} alt='question mark'></img>
-                <div className='tooltiptext'>hey</div>
+                <div className='tooltiptext'>Hint</div>
             </div>
         </div>
         <div>

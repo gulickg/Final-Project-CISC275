@@ -36,6 +36,7 @@
     background-color: darkseagreen;
     padding-bottom: 10px;
     padding-top: 5px;
+    z-index: 10;
 }
 
 #title{
@@ -47,8 +48,45 @@
     padding: 40px;
 }
 
-#detailed-submit{
-    margin-bottom:20px;
+#detailed-submit, #scroll-down{
     box-shadow: none;
     outline: 1px;
+    outline: black;
+    border-color: black;
 }
+
+#ds-wrapper{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: calc(100vw - 100%);
+}
+
+#dsb-wrapper{
+    display:flex;
+}
+
+#dsb-wrapper:hover{
+    cursor:not-allowed;
+}
+
+#scroll-down{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: calc(100vw - 90%);
+    margin-bottom: calc(100vw - 95%);
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    font-size: 250%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#scroll-down:hover{
+    background-color: green;
+}
+

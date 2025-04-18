@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './DetailedQuestions.css'
 import './BasicQuestions.css'
 import './Question-Templates/RadioButtonsQuestion'
@@ -18,7 +18,8 @@ interface DetailedProps{
 
 export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
-    
+
+
     interface Question{
         num: number;
         question:string;
@@ -41,9 +42,6 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
     function updatePercents(completed:number, total:number):number{
         return Math.ceil(completed / totalQuestions * 100);
     }
-    // find the percent of questions completed
-    // setQuestionsCompleted(1);
-    // pass to each question: updates questions completed
 
     function updateCompleted(questionNum:number, newAns: string){
         let temp:string[] = [...answers];
@@ -51,7 +49,6 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         setAnswers(temp);
         updateTaskBar(temp);
     }
-
 
     function updateTaskBar(temp:string[]){
         let sum: number = 0;
@@ -62,7 +59,6 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         }
         completed = sum;
     }
-    
         return(<div id='detailed-questions-page'>
             <div id='detailed-prog-bar'>
                 <div>Progress:</div>
@@ -72,10 +68,15 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                     </div>
                 </div>
             </div>
+            {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
+                <div>↓</div>
+            </Button> */}
             <h1 id='title'>Detailed Quiz Questions</h1>
             {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer}></TextInputQuestion>)}
-            <div>
-                <Button id='detailed-submit' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+            <div id='ds-wrapper'>
+                <div id='dsb-wrapper'>
+                    <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+                </div>
             </div>
         </div>);
 
