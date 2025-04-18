@@ -22,7 +22,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
     interface Question{
         num: number;
         question:string;
-        answer: string;
+        answer: string;y
     }
 
     const QUESTIONS:Question[] = [

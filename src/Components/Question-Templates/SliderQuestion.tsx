@@ -47,7 +47,6 @@ export function SliderRangeQuestion({order, question, choices, addCompleted}: Sl
                     step={1}
                     value={selectedIndex}
                     onChange={updateInput}
-
                 />
                 <div>{choices[selectedIndex]}</div>
         </div>
