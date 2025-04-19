@@ -1,4 +1,4 @@
-// import React, { JSX, useState } from "react";
+import React, { JSX, useState } from "react";
 // import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 // import "./AIIntegration.css"; // Create this CSS file
 // //import {OPENAI_API_KEY} from 'src/Components/APIKey.env'
@@ -14,7 +14,7 @@
 
 
 
-// export function AIpage():JSX.Element{
+export function AIpage():JSX.Element{
 //     //const [answers, setAnswers]= useState<string[]>([]);
 //     const [career, setCareer]=useState<string[]>([]);
 //     const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
@@ -37,55 +37,55 @@
 //     });
 // */
 
-//     function handleSubmit(){
-//         setLoading(true);
-//         try{
-//             const apiKey= "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";
-//             if(!apiKey){
-//                 console.error("API key not found.");
-//                 return;
-//             }
-//             const chatGPT=new OpenAIApi(apiKey);
-//             const model=chatGPT.getGenerativeModel({model: "gpt-4-0613"});
-//             const prompt= `Generate a career option from the following questions and answers. 
-//             Format the response as valid JSON with the following keys:
-//             {
-//                 "career": "Career title",
-//                 "description": "Description of given career",
-//                 "breakdown":"Explanation of how each answer to the questions affected the given career choice"
-//             }
-//             Return only the JSON object without extra getDefaultFormatCodeSettings. `;
-//             let basic='';
-//             let detailed='';
-//             for (let i=0; i<BasicQuestions.length;i++){
-//                 basic+= "Question "+i.toString()+". "+BasicQuestions[i]+ '/n'+'Answer '+i.toString()+ ". "+ BasicAnswers[i]+'/n';
-//             }
-//             const result= await model.generateContent(prompt);
-//             const response= await result.response;
-//             const text=await response.text();
+    // function handleSubmit(){
+    //     setLoading(true);
+    //     try{
+    //         const apiKey= "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";
+    //         if(!apiKey){
+    //             console.error("API key not found.");
+    //             return;
+    //         }
+    //         const chatGPT=new OpenAIApi(apiKey);
+    //         const model=chatGPT.getGenerativeModel({model: "gpt-4-0613"});
+    //         const prompt= `Generate a career option from the following questions and answers. 
+    //         Format the response as valid JSON with the following keys:
+    //         {
+    //             "career": "Career title",
+    //             "description": "Description of given career",
+    //             "breakdown":"Explanation of how each answer to the questions affected the given career choice"
+    //         }
+    //         Return only the JSON object without extra getDefaultFormatCodeSettings. `;
+    //         let basic='';
+    //         let detailed='';
+    //         for (let i=0; i<BasicQuestions.length;i++){
+    //             basic+= "Question "+i.toString()+". "+BasicQuestions[i]+ '/n'+'Answer '+i.toString()+ ". "+ BasicAnswers[i]+'/n';
+    //         }
+    //         const result= await model.generateContent(prompt);
+    //         const response= await result.response;
+    //         const text=await response.text();
 
-//             //valid json
-//             const jsonStartIndex=text.indexOf('{');
-//             const jsonEndIndex=text.indexOf('}')+1;
-//             const jsonString=text.substring(jsonStartIndex, jsonEndIndex);
-//             const careerData=JSON.parse(jsonString);
-//             setCareer(careerData);
-//             setCareerGenerated(true);
-//         }
-//         catch(error){
-//             console.error("Error generating recipe: ", error);
-//         }finally{
-//             setLoading(false);
-//         }
-//     }
-//     return (
-//         <div>
-//             {loading && <Loader/>}
-//             {!loading && !careerGenerated ? (
-//                 //stay on questions page with all functional buttons
-//             ):(
-//                 //create output with a go home button 
-//             )}
-//         </div>
-//     );
-// }
+    //         //valid json
+    //         const jsonStartIndex=text.indexOf('{');
+    //         const jsonEndIndex=text.indexOf('}')+1;
+    //         const jsonString=text.substring(jsonStartIndex, jsonEndIndex);
+    //         const careerData=JSON.parse(jsonString);
+    //         setCareer(careerData);
+    //         setCareerGenerated(true);
+    //     }
+    //     catch(error){
+    //         console.error("Error generating recipe: ", error);
+    //     }finally{
+    //         setLoading(false);
+    //     }
+    // }
+    return (<div></div>
+        // <div>
+        //     {loading && <Loader/>}
+        //     {!loading && !careerGenerated ? (
+        //         //stay on questions page with all functional buttons
+        //     ):(
+        //         //create output with a go home button 
+        //     )}
+        // </div>
+    )
+}
