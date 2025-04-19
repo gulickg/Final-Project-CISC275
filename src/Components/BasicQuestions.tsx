@@ -7,17 +7,20 @@ import { SliderRangeQuestion } from './Question-Templates/SliderQuestion'
 import { SwitchQuestion } from './Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
 
+// answer type to easily track the questions and answers associated with them
 type Answer = { question: string; answer: string}
 
 
 export function BasicQuestions():React.JSX.Element{
+    // constants: tracks the questions completed and the total amount of questions there is
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
     const totalQuestions = 7;
 
-    // find the percent of questions completed
+    // find the percent of questions completed and math for the progress bar
     let progressPercent:number = Math.ceil(questionsCompleted / totalQuestions * 100);
     let progressBarSize = progressPercent / 100 * 185 > 185 ? 185 : Math.ceil(progressPercent / 100 * 185);
 
+    // constant for answers
     const [answers, setAnswers] = useState<Answer[]>([]);
 
     // pass to each question: updates questions completed
@@ -26,6 +29,7 @@ export function BasicQuestions():React.JSX.Element{
         // setSelected(selected[order]);
     }
 
+    // collecting answers from the screen
     function collectAnswers() {
         let newAnswers: Answer[] = [];
         document.querySelectorAll<HTMLInputElement>("input[type='radio']:checked").forEach((radio) => {
