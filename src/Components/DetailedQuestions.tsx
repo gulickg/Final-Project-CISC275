@@ -10,12 +10,24 @@ import { Button } from 'react-bootstrap'
 /*
 This is the detailed questions page
 */
+
+//interface for the Detailed Page properties
 interface DetailedProps{
     answers:string[];
     setAnswers: (answers:string[]) => void
     completed:number;
 }
 
+/**
+ * Renders the app's detailed questions page
+ * 
+ * @param {DetailedProps} properties - the properties of the detailed page
+ * @param {string[]} properties.answers - the list of the current answers
+ * @param {Function} properties.setAnswers - the function to set the app's detailed answers
+ * @param {number} properties.completed - the number of completed detailed questions
+ * 
+ * @returns {React.JSX.Element} - the detailed questions page
+ */
 export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
 
@@ -26,6 +38,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         answer: string;
     }
 
+    // list of questions to be mapped onto the page
     const QUESTIONS:Question[] = [
         {num: 1, question:'If you could live anywhere in the world where would you live and why?', answer:answers[0]},
         {num:2, question:'In group settings, what role do you find yourself taking?', answer:answers[1]},
@@ -36,13 +49,28 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         {num:7, question:"Imagine you’re on a forked path. The path to the left has a hospital at the end of it. The path to the right leads to a city of innovation and creativity. Which path do you choose and why?", answer:answers[6]}
     ]
 
+    //updates the progress bar
     const progressPercent:number = updatePercents(completed, totalQuestions);
     const size: string = progressPercent + '%';
 
+    /**
+     * Calculates the percent of questions completed
+     * 
+     * @param {number} completed - the number of questions that have input
+     * @param {number} total - the total number of questions on the page
+     * 
+     * @returns {React.JSX.Element} - the percent of questions completed
+     */
     function updatePercents(completed:number, total:number):number{
         return Math.ceil(completed / totalQuestions * 100);
     }
 
+    /**
+     * Updates the saved detailed quiz answers
+     * 
+     * @param {number} questionNum - the number of the question that has been modified
+     * @param {number} total - the new inputted answer
+     */
     function updateCompleted(questionNum:number, newAns: string){
         let temp:string[] = [...answers];
         temp.splice(questionNum -1, 1, newAns);
@@ -50,6 +78,11 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         updateTaskBar(temp);
     }
 
+    /**
+     * Updates the number of questions completed
+     * 
+     * @param {string[]} temp - the list of answers
+     */
     function updateTaskBar(temp:string[]){
         let sum: number = 0;
         for (let answer of temp){
