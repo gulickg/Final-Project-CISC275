@@ -37,7 +37,7 @@
   }
 }
 
-footer > #navbar > div > .navButton{
+footer > #navbar > #nav-buttons > div > .navButton{
   background-color: rgb(255, 255, 255);
   border: none;
   border-bottom: solid;
@@ -73,6 +73,11 @@ footer > #navbar{
   display: flex;
   background-color: rgb(255, 255, 255);
   width: 100%;
+}
+
+footer > #navbar > #nav-buttons{
+  flex-basis: 100%;
+  padding-left: 0;
 }
 
 .btn-primary{
