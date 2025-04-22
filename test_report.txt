@@ -55,28 +55,41 @@ FAIL src/App.test.tsx
               [36m<div[39m
                 [33mid[39m=[32m"navbar"[39m
               [36m>[39m
-                [36m<div>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"navButton btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mHome[0m
-                  [36m</button>[39m
+                [36m<div[39m
+                  [33mid[39m=[32m"nav-buttons"[39m
+                [36m>[39m
+                  [36m<div>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mHome[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mBasic Questions[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0m Detailed Questions[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
                 [36m<div>[39m
                   [36m<button[39m
                     [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                    [33mid[39m=[32m"log-in"[39m
                     [33mtype[39m=[32m"button"[39m
                   [36m>[39m
-                    [0mBasic Questions[0m
-                  [36m</button>[39m
-                [36m</div>[39m
-                [36m<div>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"navButton btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0m Detailed Questions[0m
+                    [0mLog In[0m
                   [36m</button>[39m
                 [36m</div>[39m
               [36m</div>[39m
@@ -84,6 +97,55 @@ FAIL src/App.test.tsx
             [36m<div[39m
               [33mid[39m=[32m"page-content"[39m
             [36m>[39m
+              [36m<div>[39m
+                [36m<div>[39m
+                  [36m<div[39m
+                    [33mid[39m=[32m"screen"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"overlay"[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mid[39m=[32m"screen"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"popup"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mid[39m=[32m"x-wrapper"[39m
+                      [36m>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mid[39m=[32m"close-popup"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mX[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                      [36m<div>[39m
+                        [36m<div>[39m
+                          [36m<label[39m
+                            [33mclass[39m=[32m"form-label"[39m
+                          [36m>[39m
+                            [0mEmail:[0m
+                          [36m</label>[39m
+                          [36m<input[39m
+                            [33mclass[39m=[32m"form-control"[39m
+                            [33mvalue[39m=[32m""[39m
+                          [36m/>[39m
+                        [36m</div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mEnter[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
               [36m<div[39m
                 [33mid[39m=[32m"homepage-box"[39m
               [36m>[39m
@@ -168,29 +230,33 @@ FAIL src/App.test.tsx
               [36m<div[39m
                 [33mid[39m=[32m"navbar"[39m
               [36m>[39m
-                [36m<div>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"navButton btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mHome[0m
-                  [36m</button>[39m
-                [36m</div>[39m
-                [36m<div>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"navButton btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mBasic Questions[0m
-                  [36m</button>[39m
-                [36m</div>[39m
-                [36m<div>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"navButton btn btn-primary"[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0m Detailed Questions[0m
-                  [36m</button>[39m
+                [36m<div[39m
+                  [33mid[39m=[32m"nav-buttons"[39m
+                [36m>[39m
+                  [36m<div>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mHome[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mBasic Questions[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
+                  [36m<div>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0m Detailed Questions[0m
+                    [36m</button>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
               [36m</div>[39m
             [36m</footer>[39m
@@ -217,20 +283,22 @@ A worker process has failed to exit gracefully and has been force exited. This i
 -----------------------------------|---------|----------|---------|---------|-------------------
 File                               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------------------|---------|----------|---------|---------|-------------------
-All files                          |    13.4 |    22.64 |   13.15 |   12.63 |                   
- src                               |   29.16 |       40 |   33.33 |   26.08 |                   
-  App.tsx                          |   53.84 |    47.61 |      50 |      50 | 31-40             
+All files                          |   14.18 |    30.66 |   11.11 |   13.97 |                   
+ src                               |   25.64 |     38.7 |   22.22 |   24.32 |                   
+  App.tsx                          |   35.71 |    44.44 |   28.57 |   34.61 | 35-66             
   index.tsx                        |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts               |       0 |        0 |       0 |       0 | 3-10              
- src/Components                    |    12.5 |    16.66 |   13.63 |    12.5 |                   
+ src/Components                    |   12.98 |    39.28 |   11.42 |   13.33 |                   
   AIIntegration.tsx                |       0 |      100 |       0 |       0 | 81                
-  BasicQuestions.tsx               |       0 |        0 |       0 |       0 | 16-80             
+  BasicQuestions.tsx               |       0 |      100 |       0 |       0 | 23-76             
   DescriptionBox.tsx               |   66.66 |      100 |      50 |   66.66 | 24                
   DetailedQuestions.tsx            |       0 |        0 |       0 |       0 | 32-108            
   Homepage.tsx                     |     100 |      100 |     100 |     100 |                   
-  Navigation.tsx                   |      25 |      100 |      25 |      25 | 15-17             
+  Login.tsx                        |      16 |    33.33 |      10 |   16.66 | 22-44,57-79       
+  Navigation.tsx                   |   16.66 |    83.33 |   16.66 |   16.66 | 20-28             
   Popup.tsx                        |       0 |      100 |       0 |       0 | 11                
   Report.tsx                       |       0 |      100 |       0 |       0 | 9-11              
+  SaveFunctions.tsx                |       0 |        0 |       0 |       0 | 9-30              
  src/Components/Question-Templates |       0 |        0 |       0 |       0 |                   
   RadioButtonsQuestion.tsx         |       0 |        0 |       0 |       0 | 19-43             
   SliderQuestion.tsx               |       0 |        0 |       0 |       0 | 19-32             
@@ -240,5 +308,5 @@ All files                          |    13.4 |    22.64 |   13.15 |   12.63 |
 Test Suites: 4 failed, 4 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        4.535 s
+Time:        4.692 s
 Ran all test suites.
