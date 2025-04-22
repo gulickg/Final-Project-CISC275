@@ -9,13 +9,14 @@ interface LoginProps{
     loadUser: (DA:string[], BA:string[]) => void;
     dAnswers: string[];
     bAnswers: string[];
+    setShowLogin: (show: boolean)=>void;
 }
 
-export function Login({setUser, loadUser, bAnswers, dAnswers}: LoginProps):React.JSX.Element{
+export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
 
-    const [state, setState] = useState<'email'| 'makeAccount'| 'login' | 'closed'>('email');   
+    const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
 
     function handleSubmission(Email:string){
         const person:USER | undefined = findUser(Email);
@@ -40,12 +41,12 @@ export function Login({setUser, loadUser, bAnswers, dAnswers}: LoginProps):React
         if (U){
             loadUser(U.detailedAnswers, U.basicAnswers);
         }
-        setState('closed');
+        setShowLogin(false);
     }
     
 
     return(<div>
-        {state !== 'closed' && <div>
+        <div>
         <div id='screen'>
             <div id='overlay'>
             </div>
@@ -53,7 +54,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers}: LoginProps):React
         <div id='screen'>
             <div id='popup'>
                 <div id='x-wrapper'>
-                    <Button id='close-popup' onClick={() => setState('closed')}>X</Button>
+                    <Button id='close-popup' onClick={() => setShowLogin(false)}>X</Button>
                 </div>
                 {state === 'email' && <div>
                 <Form.Group>
@@ -79,6 +80,6 @@ export function Login({setUser, loadUser, bAnswers, dAnswers}: LoginProps):React
                 </div>}
             </div>
         </div>
-        </div>}
+        </div>
     </div>);
 }

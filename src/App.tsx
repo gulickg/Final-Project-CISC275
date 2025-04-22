@@ -24,8 +24,8 @@ function App() {
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
   const [detailedDone, setDetailedDone] = useState<boolean>(false);
   const [user, setUser] = useState<USER | null>(null);
-  //const [detailedSubmitted, setDetailedSubmitted] = useState<boolean>(false);
-  
+  const [showLogin, setShowLogin] = useState<boolean>(true);
+
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
 
@@ -81,10 +81,10 @@ function App() {
       </Form> */}
       <div id='app-content'>
       <header id='header'>
-        <Navigation setPage={setPage} footer={false}></Navigation>
+        <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin}></Navigation>
       </header>
       <div id='page-content'>
-      <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]}></Login>
+        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
@@ -92,7 +92,7 @@ function App() {
         {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
       <footer id='footer'>
-        <Navigation setPage={setPage} footer={true}></Navigation>
+        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin}></Navigation>
       </footer>
       </div>
     </div>

@@ -9,9 +9,10 @@ This is the navigation bar in the header and footer
 interface NavigationProps {
     setPage: (page: string) => void
     footer: boolean;
+    setShowLogin: (show:boolean) => void;
 }
 
-export function Navigation({setPage, footer}: NavigationProps):React.JSX.Element{
+export function Navigation({setPage, footer, setShowLogin}: NavigationProps):React.JSX.Element{
     return(<div id='navbar'>
         <div id='nav-buttons'>
         <div><Button className='navButton' onClick={() => setPage('homepage')}>Home</Button></div>
@@ -19,7 +20,7 @@ export function Navigation({setPage, footer}: NavigationProps):React.JSX.Element
         <div><Button className='navButton' onClick={() => setPage('detailedQuestions')}> Detailed Questions</Button></div>
         </div>
         {!footer &&
-        <div><Button id='log-in' className='navButton'>Log In</Button></div>
+        <div><Button id='log-in' className='navButton' onClick={()=>setShowLogin(true)}>Log In</Button></div>
         }
     </div>);
 
