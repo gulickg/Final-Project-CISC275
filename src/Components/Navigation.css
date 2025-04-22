@@ -15,7 +15,8 @@
 }
 
 #filler{
-    flex-basis: 10%;
+    flex-basis: 8.185%;
+    min-width: 90px;
 }
 
 .navButton:hover {
