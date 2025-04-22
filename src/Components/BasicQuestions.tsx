@@ -19,7 +19,8 @@ interface BasicProps {
 }
 
 
-export function BasicQuestions({answers, setAnswers, completed}: BasicProps):React.JSX.Element{
+export function BasicQuestions():React.JSX.Element{
+    let answers:string[] = ['', '', '', '', '', '', ''];
     // constants: tracks the questions completed and the total amount of questions there is
     const [questionsCompleted, setQuestionsCompleted] = useState<number>(0);
     const totalQuestions = 7;
