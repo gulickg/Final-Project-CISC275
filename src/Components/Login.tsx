@@ -2,20 +2,14 @@ import React from 'react'
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './Homepage.css'
-
-interface USER{
-    name: string
-    email:string;
-    basicAnswers:string[];
-    detailedAnswers:string[]
-}
+import { USER, saveUser, findUser } from './SaveFunctions';
 
 interface LoginProps{
-    basicAnswers:string[];
-    detailedAnswers:string[];
+    setUser: (user:USER | null)=>void;
+    loadUser: (DA:string[], BA:string[]) => void;
 }
 
-export function Login({basicAnswers, detailedAnswers}: LoginProps):React.JSX.Element{
+export function Login({setUser, loadUser}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
 
@@ -38,39 +32,14 @@ export function Login({basicAnswers, detailedAnswers}: LoginProps):React.JSX.Ele
     }
 
     function login(){
-        localStorage.setItem('currentUser', email);
-    }
-    
-    
-    function logOut() {
-        localStorage.removeItem("currentUser");
-        window.location.reload();
-    }
-    
-    function saveUser(user: USER){
-        const currentUsers: USER[] = loadUsers().filter((t) => t.email !== user.email);
-        saveUsers([user, ...currentUsers])
-    }
-    
-    function saveUsers(users: USER[]){
-        localStorage.setItem('USERS', JSON.stringify(users));
-    }
-    
-    
-    function loadUsers():USER[]{
-        return JSON.parse(localStorage.getItem('USERS') || '[]');
-    }
-
-    
-    function findUser(email:string): USER | undefined{
-        const users:USER[] = loadUsers();
-        for (let user of users){
-            if (user.email === email){
-                return user;
-            }
+        const toLog: USER | undefined = findUser(email);
+        if (toLog) setUser(toLog);
+        let U:USER | undefined = findUser(email);
+        if (U){
+            loadUser(U.detailedAnswers, U.basicAnswers);
         }
-        return undefined;
     }
+    
 
     return(<div>
         {state === 'email' && <div>
