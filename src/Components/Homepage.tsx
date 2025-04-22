@@ -1,7 +1,7 @@
 import React from 'react'
 import './Homepage.css'
 import { Description } from './DescriptionBox';
-
+import { Login } from './Login';
 /*
 This is the homepage that holds the descriptions
 */
@@ -11,11 +11,21 @@ interface HomepageProps{
     setPage: (page:string) => void
 }
 
+
+/**
+ * Renders the app's homepage and the quiz descriptions
+ * 
+ * @param {HomepageProps} properties - the properties of the homepage
+ * @param {Function} properties.setPage - the function to set the app's current page
+ * 
+ * @returns {React.JSX.Element} the homepage
+ */
 export function Homepage({setPage}: HomepageProps):React.JSX.Element{
     const basicDescription:string = "This assessment will quickly and efficiently evaluate what career fits your lifestyle and interests best. This assessment is great if you are short for time or do not like longer and more in depth quizzes.";
     const detailedDescription:string = "The following quiz will assess your personality and decide which career fits your lifestyle and interests best. This is a detailed quiz with multiple open-ended questions; you should block out at least fifteen minutes to take this quiz. Please answer as honestly and elaborately as you can.";
 
     return(<div id='homepage-box'>
+        <Login></Login>
         <h1 id='title'>Welcome to the Career Helpi!</h1>
         <div id='content-box'>
             <div className='quiz' id='basic-info'>
