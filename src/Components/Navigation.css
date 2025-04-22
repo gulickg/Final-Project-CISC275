@@ -24,3 +24,17 @@
     box-shadow: none;
     border-color: black;
 }
+
+#log-in{
+    justify-self: right;
+    flex-basis: 10%;
+    min-width: 70px;
+}
+
+#nav-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-basis: 90%;
+    justify-content: center;
+    padding-left: calc(10%)
+}

@@ -1,19 +1,21 @@
 import React from 'react'
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import './Homepage.css'
+import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
 
 interface LoginProps{
     setUser: (user:USER | null)=>void;
     loadUser: (DA:string[], BA:string[]) => void;
+    dAnswers: string[];
+    bAnswers: string[];
 }
 
-export function Login({setUser, loadUser}: LoginProps):React.JSX.Element{
+export function Login({setUser, loadUser, bAnswers, dAnswers}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
 
-    const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
+    const [state, setState] = useState<'email'| 'makeAccount'| 'login' | 'closed'>('email');   
 
     function handleSubmission(Email:string){
         const person:USER | undefined = findUser(Email);
@@ -26,7 +28,7 @@ export function Login({setUser, loadUser}: LoginProps):React.JSX.Element{
     }
 
     function makeAccount(){
-        let newUser: USER = {name: name, email:email, basicAnswers:[], detailedAnswers:[]};
+        let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers};
         saveUser(newUser);
         setState('login');
     }
@@ -38,31 +40,45 @@ export function Login({setUser, loadUser}: LoginProps):React.JSX.Element{
         if (U){
             loadUser(U.detailedAnswers, U.basicAnswers);
         }
+        setState('closed');
     }
     
 
     return(<div>
-        {state === 'email' && <div>
-        <Form.Group>
-            <Form.Label>email:</Form.Label>
-            <Form.Control
-            value = {email}
-            onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
-        </Form.Group>
-        <Button onClick={() => handleSubmission(email)}>Enter</Button>
-        </div>}
-        {state === 'makeAccount' && <div>
-            <Form.Group>
-            <Form.Label>name:</Form.Label>
-            <Form.Control
-            value = {name}
-            onChange={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}/>
-        </Form.Group>
-        <Button onClick={()=> makeAccount()}>Make Account</Button>
-        </div>}
-        {state=== 'login' && <div>
-            Welcome back, {name}!
-            <Button onClick={()=> login()}>Continue</Button>
+        {state !== 'closed' && <div>
+        <div id='screen'>
+            <div id='overlay'>
+            </div>
+        </div>
+        <div id='screen'>
+            <div id='popup'>
+                <div id='x-wrapper'>
+                    <Button id='close-popup' onClick={() => setState('closed')}>X</Button>
+                </div>
+                {state === 'email' && <div>
+                <Form.Group>
+                    <Form.Label>email:</Form.Label>
+                    <Form.Control
+                    value = {email}
+                    onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
+                </Form.Group>
+                <Button onClick={() => handleSubmission(email)}>Enter</Button>
+                </div>}
+                {state === 'makeAccount' && <div>
+                    <Form.Group>
+                    <Form.Label>name:</Form.Label>
+                    <Form.Control
+                    value = {name}
+                    onChange={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}/>
+                </Form.Group>
+                <Button onClick={()=> makeAccount()}>Make Account</Button>
+                </div>}
+                {state=== 'login' && <div>
+                    Welcome {name}!
+                    <Button onClick={()=> login()}>Continue</Button>
+                </div>}
+            </div>
+        </div>
         </div>}
     </div>);
 }

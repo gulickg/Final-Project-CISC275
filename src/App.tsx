@@ -37,7 +37,7 @@ function App() {
     } if (numberDetailedCompleted !== 7){
       setDetailedDone(false);
     }
-    updateUser(answers);
+    if (user) updateUser(answers);
   }
 
   function disablePopUp(){
@@ -81,10 +81,10 @@ function App() {
       </Form> */}
       <div id='app-content'>
       <header id='header'>
-        <Navigation setPage={setPage}></Navigation>
+        <Navigation setPage={setPage} footer={false}></Navigation>
       </header>
       <div id='page-content'>
-      <Login  setUser={setUser} loadUser={loadUser}></Login>
+      <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]}></Login>
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
@@ -92,7 +92,7 @@ function App() {
         {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
       <footer id='footer'>
-        <Navigation setPage={setPage}></Navigation>
+        <Navigation setPage={setPage} footer={true}></Navigation>
       </footer>
       </div>
     </div>
