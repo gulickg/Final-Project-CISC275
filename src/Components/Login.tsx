@@ -15,21 +15,30 @@ interface LoginProps{
     detailedAnswers:string[];
 }
 
-export function Login():React.JSX.Element{
+export function Login({basicAnswers, detailedAnswers}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
 
     const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
 
-    function handleSubmission(name:string, email:string, basicAnswers:string[], detailedAnswers:string[]){
-        let userInfo : USER = {name: name, email: email, basicAnswers:basicAnswers, detailedAnswers:detailedAnswers};
-        if (findUser(userInfo.email) !== undefined){
+    function handleSubmission(Email:string){
+        const person:USER | undefined = findUser(Email);
+        if (person !== undefined){
+            setName(person.name)
             setState('login');
         } else {
             setState('makeAccount');
-            saveUser(userInfo);
         }
-        window.location.reload();
+    }
+
+    function makeAccount(){
+        let newUser: USER = {name: name, email:email, basicAnswers:[], detailedAnswers:[]};
+        saveUser(newUser);
+        setState('login');
+    }
+
+    function login(){
+        localStorage.setItem('currentUser', email);
     }
     
     
@@ -52,11 +61,8 @@ export function Login():React.JSX.Element{
         return JSON.parse(localStorage.getItem('USERS') || '[]');
     }
 
-    function compare(){
-
-    }
     
-    function findUser(email: string): USER | undefined{
+    function findUser(email:string): USER | undefined{
         const users:USER[] = loadUsers();
         for (let user of users){
             if (user.email === email){
@@ -74,7 +80,7 @@ export function Login():React.JSX.Element{
             value = {email}
             onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
         </Form.Group>
-        <Button onClick={() => setState('makeAccount')}></Button>
+        <Button onClick={() => handleSubmission(email)}>Enter</Button>
         </div>}
         {state === 'makeAccount' && <div>
             <Form.Group>
@@ -83,11 +89,11 @@ export function Login():React.JSX.Element{
             value = {name}
             onChange={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}/>
         </Form.Group>
+        <Button onClick={()=> makeAccount()}>Make Account</Button>
         </div>}
         {state=== 'login' && <div>
             Welcome back, {name}!
-            <Button>Continue</Button>
-            <Button>Start Fresh</Button>
+            <Button onClick={()=> login()}>Continue</Button>
         </div>}
     </div>);
 }

@@ -8,6 +8,7 @@ import { DetailedQuestions } from './Components/DetailedQuestions';
 import { BasicQuestions } from './Components/BasicQuestions';
 import { Report } from './Components/Report';
 import { PopUp } from './Components/Popup';
+import { Login } from './Components/Login';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 // let keyData = "";
@@ -69,6 +70,7 @@ function App() {
         <Navigation setPage={setPage}></Navigation>
       </header>
       <div id='page-content'>
+      <Login detailedAnswers={detailedAnswers} basicAnswers={[]}></Login>
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
