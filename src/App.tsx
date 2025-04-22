@@ -25,6 +25,7 @@ function App() {
   const [detailedDone, setDetailedDone] = useState<boolean>(false);
   const [user, setUser] = useState<USER | null>(null);
   const [showLogin, setShowLogin] = useState<boolean>(true);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
@@ -47,6 +48,7 @@ function App() {
   function loadUser(loadDA:string[], loadBA: string[]){
     updateCompleted(loadDA);
     let basic = loadBA;
+    setLoggedIn(true);
   }
 
   function updateUser(answers:string[]){
@@ -56,6 +58,12 @@ function App() {
       saveUser(updatedInfo);
       setUser(updatedInfo);
     }
+  }
+
+  function logOut(){
+    setUser(null);
+    setDetailedAnswers(['', '', '', '', '', '', '']);
+    setLoggedIn(false);
   }
   
   // const [key, setKey] = useState<string>(keyData); //for api key input
@@ -81,7 +89,7 @@ function App() {
       </Form> */}
       <div id='app-content'>
       <header id='header'>
-        <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin}></Navigation>
+        <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </header>
       <div id='page-content'>
         {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
@@ -92,7 +100,7 @@ function App() {
         {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
       <footer id='footer'>
-        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin}></Navigation>
+        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </footer>
       </div>
     </div>

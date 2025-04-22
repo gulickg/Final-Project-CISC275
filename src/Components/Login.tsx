@@ -58,7 +58,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                 </div>
                 {state === 'email' && <div>
                 <Form.Group>
-                    <Form.Label>email:</Form.Label>
+                    <Form.Label>Email:</Form.Label>
                     <Form.Control
                     value = {email}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
@@ -67,7 +67,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                 </div>}
                 {state === 'makeAccount' && <div>
                     <Form.Group>
-                    <Form.Label>name:</Form.Label>
+                    <Form.Label>Your name:</Form.Label>
                     <Form.Control
                     value = {name}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}/>
