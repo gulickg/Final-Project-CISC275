@@ -3,11 +3,22 @@
     margin-bottom: 40px;
 }
 
-#content-box {
+#description-box {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+#hpc{
+    flex-basis: 50%;
+}
+
+#homepage-content{
+    display:flex;
+    flex-direction: row;
 }
 
 .quiz {
@@ -25,5 +36,5 @@
 #homepage-box{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
 }

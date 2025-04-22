@@ -24,7 +24,7 @@ function App() {
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
   const [detailedDone, setDetailedDone] = useState<boolean>(false);
   const [user, setUser] = useState<USER | null>(null);
-  const [showLogin, setShowLogin] = useState<boolean>(true);
+  const [showLogin, setShowLogin] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
@@ -89,19 +89,18 @@ function App() {
       </Form> */}
       <div id='app-content'>
       <header id='header'>
-        <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
-      </header>
-      <div id='page-content'>
-        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
-        {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-        {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
-        {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
-        {page === 'basicQuestionsReport' && (<Report></Report>)}
-      </div>
-      <footer id='footer'>
-        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
-      </footer>
+              <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
+          </header>
+          {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
+          {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
+          {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
+          {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
+          {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
+          {page === 'basicQuestionsReport' && (<Report></Report>)}
+        
+        <footer id='footer'>
+          <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
+        </footer>
       </div>
     </div>
     

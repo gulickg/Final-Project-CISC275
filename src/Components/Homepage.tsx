@@ -25,12 +25,15 @@ export function Homepage({setPage}: HomepageProps):React.JSX.Element{
 
     return(<div id='homepage-box'>
         <h1 id='title'>Welcome to the Career Helpi!</h1>
-        <div id='content-box'>
-            <div className='quiz' id='basic-info'>
-                <Description questionType={'Basic'} questionDescription={basicDescription} setPage={setPage}></Description>
-            </div>
-            <div className='quiz' id='detailed-info'>
-                <Description questionType={'Detailed'} questionDescription={detailedDescription} setPage={setPage}></Description>
+        <div id='homepage-content'>
+            <div id='hpc'></div>
+            <div id='description-box'>
+                <div className='quiz' id='basic-info'>
+                    <Description questionType={'Basic'} questionDescription={basicDescription} setPage={setPage}></Description>
+                </div>
+                <div className='quiz' id='detailed-info'>
+                    <Description questionType={'Detailed'} questionDescription={detailedDescription} setPage={setPage}></Description>
+                </div>
             </div>
         </div>
     </div>);
