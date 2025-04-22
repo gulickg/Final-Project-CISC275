@@ -1,7 +1,6 @@
 import React from 'react'
 import './Homepage.css'
 import { Description } from './DescriptionBox';
-import { Login } from './Login';
 /*
 This is the homepage that holds the descriptions
 */

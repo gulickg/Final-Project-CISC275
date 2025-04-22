@@ -47,7 +47,7 @@ function App() {
 
   function loadUser(loadDA:string[], loadBA: string[]){
     updateCompleted(loadDA);
-    let basic = loadBA;
+    // let basic = loadBA;
     setLoggedIn(true);
   }
 
