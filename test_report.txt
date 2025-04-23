@@ -2,7 +2,7 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/Components/Homepage.test.tsx
+FAIL src/Components/BasicQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -13,7 +13,7 @@ FAIL src/Components/Homepage.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/BasicQuestions.test.tsx
+FAIL src/Components/Homepage.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -287,16 +287,16 @@ A worker process has failed to exit gracefully and has been force exited. This i
 -----------------------------------|---------|----------|---------|---------|-------------------
 File                               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------------------|---------|----------|---------|---------|-------------------
-All files                          |   16.02 |    33.33 |   11.86 |   15.43 |                   
+All files                          |   15.92 |    33.33 |   12.06 |   15.33 |                   
  src                               |      30 |    39.02 |   27.27 |   28.26 |                   
   App.tsx                          |   38.46 |    43.24 |   33.33 |   37.14 | 41-82             
   index.tsx                        |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts               |       0 |        0 |       0 |       0 | 3-10              
- src/Components                    |   11.76 |    36.66 |   10.52 |   12.04 |                   
+ src/Components                    |   11.62 |    36.66 |   10.81 |    11.9 |                   
   AIIntegration.tsx                |       0 |      100 |       0 |       0 | 81                
-  BasicQuestions.tsx               |       0 |        0 |       0 |       0 | 25-101            
+  BasicQuestions.tsx               |       0 |        0 |       0 |       0 | 20-99             
   DescriptionBox.tsx               |   66.66 |      100 |      50 |   66.66 | 24                
-  DetailedQuestions.tsx            |       0 |        0 |       0 |       0 | 32-108            
+  DetailedQuestions.tsx            |       0 |        0 |       0 |       0 | 32-119            
   Homepage.tsx                     |     100 |      100 |     100 |     100 |                   
   Login.tsx                        |      16 |    33.33 |      10 |   16.66 | 22-44,57-79       
   Navigation.tsx                   |   16.66 |    83.33 |   16.66 |   16.66 | 20-28             
@@ -304,13 +304,13 @@ All files                          |   16.02 |    33.33 |   11.86 |   15.43 |
   Report.tsx                       |       0 |      100 |       0 |       0 | 9-11              
   SaveFunctions.tsx                |       0 |        0 |       0 |       0 | 9-30              
  src/Components/Question-Templates |       0 |        0 |       0 |       0 |                   
-  RadioButtonsQuestion.tsx         |       0 |      100 |       0 |       0 | 24-38             
+  RadioButtonsQuestion.tsx         |       0 |      100 |       0 |       0 | 25-42             
   SliderQuestion.tsx               |       0 |        0 |       0 |       0 | 19-32             
   SwitchQuestion.tsx               |       0 |        0 |       0 |       0 | 18-27             
-  TextInputQuestion.tsx            |       0 |      100 |       0 |       0 | 38-43             
+  TextInputQuestion.tsx            |       0 |      100 |       0 |       0 | 40-45             
 -----------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 4 failed, 4 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        4.725 s
+Time:        4.726 s
 Ran all test suites.
