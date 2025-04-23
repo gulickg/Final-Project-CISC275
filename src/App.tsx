@@ -35,10 +35,16 @@ function App() {
   const [user, setUser] = useState<USER | null>(null);
   const [showLogin, setShowLogin] = useState<boolean>(true);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
+  const [basicDone, setBasicDone] = useState<boolean>(false);
 
 >>>>>>> ce72e2193f04c9b99220b635edd958328d2f5681
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
+  const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+
+  const popUp2: boolean = !basicDone && numberBasicCompleted===7;
+
 
 
   function updateCompleted(answers:string[]){
@@ -47,6 +53,16 @@ function App() {
       setDetailedDone(true);
     } if (numberDetailedCompleted !== 7){
       setDetailedDone(false);
+    }
+    if (user) updateUser(answers);
+  }
+
+  function updateBasic(answers: string[]){
+    setBasicAnswers(answers);
+    if (numberBasicCompleted === 7) {
+      setBasicDone(true);
+    } else {
+      setBasicDone(false);
     }
     if (user) updateUser(answers);
   }
@@ -125,6 +141,7 @@ function App() {
         <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </footer>
       </div>
+      <div> {popUp2 ? "oijoi" : "aerwe"}</div>
     </div>
     
   );

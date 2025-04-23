@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Form} from 'react-bootstrap'
 import './Questions.css'
 import questionMark from './question-mark.png'
@@ -12,19 +12,17 @@ interface RadioQuestionProps {
     order: number;
     question: string;
     choices: string[];
-    completed: (num: number, ans: string) => void;
+    addCompleted: (num: number, ans: string) => void;
     answer: string
 }
 
-export function RadioButtonQuestion({order, question, choices, completed, answer}: RadioQuestionProps):React.JSX.Element{
+export function RadioButtonQuestion({order, question, choices, addCompleted, answer}: RadioQuestionProps):React.JSX.Element{
     // const [selectedChoice, setSelectedChoice] = useState<string>('');
 
 
-    // changes the selected choice when the user inputs something. only changes questions completed if it changes
-    // from no choice to a choice
     function updateInput(event: React.ChangeEvent<HTMLInputElement>){
-        const newAnswer = event.target.value;
-        
+        const newAns = event.target.value;
+        addCompleted(order, newAns);
     }
 
     return(<div className='radio-question'>
@@ -43,10 +41,10 @@ export function RadioButtonQuestion({order, question, choices, completed, answer
                 type='radio'
                 name={question}
                 id='check'
-                label= {c}
-                value= {answer}
-                onChange={(event) => {updateInput(event);
-                }}
+                label={c}
+                value={c}
+                onChange={updateInput}
+                checked={c === answer}
                 />
             ))}
             
