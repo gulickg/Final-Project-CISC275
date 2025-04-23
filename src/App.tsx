@@ -21,6 +21,10 @@ function App() {
   const [page, setPage] = useState<string>("homepage");
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
   const [detailedDone, setDetailedDone] = useState<boolean>(false);
+
+  const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
+  const [basicDone, setBasicDone] = useState<boolean>(false);
+  const numberBasicCompleted = basicAnswers.reduce((ac, cv) => ac + (cv.length === 0 ? 0 : 1), 0);
   
   //const [detailedSubmitted, setDetailedSubmitted] = useState<boolean>(false);
   
@@ -38,6 +42,15 @@ function App() {
 
   function disablePopUp(){
     setDetailedDone(true);
+  }
+
+  function updateBasic(answers:string[]){
+    setBasicAnswers(answers);
+    if (numberBasicCompleted === 7){
+      setBasicDone(true);
+    } if (numberBasicCompleted !== 7){
+      setBasicDone(false);
+    }
   }
 
 
@@ -70,7 +83,7 @@ function App() {
       </header>
       <div id='page-content'>
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-        {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
+        {page === 'basicQuestions' && (<BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
         {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
         {page === 'basicQuestionsReport' && (<Report></Report>)}

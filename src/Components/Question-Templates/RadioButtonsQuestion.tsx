@@ -12,22 +12,19 @@ interface RadioQuestionProps {
     order: number;
     question: string;
     choices: string[];
-    addCompleted: () => void;
+    completed: (num: number, ans: string) => void;
+    answer: string
 }
 
-export function RadioButtonQuestion({order, question, choices, addCompleted}: RadioQuestionProps):React.JSX.Element{
-    const [selectedChoice, setSelectedChoice] = useState<string>('');
+export function RadioButtonQuestion({order, question, choices, completed, answer}: RadioQuestionProps):React.JSX.Element{
+    // const [selectedChoice, setSelectedChoice] = useState<string>('');
 
 
     // changes the selected choice when the user inputs something. only changes questions completed if it changes
     // from no choice to a choice
     function updateInput(event: React.ChangeEvent<HTMLInputElement>){
-        if (selectedChoice === '' && event.target.value !== ''){
-            setSelectedChoice(event.target.value);
-            addCompleted();
-        } else if (selectedChoice !== event.target.value){
-            setSelectedChoice(event.target.value);
-        }
+        const newAnswer = event.target.value;
+        
     }
 
     return(<div className='radio-question'>
@@ -41,13 +38,15 @@ export function RadioButtonQuestion({order, question, choices, addCompleted}: Ra
         <div>
             {choices.map((c: string) => (
                 <Form.Check
+                key={question}
                 className='radio-choices'
                 type='radio'
                 name={question}
                 id='check'
                 label= {c}
-                value= {c}
-                onChange={updateInput}
+                value= {answer}
+                onChange={(event) => {updateInput(event);
+                }}
                 />
             ))}
             

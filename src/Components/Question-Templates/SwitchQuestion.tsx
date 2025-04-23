@@ -11,15 +11,15 @@ template for switch box question
 interface SwitchQuestionProps {
     order: number;
     question: string;
-    addCompleted: () => void;
 }
 
-export function SwitchQuestion({order, question, addCompleted}: SwitchQuestionProps): React.JSX.Element {
+export function SwitchQuestion({order, question}: SwitchQuestionProps): React.JSX.Element {
     const [isFlexible, setIsFlexible] = useState<boolean>(false);
+    let counter: number = 0;
 
     function changeSwitch(){
-        if(!isFlexible) {
-            addCompleted();
+        if(!isFlexible && counter !== 1) {
+            counter++;
         }
         setIsFlexible((prev) => !prev);
     }
