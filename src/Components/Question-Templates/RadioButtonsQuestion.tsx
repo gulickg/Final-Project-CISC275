@@ -13,10 +13,11 @@ interface RadioQuestionProps {
     question: string;
     choices: string[];
     addCompleted: (num: number, ans: string) => void;
-    answer: string
+    answer: string;
+    tool: string;
 }
 
-export function RadioButtonQuestion({order, question, choices, addCompleted, answer}: RadioQuestionProps):React.JSX.Element{
+export function RadioButtonQuestion({order, question, choices, addCompleted, answer, tool}: RadioQuestionProps):React.JSX.Element{
     // const [selectedChoice, setSelectedChoice] = useState<string>('');
 
 
@@ -28,7 +29,10 @@ export function RadioButtonQuestion({order, question, choices, addCompleted, ans
     return(<div className='radio-question'>
         <div className='question-number'>
             Question {order}:
-            <img id='more-info' src={questionMark} alt='question mark'></img>
+            <div id='img-holder' className='tooltip'>
+                <img id='more-info' src={questionMark} alt='question mark'></img>
+                <div className='tooltiptext'>{tool}</div>
+            </div>
         </div>
         <div className='question-text'>
             {question}

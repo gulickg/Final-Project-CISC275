@@ -7,11 +7,6 @@ import { RadioButtonQuestion } from './Question-Templates/RadioButtonsQuestion'
 // import { SwitchQuestion } from './Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
 
-
-
-// answer type to easily track the questions and answers associated with them
-// type Answer = { question: string; answer: string}
-
 interface BasicProps {
     answers: string[];
     setAnswers(answers:string[]): void;
@@ -30,14 +25,25 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
         question: string;
         choices: string[];
         answer: string;
+        tooltip: string;
     }
+
+    const TOOLTIPS: string[] = [
+        "This helps us understand how important free time and personal interests are to your ideal lifestyle and job.",
+        "Your strongest subject can highlight natural strengths and hint at career paths where you might excel.",
+        "Your go-to media type can show how you like to absorb information—this is useful for matching learning and working styles.",
+        "A fun way to explore your personality traits, which can connect to different work styles and team roles.",
+        "This helps determine the kind of social energy you bring to a workplace and what environments might suit you best.",
+        "Some careers are solo missions, others are team-based—this question helps narrow down the right fit.",
+        "Your comfort with different work settings—like remote vs. in-office or quiet vs. fast-paced—can shape your ideal job match."
+    ]
 
     // radio questions
     const RADIOQ: Radio[] = [
-        {num: 1, question: "How much time do you usually dedicate per week to hobbies?", choices: ['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours'], answer:answers[0]},
-        {num: 2, question: "Which subject did you perform the best in school?", choices: ['English', 'Math', 'Science', 'Art', 'Social Studies'], answer: answers[1]},
-        {num: 3, question: "What is your preferred form of media?", choices: ['Books', 'Podcasts', 'Movies'], answer: answers[2]},
-        {num: 4, question: "What Hogwarts house do you belong to?", choices: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'], answer: answers[3]}
+        {num: 1, question: "How much time do you usually dedicate per week to hobbies?", choices: ['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours'], answer:answers[0], tooltip: TOOLTIPS[0]},
+        {num: 2, question: "Which subject did you perform the best in school?", choices: ['English', 'Math', 'Science', 'Art', 'Social Studies'], answer: answers[1], tooltip: TOOLTIPS[1]},
+        {num: 3, question: "What is your preferred form of media?", choices: ['Books', 'Podcasts', 'Movies'], answer: answers[2], tooltip: TOOLTIPS[2]},
+        {num: 4, question: "What Hogwarts house do you belong to?", choices: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'], answer: answers[3], tooltip: TOOLTIPS[3]}
     ];
 
      // find the percent of questions completed and math for the progress bar
@@ -90,7 +96,7 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion> */}
-            {RADIOQ.map((rq: Radio) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer}></RadioButtonQuestion>
+            {RADIOQ.map((rq: Radio) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip}></RadioButtonQuestion>
             )}
             
             {/* <SliderRangeQuestion order={5} question={"Would you consider yourself an introvert or extrovert?"} choices={['Introvert', 'I\'m a little quiet', 'Ambivert', 'I\'m a little loud', 'Extrovert']}></SliderRangeQuestion>
@@ -98,8 +104,6 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='bottom-space'>
             <Button disabled={progressPercent < 100}>SUBMIT</Button>
-            <div>{answers.map((ans: string) => (ans) )}
-                </div>
         </div>
         
     </div>);
