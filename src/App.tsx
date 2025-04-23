@@ -8,6 +8,8 @@ import { DetailedQuestions } from './Components/DetailedQuestions';
 import { BasicQuestions } from './Components/BasicQuestions';
 import { Report } from './Components/Report';
 import { PopUp } from './Components/Popup';
+import { Login } from './Components/Login';
+import { USER, saveUser } from './Components/SaveFunctions';
 
 //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
 // let keyData = "";
@@ -21,6 +23,7 @@ function App() {
   const [page, setPage] = useState<string>("homepage");
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
   const [detailedDone, setDetailedDone] = useState<boolean>(false);
+<<<<<<< HEAD
 
   const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
   const [basicDone, setBasicDone] = useState<boolean>(false);
@@ -28,8 +31,15 @@ function App() {
   
   //const [detailedSubmitted, setDetailedSubmitted] = useState<boolean>(false);
   
+=======
+  const [user, setUser] = useState<USER | null>(null);
+  const [showLogin, setShowLogin] = useState<boolean>(true);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+
+>>>>>>> ce72e2193f04c9b99220b635edd958328d2f5681
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
+
 
   function updateCompleted(answers:string[]){
     setDetailedAnswers(answers);
@@ -38,12 +48,14 @@ function App() {
     } if (numberDetailedCompleted !== 7){
       setDetailedDone(false);
     }
+    if (user) updateUser(answers);
   }
 
   function disablePopUp(){
     setDetailedDone(true);
   }
 
+<<<<<<< HEAD
   function updateBasic(answers:string[]){
     setBasicAnswers(answers);
     if (numberBasicCompleted === 7){
@@ -53,8 +65,28 @@ function App() {
     }
   }
 
+=======
+  function loadUser(loadDA:string[], loadBA: string[]){
+    updateCompleted(loadDA);
+    // let basic = loadBA;
+    setLoggedIn(true);
+  }
+>>>>>>> ce72e2193f04c9b99220b635edd958328d2f5681
 
+  function updateUser(answers:string[]){
+    let updatedInfo: USER | null = user;
+    if (updatedInfo){
+      updatedInfo.detailedAnswers = answers;
+      saveUser(updatedInfo);
+      setUser(updatedInfo);
+    }
+  }
 
+  function logOut(){
+    setUser(null);
+    setDetailedAnswers(['', '', '', '', '', '', '']);
+    setLoggedIn(false);
+  }
   
   // const [key, setKey] = useState<string>(keyData); //for api key input
   
@@ -79,9 +111,10 @@ function App() {
       </Form> */}
       <div id='app-content'>
       <header id='header'>
-        <Navigation setPage={setPage}></Navigation>
+        <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </header>
       <div id='page-content'>
+        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
@@ -89,7 +122,7 @@ function App() {
         {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
       <footer id='footer'>
-        <Navigation setPage={setPage}></Navigation>
+        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </footer>
       </div>
     </div>

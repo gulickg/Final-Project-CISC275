@@ -12,14 +12,15 @@ import { Button } from 'react-bootstrap'
 // answer type to easily track the questions and answers associated with them
 // type Answer = { question: string; answer: string}
 
-interface BasicProps {
-    answers: string[];
-    setAnswers: (answers:string[]) => void
-    completed: number;
-}
+// interface BasicProps {
+//     answers: string[];
+//     setAnswers(answers:string[]): void;
+//     completed: number;
+// }
 
 
-export function BasicQuestions({answers, setAnswers, completed}: BasicProps):React.JSX.Element{
+export function BasicQuestions():React.JSX.Element{
+    let answers:string[] = ['', '', '', '', '', '', ''];
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;
 
