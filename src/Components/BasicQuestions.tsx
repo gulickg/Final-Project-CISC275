@@ -22,7 +22,7 @@ interface BasicProps {
 export function BasicQuestions({answers, setAnswers, completed}: BasicProps):React.JSX.Element{
     // let answers:string[] = ['', '', '', '', '', '', ''];
     // constants: tracks the questions completed and the total amount of questions there is
-    const totalQuestions = 7;
+    const totalQuestions = 4;
 
     // radio interface
     interface Radio{
@@ -90,7 +90,7 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion> */}
-            {RADIOQ.map((rq: Radio) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} completed={updateCompleted} answer={rq.answer}></RadioButtonQuestion>
+            {RADIOQ.map((rq: Radio) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer}></RadioButtonQuestion>
             )}
             
             {/* <SliderRangeQuestion order={5} question={"Would you consider yourself an introvert or extrovert?"} choices={['Introvert', 'I\'m a little quiet', 'Ambivert', 'I\'m a little loud', 'Extrovert']}></SliderRangeQuestion>
@@ -98,7 +98,7 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='bottom-space'>
             <Button disabled={progressPercent < 100}>SUBMIT</Button>
-            <div>saved answers here when i figure that out
+            <div>{answers.map((ans: string) => (ans) )}
                 </div>
         </div>
         
