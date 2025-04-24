@@ -11,31 +11,32 @@ import { Loader } from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/
 import { BasicQuestions } from "./BasicQuestions";
 import {Question} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 import {Report} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Report"
-import {Career} from 
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 
+class Career{
+    title:string;
+    description:string;
+    breakdown:string;
+    type:string;
+    constructor(title:string, description:string, breakdown:string, type:string){
+        this.title=title;
+        this.description=description;
+        this.breakdown=breakdown;
+        this.type=type;
+    }
+}
 
-
-
-export function AIpage(questions:Question[]){
+export async function AIpage({questions}: {questions:Question[]}){
     //const [answers, setAnswers]= useState<string[]>([]);
    // const [careerDescription, setCareerDescription]=useState<string>("");
-    const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
+    //const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
    // const [answerBreakdown, setAnswerBreakdown]=useState<string>("");
-    const [loading, setLoading]=useState<boolean>(false);
+    //const [loading, setLoading]=useState<boolean>(false);
 
-    interface Career{
-        title:string;
-        description:string;
-        breakdown:string;
-        type:string=questions.type;
-        //does not work rn but might throw an error in the future due to the format of the chat gpt prompt
-    }
-
-    const [career, setCareer]=useState<Career|null>(null);
-
-    async function handleSubmit(){
-        setLoading(true);
+    //const [career, setCareer]=useState<Career|null>(null);
+//function to be used in detailed and basic question files
+    //function handleSubmit(){
+        //setLoading(true);
         try{
             //set to what user inputs
             const api= "API_KEY_HERE";
@@ -73,19 +74,16 @@ Return only the JSON object without extra text.
 
             //valid json
             const jsonStartIndex=content.indexOf('{');
-            const jsonEndIndex=content.indexOf('}')+1;
-            const jsonString=content.substring(jsonStartIndex, jsonEndIndex);
-            const careerData=JSON.parse(jsonString);
-            setCareer(careerData);
-            setCareerGenerated(true);
+            const jsonEndIndex=content.lastIndexOf('}')+1;
+            const json=JSON.parse(content.substring(jsonStartIndex, jsonEndIndex));
+            //type is throwing error because there is not type field yet on object string
+            const type=questions[0]?.type||"Uknown";
+            const careerData:Career={...json, type};
+            Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type);
         }
         catch(error){
-            console.error("Error generating recipe: ", error);
-        }finally{
-            setLoading(false);
-        }
+            console.error("Error generating career: ", error);
+        }  
     }
 
-    Report(career!.title, career!.description, career!.breakdown, career!.type);
-
-}
+//}
