@@ -86,6 +86,6 @@ Return only the JSON object without extra text.
         }
     }
 
-    Report(career!.title, career!.description, career!.breakdown);
+    Report(career!.title, career!.description, career!.breakdown, career!.type);
 
 }
