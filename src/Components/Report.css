@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    padding: 20px;
+    background-color: green;
+    border: 2px;
+
+}
+
+#shareButton {
+    margin: 10px;
+    background-color: lightyellow;
+    border-radius: 0%;
+    color: black;
+    border-color: black;
+}
+
+#title {
+    font-size: xx-large;
+    text-align: center;
+    color: black;
+}
+
+#careerSuggestion{
+    font-size: large;
+    text-align: center;
+    color: black;
+}
+
+#careerDescriptiong{
+    font-size: medium;
+    text-align: left;
+    color: black;
+}
+
+#answerBreakdown{
+    font-size: medium;
+    text-align: center;
+    color: black;
+}
+
