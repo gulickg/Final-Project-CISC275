@@ -1,27 +1,25 @@
 import React from 'react'
 
-export function Report():React.JSX.Element{
-    //let careerSuggestion: string = ""; //this needs to come from the AI
-    //let answerBreakdown: string = ""; //list of questions linked to the users answers
+export function Report(suggestion: string, description: string, breakdown: string, type: string):React.JSX.Element{
     return(
     <div id='report'>
-        <h1 id='title'>Quiz Results</h1>
+        <h1 id='title'>{type} Quiz Results</h1>
         <div id='container'>
             <div id='box'>
                 <div id = 'careerSuggestion'>
-                    {/* this comes from the ai */}
+                    {suggestion}
                 </div>
                 <div id = 'careerDescription'>
-                    {/* this comes from ai */}
+                    {description}
                 </div>
             </div>
             <div id='box'>
                 <div id='answerBreakdown'>
-                    {/*this comes from somewhere else*/}
+                    {breakdown}
                 </div>
                 <div id='ai'>
                     <h2>Still stuck? Follow up with ChatGPT.</h2>
-                    {/*ai shit*/}
+                    {/*ai stuff - do we get rid of?*/}
                 </div>
             </div>
         </div>
