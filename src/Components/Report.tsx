@@ -13,16 +13,6 @@ export function Report(suggestion: string, description: string, breakdown: strin
                     {description}
                 </div>
             </div>
-            <div id='box'>
-                <div id='answerBreakdown'>
-                    {breakdown}
-                </div>
-                <div id='ai'>
-                    <h2>Still stuck? Follow up with ChatGPT.</h2>
-                    {/*ai stuff - do we get rid of?*/}
-                </div>
-            </div>
-        </div>
             <div id="shareButton">
                 <button>Share your results</button>
             </div>
