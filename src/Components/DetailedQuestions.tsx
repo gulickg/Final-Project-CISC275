@@ -7,6 +7,14 @@ import { TextInputQuestion } from './Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
 
 
+export interface Question{
+    num: number;
+    question:string;
+    answer: string;
+}
+
+
+export let QUESTIONS:Question[];
 /*
 This is the detailed questions page
 */
@@ -19,14 +27,7 @@ interface DetailedProps{
 export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
 
-
-    interface Question{
-        num: number;
-        question:string;
-        answer: string;
-    }
-
-    const QUESTIONS:Question[] = [
+    QUESTIONS= [
         {num: 1, question:'If you could live anywhere in the world where would you live and why?', answer:answers[0]},
         {num:2, question:'In group settings, what role do you find yourself taking?', answer:answers[1]},
         {num:3, question:'If a customer/client were to lodge a complaint about a mistake you made, what would you do to fix it? Would you go to your boss, or try and fix it on your own?', answer:answers[2]},

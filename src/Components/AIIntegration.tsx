@@ -9,11 +9,15 @@ import OpenAI from "openai"
 //import App from "./App";
 import { Loader } from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Loader";
 import { BasicQuestions } from "./BasicQuestions";
+import {Question} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 import {Report} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Report"
+import {Career} from 
+//import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 
 
 
-export function AIpage(questions: string[], answers:string[]):JSX.Element{
+
+export function AIpage(questions:Question[]){
     //const [answers, setAnswers]= useState<string[]>([]);
    // const [careerDescription, setCareerDescription]=useState<string>("");
     const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
@@ -24,24 +28,11 @@ export function AIpage(questions: string[], answers:string[]):JSX.Element{
         title:string;
         description:string;
         breakdown:string;
+        type:string=questions.type;
+        //does not work rn but might throw an error in the future due to the format of the chat gpt prompt
     }
+
     const [career, setCareer]=useState<Career|null>(null);
-
-    /*
-    //load api key
-    dotenv.config();
-    const configuration= new Configuration({
-        apiKey:process.env.OPENAI_API_KEY,
-    });
-    const openai= new OpenAIApi(configuration);
-
-
-    //initializing readline interface
-    const userInterface=readline.createInterface({
-        input: process.stdin,
-        output:process.stdout,
-    });
-*/
 
     async function handleSubmit(){
         setLoading(true);
@@ -52,17 +43,15 @@ export function AIpage(questions: string[], answers:string[]):JSX.Element{
                 console.error("API key not found.");
                 return;
             }
-            
-            //const configuration= new Configuration({apiKey});
             const openai=new OpenAI({
                 apiKey: api,
             });
             let qNaText="";
             for(let i=0; i<questions.length; i++){
-                qNaText+='Question ${i+1}: ${questions[i]}\nAnswer ${i+1}:${answers[i]\n';
+                qNaText+='Question ${questions[i].num: ${questions[i].question}\nAnswer ${i+1}:${questions[i].answers\n';
             }
-            const prompt = `Generate a career option from the following questions and answers. 
-Format the response as valid JSON with the following keys:
+            const prompt = `Generate a career option from the following questions and answers. Make sure to use a Genz tone and 
+format the response as valid JSON with the following keys:
 {
   "title": "Career title",
   "description": "Description of given career and what jobs the user could have.",
@@ -81,18 +70,6 @@ Return only the JSON object without extra text.
                 ]
               });
               const content=chatCompletion.choices[0].message?.content||"";
-              
-           /*
-            let basic='';
-            let detailed='';
-            for (let i=0; i<BasicQuestions.length;i++){
-                basic+= "Question "+i.toString()+". "+BasicQuestions[i]+ '/n'+'Answer '+i.toString()+ ". "+ BasicAnswers[i]+'/n';
-            }
-            
-            const result= await model.generateContent(prompt);
-            const response= await result.response;
-            const text=await response.text();
-            */
 
             //valid json
             const jsonStartIndex=content.indexOf('{');
@@ -108,29 +85,7 @@ Return only the JSON object without extra text.
             setLoading(false);
         }
     }
-    return (
-        <div>
-            {loading && <Loader/>}
-            {!loading && !careerGenerated ? (
-                //stay on questions page with all functional buttons
-                <QuestionsPage />
-            ):(
-                <div id='report'>
-                    <h1 id='title'>Quiz Results</h1>
-                    <div id='quiz output'>
-                        <h2>Career Suggestion</h2>
-                        <p>{career?.title}</p>
-                        <p>{career?.description}</p>
-                        <h2>Answer Breakdown</h2>
-                        <p>{career?.breakdown}</p>
-                        <h2>Still stuck? Follow up with ChatGPT.</h2>
-                    </div>
-                        <div id="shareButton">
-                            <button>Share your results</button>
-                        </div>
-                    </div>
-                
-            )}
-        </div>
-    );
+
+    Report(career!.title, career!.description, career!.breakdown);
+
 }
