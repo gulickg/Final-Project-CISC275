@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Form} from 'react-bootstrap'
 import './Questions.css'
 import questionMark from './question-mark.png'
@@ -12,28 +12,27 @@ interface RadioQuestionProps {
     order: number;
     question: string;
     choices: string[];
-    addCompleted: () => void;
+    addCompleted: (num: number, ans: string) => void;
+    answer: string;
+    tool: string;
 }
 
-export function RadioButtonQuestion({order, question, choices, addCompleted}: RadioQuestionProps):React.JSX.Element{
-    const [selectedChoice, setSelectedChoice] = useState<string>('');
+export function RadioButtonQuestion({order, question, choices, addCompleted, answer, tool}: RadioQuestionProps):React.JSX.Element{
+    // const [selectedChoice, setSelectedChoice] = useState<string>('');
 
 
-    // changes the selected choice when the user inputs something. only changes questions completed if it changes
-    // from no choice to a choice
     function updateInput(event: React.ChangeEvent<HTMLInputElement>){
-        if (selectedChoice === '' && event.target.value !== ''){
-            setSelectedChoice(event.target.value);
-            addCompleted();
-        } else if (selectedChoice !== event.target.value){
-            setSelectedChoice(event.target.value);
-        }
+        const newAns = event.target.value;
+        addCompleted(order, newAns);
     }
 
     return(<div className='radio-question'>
         <div className='question-number'>
             Question {order}:
-            <img id='more-info' src={questionMark} alt='question mark'></img>
+            <div id='img-holder' className='tooltip'>
+                <img id='more-info' src={questionMark} alt='question mark'></img>
+                <div className='tooltiptext'>{tool}</div>
+            </div>
         </div>
         <div className='question-text'>
             {question}
@@ -45,9 +44,10 @@ export function RadioButtonQuestion({order, question, choices, addCompleted}: Ra
                 type='radio'
                 name={question}
                 id='check'
-                label= {c}
-                value= {c}
+                label={c}
+                value={c}
                 onChange={updateInput}
+                checked={c === answer}
                 />
             ))}
             
