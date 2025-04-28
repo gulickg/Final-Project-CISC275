@@ -42,9 +42,6 @@ export function SwitchQuestion({order, question, choices, addCompleted, answer, 
 
         <div className='question-text'>
             {question}
-        </div>
-
-        <div>
             <Form.Group>
                 <Form.Check
                     // key={question}
