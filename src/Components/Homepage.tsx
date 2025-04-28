@@ -1,6 +1,6 @@
 import React from 'react'
 import './Homepage.css'
-import { Description } from './DescriptionBox';
+import { Description } from './Question-Templates/DescriptionBox';
 /*
 This is the homepage that holds the descriptions
 */

@@ -1,9 +1,9 @@
 import React from 'react'
 import './DetailedQuestions.css'
-import './BasicQuestions.css'
-import './Question-Templates/RadioButtonsQuestion'
-import './Question-Templates/TextInputQuestion'
-import { TextInputQuestion } from './Question-Templates/TextInputQuestion'
+import '../Basic-Questions-Folder/BasicQuestions.css'
+import '../Question-Templates/RadioButtonsQuestion'
+import '../Question-Templates/TextInputQuestion'
+import { TextInputQuestion } from '../Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
 
 

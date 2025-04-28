@@ -4,8 +4,8 @@ import './App.css';
 // import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage';
-import { DetailedQuestions } from './Components/DetailedQuestions';
-import { BasicQuestions } from './Components/BasicQuestions';
+import { DetailedQuestions } from './Components/Detailed-Questions-Folder/DetailedQuestions';
+import { BasicQuestions } from './Components/Basic-Questions-Folder/BasicQuestions';
 import { Report } from './Components/Report';
 import { PopUp } from './Components/Popup';
 import { Login } from './Components/Login';
