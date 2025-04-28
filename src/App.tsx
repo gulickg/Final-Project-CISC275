@@ -4,8 +4,8 @@ import './App.css';
 // import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage';
-import { DetailedQuestions } from './Components/DetailedQuestions';
-import { BasicQuestions } from './Components/BasicQuestions';
+import { DetailedQuestions } from './Components/Detailed-Questions-Folder/DetailedQuestions';
+import { BasicQuestions } from './Components/Basic-Questions-Folder/BasicQuestions';
 import { Report } from './Components/Report';
 import { PopUp } from './Components/Popup';
 import { Login } from './Components/Login';
@@ -23,22 +23,12 @@ function App() {
   const [page, setPage] = useState<string>("homepage");
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
   const [detailedDone, setDetailedDone] = useState<boolean>(false);
-<<<<<<< HEAD
-
-  const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
-  const [basicDone, setBasicDone] = useState<boolean>(false);
-  const numberBasicCompleted = basicAnswers.reduce((ac, cv) => ac + (cv.length === 0 ? 0 : 1), 0);
-  
-  //const [detailedSubmitted, setDetailedSubmitted] = useState<boolean>(false);
-  
-=======
   const [user, setUser] = useState<USER | null>(null);
   const [showLogin, setShowLogin] = useState<boolean>(true);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
   const [basicDone, setBasicDone] = useState<boolean>(false);
 
->>>>>>> ce72e2193f04c9b99220b635edd958328d2f5681
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
@@ -71,23 +61,11 @@ function App() {
     setDetailedDone(true);
   }
 
-<<<<<<< HEAD
-  function updateBasic(answers:string[]){
-    setBasicAnswers(answers);
-    if (numberBasicCompleted === 7){
-      setBasicDone(true);
-    } if (numberBasicCompleted !== 7){
-      setBasicDone(false);
-    }
-  }
-
-=======
   function loadUser(loadDA:string[], loadBA: string[]){
     updateCompleted(loadDA);
     // let basic = loadBA;
     setLoggedIn(true);
   }
->>>>>>> ce72e2193f04c9b99220b635edd958328d2f5681
 
   function updateUser(answers:string[]){
     let updatedInfo: USER | null = user;

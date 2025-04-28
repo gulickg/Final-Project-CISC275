@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-import './Homepage.css'
+import '../Homepage.css'
 import './DescriptionBox.css'
 
 /*

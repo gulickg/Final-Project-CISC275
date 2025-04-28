@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form} from 'react-bootstrap'
+import {Form} from 'react-bootstrap'
 import './Questions.css'
 import questionMark from './question-mark.png'
 
@@ -18,8 +18,6 @@ interface RadioQuestionProps {
 }
 
 export function RadioButtonQuestion({order, question, choices, addCompleted, answer, tool}: RadioQuestionProps):React.JSX.Element{
-    // const [selectedChoice, setSelectedChoice] = useState<string>('');
-
 
     function updateInput(event: React.ChangeEvent<HTMLInputElement>){
         const newAns = event.target.value;
@@ -38,7 +36,7 @@ export function RadioButtonQuestion({order, question, choices, addCompleted, ans
             {question}
         </div>
         <div>
-            {choices.map((c: string) => (
+            {choices ? choices.map((c: string) => (
                 <Form.Check
                 key={question}
                 className='radio-choices'
@@ -50,7 +48,7 @@ export function RadioButtonQuestion({order, question, choices, addCompleted, ans
                 onChange={updateInput}
                 checked={c === answer}
                 />
-            ))}
+            )): " "}
             
         </div>
     </div>)
