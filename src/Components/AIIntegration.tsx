@@ -7,10 +7,10 @@ import OpenAI from "openai"
 //import * as dotenv from 'dotenv';
 //import chalk from 'chalk';
 //import App from "./App";
-import { Loader } from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Loader";
 import { BasicQuestions } from "./BasicQuestions";
-import {Question} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
-import {Report} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Report"
+import {Question} from "./DetailedQuestions"
+import {Report} from "./Report"
+
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 
 class Career{
@@ -26,7 +26,7 @@ class Career{
     }
 }
 
-export async function AIpage({questions}: {questions:Question[]}){
+export async function AIpage(questions: Question[], type:string){
     //const [answers, setAnswers]= useState<string[]>([]);
    // const [careerDescription, setCareerDescription]=useState<string>("");
     //const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
@@ -77,9 +77,8 @@ Return only the JSON object without extra text.
             const jsonEndIndex=content.lastIndexOf('}')+1;
             const json=JSON.parse(content.substring(jsonStartIndex, jsonEndIndex));
             //type is throwing error because there is not type field yet on object string
-            const type=questions[0]?.type||"Uknown";
             const careerData:Career={...json, type};
-            Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type);
+            Report(careerData!.title, careerData!.description, careerData!.breakdown, type);
         }
         catch(error){
             console.error("Error generating career: ", error);

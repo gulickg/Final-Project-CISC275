@@ -125,7 +125,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 </Button> */}
                 <h1 id='dtitle'>Detailed Quiz Questions</h1>
                 
-                {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer}></TextInputQuestion>)}
+                {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} tool={q.tooltip}></TextInputQuestion>)}
                 
                 <div id='ds-wrapper'>
                     <div id='dsb-wrapper'>
