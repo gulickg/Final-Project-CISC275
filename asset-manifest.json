@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/Final-Project-CISC275/static/css/main.eee49e0c.css",
-    "main.js": "/Final-Project-CISC275/static/js/main.a9a3f3fb.js",
+    "main.css": "/Final-Project-CISC275/static/css/main.0e6e10cc.css",
+    "main.js": "/Final-Project-CISC275/static/js/main.34306d01.js",
     "static/js/453.bad6c33a.chunk.js": "/Final-Project-CISC275/static/js/453.bad6c33a.chunk.js",
+    "static/media/Flowers Kingdom.ttf": "/Final-Project-CISC275/static/media/Flowers Kingdom.2426b04af6885e5c9d95.ttf",
+    "static/media/Coolvetica Rg.otf": "/Final-Project-CISC275/static/media/Coolvetica Rg.9975df918fd92e4d242a.otf",
+    "static/media/CreatoDisplay-Regular.otf": "/Final-Project-CISC275/static/media/CreatoDisplay-Regular.6d28723c4e0b525a515f.otf",
     "static/media/question-mark.png": "/Final-Project-CISC275/static/media/question-mark.8319ce3cd9c3de8e9f26.png",
     "index.html": "/Final-Project-CISC275/index.html",
-    "main.eee49e0c.css.map": "/Final-Project-CISC275/static/css/main.eee49e0c.css.map",
-    "main.a9a3f3fb.js.map": "/Final-Project-CISC275/static/js/main.a9a3f3fb.js.map",
+    "main.0e6e10cc.css.map": "/Final-Project-CISC275/static/css/main.0e6e10cc.css.map",
+    "main.34306d01.js.map": "/Final-Project-CISC275/static/js/main.34306d01.js.map",
     "453.bad6c33a.chunk.js.map": "/Final-Project-CISC275/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eee49e0c.css",
-    "static/js/main.a9a3f3fb.js"
+    "static/css/main.0e6e10cc.css",
+    "static/js/main.34306d01.js"
   ]
 }
