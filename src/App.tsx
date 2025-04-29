@@ -27,7 +27,7 @@ function App() {
   const [showLogin, setShowLogin] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
-  const [basicDone, setBasicDone] = useState<boolean>(false);
+  // const [basicDone, setBasicDone] = useState<boolean>(false);
 
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
@@ -44,13 +44,13 @@ function App() {
   }
 
   function updateBasic(answers: string[]){
-    setBasicAnswers(answers);
-    if (numberBasicCompleted === 7) {
-      setBasicDone(true);
-    } else {
-      setBasicDone(false);
-    }
-    if (user) updateUser(answers);
+    // setBasicAnswers(answers);
+    // if (numberBasicCompleted === 7) {
+    //   setBasicDone(true);
+    // } else {
+    //   setBasicDone(false);
+    // }
+    // if (user) updateUser(answers);
   }
 
   function disablePopUp(){
