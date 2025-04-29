@@ -33,10 +33,6 @@ function App() {
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
 
-  const popUp2: boolean = !basicDone && numberBasicCompleted===7;
-
-
-
   function updateCompleted(answers:string[]){
     setDetailedAnswers(answers);
     if (numberDetailedCompleted === 7){
