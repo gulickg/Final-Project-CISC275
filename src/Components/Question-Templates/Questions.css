@@ -57,15 +57,16 @@
   /* Tooltip text */
   .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    color: #fff;
-    text-align: center;
+    width: 200px;
+    color: #000000;
+    text-align: left;
     padding: 5px 0;
     border-radius: 6px;
-    opacity: 0;
-    bottom: 150%;
-    right: -250%;
-    transition: opacity .5s;
+    opacity: 1;
+    bottom: -400%;
+    left: 250%;
+    transition: opacity .3s;
+    background-color: rgb(247, 251, 255);
    
     /* Position the tooltip text - see examples below! */
     position: absolute;
@@ -76,13 +77,13 @@
   
   --p: 50%;
 
-  border-image: fill 0//var(--h)
+  /* border-image: fill 0//var(--h)
     conic-gradient(var(--c,#333333) 0 0);
   clip-path: 
     polygon(0 100%,0 0,100% 0,100% 100%,
       calc(var(--p) + var(--b)/2) 100%,
       var(--p) calc(100% + var(--h)),
-      calc(var(--p) - var(--b)/2) 100%);
+      calc(var(--p) - var(--b)/2) 100%); */
   }
   
   /* Show the tooltip text when you mouse over the tooltip container */

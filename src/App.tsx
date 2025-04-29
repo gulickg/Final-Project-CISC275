@@ -26,9 +26,15 @@ function App() {
   const [user, setUser] = useState<USER | null>(null);
   const [showLogin, setShowLogin] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
+  const [basicDone, setBasicDone] = useState<boolean>(false);
 
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
+  const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+
+  const popUp2: boolean = !basicDone && numberBasicCompleted===7;
+
 
 
   function updateCompleted(answers:string[]){
@@ -37,6 +43,16 @@ function App() {
       setDetailedDone(true);
     } if (numberDetailedCompleted !== 7){
       setDetailedDone(false);
+    }
+    if (user) updateUser(answers);
+  }
+
+  function updateBasic(answers: string[]){
+    setBasicAnswers(answers);
+    if (numberBasicCompleted === 7) {
+      setBasicDone(true);
+    } else {
+      setBasicDone(false);
     }
     if (user) updateUser(answers);
   }
@@ -89,19 +105,21 @@ function App() {
       </Form> */}
       <div id='app-content'>
       <header id='header'>
-              <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
-          </header>
-          {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
-          {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-          {page === 'basicQuestions' && (<BasicQuestions></BasicQuestions>)}
-          {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
-          {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
-          {page === 'basicQuestionsReport' && (<Report></Report>)}
-        
-        <footer id='footer'>
-          <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
-        </footer>
+        <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
+      </header>
+      <div id='page-content'>
+        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
+        {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
+        {page === 'basicQuestions' && (<BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
+        {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
+        {page === 'basicQuestionsReport' && (<Report></Report>)}
       </div>
+      <footer id='footer'>
+        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
+      </footer>
+      </div>
+      <div> {popUp2 ? "oijoi" : "aerwe"}</div>
     </div>
     
   );
