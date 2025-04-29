@@ -1,5 +1,5 @@
-import React, { JSX, useState } from "react";
-import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
+// import React, { JSX, useState } from "react";
+// import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 //import "./AIIntegration.css"; // Create this CSS file
 //import {OPENAI_API_KEY} from 'src/Components/APIKey.env'
 import OpenAI from "openai"
@@ -7,7 +7,7 @@ import OpenAI from "openai"
 //import * as dotenv from 'dotenv';
 //import chalk from 'chalk';
 //import App from "./App";
-import { BasicQuestions } from "./BasicQuestions";
+// import { BasicQuestions } from "./BasicQuestions";
 import {Question} from "./DetailedQuestions"
 import {Report} from "./Report"
 

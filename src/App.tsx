@@ -6,7 +6,7 @@ import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage';
 import { DetailedQuestions } from './Components/DetailedQuestions';
 import { BasicQuestions } from './Components/BasicQuestions';
-import { Report } from './Components/Report';
+// import { Report } from './Components/Report';
 import { PopUp } from './Components/Popup';
 import { Login } from './Components/Login';
 import { USER, saveUser } from './Components/SaveFunctions';
