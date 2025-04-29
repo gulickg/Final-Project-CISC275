@@ -16,7 +16,9 @@ interface NavigationProps {
 
 export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut}: NavigationProps):React.JSX.Element{
     return(<div id='navbar'>
-       { !footer && <div id='filler'></div>}
+       { !footer && <div id='filler'>
+        CareerHelpi
+        </div>}
         <div id='nav-buttons'>
         <div><Button className='navButton' onClick={() => setPage('homepage')}>Home</Button></div>
         <div><Button className='navButton' onClick={() => setPage('basicQuestions')}>Basic Questions</Button></div>

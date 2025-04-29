@@ -30,6 +30,8 @@
     opacity: 1;
     max-width: 30%;
     padding: 20px;
+    border-width: 10px;
+    border-color: #024932;
 }
 
 #x-wrapper{

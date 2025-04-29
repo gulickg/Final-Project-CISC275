@@ -55,7 +55,7 @@ export function TextInputQuestion({question, qNumber, response, answer}: TextQue
                 </Form.Label>
                 <Form.Control
                 as='textarea'
-                rows={3}
+                rows={5}
                 value={answer}
                 onChange={updateAnswer}>
                 </Form.Control>

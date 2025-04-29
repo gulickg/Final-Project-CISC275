@@ -1,6 +1,7 @@
 #title{
     margin-top: 40px;
     margin-bottom: 40px;
+    color: #024932;
 }
 
 #description-box {
@@ -23,7 +24,7 @@
 
 .quiz {
     display: flex;
-    width: 40%;
+    width: 50%;
     text-align: center;
     justify-content: center;
     border: solid;
@@ -31,6 +32,10 @@
     margin: 5px;
     flex-basis: auto;
     height: 100%;
+    border-radius: 15px;
+    background-color: #fbf6f2;
+    border-color: #97d4b4;
+    border-width: 10px;
 }
 
 #homepage-box{
