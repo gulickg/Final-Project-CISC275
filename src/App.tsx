@@ -113,7 +113,7 @@ function App() {
         {page === 'basicQuestions' && (<BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
         {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
-        {page === 'basicQuestionsReport' && (<Report></Report>)}
+        {/* {page === 'basicQuestionsReport' && (<Report></Report>)} */}
       </div>
       <footer id='footer'>
         <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
