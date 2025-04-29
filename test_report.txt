@@ -13,7 +13,7 @@ FAIL src/Components/Homepage.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/BasicQuestions.test.tsx
+FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -24,7 +24,7 @@ FAIL src/Components/BasicQuestions.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/DetailedQuestions.test.tsx
+FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -256,34 +256,36 @@ FAIL src/App.test.tsx
       at Object.<anonymous> (src/App.test.tsx:7:30)
 
 A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
------------------------------------|---------|----------|---------|---------|-------------------
-File                               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------------------|---------|----------|---------|---------|-------------------
-All files                          |   11.11 |    25.97 |      10 |   10.36 |                   
- src                               |   30.23 |    35.48 |   27.27 |    27.5 |                   
-  App.tsx                          |   40.62 |    40.74 |   33.33 |   37.93 | 37-78             
-  index.tsx                        |       0 |      100 |     100 |       0 | 7-19              
-  reportWebVitals.ts               |       0 |        0 |       0 |       0 | 3-10              
- src/Components                    |     5.6 |       25 |    7.69 |    5.76 |                   
-  AIIntegration.tsx                |       0 |        0 |       0 |       0 | 22-84             
-  BasicQuestions.tsx               |       0 |        0 |       0 |       0 | 20-99             
-  DescriptionBox.tsx               |   66.66 |      100 |      50 |   66.66 | 24                
-  DetailedQuestions.tsx            |       0 |        0 |       0 |       0 | 40-128            
-  Homepage.tsx                     |     100 |      100 |     100 |     100 |                   
-  Loader.tsx                       |       0 |      100 |       0 |       0 | 5                 
-  Login.tsx                        |       0 |        0 |       0 |       0 | 16-79             
-  Navigation.tsx                   |   16.66 |     87.5 |   16.66 |   16.66 | 23-31             
-  Popup.tsx                        |       0 |      100 |       0 |       0 | 11                
-  Report.tsx                       |       0 |      100 |       0 |       0 | 4                 
-  SaveFunctions.tsx                |       0 |        0 |       0 |       0 | 9-30              
- src/Components/Question-Templates |       0 |        0 |       0 |       0 |                   
-  RadioButtonsQuestion.tsx         |       0 |      100 |       0 |       0 | 25-42             
-  SliderQuestion.tsx               |       0 |        0 |       0 |       0 | 19-32             
-  SwitchQuestion.tsx               |       0 |        0 |       0 |       0 | 18-27             
-  TextInputQuestion.tsx            |       0 |      100 |       0 |       0 | 40-45             
------------------------------------|---------|----------|---------|---------|-------------------
+------------------------------------------|---------|----------|---------|---------|-------------------
+File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------------------------|---------|----------|---------|---------|-------------------
+All files                                 |   11.17 |    28.16 |      10 |   10.36 |                   
+ src                                      |   30.23 |    35.48 |   27.27 |    27.5 |                   
+  App.tsx                                 |   40.62 |    40.74 |   33.33 |   37.93 | 37-78             
+  index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
+ src/Components                           |    5.71 |       25 |     7.4 |    5.97 |                   
+  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 22-84             
+  Homepage.tsx                            |     100 |      100 |     100 |     100 |                   
+  Loader.tsx                              |       0 |      100 |       0 |       0 | 5                 
+  Login.tsx                               |       0 |        0 |       0 |       0 | 16-79             
+  Navigation.tsx                          |   16.66 |     87.5 |   16.66 |   16.66 | 23-31             
+  Popup.tsx                               |       0 |      100 |       0 |       0 | 11                
+  Report.tsx                              |       0 |      100 |       0 |       0 | 4                 
+  SaveFunctions.tsx                       |       0 |        0 |       0 |       0 | 9-30              
+ src/Components/Basic-Questions-Folder    |       0 |        0 |       0 |       0 |                   
+  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 19-113            
+ src/Components/Detailed-Questions-Folder |       0 |        0 |       0 |       0 |                   
+  DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 40-128            
+ src/Components/Question-Templates        |      10 |    33.33 |    9.09 |      10 |                   
+  DescriptionBox.tsx                      |   66.66 |      100 |      50 |   66.66 | 24                
+  RadioButtonsQuestion.tsx                |       0 |        0 |       0 |       0 | 23-40             
+  SliderQuestion.tsx                      |       0 |      100 |       0 |       0 | 21-32             
+  SwitchQuestion.tsx                      |       0 |        0 |       0 |       0 | 21-36             
+  TextInputQuestion.tsx                   |       0 |      100 |       0 |       0 | 40-45             
+------------------------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        4.918 s
+Time:        4.85 s
 Ran all test suites.
