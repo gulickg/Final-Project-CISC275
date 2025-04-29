@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: Creato;
+  height: 100vh;
 }
 
 .App-logo {
@@ -79,7 +80,6 @@ border-color: #d6844b;
 
 #page-content{
   justify-content: center;
-  height:100%;
 }
 
 #footer{
@@ -89,7 +89,7 @@ border-color: #d6844b;
   width: 100%;
   display: flex;
   background-color: #024932;
-  width: 100%;
+  padding-left: calc(100vw - 100%);
   
 }
 
