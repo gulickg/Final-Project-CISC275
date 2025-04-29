@@ -1,10 +1,26 @@
 .App {
   text-align: center;
+  font-family: Creato;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+@font-face {
+  font-family: FlowersKingdom;
+  src: url('./Fonts/Flowers Kingdom.ttf');
+}
+
+@font-face {
+  font-family: Coolvetica;
+  src: url('./Fonts/Coolvetica\ Rg.otf');
+}
+
+@font-face {
+  font-family: Creato;
+  src: url('./Fonts/CreatoDisplay-Regular.otf');
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -38,14 +54,21 @@
 }
 
 footer > #navbar > #nav-buttons > div > .navButton{
-  background-color: rgb(255, 255, 255);
-  border: none;
-  border-bottom: solid;
-  color: blue;
-  padding-left: 0%;
-  padding-right: 0%;
-  margin: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 0px;
+  border-top: none;
+  border-left: none;
+  border-right:none;
+  border-color: #cffbcd;
+  padding:0;
+  color: #cffbcd;
 }
+
+footer > #navbar > #nav-buttons > div > .navButton:hover{
+color: #d6844b;
+border-color: #d6844b;
+}
+
 
 #app-content{
   display: flex;
@@ -64,14 +87,15 @@ footer > #navbar > #nav-buttons > div > .navButton{
   justify-content: center;
   width: 100%;
   display: flex;
-  background-color: rgb(255, 255, 255);
+  background-color: #024932;
   width: 100%;
+  
 }
 
 
 footer > #navbar{
   display: flex;
-  background-color: rgb(255, 255, 255);
+  background-color: #024932;
   width: 100%;
 }
 
@@ -81,17 +105,13 @@ footer > #navbar > #nav-buttons{
 }
 
 .btn-primary{
-  background-color: darkseagreen;
+  background-color: #266d56;
   border-color: #282c34;
   outline: 1px;
 }
 
 .btn-primary:hover{
-  background-color: green;
-}
-
-.btn-primary:focus{
-  background-color: darkseagreen;
+  background-color: #024932;
 }
 
 .btn-primary:disabled{

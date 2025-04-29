@@ -58,7 +58,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                 </div>
                 {state === 'email' && <div>
                 <Form.Group>
-                    <Form.Label>Email:</Form.Label>
+                    <Form.Label>Enter your email address:</Form.Label>
                     <Form.Control
                     value = {email}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>

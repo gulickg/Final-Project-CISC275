@@ -1,3 +1,5 @@
-import {AIpage} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/AIIntegration"
-import { Question } from "./DetailedQuestions"
+import React from "react";
+// import { render, screen } from "@testing-library/react";
+// import userEvent from "@testing-library/user-event";
 
+export function AITest(){}

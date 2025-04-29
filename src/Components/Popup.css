@@ -23,13 +23,15 @@
     flex-direction: column;
     flex-basis: content;
     justify-content: center;
-    background-color: white;
+    background-color: #fbf6f2;
     z-index: 10;
     border-radius: 15px;
     z-index: 101;
     opacity: 1;
     max-width: 30%;
     padding: 20px;
+    border-width: 10px;
+    border-color: #024932;
 }
 
 #x-wrapper{

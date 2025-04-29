@@ -1,26 +1,43 @@
 #navbar{
     display: flex;
     justify-content: center;
-    background-color: green;
-    padding-left: calc(100vw - 100%);
+    background-color: #024932;
+    width: 100%;
 }
 
 .navButton{
     margin: 10px;
-    background-color: lightyellow;
-    border-radius: 0%;
-    color: black;
-    border-color: black;
+    background-color: #d6844b;
+    border-radius: 15px;
+    color: #fbf6f2;
+    border:none
+}
+
+#filler{
+    flex-basis: 8.185%;
+    min-width: 90px;
+    font-family: FlowersKingdom;
+    justify-content: center;
+    align-content: center;
+    padding: 5px;
+    padding-bottom: 10px;
+    color: #d6844b;
 }
 
 .navButton:hover {
-    background-color: darkseagreen;
+    background-color: #8d4c1f;
     color: white;
     border-color: black;
 }
 
 .navButton:focus{
-    background-color: darkseagreen;
+    background-color: #d6844b;
+    box-shadow: none;
+    border-color: black;
+}
+
+.navButton:focus:hover{
+    background-color: #8d4c1f;
     box-shadow: none;
     border-color: black;
 }
@@ -34,7 +51,11 @@
 #nav-buttons{
     display: flex;
     flex-direction: row;
-    flex-basis: 90%;
+    flex-basis: 100%;
     justify-content: center;
-    padding-left: calc(10%)
+    margin-left: calc(1 / (100vw - 100%))
+}
+
+#log-btn-box{
+    padding-right: calc(15px - (100vw - 100%));
 }
