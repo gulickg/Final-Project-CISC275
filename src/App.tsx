@@ -119,7 +119,6 @@ function App() {
         <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </footer>
       </div>
-      <div> {popUp2 ? "oijoi" : "aerwe"}</div>
     </div>
     
   );
