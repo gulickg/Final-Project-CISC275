@@ -63,7 +63,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                     value = {email}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
                 </Form.Group>
-                <Button onClick={() => handleSubmission(email)}>Enter</Button>
+                <Button className='submission' onClick={() => handleSubmission(email)}>Enter</Button>
                 </div>}
                 {state === 'makeAccount' && <div>
                     <Form.Group>
@@ -72,11 +72,11 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                     value = {name}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}/>
                 </Form.Group>
-                <Button onClick={()=> makeAccount()}>Make Account</Button>
+                <Button className='submission' onClick={()=> makeAccount()}>Make Account</Button>
                 </div>}
                 {state=== 'login' && <div>
                     Welcome {name}!
-                    <Button onClick={()=> login()}>Continue</Button>
+                    <Button className='submission' onClick={()=> login()}>Continue</Button>
                 </div>}
             </div>
         </div>
