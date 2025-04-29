@@ -44,7 +44,7 @@ function App() {
   }
 
   function updateBasic(answers: string[]){
-    // setBasicAnswers(answers);
+    setBasicAnswers(answers);
     // if (numberBasicCompleted === 7) {
     //   setBasicDone(true);
     // } else {
