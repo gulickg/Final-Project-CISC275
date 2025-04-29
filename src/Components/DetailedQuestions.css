@@ -1,70 +1,82 @@
 #detailed-progress-bar-box{
     display: flex;
-    border: solid;
-    border-color: black;
-    border-width: 2px;
+    border:none;
     height: 20px;
-    width: 200px;
+    width: 70%;
     justify-self: center;
     justify-content: center;
     align-items: center;
     margin-top: 5px;
     background-color: white;
+    border-radius:15px;
 }
 
 #detailed-progress-bar{
     height: 10px;
     justify-self: left;
-    background-color: aquamarine;
+    background-color: #97d4b4;
     transition: width .5s;
+    width: 100%;
+    border-radius: 15px;
+}
+
+#dquestion-sect{
+    padding-left: calc(100vw - 100%)
 }
 
 #wrapper{
     display: flex;
-    width: 97%;
+    width: 100%;
     justify-content: left;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .text-input-question{
-    margin-bottom: 20px;
-    margin-top:20px;
+    margin-bottom: 30px;
+    margin-top:30px;
 }
 
 #detailed-prog-bar{
     position: sticky;
     top:0;
-    background-color: darkseagreen;
+    background-color: #266d56;
     padding-bottom: 10px;
     padding-top: 5px;
     z-index: 10;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.326);
+    box-shadow: 0px 2px 5px #02493253;
+    padding-left: calc(100vw - 100%)
 }
 
-#title{
+#dtitle{
     margin-top:20px;
     margin-bottom: 10px;
+    font-family: Coolvetica;
+    color: #024932;
 }
 
 #submit-area{
     padding: 40px;
 }
 
-#detailed-submit, #scroll-down{
+#detailed-submit{
     box-shadow: none;
-    outline: 1px;
-    outline: black;
-    border-color: black;
+    border: none;
+    border-radius: 15px;
+    padding: 9px;
 }
 
 #ds-wrapper{
     display:flex;
     align-items: center;
     justify-content: center;
-    padding-left: calc(100vw - 100%);
 }
 
 #dsb-wrapper{
     display:flex;
+    width:100%;
+    align-items: center;
+    justify-content: center;
 }
 
 #dsb-wrapper:hover{
@@ -91,3 +103,6 @@
     background-color: green;
 }
 
+#detailed-questions-page{
+    margin-bottom: 20px;
+}

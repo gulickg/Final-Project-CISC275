@@ -24,7 +24,7 @@ function App() {
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
   const [detailedDone, setDetailedDone] = useState<boolean>(false);
   const [user, setUser] = useState<USER | null>(null);
-  const [showLogin, setShowLogin] = useState<boolean>(true);
+  const [showLogin, setShowLogin] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
   const [basicDone, setBasicDone] = useState<boolean>(false);

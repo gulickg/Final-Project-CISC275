@@ -19,15 +19,8 @@
 }
 
 #popup{
-    display: flex;
-    flex-direction: column;
-    flex-basis: content;
-    justify-content: center;
-    background-color: white;
-    z-index: 10;
-    border-radius: 15px;
-    z-index: 101;
-    opacity: 1;
-    max-width: 30%;
-    padding: 20px;
+    border: solid #024932 5px;
+    font-family: Creato;
+    color: #024932;
 }
+

@@ -113,21 +113,24 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
     }
         return(<div id='detailed-questions-page'>
             <div id='detailed-prog-bar'>
-                <div>Progress:</div>
                 <div id='detailed-progress-bar-box'>
                     <div id='wrapper'>
                         <div id='detailed-progress-bar' style={{ width: size}}></div>
                     </div>
                 </div>
             </div>
-            {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
-                <div>↓</div>
-            </Button> */}
-            <h1 id='title'>Detailed Quiz Questions</h1>
-            {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} tool={q.tooltip}></TextInputQuestion>)}
-            <div id='ds-wrapper'>
-                <div id='dsb-wrapper'>
-                    <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+            <div id='dquestion-sect'>
+                {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
+                    <div>↓</div>
+                </Button> */}
+                <h1 id='dtitle'>Detailed Quiz Questions</h1>
+                
+                {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer}></TextInputQuestion>)}
+                
+                <div id='ds-wrapper'>
+                    <div id='dsb-wrapper'>
+                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+                    </div>
                 </div>
             </div>
         </div>);

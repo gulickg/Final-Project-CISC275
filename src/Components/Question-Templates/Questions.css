@@ -2,28 +2,35 @@
     justify-self: center;
     border: solid;
     border-width: 1px;
-    width: 50%;
+    width: 70%;
     text-align: left;
     padding: 10px 10px 10px 10px;
-    border-radius: 5px;
-    border-color: gray;
-    border-width: 2px;
+    border-radius: 15px;
+    background-color: #fbf6f2;
+    border-width: 10px;
+    border-color: #d6844b;
+    box-shadow: 0px 0px 10px #0249325c;
 }
 
 
 .question-number{
     display: flex;
-    background-color: rgb(234, 244, 254);
+    background-color: #f8eed4;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     width: 100%;
     justify-self: center;
     margin: 10px 0px 10px 0px;
     padding: 10px 10px 10px 10px;
     text-align: left;
     justify-content: space-between;
+    color: #d6844b;
 }
 
 .question-text{
     margin: 0px 10px 10px 10px;
+    font-family: Creato;
+    color: #024932;
 }
 
 .radio-choices{

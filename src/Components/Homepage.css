@@ -1,18 +1,34 @@
 #title{
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #024932;
+    font-family: FlowersKingdom;
+    font-size: x-large;
 }
 
-#content-box {
+#description-box {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+#hpc{
+    flex-basis: 50%;
+}
+
+
+#homepage-content{
+    display:flex;
+    flex-direction: row;
     height: 100%;
 }
 
 .quiz {
     display: flex;
-    width: 40%;
+    width: 50%;
     text-align: center;
     justify-content: center;
     border: solid;
@@ -20,10 +36,17 @@
     margin: 5px;
     flex-basis: auto;
     height: 100%;
+    border-radius: 15px;
+    background-color: #fbf6f2;
+    border-color: #266d56;
+    border-width: 5px;
+    box-shadow: 0px 0px 10px #0249325c;
+    max-height: 250px;
+    max-width: 1000px
 }
 
 #homepage-box{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
 }

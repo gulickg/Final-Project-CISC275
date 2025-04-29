@@ -16,16 +16,19 @@ interface NavigationProps {
 
 export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut}: NavigationProps):React.JSX.Element{
     return(<div id='navbar'>
+       { !footer && <div id='filler'>
+        CareerSprout
+        </div>}
         <div id='nav-buttons'>
         <div><Button className='navButton' onClick={() => setPage('homepage')}>Home</Button></div>
         <div><Button className='navButton' onClick={() => setPage('basicQuestions')}>Basic Questions</Button></div>
         <div><Button className='navButton' onClick={() => setPage('detailedQuestions')}> Detailed Questions</Button></div>
         </div>
         {!footer && !loggedIn &&
-        <div><Button id='log-in' className='navButton' onClick={()=>setShowLogin(true)}>Log In</Button></div>
+        <div id='log-btn-box'><Button id='log-in' className='navButton' onClick={()=>setShowLogin(true)}>Log In</Button></div>
         }
         {!footer && loggedIn &&
-        <div><Button id='log-in' className='navButton' onClick={()=>logOut()}>Log Out</Button></div>
+        <div id='log-btn-box'><Button id='log-in' className='navButton' onClick={()=>logOut()}>Log Out</Button></div>
         }
     </div>);
 
