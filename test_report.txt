@@ -2,7 +2,7 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/Components/BasicQuestions.test.tsx
+FAIL src/Components/Homepage.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -13,7 +13,7 @@ FAIL src/Components/BasicQuestions.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/Homepage.test.tsx
+FAIL src/Components/BasicQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -237,10 +237,6 @@ FAIL src/App.test.tsx
               [36m</div>[39m
             [36m</footer>[39m
           [36m</div>[39m
-          [36m<div>[39m
-            [0m [0m
-            [0maerwe[0m
-          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -263,9 +259,9 @@ A worker process has failed to exit gracefully and has been force exited. This i
 -----------------------------------|---------|----------|---------|---------|-------------------
 File                               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------------------|---------|----------|---------|---------|-------------------
-All files                          |   11.79 |    27.05 |      10 |   11.17 |                   
- src                               |      30 |    35.89 |   27.27 |   28.26 |                   
-  App.tsx                          |   38.46 |       40 |   33.33 |   37.14 | 41-82             
+All files                          |   11.11 |    25.97 |      10 |   10.36 |                   
+ src                               |   30.23 |    35.48 |   27.27 |    27.5 |                   
+  App.tsx                          |   40.62 |    40.74 |   33.33 |   37.93 | 37-78             
   index.tsx                        |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts               |       0 |        0 |       0 |       0 | 3-10              
  src/Components                    |     5.6 |       25 |    7.69 |    5.76 |                   
@@ -289,5 +285,5 @@ All files                          |   11.79 |    27.05 |      10 |   11.17 |
 Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        5.016 s
+Time:        4.918 s
 Ran all test suites.
