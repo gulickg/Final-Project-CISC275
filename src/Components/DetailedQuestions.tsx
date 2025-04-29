@@ -104,7 +104,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
                     <div>↓</div>
                 </Button> */}
-                <h1 id='title'>Detailed Quiz Questions</h1>
+                <h1 id='dtitle'>Detailed Quiz Questions</h1>
                 
                 {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer}></TextInputQuestion>)}
                 

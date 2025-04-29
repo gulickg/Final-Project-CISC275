@@ -19,5 +19,8 @@
 }
 
 #popup{
-    border-width: 10px;
+    border: solid #024932 5px;
+    font-family: Creato;
+    color: #024932;
 }
+

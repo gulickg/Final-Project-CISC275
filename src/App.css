@@ -105,17 +105,13 @@ footer > #navbar > #nav-buttons{
 }
 
 .btn-primary{
-  background-color: darkseagreen;
+  background-color: #266d56;
   border-color: #282c34;
   outline: 1px;
 }
 
 .btn-primary:hover{
-  background-color: green;
-}
-
-.btn-primary:focus{
-  background-color: darkseagreen;
+  background-color: #024932;
 }
 
 .btn-primary:disabled{

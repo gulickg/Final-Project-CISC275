@@ -24,7 +24,7 @@ export function Homepage({setPage}: HomepageProps):React.JSX.Element{
     const detailedDescription:string = "The following quiz will assess your personality and decide which career fits your lifestyle and interests best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.";
 
     return(<div id='homepage-box'>
-        <h1 id='title'>Welcome to the Career Helpi!</h1>
+        <h1 id='title'>Welcome to CareerSprout!</h1>
         <div id='homepage-content'>
             <div id='hpc'></div>
             <div id='description-box'>

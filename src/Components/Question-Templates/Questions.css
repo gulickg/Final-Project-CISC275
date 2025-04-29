@@ -9,6 +9,7 @@
     background-color: #fbf6f2;
     border-width: 10px;
     border-color: #d6844b;
+    box-shadow: 0px 0px 10px #0249325c;
 }
 
 
@@ -29,6 +30,7 @@
 .question-text{
     margin: 0px 10px 10px 10px;
     font-family: Creato;
+    color: #024932;
 }
 
 .radio-choices{

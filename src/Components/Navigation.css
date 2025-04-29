@@ -31,7 +31,13 @@
 }
 
 .navButton:focus{
-    background-color: darkseagreen;
+    background-color: #d6844b;
+    box-shadow: none;
+    border-color: black;
+}
+
+.navButton:focus:hover{
+    background-color: #8d4c1f;
     box-shadow: none;
     border-color: black;
 }
