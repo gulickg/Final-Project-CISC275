@@ -1,5 +1,5 @@
 #title{
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 20px;
     color: #024932;
     font-family: FlowersKingdom;
@@ -52,4 +52,9 @@
     flex-direction: column;
     height: calc(100vh - 100px);
     justify-content:space-between;
+}
+
+.tagline{
+    font-family: Honey;
+    font-size: 60px;
 }
