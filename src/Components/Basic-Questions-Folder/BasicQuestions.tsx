@@ -2,6 +2,7 @@ import React from 'react'
 import './BasicQuestions.css'
 import '../Detailed-Questions-Folder/DetailedQuestions.css'
 import '../Question-Templates/RadioButtonsQuestion'
+
 import { RadioButtonQuestion } from '../Question-Templates/RadioButtonsQuestion'
 import { SliderRangeQuestion } from '../Question-Templates/SliderQuestion'
 import { SwitchQuestion } from '../Question-Templates/SwitchQuestion'
@@ -103,7 +104,8 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
                 </div>
             </div>
         </div>
-        <h1 id='title'>Basic Quiz Questions</h1>
+        <h1 id='dtitle'>Basic Quiz Questions</h1>
+
             {/* <RadioButtonQuestion order={1} question={"How much time do you usually dedicate per week to hobbies?"} choices={['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>

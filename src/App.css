@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   font-family: Creato;
+  height: 100vh;
 }
 
 .App-logo {
@@ -22,6 +23,12 @@
   font-family: Creato;
   src: url('./Fonts/CreatoDisplay-Regular.otf');
 }
+
+@font-face{
+  font-family: Honey;
+  src: url('./Fonts/hello honey.otf')
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -88,8 +95,7 @@ border-color: #d6844b;
   width: 100%;
   display: flex;
   background-color: #024932;
-  width: 100%;
-  
+  padding-right: calc(15px - (100vw - 100%));
 }
 
 

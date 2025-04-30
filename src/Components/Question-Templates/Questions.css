@@ -1,4 +1,4 @@
-.radio-question, .text-input-question{
+.radio-question, .text-input-question, .switch-question, .slider-question{
     justify-self: center;
     border: solid;
     border-width: 1px;
@@ -10,6 +10,9 @@
     border-width: 10px;
     border-color: #d6844b;
     box-shadow: 0px 0px 10px #0249325c;
+    margin-bottom: 30px;
+    margin-top:30px;
+
 }
 
 
