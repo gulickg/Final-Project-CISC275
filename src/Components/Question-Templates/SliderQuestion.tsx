@@ -13,26 +13,27 @@ interface SliderQuestionProps {
     question: string;
     choices: string[];
     addCompleted: (num: number, ans: string) => void;
+    answer: string;
+    tool: string;
 }
 
-export function SliderRangeQuestion({order, question, choices, addCompleted}: SliderQuestionProps): React.JSX.Element {
+export function SliderRangeQuestion({order, question, choices, addCompleted, answer, tool}: SliderQuestionProps): React.JSX.Element {
     const [selectedIndex, setSelectedChoice] = useState<number>(Math.floor(choices.length / 2));
 
+    // let selectedIndex: number = Math.floor(choices.length/2);
+
     // updating the selected answer and marking as completed
-    function updateInput(event: React.ChangeEvent<HTMLInputElement>) {
-        const newIndex = Number(event.target.value);
-        if (selectedIndex === 0 && newIndex !== 0) {
-            setSelectedChoice(newIndex);
-            addCompleted(order, '');
-        } else if (selectedIndex !== newIndex){
-            setSelectedChoice(newIndex);
+    function updateInput(event: React.ChangeEvent<HTMLInputElement>){
+            const newAns = event.target.value;
+            addCompleted(order, newAns);
+            setSelectedChoice(Number(newAns));
         }
-    }
 
     return <div className='slider-question'>
         <div className='question-number'>
             Question {order}:
             <img id='more-info' src={questionMark} alt='question mark'></img>
+            <div className='tooltiptext'>{tool}</div>
         </div>
 
         <div className='question-text'>
@@ -45,8 +46,9 @@ export function SliderRangeQuestion({order, question, choices, addCompleted}: Sl
                     min={0}
                     max={choices.length-1}
                     step={1}
-                    value={selectedIndex}
+                    // value={selectedIndex}
                     onChange={updateInput}
+                    // checked={selectedIndex}
                 />
                 <div>{choices[selectedIndex]}</div>
         </div>
