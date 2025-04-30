@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import "./Navigation.css"
+import Mascot from '../graphics/mascot.png'
 
 /* 
 This is the navigation bar in the header and footer
@@ -17,7 +18,10 @@ interface NavigationProps {
 export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut}: NavigationProps):React.JSX.Element{
     return(<div id='navbar'>
        { !footer && <div id='filler'>
-        CareerSprout
+        <div id='logo-wrapper'>
+        <img src={Mascot} id='header-mascot' alt=''/>
+        <div id='site-name'>CareerSprout</div>
+        </div>
         </div>}
         <div id='nav-buttons'>
         <div><Button className='navButton' onClick={() => setPage('homepage')}>Home</Button></div>

@@ -12,7 +12,7 @@ interface SliderQuestionProps {
     order: number;
     question: string;
     choices: string[];
-    addCompleted: () => void;
+    addCompleted: (num: number, ans: string) => void;
 }
 
 export function SliderRangeQuestion({order, question, choices, addCompleted}: SliderQuestionProps): React.JSX.Element {
@@ -23,7 +23,7 @@ export function SliderRangeQuestion({order, question, choices, addCompleted}: Sl
         const newIndex = Number(event.target.value);
         if (selectedIndex === 0 && newIndex !== 0) {
             setSelectedChoice(newIndex);
-            addCompleted();
+            addCompleted(order, '');
         } else if (selectedIndex !== newIndex){
             setSelectedChoice(newIndex);
         }

@@ -95,8 +95,7 @@ border-color: #d6844b;
   width: 100%;
   display: flex;
   background-color: #024932;
-  padding-left: calc(100vw - 100%);
-  
+  padding-right: calc(15px - (100vw - 100%));
 }
 
 

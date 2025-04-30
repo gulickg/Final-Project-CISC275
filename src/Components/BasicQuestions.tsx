@@ -3,8 +3,8 @@ import './BasicQuestions.css'
 import './DetailedQuestions.css'
 import './Question-Templates/RadioButtonsQuestion'
 import { RadioButtonQuestion } from './Question-Templates/RadioButtonsQuestion'
-// import { SliderRangeQuestion } from './Question-Templates/SliderQuestion'
-// import { SwitchQuestion } from './Question-Templates/SwitchQuestion'
+import { SliderRangeQuestion } from './Question-Templates/SliderQuestion'
+import { SwitchQuestion } from './Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
 
 interface BasicProps {
@@ -82,14 +82,13 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
 
     return(<div id='detailed-questions-page'>
         <div id='detailed-prog-bar'>
-            <div>Progress:</div>
                 <div id='detailed-progress-bar-box'>
                     <div id='wrapper'>
                         <div id='detailed-progress-bar' style={{ width: size}}></div>
                 </div>
             </div>
         </div>
-        <h1 id='title'>Basic Quiz Questions</h1>
+        <h1 id='dtitle'>Basic Quiz Questions</h1>
         <p>For sliding bar questions, please review all options before selecting your answer.</p>
         <p>* Your answer will not save otherwise!</p>
             {/* <RadioButtonQuestion order={1} question={"How much time do you usually dedicate per week to hobbies?"} choices={['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours']} addCompleted={addCompleted}></RadioButtonQuestion>
@@ -99,9 +98,9 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             {RADIOQ.map((rq: Radio) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip}></RadioButtonQuestion>
             )}
             
-            {/* <SliderRangeQuestion order={5} question={"Would you consider yourself an introvert or extrovert?"} choices={['Introvert', 'I\'m a little quiet', 'Ambivert', 'I\'m a little loud', 'Extrovert']}></SliderRangeQuestion>
+            {/* /* /* <SliderRangeQuestion order={5} question={"Would you consider yourself an introvert or extrovert?"} choices={['Introvert', 'I\'m a little quiet', 'Ambivert', 'I\'m a little loud', 'Extrovert']} addCompleted={updateCompleted}></SliderRangeQuestion>
             <SliderRangeQuestion order={6} question={"Do you like to work by yourself or in a group?"} choices={['Alone', 'I prefer to be alone', 'I\'ll collaborate', 'I like working with others', 'Team work makes the dream work!']}></SliderRangeQuestion> */}
-            {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
+            {/*// <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='bottom-space'>
             <Button disabled={progressPercent < 100}>SUBMIT</Button>
         </div>
