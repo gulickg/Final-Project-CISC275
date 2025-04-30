@@ -2,7 +2,7 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/Components/Homepage.test.tsx
+FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -13,7 +13,7 @@ FAIL src/Components/Homepage.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
+FAIL src/Components/Homepage.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -69,7 +69,20 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mid[39m=[32m"filler"[39m
                 [36m>[39m
-                  [0mCareerSprout[0m
+                  [36m<div[39m
+                    [33mid[39m=[32m"logo-wrapper"[39m
+                  [36m>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m""[39m
+                      [33mid[39m=[32m"header-mascot"[39m
+                      [33msrc[39m=[32m"mascot.png"[39m
+                    [36m/>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"site-name"[39m
+                    [36m>[39m
+                      [0mCareerSprout[0m
+                    [36m</div>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
                 [36m<div[39m
                   [33mid[39m=[32m"nav-buttons"[39m
@@ -127,73 +140,69 @@ FAIL src/App.test.tsx
                   [33mid[39m=[32m"homepage-content"[39m
                 [36m>[39m
                   [36m<div[39m
+                    [33mclass[39m=[32m"quiz"[39m
+                    [33mid[39m=[32m"basic-info"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"description-box"[39m
+                    [36m>[39m
+                      [36m<p[39m
+                        [33mid[39m=[32m"question-type-title"[39m
+                      [36m>[39m
+                        [0mBasic[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mid[39m=[32m"desc"[39m
+                      [36m>[39m
+                        [0mThis assessment will quickly and efficiently evaluate what career fits your lifestyle and interests best. This assessment is great if you are short for time or do not like longer and more in depth quizzes.[0m
+                      [36m</p>[39m
+                      [36m<div[39m
+                        [33mid[39m=[32m"button-box"[39m
+                      [36m>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mid[39m=[32m"continue-button"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0mContinue to [0m
+                          [0mBasic[0m
+                          [0m Quiz[0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
                     [33mid[39m=[32m"hpc"[39m
                   [36m/>[39m
                   [36m<div[39m
-                    [33mid[39m=[32m"description-box"[39m
+                    [33mclass[39m=[32m"quiz"[39m
+                    [33mid[39m=[32m"detailed-info"[39m
                   [36m>[39m
                     [36m<div[39m
-                      [33mclass[39m=[32m"quiz"[39m
-                      [33mid[39m=[32m"basic-info"[39m
+                      [33mid[39m=[32m"description-box"[39m
                     [36m>[39m
-                      [36m<div[39m
-                        [33mid[39m=[32m"description-box"[39m
+                      [36m<p[39m
+                        [33mid[39m=[32m"question-type-title"[39m
                       [36m>[39m
-                        [36m<p[39m
-                          [33mid[39m=[32m"question-type-title"[39m
-                        [36m>[39m
-                          [0mBasic[0m
-                        [36m</p>[39m
-                        [36m<p[39m
-                          [33mid[39m=[32m"desc"[39m
-                        [36m>[39m
-                          [0mThis assessment will quickly and efficiently evaluate what career fits your lifestyle and interests best. This assessment is great if you are short for time or do not like longer and more in depth quizzes.[0m
-                        [36m</p>[39m
-                        [36m<div[39m
-                          [33mid[39m=[32m"button-box"[39m
-                        [36m>[39m
-                          [36m<button[39m
-                            [33mclass[39m=[32m"btn btn-primary"[39m
-                            [33mid[39m=[32m"continue-button"[39m
-                            [33mtype[39m=[32m"button"[39m
-                          [36m>[39m
-                            [0mContinue to [0m
-                            [0mBasic[0m
-                            [0m Quiz[0m
-                          [36m</button>[39m
-                        [36m</div>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"quiz"[39m
-                      [33mid[39m=[32m"detailed-info"[39m
-                    [36m>[39m
-                      [36m<div[39m
-                        [33mid[39m=[32m"description-box"[39m
+                        [0mDetailed[0m
+                      [36m</p>[39m
+                      [36m<p[39m
+                        [33mid[39m=[32m"desc"[39m
                       [36m>[39m
-                        [36m<p[39m
-                          [33mid[39m=[32m"question-type-title"[39m
+                        [0mThe following quiz will assess your personality and decide which career fits your lifestyle and interests best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.[0m
+                      [36m</p>[39m
+                      [36m<div[39m
+                        [33mid[39m=[32m"button-box"[39m
+                      [36m>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mid[39m=[32m"continue-button"[39m
+                          [33mtype[39m=[32m"button"[39m
                         [36m>[39m
+                          [0mContinue to [0m
                           [0mDetailed[0m
-                        [36m</p>[39m
-                        [36m<p[39m
-                          [33mid[39m=[32m"desc"[39m
-                        [36m>[39m
-                          [0mThe following quiz will assess your personality and decide which career fits your lifestyle and interests best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.[0m
-                        [36m</p>[39m
-                        [36m<div[39m
-                          [33mid[39m=[32m"button-box"[39m
-                        [36m>[39m
-                          [36m<button[39m
-                            [33mclass[39m=[32m"btn btn-primary"[39m
-                            [33mid[39m=[32m"continue-button"[39m
-                            [33mtype[39m=[32m"button"[39m
-                          [36m>[39m
-                            [0mContinue to [0m
-                            [0mDetailed[0m
-                            [0m Quiz[0m
-                          [36m</button>[39m
-                        [36m</div>[39m
+                          [0m Quiz[0m
+                        [36m</button>[39m
                       [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
@@ -269,12 +278,12 @@ All files                                 |   11.17 |    28.16 |      10 |   10.
   Homepage.tsx                            |     100 |      100 |     100 |     100 |                   
   Loader.tsx                              |       0 |      100 |       0 |       0 | 5                 
   Login.tsx                               |       0 |        0 |       0 |       0 | 16-79             
-  Navigation.tsx                          |   16.66 |     87.5 |   16.66 |   16.66 | 23-31             
+  Navigation.tsx                          |   16.66 |     87.5 |   16.66 |   16.66 | 27-35             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 11                
   Report.tsx                              |       0 |      100 |       0 |       0 | 4                 
   SaveFunctions.tsx                       |       0 |        0 |       0 |       0 | 9-30              
  src/Components/Basic-Questions-Folder    |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 19-113            
+  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 20-115            
  src/Components/Detailed-Questions-Folder |       0 |        0 |       0 |       0 |                   
   DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 40-128            
  src/Components/Question-Templates        |      10 |    33.33 |    9.09 |      10 |                   
@@ -287,5 +296,5 @@ All files                                 |   11.17 |    28.16 |      10 |   10.
 Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        4.85 s
+Time:        4.934 s
 Ran all test suites.
