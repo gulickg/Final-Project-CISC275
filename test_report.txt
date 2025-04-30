@@ -2,7 +2,7 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
+FAIL src/Components/Homepage.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -13,7 +13,7 @@ FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/Homepage.test.tsx
+FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -283,7 +283,7 @@ All files                                 |   11.17 |    28.16 |      10 |   10.
   Report.tsx                              |       0 |      100 |       0 |       0 | 4                 
   SaveFunctions.tsx                       |       0 |        0 |       0 |       0 | 9-30              
  src/Components/Basic-Questions-Folder    |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 20-115            
+  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 20-114            
  src/Components/Detailed-Questions-Folder |       0 |        0 |       0 |       0 |                   
   DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 40-128            
  src/Components/Question-Templates        |      10 |    33.33 |    9.09 |      10 |                   
@@ -296,5 +296,5 @@ All files                                 |   11.17 |    28.16 |      10 |   10.
 Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        4.934 s
+Time:        5.157 s
 Ran all test suites.
