@@ -97,7 +97,6 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
 
     return(<div id='detailed-questions-page'>
         <div id='detailed-prog-bar'>
-            <div>Progress:</div>
                 <div id='detailed-progress-bar-box'>
                     <div id='wrapper'>
                         <div id='detailed-progress-bar' style={{ width: size}}></div>
