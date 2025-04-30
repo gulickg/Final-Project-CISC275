@@ -8,7 +8,7 @@ import OpenAI from "openai"
 //import chalk from 'chalk';
 //import App from "./App";
 // import { BasicQuestions } from "./BasicQuestions";
-import {Question} from "./DetailedQuestions"
+import {Question} from "./Detailed-Questions-Folder/DetailedQuestions"
 import {Report} from "./Report"
 
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
