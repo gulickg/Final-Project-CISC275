@@ -53,9 +53,9 @@
 
 #log-btn-box{
     flex-basis: 14%;
-    align-items: end;
+    align-items: flex-end;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     
     padding-right: calc(15px - (100vw - 100%));
 }
@@ -70,7 +70,7 @@
     flex-basis: 14%;
     min-width: 90px;
     font-family: FlowersKingdom;
-    justify-content: start;
+    justify-content: flex-start;
     align-content: center;
     color: #d6844b;
     display: flex;

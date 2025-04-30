@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Image } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import "./Navigation.css"
 import Mascot from '../graphics/mascot.png'
 
