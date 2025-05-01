@@ -97,7 +97,6 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
 
     return(<div id='detailed-questions-page'>
         <div id='detailed-prog-bar'>
-            <div>Progress:</div>
                 <div id='detailed-progress-bar-box'>
                     <div id='wrapper'>
                         <div id='detailed-progress-bar' style={{ width: size}}></div>
@@ -117,8 +116,10 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
             
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
-        <div id='bottom-space'>
-            <Button disabled={progressPercent < 100}>SUBMIT</Button>
+        <div id='s-wrapper'>
+            <div id='sb-wrapper'>
+                <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+            </div>
         </div>
         
     </div>);

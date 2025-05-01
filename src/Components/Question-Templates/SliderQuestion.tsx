@@ -32,15 +32,16 @@ export function SliderRangeQuestion({order, question, choices, addCompleted, ans
     return <div className='slider-question'>
         <div className='question-number'>
             Question {order}:
-            <img id='more-info' src={questionMark} alt='question mark'></img>
-            <div className='tooltiptext'>{tool}</div>
+            <div id='img-holder' className='tooltip'>
+                <img id='more-info' src={questionMark} alt='question mark'></img>
+                <div className='tooltiptext'>{tool}</div>
+            </div>
         </div>
-
-        <div className='question-text'>
-            {question}
-        </div>
-
         <div>
+            <Form.Group controlId='check-answer'>
+                <Form.Label className='question-text'>
+                    {question}
+                </Form.Label>
                 <Form.Range
                     className='slider-container'
                     min={0}
@@ -50,7 +51,8 @@ export function SliderRangeQuestion({order, question, choices, addCompleted, ans
                     onChange={updateInput}
                     // checked={selectedIndex}
                 />
-                <div>{choices[selectedIndex]}</div>
+            </Form.Group>
+            <div>{choices[selectedIndex]}</div>
         </div>
     </div>
 }

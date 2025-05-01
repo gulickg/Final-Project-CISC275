@@ -36,13 +36,16 @@ export function SwitchQuestion({order, question, choices, addCompleted, answer, 
     return <div className='switch-question'>
         <div className='question-number'>
             Question {order}:
-            <img id='more-info' src={questionMark} alt='question mark'></img>
-            <div className='tooltiptext'>{tool}</div>
+            <div id='img-holder' className='tooltip'>
+                <img id='more-info' src={questionMark} alt='question mark'></img>
+                <div className='tooltiptext'>{tool}</div>
+            </div>
         </div>
-
-        <div className='question-text'>
-            {question}
+        <div>
             <Form.Group>
+                <Form.Label className='question-text'>
+                    {question}
+                </Form.Label>
                 <Form.Check
                     // key={question}
                     type="switch"

@@ -32,10 +32,11 @@ export function RadioButtonQuestion({order, question, choices, addCompleted, ans
                 <div className='tooltiptext'>{tool}</div>
             </div>
         </div>
-        <div className='question-text'>
-            {question}
-        </div>
         <div>
+            <Form.Group controlId='check-answer'>
+                <Form.Label className='question-text'>
+                    {question}
+                </Form.Label>
             {choices ? choices.map((c: string) => (
                 <Form.Check
                 key={question}
@@ -49,6 +50,7 @@ export function RadioButtonQuestion({order, question, choices, addCompleted, ans
                 checked={c === answer}
                 />
             )): " "}
+            </Form.Group>
             
         </div>
     </div>)
