@@ -69,6 +69,8 @@
   }
   
   .input {
+    display:flex;
+    Position:relative;
     height: 40px;
     line-height: 28px;
     padding: 0 1rem;
@@ -84,6 +86,7 @@
   }
   
   .input::placeholder {
+    position:relative;
     color: #777;
   }
   
