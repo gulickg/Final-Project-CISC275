@@ -11,6 +11,7 @@ export interface Question{
     num: number;
     question:string;
     answer: string;
+    tooltip:string;
 }
 
 
