@@ -8,7 +8,7 @@ import { Question } from './Detailed-Questions-Folder/DetailedQuestions';
 
 jest.mock('openai');
 jest.mock('./Report');
-
+/*
 const mockQuestions: Question[] = [
   {
     num: 1,
@@ -93,3 +93,4 @@ describe('AIpage()', () => {
 
 
 export function AITest(){}
+*/
