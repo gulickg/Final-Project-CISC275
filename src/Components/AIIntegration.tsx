@@ -27,13 +27,7 @@ class Career{
     }
 }
 
-interface AIIntegrationProps{
-    questions:Question[];
-    questType:string;
-    userKey:string;
-}
-
-export function AIpage({questions,questType,userKey}:AIIntegrationProps):JSX.Element{
+export function AIpage(questions:Question[],questType:string,userKey:string):React.JSX.Element{
     //const [answers, setAnswers]= useState<string[]>([]);
    // const [careerDescription, setCareerDescription]=useState<string>("");
     //const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
@@ -43,7 +37,7 @@ export function AIpage({questions,questType,userKey}:AIIntegrationProps):JSX.Ele
 
     //const [career, setCareer]=useState<Career|null>(null);
 //function to be used in detailed and basic question files
-    //function handleSubmit(){
+    async function handleSubmit(){
         setLoading(true);
         try{
             //set to what user inputs
@@ -89,11 +83,13 @@ Return only the JSON object without extra text.
         }  finally{
             setLoading(false);
         }
+    }
         return (
             <div className="ai-integration-page">
                 {loading && <Loader />}
             {loading ? (
-              Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type)
+                handleSubmit(),
+                Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type)
             ):(null)}
           </div>
           );

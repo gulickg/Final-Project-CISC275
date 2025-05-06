@@ -134,7 +134,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 
                 <div id='ds-wrapper'>
                     <div id='dsb-wrapper'>
-                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={/*trying to get AI to work when submitted*/}>Submit Responses</Button>
+                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={()=>AIpage(QUESTIONS,'detailed', keyData)}>Submit Responses</Button>
                     </div>
                 </div>
             </div>
