@@ -7,7 +7,7 @@ import OpenAI from "openai"
 //import * as dotenv from 'dotenv';
 //import chalk from 'chalk';
 //import App from "./App";
-import { Loader } from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Loader";
+//import { Loader } from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Loader";
 //import { BasicQuestions } from "./BasicQuestions";
 import {Question} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Detailed-Questions-Folder/DetailedQuestions"
 import {Report} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Report"
