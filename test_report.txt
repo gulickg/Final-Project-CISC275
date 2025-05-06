@@ -268,7 +268,7 @@ A worker process has failed to exit gracefully and has been force exited. This i
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |   11.17 |    28.16 |      10 |   10.36 |                   
+All files                                 |   11.17 |    27.39 |      10 |   10.36 |                   
  src                                      |   30.23 |    35.48 |   27.27 |    27.5 |                   
   App.tsx                                 |   40.62 |    40.74 |   33.33 |   37.93 | 37-78             
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
@@ -288,7 +288,7 @@ All files                                 |   11.17 |    28.16 |      10 |   10.
   DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 40-128            
  src/Components/Question-Templates        |      10 |    33.33 |    9.09 |      10 |                   
   DescriptionBox.tsx                      |   66.66 |      100 |      50 |   66.66 | 24                
-  RadioButtonsQuestion.tsx                |       0 |        0 |       0 |       0 | 23-40             
+  RadioButtonsQuestion.tsx                |       0 |        0 |       0 |       0 | 23-41             
   SliderQuestion.tsx                      |       0 |      100 |       0 |       0 | 21-32             
   SwitchQuestion.tsx                      |       0 |        0 |       0 |       0 | 21-36             
   TextInputQuestion.tsx                   |       0 |      100 |       0 |       0 | 40-45             
@@ -296,5 +296,5 @@ All files                                 |   11.17 |    28.16 |      10 |   10.
 Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        5.157 s
+Time:        5.036 s
 Ran all test suites.

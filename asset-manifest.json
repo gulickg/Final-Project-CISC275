@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Final-Project-CISC275/static/css/main.67a9a843.css",
-    "main.js": "/Final-Project-CISC275/static/js/main.5a8e3077.js",
+    "main.css": "/Final-Project-CISC275/static/css/main.0368fe75.css",
+    "main.js": "/Final-Project-CISC275/static/js/main.d92d3e58.js",
     "static/js/453.bad6c33a.chunk.js": "/Final-Project-CISC275/static/js/453.bad6c33a.chunk.js",
     "static/media/mascot.png": "/Final-Project-CISC275/static/media/mascot.b2d0f64b2cb10843e987.png",
     "static/media/Flowers Kingdom.ttf": "/Final-Project-CISC275/static/media/Flowers Kingdom.2426b04af6885e5c9d95.ttf",
@@ -10,12 +10,12 @@
     "static/media/CreatoDisplay-Regular.otf": "/Final-Project-CISC275/static/media/CreatoDisplay-Regular.6d28723c4e0b525a515f.otf",
     "static/media/question-mark.png": "/Final-Project-CISC275/static/media/question-mark.8319ce3cd9c3de8e9f26.png",
     "index.html": "/Final-Project-CISC275/index.html",
-    "main.67a9a843.css.map": "/Final-Project-CISC275/static/css/main.67a9a843.css.map",
-    "main.5a8e3077.js.map": "/Final-Project-CISC275/static/js/main.5a8e3077.js.map",
+    "main.0368fe75.css.map": "/Final-Project-CISC275/static/css/main.0368fe75.css.map",
+    "main.d92d3e58.js.map": "/Final-Project-CISC275/static/js/main.d92d3e58.js.map",
     "453.bad6c33a.chunk.js.map": "/Final-Project-CISC275/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.67a9a843.css",
-    "static/js/main.5a8e3077.js"
+    "static/css/main.0368fe75.css",
+    "static/js/main.d92d3e58.js"
   ]
 }
