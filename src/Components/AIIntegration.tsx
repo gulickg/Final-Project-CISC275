@@ -32,13 +32,13 @@ export function AIpage(questions:Question[],questType:string,userKey:string):Rea
    // const [careerDescription, setCareerDescription]=useState<string>("");
     //const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
    // const [answerBreakdown, setAnswerBreakdown]=useState<string>("");
-    const [loading, setLoading]=useState<boolean>(false);
+    let loading: boolean = false;
     let careerData:Career;
 
     //const [career, setCareer]=useState<Career|null>(null);
 //function to be used in detailed and basic question files
     async function handleSubmit(){
-        setLoading(true);
+        loading=true;
         try{
             //set to what user inputs
             const api= userKey;
@@ -81,7 +81,7 @@ Return only the JSON object without extra text.
         catch(error){
             console.error("Error generating career: ", error);
         }  finally{
-            setLoading(false);
+            loading = false;
         }
     }
         return (
