@@ -2,39 +2,6 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/Components/Homepage.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
-FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
-FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
 FAIL src/Components/AIIntegration.test.tsx
   ● Test suite failed to run
 
@@ -46,7 +13,271 @@ FAIL src/Components/AIIntegration.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
+FAIL src/Components/Homepage.test.tsx
+  ● Console
+
+    console.error
+      API key not found.
+
+      32 |         keyData = JSON.parse(prevKey);
+      33 |     }else{
+    > 34 |     console.error("API key not found.");
+         |             ^
+      35 |     }
+      36 |
+      37 |     return(
+
+      at Homepage (src/Components/Homepage.tsx:34:13)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/Components/Homepage.test.tsx:18:11)
+
+    console.error
+      API key not found.
+
+      32 |         keyData = JSON.parse(prevKey);
+      33 |     }else{
+    > 34 |     console.error("API key not found.");
+         |             ^
+      35 |     }
+      36 |
+      37 |     return(
+
+      at Homepage (src/Components/Homepage.tsx:34:13)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/Components/Homepage.test.tsx:22:11)
+
+    console.error
+      API key not found.
+
+      32 |         keyData = JSON.parse(prevKey);
+      33 |     }else{
+    > 34 |     console.error("API key not found.");
+         |             ^
+      35 |     }
+      36 |
+      37 |     return(
+
+      at Homepage (src/Components/Homepage.tsx:34:13)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/Components/Homepage.test.tsx:27:11)
+
+  ● Homepage component › renders the search input field
+
+    TestingLibraryElementError: Unable to find an element with the placeholder text of: /search/i
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mid[39m=[32m"homepage-box"[39m
+        [36m>[39m
+          [36m<h1[39m
+            [33mid[39m=[32m"title"[39m
+          [36m>[39m
+            [0mWelcome to CareerSprout![0m
+          [36m</h1>[39m
+          [36m<div[39m
+            [33mid[39m=[32m"homepage-content"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"quiz"[39m
+              [33mid[39m=[32m"basic-info"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mdata-testid[39m=[32m"description-basic"[39m
+              [36m>[39m
+                [0mMock [0m
+                [0mBasic[0m
+                [0m Description[0m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"group"[39m
+            [36m>[39m
+              [36m<input[39m
+                [33mclass[39m=[32m"input"[39m
+                [33mplaceholder[39m=[32m"API key here"[39m
+                [33mtype[39m=[32m"input"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mid[39m=[32m"hpc"[39m
+            [36m/>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"quiz"[39m
+              [33mid[39m=[32m"detailed-info"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mdata-testid[39m=[32m"description-detailed"[39m
+              [36m>[39m
+                [0mMock [0m
+                [0mDetailed[0m
+                [0m Description[0m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      26 |   it('renders the search input field', () => {
+      27 |     render(<Homepage setPage={mockSetPage} />);
+    > 28 |     expect(screen.getByPlaceholderText(/search/i)).toBeInTheDocument();
+         |                   ^
+      29 |   });
+      30 |
+      31 |   it('logs an error if API key is not found in localStorage', () => {
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByPlaceholderText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/Components/Homepage.test.tsx:28:19)
+
+PASS src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
+  ● Console
+
+    console.error
+      Warning: Each child in a list should have a unique "key" prop.
+      
+      Check the render method of `BasicQuestions`. See https://reactjs.org/link/warning-keys for more information.
+          at RadioButtonQuestion (/home/runner/work/Final-Project-CISC275/Final-Project-CISC275/src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx:11:27)
+          at BasicQuestions (/home/runner/work/Final-Project-CISC275/Final-Project-CISC275/src/Components/Basic-Questions-Folder/BasicQuestions.tsx:18:33)
+
+       96 |     // }
+       97 |
+    >  98 |     return(<div id='detailed-questions-page'>
+          |            ^
+       99 |         <div id='detailed-prog-bar'>
+      100 |                 <div id='detailed-progress-bar-box'>
+      101 |                     <div id='wrapper'>
+
+      at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:87:30)
+      at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:61:7)
+      at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1078:5)
+      at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1105:11)
+      at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1266:15)
+      at BasicQuestions (src/Components/Basic-Questions-Folder/BasicQuestions.tsx:98:12)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx:32:11)
+
+PASS src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
+  ● Console
+
+    console.error
+      Warning: Each child in a list should have a unique "key" prop.
+      
+      Check the render method of `DetailedQuestions`. See https://reactjs.org/link/warning-keys for more information.
+          at TextInputQuestion (/home/runner/work/Final-Project-CISC275/Final-Project-CISC275/src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx:8:25)
+          at DetailedQuestions (/home/runner/work/Final-Project-CISC275/Final-Project-CISC275/src/Components/Detailed-Questions-Folder/DetailedQuestions.tsx:43:36)
+
+      125 |                 </div>
+      126 |             </div>
+    > 127 |             <div id='dquestion-sect'>
+          |             ^
+      128 |                 {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
+      129 |                     <div>↓</div>
+      130 |                 </Button> */}
+
+      at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:87:30)
+      at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:61:7)
+      at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1078:5)
+      at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1105:11)
+      at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1266:15)
+      at DetailedQuestions (src/Components/Detailed-Questions-Folder/DetailedQuestions.tsx:127:13)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx:18:11)
+
 FAIL src/App.test.tsx
+  ● Console
+
+    console.error
+      API key not found.
+
+      32 |         keyData = JSON.parse(prevKey);
+      33 |     }else{
+    > 34 |     console.error("API key not found.");
+         |             ^
+      35 |     }
+      36 |
+      37 |     return(
+
+      at Homepage (src/Components/Homepage.tsx:34:13)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:27426:14)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:26560:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:26466:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:26434:7)
+      at performConcurrentWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:25738:74)
+      at flushActQueue (node_modules/react/cjs/react.development.js:2667:24)
+      at act (node_modules/react/cjs/react.development.js:2582:11)
+      at node_modules/@testing-library/react/dist/act-compat.js:63:25
+      at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+      at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+      at Object.<anonymous> (src/App.test.tsx:6:9)
+
   ● renders learn react link
 
     TestingLibraryElementError: Unable to find an element with the text: /learn react/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
@@ -172,6 +403,15 @@ FAIL src/App.test.tsx
                     [36m</div>[39m
                   [36m</div>[39m
                   [36m<div[39m
+                    [33mclass[39m=[32m"group"[39m
+                  [36m>[39m
+                    [36m<input[39m
+                      [33mclass[39m=[32m"input"[39m
+                      [33mplaceholder[39m=[32m"API key here"[39m
+                      [33mtype[39m=[32m"input"[39m
+                    [36m/>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
                     [33mid[39m=[32m"hpc"[39m
                   [36m/>[39m
                   [36m<div[39m
@@ -264,28 +504,40 @@ FAIL src/App.test.tsx
       at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
       at Object.<anonymous> (src/App.test.tsx:7:30)
 
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
 A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |   11.17 |    27.39 |      10 |   10.36 |                   
+All files                                 |   25.28 |    33.76 |   20.96 |      25 |                   
  src                                      |   30.23 |    35.48 |   27.27 |    27.5 |                   
-  App.tsx                                 |   40.62 |    40.74 |   33.33 |   37.93 | 37-78             
+  App.tsx                                 |   40.62 |    40.74 |   33.33 |   37.93 | 30-71             
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
- src/Components                           |    5.71 |       25 |     7.4 |    5.97 |                   
-  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 22-84             
+ src/Components                           |   14.28 |    28.12 |    7.14 |   14.86 |                   
+  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 23-87             
   Homepage.tsx                            |     100 |      100 |     100 |     100 |                   
-  Loader.tsx                              |       0 |      100 |       0 |       0 | 5                 
+  Loader.tsx                              |   66.66 |      100 |       0 |   66.66 | 6                 
   Login.tsx                               |       0 |        0 |       0 |       0 | 16-79             
   Navigation.tsx                          |   16.66 |     87.5 |   16.66 |   16.66 | 27-35             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 11                
   Report.tsx                              |       0 |      100 |       0 |       0 | 4                 
   SaveFunctions.tsx                       |       0 |        0 |       0 |       0 | 9-30              
- src/Components/Basic-Questions-Folder    |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 20-114            
- src/Components/Detailed-Questions-Folder |       0 |        0 |       0 |       0 |                   
-  DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 40-128            
+ src/Components/Basic-Questions-Folder    |      55 |       50 |   66.66 |      55 |                   
+  BasicQuestions.tsx                      |      55 |       50 |   66.66 |      55 | 77-91             
+ src/Components/Detailed-Questions-Folder |   44.44 |       50 |      50 |   44.44 |                   
+  DetailedQuestions.tsx                   |   44.44 |       50 |      50 |   44.44 | 98-116,137        
  src/Components/Question-Templates        |      10 |    33.33 |    9.09 |      10 |                   
   DescriptionBox.tsx                      |   66.66 |      100 |      50 |   66.66 | 24                
   RadioButtonsQuestion.tsx                |       0 |        0 |       0 |       0 | 23-41             
@@ -293,8 +545,8 @@ All files                                 |   11.17 |    27.39 |      10 |   10.
   SwitchQuestion.tsx                      |       0 |        0 |       0 |       0 | 21-36             
   TextInputQuestion.tsx                   |       0 |      100 |       0 |       0 | 40-45             
 ------------------------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 5 failed, 5 total
-Tests:       1 failed, 1 total
+Test Suites: 3 failed, 2 passed, 5 total
+Tests:       2 failed, 9 passed, 11 total
 Snapshots:   0 total
-Time:        5.036 s
+Time:        5.128 s
 Ran all test suites.
