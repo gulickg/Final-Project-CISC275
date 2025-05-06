@@ -5,6 +5,9 @@ import '../Question-Templates/RadioButtonsQuestion'
 import '../Question-Templates/TextInputQuestion'
 import { TextInputQuestion } from '../Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
+import { AIpage } from '../AIIntegration'
+import { keyData } from '../Homepage'
+
 
 
 export interface Question{
@@ -112,6 +115,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         }
         completed = sum;
     }
+    //creating a variable to hold AIpage function
         return(<div id='detailed-questions-page'>
             <div id='detailed-prog-bar'>
                 <div id='detailed-progress-bar-box'>
@@ -130,7 +134,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 
                 <div id='ds-wrapper'>
                     <div id='dsb-wrapper'>
-                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={/*trying to get AI to work when submitted*/}>Submit Responses</Button>
                     </div>
                 </div>
             </div>

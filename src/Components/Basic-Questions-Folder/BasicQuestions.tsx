@@ -118,7 +118,9 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='s-wrapper'>
             <div id='sb-wrapper'>
-                <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses</Button>
+                <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses
+                {/*call AIinetgration here*/}
+                </Button>
             </div>
         </div>
         

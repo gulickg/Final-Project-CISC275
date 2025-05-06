@@ -7,10 +7,10 @@ import OpenAI from "openai"
 //import * as dotenv from 'dotenv';
 //import chalk from 'chalk';
 //import App from "./App";
-//import { Loader } from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Loader";
+import Loader  from "../Components/Loader";
 //import { BasicQuestions } from "./BasicQuestions";
-import {Question} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Detailed-Questions-Folder/DetailedQuestions"
-import {Report} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/Report"
+import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestions"
+import {Report} from "../Components/Report"
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 //import {keyData} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/App"
 
@@ -27,20 +27,27 @@ class Career{
     }
 }
 
-export async function AIpage({questions}: {questions:Question[]}, questType:string, APIkey:string){
+interface AIIntegrationProps{
+    questions:Question[];
+    questType:string;
+    userKey:string;
+}
+
+export function AIpage({questions,questType,userKey}:AIIntegrationProps):JSX.Element{
     //const [answers, setAnswers]= useState<string[]>([]);
    // const [careerDescription, setCareerDescription]=useState<string>("");
     //const [careerGenerated, setCareerGenerated]=useState<boolean>(false);
    // const [answerBreakdown, setAnswerBreakdown]=useState<string>("");
-    //const [loading, setLoading]=useState<boolean>(false);
+    const [loading, setLoading]=useState<boolean>(false);
+    let careerData:Career;
 
     //const [career, setCareer]=useState<Career|null>(null);
 //function to be used in detailed and basic question files
     //function handleSubmit(){
-        //setLoading(true);
+        setLoading(true);
         try{
             //set to what user inputs
-            const api= APIkey;
+            const api= userKey;
             const openai=new OpenAI({
                 apiKey: api,
             });
@@ -75,12 +82,21 @@ Return only the JSON object without extra text.
             const json=JSON.parse(content.substring(jsonStartIndex, jsonEndIndex));
             //type is throwing error because there is not type field yet on object string
             //const type=questions[0]?.type||"Uknown";
-            const careerData:Career={...json, questType};
-            Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type);
+            careerData={...json, questType};
         }
         catch(error){
             console.error("Error generating career: ", error);
-        }  
+        }  finally{
+            setLoading(false);
+        }
+        return (
+            <div className="ai-integration-page">
+                {loading && <Loader />}
+            {loading ? (
+              Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type)
+            ):(null)}
+          </div>
+          );
     }
 
 //}
