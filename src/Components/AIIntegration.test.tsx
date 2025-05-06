@@ -13,12 +13,14 @@ const mockQuestions: Question[] = [
   {
     num: 1,
     question: 'Where would you live and why?',
-    answer: 'Tokyo for the culture and innovation.'
+    answer: 'Tokyo for the culture and innovation.',
+    tooltip: 'fake'
   },
   {
     num: 2,
     question: 'What role do you take in group work?',
-    answer: 'Usually the planner or organizer.'
+    answer: 'Usually the planner or organizer.',
+    tooltip: 'fake'
   }
 ];
 
@@ -49,7 +51,7 @@ describe('AIpage()', () => {
   });
 
   it('calls OpenAI and then Report with parsed JSON data', async () => {
-    await AIpage(mockQuestions, 'Structured');
+    await AIpage({questions: mockQuestions}, 'Structured', 'fake-api-key');
 
     expect(Report).toHaveBeenCalledWith(
       'Project Manager',
@@ -73,7 +75,7 @@ describe('AIpage()', () => {
       }
     }));
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    await AIpage(mockQuestions, 'Creative');
+    await AIpage({questions: mockQuestions}, 'Creative', 'fake-api-key');
     expect(consoleSpy).toHaveBeenCalledWith(
       expect.stringContaining('Error generating career'),
       expect.any(Error)
@@ -84,7 +86,7 @@ describe('AIpage()', () => {
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const originalEnv = process.env.OPENAI_API_KEY;
     (global as any).API_KEY_HERE = null;
-    await AIpage(mockQuestions, 'Technical');
+    await AIpage({questions: mockQuestions}, 'Technical', 'fake-api-key');
     expect(consoleSpy).toHaveBeenCalledWith('API key not found.');
     consoleSpy.mockRestore();
     process.env.OPENAI_API_KEY = originalEnv;
