@@ -1,4 +1,4 @@
-import React, { JSX, useState } from "react";
+import React, { useState } from "react";
 //import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 //import "./AIIntegration.css"; // Create this CSS file
 //import {OPENAI_API_KEY} from 'src/Components/APIKey.env'
@@ -47,7 +47,7 @@ export function AIpage(questions:Question[],questType:string,userKey:string):Rea
             });
             let qNaText="";
             for(let i=0; i<questions.length; i++){
-                qNaText+='Question ${questions[i].num: ${questions[i].question}\nAnswer ${i+1}:${questions[i].answers}\n Tooltip ${questions[i].tooltip}';
+                qNaText+=`Question ${questions[i].num}: ${questions[i].question}\nAnswer ${i+1}:${questions[i].answer}\n Tooltip ${questions[i].tooltip}`;
             }
             const prompt = `Generate a career option from the following questions and answers. Make sure to use a Genz tone and 
 format the response as valid JSON with the following keys:
