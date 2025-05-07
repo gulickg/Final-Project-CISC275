@@ -553,16 +553,16 @@ go away.[0m
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |    24.6 |    35.55 |   20.63 |   24.45 |                   
+All files                                 |   23.73 |    34.04 |      20 |   23.68 |                   
  src                                      |   27.77 |     32.5 |      25 |      26 |                   
   App.tsx                                 |   34.88 |    36.11 |      30 |   33.33 | 32-80             
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
- src/Components                           |   13.92 |    28.12 |    7.14 |   14.47 |                   
+ src/Components                           |   12.79 |       25 |    6.66 |   13.41 |                   
   AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 23-88             
   Homepage.tsx                            |     100 |      100 |     100 |     100 |                   
   Loader.tsx                              |   66.66 |      100 |       0 |   66.66 | 6                 
-  Login.tsx                               |       0 |        0 |       0 |       0 | 17-82             
+  Login.tsx                               |       0 |        0 |       0 |       0 | 17-110            
   Navigation.tsx                          |   16.66 |     87.5 |   16.66 |   16.66 | 27-35             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 11                
   Report.tsx                              |       0 |      100 |       0 |       0 | 4                 
@@ -581,5 +581,5 @@ All files                                 |    24.6 |    35.55 |   20.63 |   24.
 Test Suites: 3 failed, 2 passed, 5 total
 Tests:       2 failed, 9 passed, 11 total
 Snapshots:   0 total
-Time:        5.214 s
+Time:        5.392 s
 Ran all test suites.
