@@ -66,20 +66,20 @@
     padding: 9px;
 }
 
-#ds-wrapper{
+#s-wrapper{
     display:flex;
     align-items: center;
     justify-content: center;
 }
 
-#dsb-wrapper{
+#sb-wrapper{
     display:flex;
-    width:100%;
+    width:150px;
     align-items: center;
     justify-content: center;
 }
 
-#dsb-wrapper:hover{
+#sb-wrapper:hover{
     cursor:not-allowed;
 }
 

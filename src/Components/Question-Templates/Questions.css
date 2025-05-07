@@ -17,23 +17,23 @@
 
 
 .question-number{
-    display: flex;
-    background-color: #f8eed4;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    width: 100%;
-    justify-self: center;
-    margin: 10px 0px 10px 0px;
-    padding: 10px 10px 10px 10px;
-    text-align: left;
-    justify-content: space-between;
-    color: #d6844b;
+  display: flex;
+  background-color: #f8eed4;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  justify-self: center;
+  margin: 10px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
+  text-align: left;
+  justify-content: space-between;
+  color: #d6844b;
 }
 
 .question-text{
-    margin: 0px 10px 10px 10px;
-    font-family: Creato;
-    color: #024932;
+  margin: 0px 10px 10px 10px;
+  font-family: Creato;
+  color: #024932;
 }
 
 .radio-choices{
@@ -58,71 +58,26 @@
 }
   
   /* Tooltip text */
-  .tooltiptext {
-    visibility: hidden;
-    width: 200px;
-    color: #000000;
-    text-align: left;
-    padding: 5px 0;
-    border-radius: 6px;
-    opacity: 1;
-    bottom: -400%;
-    left: 250%;
-    transition: opacity .3s;
-    background-color: rgb(247, 251, 255);
-   
-    /* Position the tooltip text - see examples below! */
-    position: absolute;
-    z-index: 1;
-
-    --b: 2em; /* base */
-  --h: 1em; /* height*/
+.tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  color: #000000;
+  text-align: center;
+  padding: 5px ;
+  border-radius: 6px;
+  opacity: 1;
+  transition: opacity .3s;
+  background-color: rgb(247, 251, 255);
+  bottom: 102%;
+  left:-100px;
   
-  --p: 50%;
-
-  /* border-image: fill 0//var(--h)
-    conic-gradient(var(--c,#333333) 0 0);
-  clip-path: 
-    polygon(0 100%,0 0,100% 0,100% 100%,
-      calc(var(--p) + var(--b)/2) 100%,
-      var(--p) calc(100% + var(--h)),
-      calc(var(--p) - var(--b)/2) 100%); */
-  }
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
   
   /* Show the tooltip text when you mouse over the tooltip container */
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: .95;
-  }
-
-.slider-question{
-    justify-self: center;
-    height: 300px;
-    border: solid;
-    border-width: 1px;
-    width: 50%;
-    text-align: left;
-    padding: 10px 10px 10px 10px;
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: .95;
 }
-
-.slider-container{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.switch-question{
-    justify-self: center;
-    height: 300px;
-    border: solid;
-    border-width: 1px;
-    width: 50%;
-    text-align: left;
-    padding: 10px 10px 10px 10px;
-}
-
-.switch-props{
-    size:50%;
-    background-color: rgb(21, 88, 187);
-}
-
