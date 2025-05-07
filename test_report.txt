@@ -565,7 +565,7 @@ All files                                 |   23.73 |    34.04 |      20 |   23.
   Login.tsx                               |       0 |        0 |       0 |       0 | 17-110            
   Navigation.tsx                          |   16.66 |     87.5 |   16.66 |   16.66 | 27-35             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 11                
-  Report.tsx                              |       0 |      100 |       0 |       0 | 4                 
+  Report.tsx                              |       0 |      100 |       0 |       0 | 5                 
   SaveFunctions.tsx                       |       0 |        0 |       0 |       0 | 9-30              
  src/Components/Basic-Questions-Folder    |      55 |       50 |   66.66 |      55 |                   
   BasicQuestions.tsx                      |      55 |       50 |   66.66 |      55 | 77-91             
@@ -581,5 +581,5 @@ All files                                 |   23.73 |    34.04 |      20 |   23.
 Test Suites: 3 failed, 2 passed, 5 total
 Tests:       2 failed, 9 passed, 11 total
 Snapshots:   0 total
-Time:        5.392 s
+Time:        5.209 s
 Ran all test suites.
