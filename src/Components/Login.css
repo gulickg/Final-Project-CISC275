@@ -24,6 +24,15 @@
     color: #024932;
 }
 
+#welcome{
+    height: 116.98px;
+    width: 210.18px;
+}
+
+#welcome-mascot{
+    height:50px
+}
+
 .submission{
     margin-top: 10px;
 }

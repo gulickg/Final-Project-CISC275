@@ -1,10 +1,17 @@
 #title{
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     color: #024932;
     font-family: FlowersKingdom;
     font-size: x-large;
 }
+
+#mascot-homepage{
+    height: calc(100vh - 280px);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 
 #description-box {
     display: flex;
@@ -52,6 +59,13 @@
     flex-direction: column;
     height: calc(100vh - 100px);
     justify-content:space-between;
+    align-items: center;
+}
+
+#site-description{
+    width:25%;
+    font-family: Creato;
+    color: #266d56;
 }
 
 .tagline{
@@ -91,8 +105,10 @@
   }
   
 
-  
-  
-  
-  
-  
+#basic-info{
+    margin-left:50px;
+}
+
+#detailed-info{
+    margin-right:50px;
+}

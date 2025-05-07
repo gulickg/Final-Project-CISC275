@@ -2,7 +2,8 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import '../Homepage.css'
 import './DescriptionBox.css'
-
+import basic from '../../graphics/basic-icon.png'
+import detailed from '../../graphics/detailed-icon.png'
 /*
 This is the boxes that have the descriptions of each quiz
 */
@@ -18,7 +19,10 @@ export function Description({questionType, questionDescription, setPage}:Descrip
     const pageChoice = questionType === 'Basic' ? 'basicQuestions' : 'detailedQuestions'
 
     return(<div id='description-box'>
-        <p id='question-type-title'>{questionType}</p>
+        
+       {pageChoice==='basicQuestions' && <img id='desc-icon' src={basic} alt=''/>}
+       {pageChoice==='detailedQuestions' && <img id='desc-icon' src={detailed} alt=''/>}
+       <p id='question-type-title'>{questionType}</p>
         <p id='desc'>{questionDescription}</p>
         <div id='button-box'>
             <Button id="continue-button" onClick={()=>setPage(pageChoice)}>Continue to {questionType} Quiz</Button>

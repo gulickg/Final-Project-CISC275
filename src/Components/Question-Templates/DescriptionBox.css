@@ -1,9 +1,7 @@
 #question-type-title{
     font-size:x-large;
     color: #024932;
-    margin:5px;
-    margin-top:15px;
-    margin-bottom:8px;
+    margin-bottom:3px;
     font-family: Coolvetica;
 }
 
@@ -42,4 +40,9 @@
     background-color: #8d4c1f;
     /* #eb833a */
     box-shadow: 0px 0px 10px #4a2207a2;
+}
+
+#desc-icon{
+    margin-top:15px;
+    width: 40px;
 }

@@ -88,8 +88,8 @@ Return only the JSON object without extra text.
         return (
             <div className="ai-integration-page">
                 {loading && <Loader />}
-            {loading ? (
-                handleSubmit(),):(null)}
+            {/* {loading ? (
+                handleSubmit()) :} */}
           </div>
           );
     }
