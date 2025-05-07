@@ -83,14 +83,13 @@ Return only the JSON object without extra text.
         }  finally{
             loading = false;
         }
+        Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type)
     }
         return (
             <div className="ai-integration-page">
                 {loading && <Loader />}
             {loading ? (
-                handleSubmit(),
-                Report(careerData!.title, careerData!.description, careerData!.breakdown, careerData!.type)
-            ):(null)}
+                handleSubmit(),):(null)}
           </div>
           );
     }
