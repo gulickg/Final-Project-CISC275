@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/Final-Project-CISC275/static/css/main.42f106e0.css",
-    "main.js": "/Final-Project-CISC275/static/js/main.e8e44a47.js",
+    "main.css": "/Final-Project-CISC275/static/css/main.cc853b35.css",
+    "main.js": "/Final-Project-CISC275/static/js/main.0c86e826.js",
     "static/js/453.bad6c33a.chunk.js": "/Final-Project-CISC275/static/js/453.bad6c33a.chunk.js",
+    "static/media/Homepage.png": "/Final-Project-CISC275/static/media/Homepage.197a783301a2f9ba44b7.png",
     "static/media/mascot.png": "/Final-Project-CISC275/static/media/mascot.b2d0f64b2cb10843e987.png",
     "static/media/Flowers Kingdom.ttf": "/Final-Project-CISC275/static/media/Flowers Kingdom.2426b04af6885e5c9d95.ttf",
     "static/media/hello honey.otf": "/Final-Project-CISC275/static/media/hello honey.68b52dc903cae5736277.otf",
@@ -10,12 +11,12 @@
     "static/media/CreatoDisplay-Regular.otf": "/Final-Project-CISC275/static/media/CreatoDisplay-Regular.6d28723c4e0b525a515f.otf",
     "static/media/question-mark.png": "/Final-Project-CISC275/static/media/question-mark.8319ce3cd9c3de8e9f26.png",
     "index.html": "/Final-Project-CISC275/index.html",
-    "main.42f106e0.css.map": "/Final-Project-CISC275/static/css/main.42f106e0.css.map",
-    "main.e8e44a47.js.map": "/Final-Project-CISC275/static/js/main.e8e44a47.js.map",
+    "main.cc853b35.css.map": "/Final-Project-CISC275/static/css/main.cc853b35.css.map",
+    "main.0c86e826.js.map": "/Final-Project-CISC275/static/js/main.0c86e826.js.map",
     "453.bad6c33a.chunk.js.map": "/Final-Project-CISC275/static/js/453.bad6c33a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.42f106e0.css",
-    "static/js/main.e8e44a47.js"
+    "static/css/main.cc853b35.css",
+    "static/js/main.0c86e826.js"
   ]
 }

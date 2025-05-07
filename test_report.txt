@@ -19,15 +19,15 @@ FAIL src/Components/Homepage.test.tsx
     console.error
       API key not found.
 
-      32 |         keyData = JSON.parse(prevKey);
-      33 |     }else{
-    > 34 |     console.error("API key not found.");
+      33 |         keyData = JSON.parse(prevKey);
+      34 |     }else{
+    > 35 |     console.error("API key not found.");
          |             ^
-      35 |     }
-      36 |
-      37 |     return(
+      36 |     }
+      37 |
+      38 |     return(
 
-      at Homepage (src/Components/Homepage.tsx:34:13)
+      at Homepage (src/Components/Homepage.tsx:35:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -46,15 +46,15 @@ FAIL src/Components/Homepage.test.tsx
     console.error
       API key not found.
 
-      32 |         keyData = JSON.parse(prevKey);
-      33 |     }else{
-    > 34 |     console.error("API key not found.");
+      33 |         keyData = JSON.parse(prevKey);
+      34 |     }else{
+    > 35 |     console.error("API key not found.");
          |             ^
-      35 |     }
-      36 |
-      37 |     return(
+      36 |     }
+      37 |
+      38 |     return(
 
-      at Homepage (src/Components/Homepage.tsx:34:13)
+      at Homepage (src/Components/Homepage.tsx:35:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -73,15 +73,15 @@ FAIL src/Components/Homepage.test.tsx
     console.error
       API key not found.
 
-      32 |         keyData = JSON.parse(prevKey);
-      33 |     }else{
-    > 34 |     console.error("API key not found.");
+      33 |         keyData = JSON.parse(prevKey);
+      34 |     }else{
+    > 35 |     console.error("API key not found.");
          |             ^
-      35 |     }
-      36 |
-      37 |     return(
+      36 |     }
+      37 |
+      38 |     return(
 
-      at Homepage (src/Components/Homepage.tsx:34:13)
+      at Homepage (src/Components/Homepage.tsx:35:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -113,6 +113,11 @@ FAIL src/Components/Homepage.test.tsx
             [0mWelcome to CareerSprout![0m
           [36m</h1>[39m
           [36m<div[39m
+            [33mid[39m=[32m"site-description"[39m
+          [36m>[39m
+            [0mCareerSprout's Career assessments are designed to help you grow your future prospects. Select a quiz to get started.[0m
+          [36m</div>[39m
+          [36m<div[39m
             [33mid[39m=[32m"homepage-content"[39m
           [36m>[39m
             [36m<div[39m
@@ -127,18 +132,13 @@ FAIL src/Components/Homepage.test.tsx
                 [0m Description[0m
               [36m</div>[39m
             [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"group"[39m
-            [36m>[39m
-              [36m<input[39m
-                [33mclass[39m=[32m"input"[39m
-                [33mplaceholder[39m=[32m"API key here"[39m
-                [33mtype[39m=[32m"input"[39m
+            [36m<div>[39m
+              [36m<img[39m
+                [33malt[39m=[32m""[39m
+                [33mid[39m=[32m"mascot-homepage"[39m
+                [33msrc[39m=[32m"Homepage.png"[39m
               [36m/>[39m
             [36m</div>[39m
-            [36m<div[39m
-              [33mid[39m=[32m"hpc"[39m
-            [36m/>[39m
             [36m<div[39m
               [33mclass[39m=[32m"quiz"[39m
               [33mid[39m=[32m"detailed-info"[39m
@@ -219,20 +219,20 @@ PASS src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
           at TextInputQuestion (/home/runner/work/Final-Project-CISC275/Final-Project-CISC275/src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx:8:25)
           at DetailedQuestions (/home/runner/work/Final-Project-CISC275/Final-Project-CISC275/src/Components/Detailed-Questions-Folder/DetailedQuestions.tsx:43:36)
 
-      125 |                 </div>
-      126 |             </div>
-    > 127 |             <div id='dquestion-sect'>
+      124 |                 </div>
+      125 |             </div>
+    > 126 |             <div id='dquestion-sect'>
           |             ^
-      128 |                 {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
-      129 |                     <div>↓</div>
-      130 |                 </Button> */}
+      127 |                 {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
+      128 |                     <div>↓</div>
+      129 |                 </Button> */}
 
       at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:87:30)
       at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:61:7)
       at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1078:5)
       at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1105:11)
       at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1266:15)
-      at DetailedQuestions (src/Components/Detailed-Questions-Folder/DetailedQuestions.tsx:127:13)
+      at DetailedQuestions (src/Components/Detailed-Questions-Folder/DetailedQuestions.tsx:126:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -254,15 +254,15 @@ FAIL src/App.test.tsx
     console.error
       API key not found.
 
-      32 |         keyData = JSON.parse(prevKey);
-      33 |     }else{
-    > 34 |     console.error("API key not found.");
+      33 |         keyData = JSON.parse(prevKey);
+      34 |     }else{
+    > 35 |     console.error("API key not found.");
          |             ^
-      35 |     }
-      36 |
-      37 |     return(
+      36 |     }
+      37 |
+      38 |     return(
 
-      at Homepage (src/Components/Homepage.tsx:34:13)
+      at Homepage (src/Components/Homepage.tsx:35:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:16305:18)
       at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:20074:13)
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:21587:16)
@@ -368,6 +368,11 @@ FAIL src/App.test.tsx
                   [0mWelcome to CareerSprout![0m
                 [36m</h1>[39m
                 [36m<div[39m
+                  [33mid[39m=[32m"site-description"[39m
+                [36m>[39m
+                  [0mCareerSprout's Career assessments are designed to help you grow your future prospects. Select a quiz to get started.[0m
+                [36m</div>[39m
+                [36m<div[39m
                   [33mid[39m=[32m"homepage-content"[39m
                 [36m>[39m
                   [36m<div[39m
@@ -377,6 +382,11 @@ FAIL src/App.test.tsx
                     [36m<div[39m
                       [33mid[39m=[32m"description-box"[39m
                     [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m""[39m
+                        [33mid[39m=[32m"desc-icon"[39m
+                        [33msrc[39m=[32m"basic-icon.png"[39m
+                      [36m/>[39m
                       [36m<p[39m
                         [33mid[39m=[32m"question-type-title"[39m
                       [36m>[39m
@@ -402,18 +412,13 @@ FAIL src/App.test.tsx
                       [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"group"[39m
-                  [36m>[39m
-                    [36m<input[39m
-                      [33mclass[39m=[32m"input"[39m
-                      [33mplaceholder[39m=[32m"API key here"[39m
-                      [33mtype[39m=[32m"input"[39m
+                  [36m<div>[39m
+                    [36m<img[39m
+                      [33malt[39m=[32m""[39m
+                      [33mid[39m=[32m"mascot-homepage"[39m
+                      [33msrc[39m=[32m"Homepage.png"[39m
                     [36m/>[39m
                   [36m</div>[39m
-                  [36m<div[39m
-                    [33mid[39m=[32m"hpc"[39m
-                  [36m/>[39m
                   [36m<div[39m
                     [33mclass[39m=[32m"quiz"[39m
                     [33mid[39m=[32m"detailed-info"[39m
@@ -421,6 +426,11 @@ FAIL src/App.test.tsx
                     [36m<div[39m
                       [33mid[39m=[32m"description-box"[39m
                     [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m""[39m
+                        [33mid[39m=[32m"desc-icon"[39m
+                        [33msrc[39m=[32m"detailed-icon.png"[39m
+                      [36m/>[39m
                       [36m<p[39m
                         [33mid[39m=[32m"question-type-title"[39m
                       [36m>[39m
@@ -429,7 +439,7 @@ FAIL src/App.test.tsx
                       [36m<p[39m
                         [33mid[39m=[32m"desc"[39m
                       [36m>[39m
-                        [0mThe following quiz will assess your personality and decide which career fits your lifestyle and interests best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.[0m
+                        [0mThe following quiz will assess your personality and decide which career fits your lifestyle best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.[0m
                       [36m</p>[39m
                       [36m<div[39m
                         [33mid[39m=[32m"button-box"[39m
@@ -516,20 +526,43 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
-A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |   25.28 |    33.76 |   20.96 |      25 |                   
- src                                      |   30.23 |    35.48 |   27.27 |    27.5 |                   
-  App.tsx                                 |   40.62 |    40.74 |   33.33 |   37.93 | 30-71             
+All files                                 |    24.6 |    35.55 |   20.63 |   24.45 |                   
+ src                                      |   27.77 |     32.5 |      25 |      26 |                   
+  App.tsx                                 |   34.88 |    36.11 |      30 |   33.33 | 32-80             
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
- src/Components                           |   14.28 |    28.12 |    7.14 |   14.86 |                   
-  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 23-87             
+ src/Components                           |   13.92 |    28.12 |    7.14 |   14.47 |                   
+  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 23-88             
   Homepage.tsx                            |     100 |      100 |     100 |     100 |                   
   Loader.tsx                              |   66.66 |      100 |       0 |   66.66 | 6                 
-  Login.tsx                               |       0 |        0 |       0 |       0 | 16-79             
+  Login.tsx                               |       0 |        0 |       0 |       0 | 17-82             
   Navigation.tsx                          |   16.66 |     87.5 |   16.66 |   16.66 | 27-35             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 11                
   Report.tsx                              |       0 |      100 |       0 |       0 | 4                 
@@ -537,9 +570,9 @@ All files                                 |   25.28 |    33.76 |   20.96 |      
  src/Components/Basic-Questions-Folder    |      55 |       50 |   66.66 |      55 |                   
   BasicQuestions.tsx                      |      55 |       50 |   66.66 |      55 | 77-91             
  src/Components/Detailed-Questions-Folder |   44.44 |       50 |      50 |   44.44 |                   
-  DetailedQuestions.tsx                   |   44.44 |       50 |      50 |   44.44 | 98-116,137        
- src/Components/Question-Templates        |      10 |    33.33 |    9.09 |      10 |                   
-  DescriptionBox.tsx                      |   66.66 |      100 |      50 |   66.66 | 24                
+  DetailedQuestions.tsx                   |   44.44 |       50 |      50 |   44.44 | 97-115,136        
+ src/Components/Question-Templates        |      10 |       60 |    9.09 |      10 |                   
+  DescriptionBox.tsx                      |   66.66 |      100 |      50 |   66.66 | 28                
   RadioButtonsQuestion.tsx                |       0 |        0 |       0 |       0 | 23-41             
   SliderQuestion.tsx                      |       0 |      100 |       0 |       0 | 21-32             
   SwitchQuestion.tsx                      |       0 |        0 |       0 |       0 | 21-36             
@@ -548,5 +581,5 @@ All files                                 |   25.28 |    33.76 |   20.96 |      
 Test Suites: 3 failed, 2 passed, 5 total
 Tests:       2 failed, 9 passed, 11 total
 Snapshots:   0 total
-Time:        5.128 s
+Time:        5.214 s
 Ran all test suites.
