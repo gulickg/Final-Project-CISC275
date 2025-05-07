@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './Login.css'
@@ -17,6 +17,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
     const [domain, setDomain] = useState<boolean>(false);
+    const [isValid, setIsValid] = useState<boolean>(true);
 
     const emailDomains: string[] = [
         "@gmail.com",
@@ -36,12 +37,15 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
     const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
 
     function handleSubmission(Email:string){
-        const person:USER | undefined = findUser(Email);
-        if (person !== undefined){
-            setName(person.name)
-            setState('login');
-        } else {
-            setState('makeAccount');
+        setIsValid(false);
+        if (domain) {
+            const person:USER | undefined = findUser(Email);
+            if (person !== undefined){
+                setName(person.name)
+                setState('login');
+            } else {
+                setState('makeAccount');
+            }
         }
     }
 
@@ -66,10 +70,9 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
         const entered = event.target.value;
         setEmail(entered);
     
-        // Check if the email ends with a valid domain
         const isValidDomain = emailDomains.some((d) => entered.endsWith(d)) && !entered.startsWith("@");
-        
-        setDomain(isValidDomain); // Update domain state properly
+
+        setDomain(isValidDomain);
     }
     
 
@@ -92,8 +95,11 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => emailClick(event)}/>
                     {/* onChange={() => setDomain(email.includes(emailDomains.map(())))} */}
                 </Form.Group>
-                <Button className='submission' disabled={!domain} onClick={() => handleSubmission(email)}>Enter</Button>
-                <div>{domain ? "Valid Input" : "Invalid Input"}</div>
+                <div>
+                    <Button className='submission' onClick={() => handleSubmission(email)}>Enter</Button>
+                    <div></div>
+                    <span>{isValid ? "" : "Invalid Input"}</span>
+                </div>
                 </div>}
                 {state === 'makeAccount' && <div>
                     <Form.Group>
