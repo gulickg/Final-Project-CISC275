@@ -43,7 +43,6 @@ interface DetailedProps{
 export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
 
-
     interface Question{
         num: number;
         question:string;
@@ -132,12 +131,13 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 
                 {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} tool={q.tooltip}></TextInputQuestion>)}
                 
-                <div id='ds-wrapper'>
-                    <div id='dsb-wrapper'>
+                <div id='s-wrapper'>
+                    <div id='sb-wrapper'>
                         <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={()=>AIpage(QUESTIONS,'detailed', keyData)}>Submit Responses</Button>
                     </div>
                 </div>
             </div>
+            {/* <Report></Report> */}
         </div>);
 
 }

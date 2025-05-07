@@ -74,7 +74,7 @@
 
 #sb-wrapper{
     display:flex;
-    width:100%;
+    width:150px;
     align-items: center;
     justify-content: center;
 }
