@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
-import { DetailedQuestions } from './Detailed-Questions-Folder/DetailedQuestions';
 import mascot from '../graphics/mascot.png'
 
 interface LoginProps{

@@ -20,46 +20,55 @@ function App() {
   const [showLogin, setShowLogin] = useState<boolean>(false);
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
-  // const [basicDone, setBasicDone] = useState<boolean>(false);
+  const [basicDone, setBasicDone] = useState<boolean>(false);
 
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
-  const popUp:boolean = !detailedDone && numberDetailedCompleted===7;
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+  const popUpD:boolean = (!detailedDone && numberDetailedCompleted===7);
+  const popUpB: boolean = (!basicDone && numberBasicCompleted===7);
+  
 
-  function updateCompleted(answers:string[]){
+  function updateDetailed(answers:string[]){
     setDetailedAnswers(answers);
     if (numberDetailedCompleted === 7){
       setDetailedDone(true);
     } if (numberDetailedCompleted !== 7){
       setDetailedDone(false);
     }
-    if (user) updateUser(answers);
+    if (user) updateUser(answers, 'detailed');
   }
 
   function updateBasic(answers: string[]){
     setBasicAnswers(answers);
-    // if (numberBasicCompleted === 7) {
-    //   setBasicDone(true);
-    // } else {
-    //   setBasicDone(false);
-    // }
-    // if (user) updateUser(answers);
+    if (numberBasicCompleted === 7) {
+      setBasicDone(true);
+    } else {
+      setBasicDone(false);
+    }
+    if (user) updateUser(answers, 'basic');
   }
 
-  function disablePopUp(){
+  function disablePopUpD(){
     setDetailedDone(true);
+  }
+  function disablePopUpB(){
+    setBasicDone(true);
   }
 
   function loadUser(loadDA:string[], loadBA: string[]){
-    updateCompleted(loadDA);
-    // let basic = loadBA;
+    updateDetailed(loadDA);
+    updateBasic(loadBA);
     setLoggedIn(true);
   }
 
-  function updateUser(answers:string[]){
+  function updateUser(answers:string[], quiz:string){
     let updatedInfo: USER | null = user;
     if (updatedInfo){
+      if (quiz === 'basic'){
+        updatedInfo.basicAnswers = answers;
+      } else{ 
       updatedInfo.detailedAnswers = answers;
+    }
       saveUser(updatedInfo);
       setUser(updatedInfo);
     }
@@ -85,7 +94,7 @@ function App() {
   // }
  
   return (
-    <div className="App" style={{overflow: popUp ? 'hidden' : ''}}>
+    <div className="App">
       {/* <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
@@ -99,9 +108,10 @@ function App() {
       <div id='page-content'>
         {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-        {page === 'basicQuestions' && (<BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateCompleted} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
-        {page === 'detailedQuestions' && popUp && (<PopUp disablePopUp={disablePopUp}></PopUp>)}
+        {page === 'basicQuestions' && (<div><BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
+        {page === 'detailedQuestions' && popUpD && (<PopUp disablePopUp={disablePopUpD}></PopUp>)}
+        {page === 'basicQuestions' && popUpB && (<PopUp disablePopUp={disablePopUpB}></PopUp>)}
         {/* {page === 'basicQuestionsReport' && (<Report></Report>)} */}
       </div>
       <footer id='footer'>
