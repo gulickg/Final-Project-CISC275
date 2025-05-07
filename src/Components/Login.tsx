@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
+import mascot from '../graphics/mascot.png'
 
 interface LoginProps{
     setUser: (user:USER | null)=>void;
@@ -48,6 +49,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
         let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers};
         saveUser(newUser);
         setState('login');
+        loadUser(dAnswers, bAnswers);
     }
 
     function login(){
@@ -102,8 +104,9 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                 </Form.Group>
                 <Button className='submission' onClick={()=> makeAccount()}>Make Account</Button>
                 </div>}
-                {state=== 'login' && <div>
-                    Welcome {name}!
+                {state=== 'login' && <div id='welcome'>
+                    <div><img src={mascot} alt='' id='welcome-mascot'/></div>
+                    <div>Welcome {name}!</div>
                     <Button className='submission' onClick={()=> login()}>Continue</Button>
                 </div>}
             </div>

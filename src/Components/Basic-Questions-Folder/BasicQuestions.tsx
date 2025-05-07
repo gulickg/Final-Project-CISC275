@@ -116,8 +116,12 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
             
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
-        <div id='bottom-space'>
-            <Button disabled={progressPercent < 100}>SUBMIT</Button>
+        <div id='s-wrapper'>
+            <div id='sb-wrapper'>
+                <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses
+                {/*call AIinetgration here*/}
+                </Button>
+            </div>
         </div>
         
     </div>);
