@@ -24,7 +24,6 @@ export let keyData:string;
 export function Homepage({setPage}: HomepageProps):React.JSX.Element{
     const basicDescription:string = "This assessment will quickly and efficiently evaluate what career fits your lifestyle and interests best. This assessment is great if you are short for time or do not like longer and more in depth quizzes.";
     const detailedDescription:string = "The following quiz will assess your personality and decide which career fits your lifestyle best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.";
-
     //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
     //let keyData = "";
     const saveKeyData = "MYKEY";

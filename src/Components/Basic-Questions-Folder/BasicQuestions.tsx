@@ -1,12 +1,16 @@
 import React from 'react'
 import './BasicQuestions.css'
-import '../Detailed-Questions-Folder/DetailedQuestions.css'
+import '../Basic-Questions-Folder/BasicQuestions.css'
 import '../Question-Templates/RadioButtonsQuestion'
-
+import '../Question-Templates/TextInputQuestion'
 import { RadioButtonQuestion } from '../Question-Templates/RadioButtonsQuestion'
 import { SliderRangeQuestion } from '../Question-Templates/SliderQuestion'
 import { SwitchQuestion } from '../Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
+import { AIpage } from '../AIIntegration'
+import { keyData } from '../Homepage'
+import { CareerData } from '../CareerData'
+import { Report } from '../Report'
 
 interface BasicProps {
     answers: string[];
@@ -16,6 +20,14 @@ interface BasicProps {
 
 
 export function BasicQuestions({answers, setAnswers, completed}: BasicProps):React.JSX.Element{
+    let blankReport: CareerData = {title:'', description:'', breakdown:[]};
+    const [report, setReport] = React.useState<CareerData[]>([blankReport, blankReport, blankReport]);
+    
+        function populateReport(careerString:string){
+            const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
+            const careerList: CareerData[] = JSON.parse(cleanedString);
+            setReport(careerList);
+        }
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;
 
@@ -59,7 +71,10 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
         {num: 6, question: "Do you like to work by yourself or in a group?", choices: ['Alone', 'I prefer to be alone', 'I\'ll collaborate', 'I like working with others', 'Team work makes the dream work!'], answer: answers[5], tooltip: TOOLTIPS[5]}
     ];
 
+
     const SWITCHQ: Question = {num: 7, question: "What working environment do you prefer?", choices: ['Flexible Schedule', 'Strict Schedule'], answer: answers[6], tooltip: TOOLTIPS[6]};
+
+    const QUESTIONS: Question[] = [...RADIOQ, ...SLIDERQ, SWITCHQ];
 
      // find the percent of questions completed and math for the progress bar
      const progressPercent:number = updatePercents(completed, totalQuestions);
@@ -91,6 +106,10 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
         completed = sum;
     }
 
+    const handleSubmit = React.useCallback(() => {
+            AIpage(QUESTIONS, keyData, populateReport);
+        }, [QUESTIONS, keyData, populateReport]);
+
     // function removeCompleted(){
     //     setQuestionsCompleted(questionsCompleted - 1);
     // }
@@ -118,11 +137,14 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='s-wrapper'>
             <div id='sb-wrapper'>
-                <Button id='basic-submit' className='button' disabled={progressPercent === 100? false : true}>Submit Responses
+                <Button id='basic-submit' className='button' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses
                 {/*call AIinetgration here*/}
                 </Button>
             </div>
         </div>
-        
+        <h1 id='title'>Basic Quiz Results</h1>
+        <Report title={report[0].title} description={report[0].description} breakdown={report[0].breakdown}></Report>
+        <Report title={report[1].title} description={report[1].description} breakdown={report[1].breakdown}></Report>
+        <Report title={report[2].title} description={report[2].description} breakdown={report[2].breakdown}></Report>
     </div>);
 }
