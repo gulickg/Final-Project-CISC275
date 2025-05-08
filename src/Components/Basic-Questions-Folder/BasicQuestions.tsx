@@ -8,25 +8,26 @@ import { SliderRangeQuestion } from '../Question-Templates/SliderQuestion'
 import { SwitchQuestion } from '../Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
-import { keyData } from '../Homepage'
+import { keyData } from '../Homepage/Homepage'
 import { CareerData } from '../CareerData'
-import { Report } from '../Report'
 
 interface BasicProps {
     answers: string[];
     setAnswers(answers:string[]): void;
     completed: number;
+    setPage: (page: string) => void
+    setReport: (report: CareerData[], type:string) => void
 }
 
 
-export function BasicQuestions({answers, setAnswers, completed}: BasicProps):React.JSX.Element{
+export function BasicQuestions({answers, setAnswers, completed, setPage, setReport}: BasicProps):React.JSX.Element{
     let blankReport: CareerData = {title:'', description:'', breakdown:[]};
-    const [report, setReport] = React.useState<CareerData[]>([blankReport, blankReport, blankReport]);
     
         function populateReport(careerString:string){
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
             const careerList: CareerData[] = JSON.parse(cleanedString);
-            setReport(careerList);
+            setReport(careerList, 'basic');
+            setPage('basicReport');
         }
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;
@@ -110,6 +111,7 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             AIpage(QUESTIONS, keyData, populateReport);
         }, [QUESTIONS, keyData, populateReport]);
 
+
     // function removeCompleted(){
     //     setQuestionsCompleted(questionsCompleted - 1);
     // }
@@ -142,9 +144,5 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
                 </Button>
             </div>
         </div>
-        <h1 id='title'>Basic Quiz Results</h1>
-        <Report title={report[0].title} description={report[0].description} breakdown={report[0].breakdown}></Report>
-        <Report title={report[1].title} description={report[1].description} breakdown={report[1].breakdown}></Report>
-        <Report title={report[2].title} description={report[2].description} breakdown={report[2].breakdown}></Report>
     </div>);
 }

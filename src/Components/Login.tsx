@@ -4,16 +4,19 @@ import { Form, Button } from 'react-bootstrap';
 import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
 import mascot from '../graphics/mascot.png'
+import { CareerData } from './CareerData';
 
 interface LoginProps{
     setUser: (user:USER | null)=>void;
-    loadUser: (DA:string[], BA:string[]) => void;
+    loadUser: (DA:string[], BA:string[], BR:CareerData[], DR:CareerData[]) => void;
     dAnswers: string[];
     bAnswers: string[];
+    bReport: CareerData[];
+    dReport: CareerData[];
     setShowLogin: (show: boolean)=>void;
 }
 
-export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: LoginProps):React.JSX.Element{
+export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dReport, bReport}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
 
@@ -30,10 +33,11 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
     }
 
     function makeAccount(){
-        let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers};
+        let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers, basicReport: bReport, detailedReport: dReport};
         saveUser(newUser);
         setState('login');
-        loadUser(dAnswers, bAnswers);
+        loadUser(dAnswers, bAnswers, bReport, dReport);
+        console.log("User Created: ", newUser);
     }
 
     function login(){
@@ -41,7 +45,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
         if (toLog) setUser(toLog);
         let U:USER | undefined = findUser(email);
         if (U){
-            loadUser(U.detailedAnswers, U.basicAnswers);
+            loadUser(U.detailedAnswers, U.basicAnswers, U.basicReport, U.detailedReport);
         }
         setShowLogin(false);
     }

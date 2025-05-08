@@ -6,9 +6,8 @@ import '../Question-Templates/TextInputQuestion'
 import { TextInputQuestion } from '../Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
-import { keyData } from '../Homepage'
+import { keyData } from '../Homepage/Homepage'
 import { CareerData } from '../CareerData'
-import { Report } from '../Report'
 
 
 export interface Question{
@@ -28,6 +27,7 @@ interface DetailedProps{
     setAnswers: (answers:string[]) => void
     completed:number;
     setPage: (page: string) => void
+    setReport: (report: CareerData[], type:string) => void
 }
 
 /**
@@ -40,15 +40,14 @@ interface DetailedProps{
  * 
  * @returns {React.JSX.Element} - the detailed questions page
  */
-export function DetailedQuestions({answers, setAnswers, completed, setPage}: DetailedProps):React.JSX.Element{
-    let blankReport: CareerData = {title:'', description:'', breakdown:[]};
-    const [report, setReport] = React.useState<CareerData[]>([blankReport, blankReport, blankReport]);
+export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
 
     function populateReport(careerString:string){
         const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
         const careerList: CareerData[] = JSON.parse(cleanedString);
-        setReport(careerList);
+        setReport(careerList, 'detailed');
+        setPage('detailedReport');
     }
 
     interface Question{
@@ -150,10 +149,6 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage}: Det
                     </div>
                 </div>
             </div>
-            <h1 id='title'>Detailed Quiz Results</h1>
-            <Report title={report[0].title} description={report[0].description} breakdown={report[0].breakdown}></Report>
-            <Report title={report[1].title} description={report[1].description} breakdown={report[1].breakdown}></Report>
-            <Report title={report[2].title} description={report[2].description} breakdown={report[2].breakdown}></Report>
         </div>);
 
 }

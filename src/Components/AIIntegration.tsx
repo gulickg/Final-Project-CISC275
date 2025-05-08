@@ -20,10 +20,6 @@ export async function AIpage(questions:Question[],userKey:string, populateReport
     let loading:boolean = true;
     console.log('AI');
     console.log("Calling AIpage at", new Date().toISOString());
-    let errorCount = 0;
-
-
-    let Report:CareerData= {title:'', description:'', breakdown:[]}
     let content: string = '';
     try{
         //set to what user inputs
