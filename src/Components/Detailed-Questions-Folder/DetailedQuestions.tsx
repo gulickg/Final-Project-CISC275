@@ -42,17 +42,14 @@ interface DetailedProps{
  * @returns {React.JSX.Element} - the detailed questions page
  */
 export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
-    let blankReport: CareerData = {title:'', description:'', breakdown:[], type:''};
-    const [report, setReport] = React.useState<CareerData[]>([blankReport]);
+    let blankReport: CareerData = {title:'', description:'', breakdown:[]};
+    const [report, setReport] = React.useState<CareerData[]>([blankReport, blankReport, blankReport]);
     const totalQuestions = 7;
 
-    function populateReport(newJob:CareerData){
-        if (report[1]===blankReport){
-            setReport([newJob]);
-        } else {
-            setReport([...report, newJob]);
-        }
-        console.log(JSON.stringify(newJob));
+    function populateReport(careerString:string){
+        const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
+        const careerList: CareerData[] = JSON.parse(cleanedString);
+        setReport(careerList);
     }
 
     interface Question{
@@ -128,7 +125,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
     }
 
     const handleSubmit = React.useCallback(() => {
-        AIpage(QUESTIONS, 'detailed', keyData, populateReport);
+        AIpage(QUESTIONS, keyData, populateReport);
     }, [QUESTIONS, keyData, populateReport]);
 
     //creating a variable to hold AIpage function
@@ -154,7 +151,10 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                     </div>
                 </div>
             </div>
-            <Report title={report[0].title} description={report[0].description} type={report[0].type} breakdown={report[0].breakdown}></Report>
+            <h1 id='title'>Detailed Quiz Results</h1>
+            <Report title={report[0].title} description={report[0].description} breakdown={report[0].breakdown}></Report>
+            <Report title={report[1].title} description={report[1].description} breakdown={report[1].breakdown}></Report>
+            <Report title={report[2].title} description={report[2].description} breakdown={report[2].breakdown}></Report>
         </div>);
 
 }

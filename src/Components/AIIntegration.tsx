@@ -16,14 +16,15 @@ import {Report} from "../Components/Report"
 import {CareerData} from './CareerData'
 
 
-export async function AIpage(questions:Question[],questType:string,userKey:string, populateReport:(career:CareerData)=>void){
+export async function AIpage(questions:Question[],userKey:string, populateReport:(careerString:string)=>void){
     let loading:boolean = true;
     console.log('AI');
     console.log("Calling AIpage at", new Date().toISOString());
     let errorCount = 0;
 
 
-    let Report:CareerData= {type:questType, title:'', description:'', breakdown:[]}
+    let Report:CareerData= {title:'', description:'', breakdown:[]}
+    let content: string = '';
     try{
         //set to what user inputs
         const api= userKey;
@@ -36,14 +37,14 @@ export async function AIpage(questions:Question[],questType:string,userKey:strin
         for(let i=0; i<questions.length; i++){
             qNaText+=`Question ${questions[i].num}: ${questions[i].question}\nAnswer ${i+1}:${questions[i].answer}\n Tooltip ${questions[i].tooltip}`;
         }
-        const prompt = `Generate a career option from the following questions and answers. Make sure to use a Genz tone and 
-        format the response as valid JSON with the following keys:
+        const prompt = `Generate a list of three career options from the following questions and answers. Make sure to use a Genz tone and 
+        format the response as list of valid JSON with the following keys:
         {
         "title": "Career title",
         "description": "Description of given career and what jobs the user could have.",
-        "breakdown": "Explanation of how each answer to the questions affected the given career choice, in a number-ordered list."
+        "breakdown": "A brief explanation of how the user's answers to the questions affected the given career choice"
         }
-        Return only the JSON object without extra text.
+        Return only the list of JSON objects without extra text.
 
         ${qNaText}`;
         await new Promise(res => setTimeout(res, 1000));
@@ -56,21 +57,15 @@ export async function AIpage(questions:Question[],questType:string,userKey:strin
                 }
             ]
             });
-            const content=chatCompletion.choices[0].message?.content||"";
+            content=chatCompletion.choices[0].message?.content||"";
+            console.log("AI response: ", content);
 
-        //valid json
-        const jsonStartIndex=content.indexOf('{');
-        const jsonEndIndex=content.lastIndexOf('}')+1;
-        const json=JSON.parse(content.substring(jsonStartIndex, jsonEndIndex));
-        //type is throwing error because there is not type field yet on object string
-        //const type=questions[0]?.type||"Uknown";
-        Report={questType, ...json};
     }
     catch(error){
         // console.error("Error generating career: ", error);
     }  finally{
         loading = false;
-        populateReport(Report);
+        populateReport(content);
     }
 }
 

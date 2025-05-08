@@ -2,10 +2,9 @@ import React from 'react'
 import { CareerData } from './CareerData';
 
 
-export function Report({type, description, breakdown, title}:CareerData):React.JSX.Element{
+export function Report({description, breakdown, title}:CareerData):React.JSX.Element{
     return(
     <div id='report'>
-        <h1 id='title'>{type} Quiz Results</h1>
         <div id='container'>
             <div id='box'>
                 <div id = 'careerSuggestion'>
