@@ -18,8 +18,6 @@ export interface Question{
     tooltip:string;
 }
 
-
-export let QUESTIONS:Question[];
 /*
 This is the detailed questions page
 */
