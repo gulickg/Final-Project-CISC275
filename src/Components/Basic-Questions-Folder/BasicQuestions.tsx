@@ -21,7 +21,6 @@ interface BasicProps {
 
 
 export function BasicQuestions({answers, setAnswers, completed, setPage, setReport}: BasicProps):React.JSX.Element{
-    let blankReport: CareerData = {title:'', description:'', breakdown:[]};
     
         function populateReport(careerString:string){
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
@@ -139,7 +138,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='s-wrapper'>
             <div id='sb-wrapper'>
-                <Button id='basic-submit' className='button' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses
+                <Button id='quiz-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses
                 {/*call AIinetgration here*/}
                 </Button>
             </div>

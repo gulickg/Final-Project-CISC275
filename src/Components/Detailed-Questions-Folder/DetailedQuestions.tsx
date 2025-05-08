@@ -145,7 +145,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
                 
                 <div id='s-wrapper'>
                     <div id='sb-wrapper'>
-                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses</Button>
+                        <Button id='quiz-submit' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses</Button>
                     </div>
                 </div>
             </div>
