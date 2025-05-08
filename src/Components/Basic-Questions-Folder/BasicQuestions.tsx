@@ -1,21 +1,34 @@
 import React from 'react'
 import './BasicQuestions.css'
-import '../Detailed-Questions-Folder/DetailedQuestions.css'
+import '../Basic-Questions-Folder/BasicQuestions.css'
 import '../Question-Templates/RadioButtonsQuestion'
-
+import '../Question-Templates/TextInputQuestion'
 import { RadioButtonQuestion } from '../Question-Templates/RadioButtonsQuestion'
 import { SliderRangeQuestion } from '../Question-Templates/SliderQuestion'
 import { SwitchQuestion } from '../Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
+import { AIpage } from '../AIIntegration'
+import { keyData } from '../Homepage/Homepage'
+import { CareerData } from '../CareerData'
 
 interface BasicProps {
     answers: string[];
     setAnswers(answers:string[]): void;
     completed: number;
+    setPage: (page: string) => void
+    setReport: (report: CareerData[], type:string) => void
 }
 
 
-export function BasicQuestions({answers, setAnswers, completed}: BasicProps):React.JSX.Element{
+export function BasicQuestions({answers, setAnswers, completed, setPage, setReport}: BasicProps):React.JSX.Element{
+    let blankReport: CareerData = {title:'', description:'', breakdown:[]};
+    
+        function populateReport(careerString:string){
+            const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
+            const careerList: CareerData[] = JSON.parse(cleanedString);
+            setReport(careerList, 'basic');
+            setPage('basicReport');
+        }
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;
 
@@ -59,7 +72,10 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
         {num: 6, question: "Do you like to work by yourself or in a group?", choices: ['Alone', 'I prefer to be alone', 'I\'ll collaborate', 'I like working with others', 'Team work makes the dream work!'], answer: answers[5], tooltip: TOOLTIPS[5]}
     ];
 
+
     const SWITCHQ: Question = {num: 7, question: "What working environment do you prefer?", choices: ['Flexible Schedule', 'Strict Schedule'], answer: answers[6], tooltip: TOOLTIPS[6]};
+
+    const QUESTIONS: Question[] = [...RADIOQ, ...SLIDERQ, SWITCHQ];
 
      // find the percent of questions completed and math for the progress bar
      const progressPercent:number = updatePercents(completed, totalQuestions);
@@ -91,15 +107,20 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
         completed = sum;
     }
 
+    const handleSubmit = React.useCallback(() => {
+            AIpage(QUESTIONS, keyData, populateReport);
+        }, [QUESTIONS, keyData, populateReport]);
+
+
     // function removeCompleted(){
     //     setQuestionsCompleted(questionsCompleted - 1);
     // }
 
-    return(<div id='detailed-questions-page'>
-        <div id='detailed-prog-bar'>
-                <div id='detailed-progress-bar-box'>
+    return(<div id='basic-questions-page'>
+        <div id='prog-bar'>
+                <div id='progress-bar-box'>
                     <div id='wrapper'>
-                        <div id='detailed-progress-bar' style={{ width: size}}></div>
+                        <div id='progress-bar' style={{ width: size}}></div>
                 </div>
             </div>
         </div>
@@ -109,20 +130,19 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion> */}
-            {RADIOQ.map((rq: Question) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip}></RadioButtonQuestion>)}
+            {RADIOQ.map((rq: Question, index:number) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip} key={index}></RadioButtonQuestion>)}
 
-            {SLIDERQ.map((sq: Question) => <SliderRangeQuestion order={sq.num} question={sq.question} choices={sq.choices} addCompleted={updateCompleted} answer={sq.answer} tool={sq.tooltip}></SliderRangeQuestion>)}
+            {SLIDERQ.map((sq: Question, index:number) => <SliderRangeQuestion order={sq.num} question={sq.question} choices={sq.choices} addCompleted={updateCompleted} answer={sq.answer} tool={sq.tooltip} key={index}></SliderRangeQuestion>)}
 
             <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
             
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='s-wrapper'>
             <div id='sb-wrapper'>
-                <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses
+                <Button id='basic-submit' className='button' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses
                 {/*call AIinetgration here*/}
                 </Button>
             </div>
         </div>
-        
     </div>);
 }

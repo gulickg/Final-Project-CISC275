@@ -1,16 +1,24 @@
 import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-// import { Button, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
-import { Homepage } from './Components/Homepage';
+import { Homepage } from './Components/Homepage/Homepage';
 import { DetailedQuestions } from './Components/Detailed-Questions-Folder/DetailedQuestions';
 import { BasicQuestions } from './Components/Basic-Questions-Folder/BasicQuestions';
 // import { Report } from './Components/Report';
 import { PopUp } from './Components/Popup';
 import { Login } from './Components/Login';
 import { USER, saveUser } from './Components/SaveFunctions';
+import { ReportPage } from './Components/ReportPage';
+import { CareerData } from './Components/CareerData';
 
+let keyData = "";
+const saveKeyData = "MYKEY";
+const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+if (prevKey !== null) {
+  keyData = JSON.parse(prevKey);
+}
 
 function App() {
   const [page, setPage] = useState<string>("homepage");
@@ -21,12 +29,36 @@ function App() {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
   const [basicDone, setBasicDone] = useState<boolean>(false);
+  const [basicReport, setBasicReport] = useState<CareerData[]>([]);
+  const [detailedReport, setDetailedReport] = useState<CareerData[]>([]);
 
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUpD:boolean = (!detailedDone && numberDetailedCompleted===7);
   const popUpB: boolean = (!basicDone && numberBasicCompleted===7);
   
+  const [key, setKey] = useState<string>(keyData); //for api key input
+  
+  //sets the local storage item to the api key the user inputed
+  function handleSubmit() {
+    localStorage.setItem(saveKeyData, JSON.stringify(key));
+    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+  }
+
+  //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
+  function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
+    setKey(event.target.value);
+  }
+
+  function updateReport(report: CareerData[], type:string){
+    if (type==='detailed'){
+      setDetailedReport(report);
+    } if (numberDetailedCompleted !== 7){
+      setBasicReport(report);
+    }
+    if (user) updateUserReport(report, type);
+  }
+
 
   function updateDetailed(answers:string[]){
     setDetailedAnswers(answers);
@@ -35,7 +67,7 @@ function App() {
     } if (numberDetailedCompleted !== 7){
       setDetailedDone(false);
     }
-    if (user) updateUser(answers, 'detailed');
+    if (user) updateUserAnswers(answers, 'detailed');
   }
 
   function updateBasic(answers: string[]){
@@ -45,7 +77,7 @@ function App() {
     } else {
       setBasicDone(false);
     }
-    if (user) updateUser(answers, 'basic');
+    if (user) updateUserAnswers(answers, 'basic');
   }
 
   function disablePopUpD(){
@@ -55,13 +87,15 @@ function App() {
     setBasicDone(true);
   }
 
-  function loadUser(loadDA:string[], loadBA: string[]){
+  function loadUser(loadDA:string[], loadBA: string[], loadBR: CareerData[], loadDR: CareerData[]){
+    updateReport(loadBR, 'basic');
+    updateReport(loadDR, 'detailed');
     updateDetailed(loadDA);
     updateBasic(loadBA);
     setLoggedIn(true);
   }
 
-  function updateUser(answers:string[], quiz:string){
+  function updateUserAnswers(answers:string[], quiz:string){
     let updatedInfo: USER | null = user;
     if (updatedInfo){
       if (quiz === 'basic'){
@@ -74,44 +108,47 @@ function App() {
     }
   }
 
+  function updateUserReport(report:CareerData[], quiz:string){
+    let updatedInfo: USER | null = user;
+    if (updatedInfo){
+      if (quiz === 'basic'){
+        updatedInfo.basicReport = report;
+      } else{ 
+      updatedInfo.detailedReport = report;
+    }
+      saveUser(updatedInfo);
+      setUser(updatedInfo);
+    }
+  }
+
   function logOut(){
     setUser(null);
     setDetailedAnswers(['', '', '', '', '', '', '']);
     setLoggedIn(false);
   }
   
-  // const [key, setKey] = useState<string>(keyData); //for api key input
-  
-  // //sets the local storage item to the api key the user inputed
-  // function handleSubmit() {
-  //   localStorage.setItem(saveKeyData, JSON.stringify(key));
-  //   window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
-  // }
 
-  // //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
-  // function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
-  //   setKey(event.target.value);
-  // }
- 
   return (
     <div className="App">
-      {/* <Form>
+      <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form> */}
+      </Form>
       <div id='app-content'>
       <header id='header'>
         <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </header>
       <div id='page-content'>
-        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
+        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-        {page === 'basicQuestions' && (<div><BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions></div>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
+        {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport}></BasicQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport}></DetailedQuestions></div>)}
         {page === 'detailedQuestions' && popUpD && (<PopUp disablePopUp={disablePopUpD}></PopUp>)}
         {page === 'basicQuestions' && popUpB && (<PopUp disablePopUp={disablePopUpB}></PopUp>)}
+        {page ==='detailedReport' && (<ReportPage careers={[]} type='detailed'></ReportPage>)}
+        {page ==='basicReport' && (<ReportPage careers={[]} type='basic'></ReportPage>)}
         {/* {page === 'basicQuestionsReport' && (<Report></Report>)} */}
       </div>
       <footer id='footer'>

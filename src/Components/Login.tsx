@@ -4,56 +4,40 @@ import { Form, Button } from 'react-bootstrap';
 import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
 import mascot from '../graphics/mascot.png'
+import { CareerData } from './CareerData';
 
 interface LoginProps{
     setUser: (user:USER | null)=>void;
-    loadUser: (DA:string[], BA:string[]) => void;
+    loadUser: (DA:string[], BA:string[], BR:CareerData[], DR:CareerData[]) => void;
     dAnswers: string[];
     bAnswers: string[];
+    bReport: CareerData[];
+    dReport: CareerData[];
     setShowLogin: (show: boolean)=>void;
 }
 
-export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: LoginProps):React.JSX.Element{
+export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dReport, bReport}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
-    const [domain, setDomain] = useState<boolean>(false);
-    const [isValid, setIsValid] = useState<boolean>(true);
-
-    const emailDomains: string[] = [
-        "@gmail.com",
-        "@icloud.com",
-        "@outlook.com",
-        "@yahoo.com",
-        "@hotmail.com",
-        "@qq.com",
-        "@protonmail.com",
-        "@aol.com",
-        "@zoho.com",
-        "@mail.com",
-        "@udel.edu"
-      ];
-            
 
     const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
 
     function handleSubmission(Email:string){
-        setIsValid(false);
-        if (domain) {
-            const person:USER | undefined = findUser(Email);
-            if (person !== undefined){
-                setName(person.name)
-                setState('login');
-            } else {
-                setState('makeAccount');
-            }
+        const person:USER | undefined = findUser(Email);
+        if (person !== undefined){
+            setName(person.name)
+            setState('login');
+        } else {
+            setState('makeAccount');
         }
     }
 
     function makeAccount(){
-        let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers};
+        let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers, basicReport: bReport, detailedReport: dReport};
         saveUser(newUser);
         setState('login');
-        loadUser(dAnswers, bAnswers);
+        loadUser(dAnswers, bAnswers, bReport, dReport);
+        console.log("User Created: ", newUser);
     }
 
     function login(){
@@ -61,18 +45,9 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
         if (toLog) setUser(toLog);
         let U:USER | undefined = findUser(email);
         if (U){
-            loadUser(U.detailedAnswers, U.basicAnswers);
+            loadUser(U.detailedAnswers, U.basicAnswers, U.basicReport, U.detailedReport);
         }
         setShowLogin(false);
-    }
-
-    function emailClick(event: React.ChangeEvent<HTMLInputElement>) {
-        const entered = event.target.value;
-        setEmail(entered);
-    
-        const isValidDomain = emailDomains.some((d) => entered.endsWith(d)) && !entered.startsWith("@");
-
-        setDomain(isValidDomain);
     }
     
 
@@ -92,14 +67,9 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                     <Form.Label>Enter your email address:</Form.Label>
                     <Form.Control
                     value = {email}
-                    onChange={(event:React.ChangeEvent<HTMLInputElement>) => emailClick(event)}/>
-                    {/* onChange={() => setDomain(email.includes(emailDomains.map(())))} */}
+                    onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
                 </Form.Group>
-                <div>
-                    <Button className='submission' onClick={() => handleSubmission(email)}>Enter</Button>
-                    <div></div>
-                    <span>{isValid ? "" : "Invalid Input"}</span>
-                </div>
+                <Button className='submission' onClick={() => handleSubmission(email)}>Enter</Button>
                 </div>}
                 {state === 'makeAccount' && <div>
                     <Form.Group>

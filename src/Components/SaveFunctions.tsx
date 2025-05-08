@@ -1,8 +1,12 @@
+import { CareerData } from "./CareerData";
+
 export interface USER{
     name: string
     email:string;
     basicAnswers:string[];
     detailedAnswers:string[]
+    basicReport:CareerData[];
+    detailedReport:CareerData[];
 }
 
 export function saveUser(user: USER){

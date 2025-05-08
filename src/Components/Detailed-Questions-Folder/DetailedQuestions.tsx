@@ -6,8 +6,8 @@ import '../Question-Templates/TextInputQuestion'
 import { TextInputQuestion } from '../Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
-import { keyData } from '../Homepage'
-
+import { keyData } from '../Homepage/Homepage'
+import { CareerData } from '../CareerData'
 
 
 export interface Question{
@@ -17,8 +17,6 @@ export interface Question{
     tooltip:string;
 }
 
-
-export let QUESTIONS:Question[];
 /*
 This is the detailed questions page
 */
@@ -28,6 +26,8 @@ interface DetailedProps{
     answers:string[];
     setAnswers: (answers:string[]) => void
     completed:number;
+    setPage: (page: string) => void
+    setReport: (report: CareerData[], type:string) => void
 }
 
 /**
@@ -40,8 +40,15 @@ interface DetailedProps{
  * 
  * @returns {React.JSX.Element} - the detailed questions page
  */
-export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
+export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
+
+    function populateReport(careerString:string){
+        const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
+        const careerList: CareerData[] = JSON.parse(cleanedString);
+        setReport(careerList, 'detailed');
+        setPage('detailedReport');
+    }
 
     interface Question{
         num: number;
@@ -114,6 +121,11 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         }
         completed = sum;
     }
+
+    const handleSubmit = React.useCallback(() => {
+        AIpage(QUESTIONS, keyData, populateReport);
+    }, [QUESTIONS, keyData, populateReport]);
+
     //creating a variable to hold AIpage function
         return(<div id='detailed-questions-page'>
             <div id='detailed-prog-bar'>
@@ -129,15 +141,14 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 </Button> */}
                 <h1 id='dtitle'>Detailed Quiz Questions</h1>
                 
-                {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} tool={q.tooltip}></TextInputQuestion>)}
+                {QUESTIONS.map((q:Question, index:number) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} key={index} tool={q.tooltip}></TextInputQuestion>)}
                 
                 <div id='s-wrapper'>
                     <div id='sb-wrapper'>
-                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={()=>AIpage(QUESTIONS,'detailed', keyData)}>Submit Responses</Button>
+                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses</Button>
                     </div>
                 </div>
             </div>
-            {/* <Report></Report> */}
         </div>);
 
 }

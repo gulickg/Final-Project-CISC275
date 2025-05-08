@@ -7,19 +7,21 @@ import OpenAI from "openai"
 //import * as dotenv from 'dotenv';
 //import chalk from 'chalk';
 //import App from "./App";
-import Loader  from "../Components/Loader";
 //import { BasicQuestions } from "./BasicQuestions";
-import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestions"
-import {Report} from "../Components/Report"
+import {Question} from "../Detailed-Questions-Folder/DetailedQuestions"
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 //import {keyData} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/App"
-import {CareerData} from './CareerData'
+import {CareerData} from '../CareerData'
 
 
 export async function AIpage(questions:Question[],userKey:string, populateReport:(careerString:string)=>void){
     let loading:boolean = true;
     console.log('AI');
     console.log("Calling AIpage at", new Date().toISOString());
+    let errorCount = 0;
+
+
+    let Report:CareerData= {title:'', description:'', breakdown:[]}
     let content: string = '';
     try{
         //set to what user inputs
