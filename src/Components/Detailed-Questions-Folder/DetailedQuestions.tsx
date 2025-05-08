@@ -29,6 +29,7 @@ interface DetailedProps{
     answers:string[];
     setAnswers: (answers:string[]) => void
     completed:number;
+    setPage: (page: string) => void
 }
 
 /**
@@ -41,7 +42,7 @@ interface DetailedProps{
  * 
  * @returns {React.JSX.Element} - the detailed questions page
  */
-export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
+export function DetailedQuestions({answers, setAnswers, completed, setPage}: DetailedProps):React.JSX.Element{
     let blankReport: CareerData = {title:'', description:'', breakdown:[]};
     const [report, setReport] = React.useState<CareerData[]>([blankReport, blankReport, blankReport]);
     const totalQuestions = 7;

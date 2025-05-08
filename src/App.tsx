@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
-import { Homepage } from './Components/Homepage';
+import { Homepage } from './Components/Homepage/Homepage';
 import { DetailedQuestions } from './Components/Detailed-Questions-Folder/DetailedQuestions';
 import { BasicQuestions } from './Components/Basic-Questions-Folder/BasicQuestions';
 // import { Report } from './Components/Report';
@@ -27,6 +27,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
   const [basicAnswers, setBasicAnswers] = useState<string[]>(['', '', '', '', '', '']);
   const [basicDone, setBasicDone] = useState<boolean>(false);
+
+
 
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
@@ -114,10 +116,11 @@ function App() {
       <div id='page-content'>
         {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={[]} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-        {page === 'basicQuestions' && (<div><BasicQuestions answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions></div>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
+        {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted}></BasicQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted}></DetailedQuestions></div>)}
         {page === 'detailedQuestions' && popUpD && (<PopUp disablePopUp={disablePopUpD}></PopUp>)}
         {page === 'basicQuestions' && popUpB && (<PopUp disablePopUp={disablePopUpB}></PopUp>)}
+        {}
         {/* {page === 'basicQuestionsReport' && (<Report></Report>)} */}
       </div>
       <footer id='footer'>

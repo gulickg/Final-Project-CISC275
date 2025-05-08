@@ -1,0 +1,114 @@
+#title{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #024932;
+    font-family: FlowersKingdom;
+    font-size: x-large;
+}
+
+#mascot-homepage{
+    height: calc(100vh - 280px);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+#description-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+#hpc{
+    flex-basis: 50%;
+}
+
+
+#homepage-content{
+    display:flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    padding-left: 20px;
+    padding-right:20px;
+}
+
+.quiz {
+    display: flex;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    border: solid;
+    border-width: 1px;
+    margin: 5px;
+    flex-basis: auto;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #fbf6f2;
+    border-color: #266d56;
+    border-width: 5px;
+    box-shadow: 0px 0px 10px #0249325c;
+    max-height: 250px;
+    max-width: 1000px
+}
+
+#homepage-box{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    justify-content:space-between;
+    align-items: center;
+}
+
+#site-description{
+    width:25%;
+    font-family: Creato;
+    color: #266d56;
+}
+
+.tagline{
+    font-family: Honey;
+    font-size: 60px;
+}
+
+
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    max-width: 190px;
+  }
+  
+  .input {
+    display:flex;
+    Position:relative;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    width: 100%;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #D9E8D8;
+    color: #0d0c22;
+    box-shadow: 0 0 5px #C1D9BF, 0 0 0 10px #f5f5f5eb;
+    transition: .3s ease;
+  }
+  
+  .input::placeholder {
+    position:relative;
+    color: #777;
+  }
+  
+
+#basic-info{
+    margin-left:50px;
+}
+
+#detailed-info{
+    margin-right:50px;
+}
