@@ -1,13 +1,15 @@
 import React from 'react'
+import { CareerData } from './CareerData';
 
-export function Report(suggestion: string, description: string, breakdown: string, type: string):React.JSX.Element{
+
+export function Report({type, description, breakdown, title}:CareerData):React.JSX.Element{
     return(
     <div id='report'>
         <h1 id='title'>{type} Quiz Results</h1>
         <div id='container'>
             <div id='box'>
                 <div id = 'careerSuggestion'>
-                    {suggestion}
+                    {title}
                 </div>
                 <div id = 'careerDescription'>
                     {description}
@@ -17,15 +19,8 @@ export function Report(suggestion: string, description: string, breakdown: strin
                 <div id='answerBreakdown'>
                     {breakdown}
                 </div>
-                <div id='ai'>
-                    <h2>Still stuck? Follow up with ChatGPT.</h2>
-                    {/*ai stuff - do we get rid of?*/}
-                </div>
             </div>
         </div>
-            <div id="shareButton">
-                <button>Share your results</button>
-            </div>
     </div>
     );
 }

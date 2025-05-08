@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-// import { Button, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage';
 import { DetailedQuestions } from './Components/Detailed-Questions-Folder/DetailedQuestions';
@@ -11,6 +11,12 @@ import { PopUp } from './Components/Popup';
 import { Login } from './Components/Login';
 import { USER, saveUser } from './Components/SaveFunctions';
 
+let keyData = "";
+const saveKeyData = "MYKEY";
+const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+if (prevKey !== null) {
+  keyData = JSON.parse(prevKey);
+}
 
 function App() {
   const [page, setPage] = useState<string>("homepage");
@@ -27,6 +33,18 @@ function App() {
   const popUpD:boolean = (!detailedDone && numberDetailedCompleted===7);
   const popUpB: boolean = (!basicDone && numberBasicCompleted===7);
   
+  const [key, setKey] = useState<string>(keyData); //for api key input
+  
+  //sets the local storage item to the api key the user inputed
+  function handleSubmit() {
+    localStorage.setItem(saveKeyData, JSON.stringify(key));
+    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+  }
+
+  //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
+  function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
+    setKey(event.target.value);
+  }
 
   function updateDetailed(answers:string[]){
     setDetailedAnswers(answers);
@@ -80,27 +98,15 @@ function App() {
     setLoggedIn(false);
   }
   
-  // const [key, setKey] = useState<string>(keyData); //for api key input
-  
-  // //sets the local storage item to the api key the user inputed
-  // function handleSubmit() {
-  //   localStorage.setItem(saveKeyData, JSON.stringify(key));
-  //   window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
-  // }
 
-  // //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
-  // function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
-  //   setKey(event.target.value);
-  // }
- 
   return (
     <div className="App">
-      {/* <Form>
+      <Form>
         <Form.Label>API Key:</Form.Label>
         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
         <br></br>
         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form> */}
+      </Form>
       <div id='app-content'>
       <header id='header'>
         <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>

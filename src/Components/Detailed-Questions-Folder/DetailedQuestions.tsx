@@ -7,7 +7,8 @@ import { TextInputQuestion } from '../Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
 import { keyData } from '../Homepage'
-
+import { CareerData } from '../CareerData'
+import { Report } from '../Report'
 
 
 export interface Question{
@@ -41,7 +42,18 @@ interface DetailedProps{
  * @returns {React.JSX.Element} - the detailed questions page
  */
 export function DetailedQuestions({answers, setAnswers, completed}: DetailedProps):React.JSX.Element{
+    let blankReport: CareerData = {title:'', description:'', breakdown:[], type:''};
+    const [report, setReport] = React.useState<CareerData[]>([blankReport]);
     const totalQuestions = 7;
+
+    function populateReport(newJob:CareerData){
+        if (report[1]===blankReport){
+            setReport([newJob]);
+        } else {
+            setReport([...report, newJob]);
+        }
+        console.log(JSON.stringify(newJob));
+    }
 
     interface Question{
         num: number;
@@ -114,6 +126,11 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
         }
         completed = sum;
     }
+
+    const handleSubmit = React.useCallback(() => {
+        AIpage(QUESTIONS, 'detailed', keyData, populateReport);
+    }, [QUESTIONS, keyData, populateReport]);
+
     //creating a variable to hold AIpage function
         return(<div id='detailed-questions-page'>
             <div id='detailed-prog-bar'>
@@ -133,11 +150,11 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 
                 <div id='s-wrapper'>
                     <div id='sb-wrapper'>
-                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={()=>AIpage(QUESTIONS,'detailed', keyData)}>Submit Responses</Button>
+                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses</Button>
                     </div>
                 </div>
             </div>
-            {/* <Report></Report> */}
+            <Report title={report[0].title} description={report[0].description} type={report[0].type} breakdown={report[0].breakdown}></Report>
         </div>);
 
 }
