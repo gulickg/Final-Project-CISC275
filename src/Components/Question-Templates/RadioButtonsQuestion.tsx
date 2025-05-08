@@ -39,7 +39,6 @@ export function RadioButtonQuestion({order, question, choices, addCompleted, ans
                 </Form.Label>
             {choices ? choices.map((c: string) => (
                 <Form.Check
-                key={question}
                 className='radio-choices'
                 type='radio'
                 name={question}

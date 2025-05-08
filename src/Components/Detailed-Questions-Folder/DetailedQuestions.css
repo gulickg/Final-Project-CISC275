@@ -1,4 +1,4 @@
-#detailed-progress-bar-box{
+#progress-bar-box{
     display: flex;
     border:none;
     height: 20px;
@@ -11,7 +11,7 @@
     border-radius:15px;
 }
 
-#detailed-progress-bar{
+#progress-bar{
     height: 10px;
     justify-self: left;
     background-color: #97d4b4;
@@ -20,7 +20,7 @@
     border-radius: 15px;
 }
 
-#dquestion-sect{
+#question-sect{
     padding-left: calc(100vw - 100%)
 }
 
@@ -37,7 +37,7 @@
     margin-top:30px;
 }
 
-#detailed-prog-bar{
+#prog-bar{
     position: sticky;
     top:0;
     background-color: #266d56;

@@ -95,11 +95,11 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
     //     setQuestionsCompleted(questionsCompleted - 1);
     // }
 
-    return(<div id='detailed-questions-page'>
-        <div id='detailed-prog-bar'>
-                <div id='detailed-progress-bar-box'>
+    return(<div id='basic-questions-page'>
+        <div id='prog-bar'>
+                <div id='progress-bar-box'>
                     <div id='wrapper'>
-                        <div id='detailed-progress-bar' style={{ width: size}}></div>
+                        <div id='progress-bar' style={{ width: size}}></div>
                 </div>
             </div>
         </div>
@@ -109,16 +109,16 @@ export function BasicQuestions({answers, setAnswers, completed}: BasicProps):Rea
             <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
             <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion> */}
-            {RADIOQ.map((rq: Question) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip}></RadioButtonQuestion>)}
+            {RADIOQ.map((rq: Question, index:number) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip} key={index}></RadioButtonQuestion>)}
 
-            {SLIDERQ.map((sq: Question) => <SliderRangeQuestion order={sq.num} question={sq.question} choices={sq.choices} addCompleted={updateCompleted} answer={sq.answer} tool={sq.tooltip}></SliderRangeQuestion>)}
+            {SLIDERQ.map((sq: Question, index:number) => <SliderRangeQuestion order={sq.num} question={sq.question} choices={sq.choices} addCompleted={updateCompleted} answer={sq.answer} tool={sq.tooltip} key={index}></SliderRangeQuestion>)}
 
             <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
             
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
         <div id='s-wrapper'>
             <div id='sb-wrapper'>
-                <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true}>Submit Responses
+                <Button id='basic-submit' className='button' disabled={progressPercent === 100? false : true}>Submit Responses
                 {/*call AIinetgration here*/}
                 </Button>
             </div>

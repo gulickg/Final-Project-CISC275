@@ -143,7 +143,7 @@ export function DetailedQuestions({answers, setAnswers, completed}: DetailedProp
                 </Button> */}
                 <h1 id='dtitle'>Detailed Quiz Questions</h1>
                 
-                {QUESTIONS.map((q:Question) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} tool={q.tooltip}></TextInputQuestion>)}
+                {QUESTIONS.map((q:Question, index:number) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} key={index} tool={q.tooltip}></TextInputQuestion>)}
                 
                 <div id='s-wrapper'>
                     <div id='sb-wrapper'>

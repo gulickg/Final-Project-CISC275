@@ -59,6 +59,7 @@ export function TextInputQuestion({question, qNumber, response, answer, tool}: T
                 as='textarea'
                 rows={5}
                 value={answer}
+                key={answer}
                 onChange={updateAnswer}>
                 </Form.Control>
             </Form.Group>
