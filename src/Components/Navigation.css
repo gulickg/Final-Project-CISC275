@@ -83,3 +83,8 @@
     width: 186.28px;
     display: flex;
 }
+
+#nav-buttons{
+    padding-left: calc(1 / (100vw - 100%));
+    
+}
