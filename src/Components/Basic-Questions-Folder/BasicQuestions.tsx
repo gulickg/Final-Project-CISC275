@@ -51,20 +51,20 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
     ]
 
     // radio questions
-    const RADIOQ: Question[] = [
+    const RADIOQ: Question[] = React.useMemo(()=> [
         {num: 1, question: "How much time do you usually dedicate per week to hobbies?", choices: ['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours'], answer:answers[0], tooltip: TOOLTIPS[0]},
         {num: 2, question: "Which subject did you perform the best in school?", choices: ['English', 'Math', 'Science', 'Art', 'Social Studies'], answer: answers[1], tooltip: TOOLTIPS[1]},
         {num: 3, question: "What is your preferred form of media?", choices: ['Books', 'Podcasts', 'Movies'], answer: answers[2], tooltip: TOOLTIPS[2]},
         {num: 4, question: "What Hogwarts house do you belong to?", choices: ['Gryffindor', 'Hufflepuff', 'Ravenclaw', 'Slytherin'], answer: answers[3], tooltip: TOOLTIPS[3]}
-    ];
+    ], [answers, TOOLTIPS]);
 
-    const SLIDERQ: Question[] = [
+    const SLIDERQ: Question[] = React.useMemo(()=> [
         {num: 5, question: "Would you consider yourself an introvert or extrovert?", choices: ['Introvert', 'I\'m a little quiet', 'Ambivert', 'I\'m a little loud', 'Extrovert'], answer: answers[4], tooltip: TOOLTIPS[4]},
         {num: 6, question: "Do you like to work by yourself or in a group?", choices: ['Alone', 'I prefer to be alone', 'I\'ll collaborate', 'I like working with others', 'Team work makes the dream work!'], answer: answers[5], tooltip: TOOLTIPS[5]}
-    ];
+    ], [answers, TOOLTIPS]);
 
 
-    const SWITCHQ: Question = {num: 7, question: "What working environment do you prefer?", choices: ['Flexible Schedule', 'Strict Schedule'], answer: answers[6], tooltip: TOOLTIPS[6]};
+    const SWITCHQ: Question = React.useMemo(()=> ({num: 7, question: "What working environment do you prefer?", choices: ['Flexible Schedule', 'Strict Schedule'], answer: answers[6], tooltip: TOOLTIPS[6]}), [answers, TOOLTIPS]);
 
     const QUESTIONS: Question[] = React.useMemo(()=> [...RADIOQ, ...SLIDERQ, SWITCHQ], [RADIOQ, SLIDERQ, SWITCHQ]); ;
 

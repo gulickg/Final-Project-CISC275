@@ -78,7 +78,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     { num: 5, question: 'What do you think the most useful invention has been so far and why?', answer: answers[4], tooltip: TOOLTIPS[4] },
     { num: 6, question: 'Would you rather work in-person or completely online? State which you would choose and explain why.', answer: answers[5], tooltip: TOOLTIPS[5] },
     { num: 7, question: "Imagine you’re on a forked path. The path to the left has a hospital at the end of it. The path to the right leads to a city of innovation and creativity. Which path do you choose and why?", answer: answers[6], tooltip: TOOLTIPS[6] }
-], [answers]);
+], [answers, TOOLTIPS]);
 
     //updates the progress bar
     const progressPercent:number = updatePercents(completed, totalQuestions);
