@@ -99,8 +99,8 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
     }
 
     const handleSubmit = React.useCallback(() => {
-            AIpage(QUESTIONS, keyData, populateReport);
-        }, [QUESTIONS, keyData, populateReport]);
+            AIpage(QUESTIONS, populateReport);
+        }, [QUESTIONS, populateReport]);
 
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
     return(<div id='basic-questions-page'>
