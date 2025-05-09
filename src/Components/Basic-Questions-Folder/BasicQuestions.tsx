@@ -103,7 +103,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         }, [QUESTIONS, populateReport]);
 
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
-    return(<div id='basic-questions-page'>
+    return(<div id='questions-page'>
         <div id='prog-bar'>
                 <div id='progress-bar-box'>
                     <div id='wrapper'>

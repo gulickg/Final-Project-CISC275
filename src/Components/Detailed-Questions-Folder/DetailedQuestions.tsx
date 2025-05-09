@@ -128,7 +128,10 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         AIpage(QUESTIONS, populateReport);
     }, [QUESTIONS, populateReport]);
 
+
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
+
+
 
     //creating a variable to hold AIpage function
         return(<div id='questions-page'>

@@ -18,7 +18,7 @@ export function Report({description, breakdown, title, percentMatch, personality
             <div id='answerBreakdown'>
                 {breakdown}
             </div>
-            <div id='skills'>
+            {/* <div id='skills'>
                 {skills.map((skill: string) => <div>{skill}</div>)}
             </div>
             <div id='personalityTraits'>
@@ -29,7 +29,7 @@ export function Report({description, breakdown, title, percentMatch, personality
             </div>
             <div id='potentialMajors'>
                 {potentialMajors.map((major: string) => <div>{major}</div>)}
-            </div>
+            </div> */}
         </div>
     </div>
     );

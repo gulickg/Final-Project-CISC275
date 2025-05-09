@@ -140,8 +140,8 @@ function App() {
         <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </header>
       <div id='page-content'>
-        <ProfilePage></ProfilePage>
-        {/* {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin}></Login>}
+        {/* <ProfilePage user={user}></ProfilePage> */}
+        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport} apiExists={key!==''}></BasicQuestions></div>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport} apiExists={key!==''}></DetailedQuestions></div>)}
@@ -149,7 +149,8 @@ function App() {
         {page === 'basicQuestions' && popUpB && (<PopUp disablePopUp={disablePopUpB}></PopUp>)}
         {page ==='detailedReport' && (<ReportPage careers={detailedReport} type='detailed'></ReportPage>)}
         {page ==='basicReport' && (<ReportPage careers={basicReport} type='basic'></ReportPage>)}
-        {showAPIInput && (<APIPopup disablePopUp={()=>setShowAPiInput(false)} handleSubmit={handleSubmit} changeKey={changeKey}></APIPopup>)} */}
+        {page ==='profilePage' && (<ProfilePage user={user}></ProfilePage>)}
+        {showAPIInput && (<APIPopup disablePopUp={()=>setShowAPiInput(false)} handleSubmit={handleSubmit} changeKey={changeKey}></APIPopup>)}
       </div>
       <footer id='footer'>
         <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut} showAPI={()=>setShowAPiInput(true)}></Navigation>

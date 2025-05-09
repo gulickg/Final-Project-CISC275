@@ -82,10 +82,16 @@ border-color: #d6844b;
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+  position:relative;
+  top:0;
 }
 
 #page-content{
+  flex-grow:1;
+  overflow-y: auto;;
+  display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 #footer{
