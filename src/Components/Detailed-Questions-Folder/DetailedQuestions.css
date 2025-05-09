@@ -59,7 +59,7 @@
     padding: 40px;
 }
 
-#detailed-submit{
+#quiz-submit{
     box-shadow: none;
     border: none;
     border-radius: 15px;
@@ -70,6 +70,7 @@
     display:flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 #sb-wrapper{
@@ -105,4 +106,9 @@
 
 #detailed-questions-page{
     margin-bottom: 20px;
+}
+
+#reminder{
+    font-family: Creato;
+    margin-bottom: 5px;
 }
