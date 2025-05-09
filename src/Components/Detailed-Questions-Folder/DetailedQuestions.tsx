@@ -6,7 +6,6 @@ import '../Question-Templates/TextInputQuestion'
 import { TextInputQuestion } from '../Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
-import { keyData } from '../Homepage/Homepage'
 import { CareerData } from '../CareerData'
 
 
@@ -123,8 +122,8 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     }
 
     const handleSubmit = React.useCallback(() => {
-        AIpage(QUESTIONS, keyData, populateReport);
-    }, [QUESTIONS, keyData, populateReport]);
+        AIpage(QUESTIONS, populateReport);
+    }, [QUESTIONS, populateReport]);
 
     //creating a variable to hold AIpage function
         return(<div id='detailed-questions-page'>

@@ -8,7 +8,6 @@ import { SliderRangeQuestion } from '../Question-Templates/SliderQuestion'
 import { SwitchQuestion } from '../Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
-import { keyData } from '../Homepage/Homepage'
 import { CareerData } from '../CareerData'
 
 interface BasicProps {
@@ -21,7 +20,6 @@ interface BasicProps {
 
 
 export function BasicQuestions({answers, setAnswers, completed, setPage, setReport}: BasicProps):React.JSX.Element{
-    let blankReport: CareerData = {title:'', description:'', breakdown:[]};
     
         function populateReport(careerString:string){
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
@@ -108,8 +106,8 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
     }
 
     const handleSubmit = React.useCallback(() => {
-            AIpage(QUESTIONS, keyData, populateReport);
-        }, [QUESTIONS, keyData, populateReport]);
+            AIpage(QUESTIONS, populateReport);
+        }, [QUESTIONS, populateReport]);
 
 
     // function removeCompleted(){

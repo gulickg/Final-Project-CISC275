@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 //import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
 //import "./AIIntegration.css"; // Create this CSS file
 //import {OPENAI_API_KEY} from 'src/Components/APIKey.env'
@@ -7,23 +7,23 @@ import OpenAI from "openai"
 //import * as dotenv from 'dotenv';
 //import chalk from 'chalk';
 //import App from "./App";
-import Loader  from "../Components/Loader";
+// import Loader  from "../Components/Loader";
 //import { BasicQuestions } from "./BasicQuestions";
 import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestions"
-import {Report} from "../Components/Report"
+// import {Report} from "../Components/Report"
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 //import {keyData} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/App"
-import {CareerData} from './CareerData'
+// import {CareerData} from './CareerData'
 
 
-export async function AIpage(questions:Question[],userKey:string, populateReport:(careerString:string)=>void){
-    let loading:boolean = true;
+export async function AIpage(questions:Question[], populateReport:(careerString:string)=>void){
+    // let loading:boolean = true;
     console.log('AI');
     console.log("Calling AIpage at", new Date().toISOString());
     let content: string = '';
     try{
         //set to what user inputs
-        const api= userKey;
+        const api= localStorage.getItem('MYKEY') || undefined;
         const openai=new OpenAI({
             apiKey: api,
             dangerouslyAllowBrowser:true,
@@ -60,7 +60,7 @@ export async function AIpage(questions:Question[],userKey:string, populateReport
     catch(error){
         // console.error("Error generating career: ", error);
     }  finally{
-        loading = false;
+        // loading = false;
         populateReport(content);
     }
 }
