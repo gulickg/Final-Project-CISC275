@@ -11,5 +11,6 @@ export function ReportPage({careers, type}:ReportPageProps): React.JSX.Element{
     return(<div>
         <h1 id='reportTitle'>{type} Career Report</h1>
         {careers.map((career: CareerData) => <Report title={career.title} breakdown={career.breakdown} description={career.description}></Report>)}
+        
     </div>)
 }

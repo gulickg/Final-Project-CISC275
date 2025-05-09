@@ -26,7 +26,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
             const careerList: CareerData[] = JSON.parse(cleanedString);
             setReport(careerList, 'detailed');
-            setPage('detailedReport');
+            setPage('basicReport');
         }, [setReport, setPage]);
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;

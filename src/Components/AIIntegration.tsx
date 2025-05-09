@@ -23,7 +23,7 @@ export async function AIpage(questions:Question[], populateReport:(careerString:
     let content: string = '';
     try{
         //set to what user inputs
-        const api= localStorage.getItem('MYKEY') || undefined;
+        const api: string | undefined = JSON.parse(localStorage.getItem('MYKEY') || 'null');
         const openai=new OpenAI({
             apiKey: api,
             dangerouslyAllowBrowser:true,
