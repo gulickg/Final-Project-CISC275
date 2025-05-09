@@ -12,6 +12,7 @@ import { Login } from './Components/Login';
 import { USER, saveUser } from './Components/SaveFunctions';
 import { ReportPage } from './Components/ReportPage';
 import { CareerData } from './Components/CareerData';
+import { APIPopup } from './Components/APIPopup';
 
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -32,6 +33,8 @@ function App() {
   const [basicReport, setBasicReport] = useState<CareerData[]>([]);
   const [detailedReport, setDetailedReport] = useState<CareerData[]>([]);
 
+  const [showAPIInput, setShowAPiInput] = useState<boolean>(false);
+
   const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUpD:boolean = (!detailedDone && numberDetailedCompleted===7);
@@ -42,12 +45,14 @@ function App() {
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variabl\
+    setShowAPiInput(false); //closes the api key input box
   }
 
+
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
-  function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
-    setKey(event.target.value);
+  function changeKey(event: string) {
+    setKey(event);
   }
 
   function updateReport(report: CareerData[], type:string){
@@ -130,12 +135,6 @@ function App() {
 
   return (
     <div className="App">
-      <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-      </Form>
       <div id='app-content'>
       <header id='header'>
         <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
@@ -143,16 +142,16 @@ function App() {
       <div id='page-content'>
         {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-        {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport}></BasicQuestions></div>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport}></DetailedQuestions></div>)}
+        {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport} apiExists={key!==''}></BasicQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport} apiExists={key!==''}></DetailedQuestions></div>)}
         {page === 'detailedQuestions' && popUpD && (<PopUp disablePopUp={disablePopUpD}></PopUp>)}
         {page === 'basicQuestions' && popUpB && (<PopUp disablePopUp={disablePopUpB}></PopUp>)}
         {page ==='detailedReport' && (<ReportPage careers={[]} type='detailed'></ReportPage>)}
         {page ==='basicReport' && (<ReportPage careers={[]} type='basic'></ReportPage>)}
-        {/* {page === 'basicQuestionsReport' && (<Report></Report>)} */}
+        {showAPIInput && (<APIPopup disablePopUp={()=>setShowAPiInput(false)} handleSubmit={handleSubmit} changeKey={changeKey}></APIPopup>)}
       </div>
       <footer id='footer'>
-        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
+        <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut} showAPI={()=>setShowAPiInput(true)}></Navigation>
       </footer>
       </div>
     </div>

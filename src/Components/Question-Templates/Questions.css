@@ -33,7 +33,6 @@
 .question-text{
   margin: 0px 10px 10px 10px;
   font-family: Creato;
-  color: #024932;
 }
 
 .radio-choices{
@@ -80,4 +79,37 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: .95;
+}
+
+.form-range{
+    color:blue
+}
+
+.slider-container::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color:  #266d56; /* <-- change this to your desired color */
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  margin-top: -7px; /* align with track height */
+  box-shadow: none;
+}
+
+.slider-container::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #b7dea9; /* <-- change this to your desired track color */
+  border-radius: 3px;
+}
+
+
+.form-range {
+
+  &:focus {
+    outline: 0;
+
+    &::-webkit-slider-thumb { box-shadow: none }
+  }
 }

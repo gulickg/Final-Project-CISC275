@@ -27,6 +27,7 @@ interface DetailedProps{
     completed:number;
     setPage: (page: string) => void
     setReport: (report: CareerData[], type:string) => void
+    apiExists: boolean;
 }
 
 /**
@@ -39,7 +40,7 @@ interface DetailedProps{
  * 
  * @returns {React.JSX.Element} - the detailed questions page
  */
-export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport}: DetailedProps):React.JSX.Element{
+export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
 
     function populateReport(careerString:string){
@@ -125,6 +126,8 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         AIpage(QUESTIONS, populateReport);
     }, [QUESTIONS, populateReport]);
 
+    const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
+
     //creating a variable to hold AIpage function
         return(<div id='detailed-questions-page'>
             <div id='detailed-prog-bar'>
@@ -141,10 +144,10 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
                 <h1 id='dtitle'>Detailed Quiz Questions</h1>
                 
                 {QUESTIONS.map((q:Question, index:number) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} key={index} tool={q.tooltip}></TextInputQuestion>)}
-                
+                {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
                 <div id='s-wrapper'>
                     <div id='sb-wrapper'>
-                        <Button id='detailed-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses</Button>
+                        <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses</Button>
                     </div>
                 </div>
             </div>
