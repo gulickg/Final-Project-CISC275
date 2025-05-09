@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import "./Navigation.css"
 import Mascot from '../graphics/mascot.png'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 /* 
 This is the navigation bar in the header and footer

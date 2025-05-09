@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import { Button, Form } from 'react-bootstrap';
 import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage/Homepage';
 import { DetailedQuestions } from './Components/Detailed-Questions-Folder/DetailedQuestions';
