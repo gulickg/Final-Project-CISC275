@@ -22,12 +22,12 @@ interface BasicProps {
 
 export function BasicQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: BasicProps):React.JSX.Element{
     
-        function populateReport(careerString:string){
+    const populateReport = React.useCallback((careerString:string) => {
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
             const careerList: CareerData[] = JSON.parse(cleanedString);
-            setReport(careerList, 'basic');
-            setPage('basicReport');
-        }
+            setReport(careerList, 'detailed');
+            setPage('detailedReport');
+        }, [setReport, setPage]);
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;
 
@@ -66,7 +66,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
 
     const SWITCHQ: Question = {num: 7, question: "What working environment do you prefer?", choices: ['Flexible Schedule', 'Strict Schedule'], answer: answers[6], tooltip: TOOLTIPS[6]};
 
-    const QUESTIONS: Question[] = [...RADIOQ, ...SLIDERQ, SWITCHQ];
+    const QUESTIONS: Question[] = React.useMemo(()=> [...RADIOQ, ...SLIDERQ, SWITCHQ], [RADIOQ, SLIDERQ, SWITCHQ]); ;
 
      // find the percent of questions completed and math for the progress bar
      const progressPercent:number = updatePercents(completed, totalQuestions);

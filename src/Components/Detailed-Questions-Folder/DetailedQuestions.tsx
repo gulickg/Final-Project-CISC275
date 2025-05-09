@@ -70,15 +70,15 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     ]
 
     // list of questions to be mapped onto the page
-    const QUESTIONS:Question[] = [
-        {num: 1, question:'If you could live anywhere in the world where would you live and why?', answer:answers[0], tooltip:TOOLTIPS[0]},
-        {num:2, question:'In group settings, what role do you find yourself taking?', answer:answers[1], tooltip:TOOLTIPS[1]},
-        {num:3, question:'If a customer/client were to lodge a complaint about a mistake you made, what would you do to fix it? Would you go to your boss, or try and fix it on your own?', answer:answers[2], tooltip:TOOLTIPS[2]},
-        {num:4, question:'If you could fix one problem in the world, what would it be and how would you fix it?', answer:answers[3], tooltip:TOOLTIPS[3]},
-        {num:5, question:'What do you think the most useful invention has been so far and why?', answer: answers[4], tooltip:TOOLTIPS[4]},
-        {num:6, question:'Would you rather work in-person or completely online? State which you would choose and explain why.', answer:answers[5], tooltip:TOOLTIPS[5]},
-        {num:7, question:"Imagine you’re on a forked path. The path to the left has a hospital at the end of it. The path to the right leads to a city of innovation and creativity. Which path do you choose and why?", answer:answers[6], tooltip:TOOLTIPS[6]}
-    ]
+    const QUESTIONS: Question[] = React.useMemo(() => [
+    { num: 1, question: 'If you could live anywhere in the world where would you live and why?', answer: answers[0], tooltip: TOOLTIPS[0] },
+    { num: 2, question: 'In group settings, what role do you find yourself taking?', answer: answers[1], tooltip: TOOLTIPS[1] },
+    { num: 3, question: 'If a customer/client were to lodge a complaint about a mistake you made, what would you do to fix it? Would you go to your boss, or try and fix it on your own?', answer: answers[2], tooltip: TOOLTIPS[2] },
+    { num: 4, question: 'If you could fix one problem in the world, what would it be and how would you fix it?', answer: answers[3], tooltip: TOOLTIPS[3] },
+    { num: 5, question: 'What do you think the most useful invention has been so far and why?', answer: answers[4], tooltip: TOOLTIPS[4] },
+    { num: 6, question: 'Would you rather work in-person or completely online? State which you would choose and explain why.', answer: answers[5], tooltip: TOOLTIPS[5] },
+    { num: 7, question: "Imagine you’re on a forked path. The path to the left has a hospital at the end of it. The path to the right leads to a city of innovation and creativity. Which path do you choose and why?", answer: answers[6], tooltip: TOOLTIPS[6] }
+], [answers]);
 
     //updates the progress bar
     const progressPercent:number = updatePercents(completed, totalQuestions);
