@@ -40,7 +40,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         tooltip: string;
     }
 
-    const TOOLTIPS: string[] = [
+    const TOOLTIPS: string[] = React.useMemo(()=> [
         "This helps us understand how important free time and personal interests are to your ideal lifestyle and job.",
         "Your strongest subject can highlight natural strengths and hint at career paths where you might excel.",
         "Your go-to media type can show how you like to absorb information—this is useful for matching learning and working styles.",
@@ -48,7 +48,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         "This helps determine the kind of social energy you bring to a workplace and what environments might suit you best.",
         "Some careers are solo missions, others are team-based—this question helps narrow down the right fit.",
         "Your comfort with different work settings—like remote vs. in-office or quiet vs. fast-paced—can shape your ideal job match."
-    ]
+    ], []);
 
     // radio questions
     const RADIOQ: Question[] = React.useMemo(()=> [

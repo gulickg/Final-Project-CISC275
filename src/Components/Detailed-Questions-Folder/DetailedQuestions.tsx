@@ -59,7 +59,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         tooltip: string;
     }
 
-    const TOOLTIPS: string[] = [
+    const TOOLTIPS: string[] = React.useMemo(() => [
         "Your ideal location can reveal lifestyle preferences that connect to values, pace, and type of work you might enjoy.",
         "This helps identify your natural tendencies in team dynamics—are you a leader, a helper, a planner, or something else?",
         "This shows how you handle accountability and whether you prefer independence or guidance in problem-solving.",
@@ -67,7 +67,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         "This helps uncover how you view impact, innovation, and the kind of thinking that excites you.",
         "Your preference can suggest the type of work culture and setup you'll feel most productive and comfortable in.",
         "This scenario helps explore whether you're drawn to care and service or exploration and originality—both valuable in different careers."
-    ]
+    ], []);
 
     // list of questions to be mapped onto the page
     const QUESTIONS: Question[] = React.useMemo(() => [
