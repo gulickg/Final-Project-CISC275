@@ -21,12 +21,14 @@ interface BasicProps {
 
 
 export function BasicQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: BasicProps):React.JSX.Element{
+    const blankAnswers:string[] = ['', '', '', '', '', '', ''];
     
     const populateReport = React.useCallback((careerString:string) => {
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
             console.log(cleanedString);
             const careerList: CareerData[] = JSON.parse(cleanedString);
             console.log(careerList);
+            setAnswers(blankAnswers);
             setReport(careerList, 'basic');
             setPage('basicReport');
         }, [setReport, setPage]);
@@ -113,24 +115,26 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
                 </div>
             </div>
         </div>
-        <h1 id='dtitle'>Basic Quiz Questions</h1>
+        <div id='question-sect'>
+            <h1 id='dtitle'>Basic Quiz Questions</h1>
 
-            {/* <RadioButtonQuestion order={1} question={"How much time do you usually dedicate per week to hobbies?"} choices={['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours']} addCompleted={addCompleted}></RadioButtonQuestion>
-            <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
-            <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
-            <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion> */}
-            {RADIOQ.map((rq: Question, index:number) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip} key={index}></RadioButtonQuestion>)}
+                {/* <RadioButtonQuestion order={1} question={"How much time do you usually dedicate per week to hobbies?"} choices={['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours']} addCompleted={addCompleted}></RadioButtonQuestion>
+                <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
+                <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
+                <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion> */}
+                {RADIOQ.map((rq: Question, index:number) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip} key={index}></RadioButtonQuestion>)}
 
-            {SLIDERQ.map((sq: Question, index:number) => <SliderRangeQuestion order={sq.num} question={sq.question} choices={sq.choices} addCompleted={updateCompleted} answer={sq.answer} tool={sq.tooltip} key={index}></SliderRangeQuestion>)}
+                {SLIDERQ.map((sq: Question, index:number) => <SliderRangeQuestion order={sq.num} question={sq.question} choices={sq.choices} addCompleted={updateCompleted} answer={sq.answer} tool={sq.tooltip} key={index}></SliderRangeQuestion>)}
 
-            <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
-            
-            {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
-        {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
-        <div id='s-wrapper'>
-            <div id='sb-wrapper'>
-                <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses
-                </Button>
+                <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
+                
+                {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
+            {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
+            <div id='s-wrapper'>
+                <div id='sb-wrapper'>
+                    <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses
+                    </Button>
+                </div>
             </div>
         </div>
     </div>);

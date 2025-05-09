@@ -69,8 +69,6 @@ function App() {
     setDetailedAnswers(answers);
     if (numberDetailedCompleted === 7){
       setDetailedDone(true);
-    } if (numberDetailedCompleted !== 7){
-      setDetailedDone(false);
     }
     if (user) updateUserAnswers(answers, 'detailed');
   }
@@ -107,7 +105,7 @@ function App() {
         updatedInfo.basicAnswers = answers;
       } else{ 
       updatedInfo.detailedAnswers = answers;
-    }
+      }
       saveUser(updatedInfo);
       setUser(updatedInfo);
     }
@@ -129,6 +127,9 @@ function App() {
   function logOut(){
     setUser(null);
     setDetailedAnswers(['', '', '', '', '', '', '']);
+    setBasicAnswers(['', '', '', '', '', '', '']);
+    setBasicReport([]);
+    setDetailedReport([]);
     setLoggedIn(false);
   }
   

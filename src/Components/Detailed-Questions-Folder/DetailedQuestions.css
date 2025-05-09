@@ -70,7 +70,6 @@
     display:flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
 }
 
 #sb-wrapper{
@@ -104,11 +103,11 @@
     background-color: green;
 }
 
-#s-wrapper{
-    margin-bottom: 20px;
-}
-
 #reminder{
     font-family: Creato;
     margin-bottom: 5px;
+}
+
+#question-sect{
+    padding-bottom: 20px;
 }

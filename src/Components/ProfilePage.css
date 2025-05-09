@@ -85,7 +85,7 @@
 }
 
 #user-info{
-    flex: 2;
+    height: 20px;
     height:auto;
     margin-bottom:20px;
     display:flex;
@@ -94,7 +94,7 @@
 }
 
 #user-skills{
-    flex: 3;
+    flex: 4;
     height:auto;
     margin-bottom:20px;
 }
@@ -129,10 +129,11 @@
     border-radius: 15px;
     max-width: 120px;
     color: rgb(28, 106, 35);
+    font-size: 14px;
 }
 
 #user-traits{
-    flex: 3;
+    flex: 4;
     height:auto;
     justify-content: space-between;
 }

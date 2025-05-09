@@ -69,7 +69,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
                     value = {email}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
                 </Form.Group>
-                <Button className='submission' onClick={() => handleSubmission(email)}>Enter</Button>
+                <Button className='submission' onClick={() => handleSubmission(email)} disabled={email.length === 0}>Enter</Button>
                 </div>}
                 {state === 'makeAccount' && <div>
                     <Form.Group>
@@ -78,7 +78,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
                     value = {name}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}/>
                 </Form.Group>
-                <Button className='submission' onClick={()=> makeAccount()}>Make Account</Button>
+                <Button className='submission' onClick={()=> makeAccount()} disabled={name.length === 0}>Make Account</Button>
                 </div>}
                 {state=== 'login' && <div id='welcome'>
                     <div><img src={mascot} alt='' id='welcome-mascot'/></div>

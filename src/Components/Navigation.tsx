@@ -20,6 +20,7 @@ interface NavigationProps {
 
 
 export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut, showAPI}: NavigationProps):React.JSX.Element{
+
     return(<div id='navbar'>
        { !footer && <div id='filler'>
         <div id='logo-wrapper'>

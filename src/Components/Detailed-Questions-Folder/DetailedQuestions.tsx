@@ -42,7 +42,7 @@ interface DetailedProps{
  */
 export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
-
+    const blankAnswers:string[] = ['', '', '', '', '', '', ''];
     
 
     const populateReport = React.useCallback((careerString:string) => {
@@ -50,6 +50,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         console.log(cleanedString);
         const careerList: CareerData[] = JSON.parse(cleanedString);
         console.log(careerList);
+        setAnswers(blankAnswers)
         setReport(careerList, 'detailed');
         setPage('detailedReport');
     }, [setReport, setPage]);
@@ -145,7 +146,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
                     </div>
                 </div>
             </div>
-            <div id='dquestion-sect'>
+            <div id='question-sect'>
                 {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
                     <div>↓</div>
                 </Button> */}
