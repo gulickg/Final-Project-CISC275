@@ -17,10 +17,11 @@ interface BasicProps {
     completed: number;
     setPage: (page: string) => void
     setReport: (report: CareerData[], type:string) => void
+    apiExists: boolean;
 }
 
 
-export function BasicQuestions({answers, setAnswers, completed, setPage, setReport}: BasicProps):React.JSX.Element{
+export function BasicQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: BasicProps):React.JSX.Element{
     
         function populateReport(careerString:string){
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
@@ -31,14 +32,6 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;
 
-    // radio question interface
-    // interface Radio{
-    //     num: number;
-    //     question: string;
-    //     choices: string[];
-    //     answer: string;
-    //     tooltip: string;
-    // }
 
     interface Question{
         num: number;
@@ -110,11 +103,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
             AIpage(QUESTIONS, keyData, populateReport);
         }, [QUESTIONS, keyData, populateReport]);
 
-
-    // function removeCompleted(){
-    //     setQuestionsCompleted(questionsCompleted - 1);
-    // }
-
+    const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
     return(<div id='basic-questions-page'>
         <div id='prog-bar'>
                 <div id='progress-bar-box'>
@@ -136,10 +125,10 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
             <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
             
             {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
+        {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
         <div id='s-wrapper'>
             <div id='sb-wrapper'>
-                <Button id='quiz-submit' className='dbutton' disabled={progressPercent === 100? false : true} onClick={handleSubmit}>Submit Responses
-                {/*call AIinetgration here*/}
+                <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses
                 </Button>
             </div>
         </div>
