@@ -24,8 +24,10 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
     
     const populateReport = React.useCallback((careerString:string) => {
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
+            console.log(cleanedString);
             const careerList: CareerData[] = JSON.parse(cleanedString);
-            setReport(careerList, 'detailed');
+            console.log(careerList);
+            setReport(careerList, 'basic');
             setPage('basicReport');
         }, [setReport, setPage]);
     // constants: tracks the questions completed and the total amount of questions there is

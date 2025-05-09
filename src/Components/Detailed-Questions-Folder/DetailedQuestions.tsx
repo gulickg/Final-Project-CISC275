@@ -43,10 +43,13 @@ interface DetailedProps{
 export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
 
+    
 
     const populateReport = React.useCallback((careerString:string) => {
         const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
+        console.log(cleanedString);
         const careerList: CareerData[] = JSON.parse(cleanedString);
+        console.log(careerList);
         setReport(careerList, 'detailed');
         setPage('detailedReport');
     }, [setReport, setPage]);
