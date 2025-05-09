@@ -131,11 +131,11 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
 
     //creating a variable to hold AIpage function
-        return(<div id='detailed-questions-page'>
-            <div id='detailed-prog-bar'>
-                <div id='detailed-progress-bar-box'>
+        return(<div id='questions-page'>
+            <div id='prog-bar'>
+                <div id='progress-bar-box'>
                     <div id='wrapper'>
-                        <div id='detailed-progress-bar' style={{ width: size}}></div>
+                        <div id='progress-bar' style={{ width: size}}></div>
                     </div>
                 </div>
             </div>
