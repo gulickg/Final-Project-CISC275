@@ -8,6 +8,26 @@ import Mascot from '../graphics/mascot.png'
 This is the navigation bar in the header and footer
 */
 
+/**
+ * Renders the navigation bar used in the header and footer of the CareerSprout app.
+ * 
+ * This component displays navigation buttons to access the homepage, basic quiz, 
+ * and detailed quiz pages. It conditionally renders either a "Log In" or "Log Out" 
+ * button based on authentication state and adapts its layout depending on whether it's 
+ * being rendered in the header or footer.
+ * 
+ * @param {NavigationProps} props - the properties passed to the component
+ * @param {Function} props.setPage - function to change the current page
+ * @param {boolean} props.footer - whether the navigation is in the footer or not
+ * @param {Function} props.setShowLogin - function to display the login component
+ * @param {boolean} props.loggedIn - whether a user is currently logged in
+ * @param {Function} props.logOut - function to log out the user
+ * 
+ * @returns {React.JSX.Element} the rendered navigation bar
+ */
+
+
+
 interface NavigationProps {
     setPage: (page: string) => void
     footer: boolean;

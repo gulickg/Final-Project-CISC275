@@ -7,6 +7,26 @@ import questionMark from './question-mark.png'
 template for slider box question
 */
 
+/**
+ * Renders a slider-style question with a tooltip and labeled choices.
+ * 
+ * This component displays a question with a range input (slider) allowing the user 
+ * to select one of several ordered choices. The selected index updates the answer 
+ * and is passed to the parent via a callback. A tooltip provides context about the 
+ * question’s intent, and the currently selected choice is displayed below the slider.
+ * 
+ * @param {SliderQuestionProps} props - the properties passed to the component
+ * @param {number} props.order - the question's index number
+ * @param {string} props.question - the text of the question to display
+ * @param {string[]} props.choices - ordered list of choices to map to slider positions
+ * @param {Function} props.addCompleted - callback to update the selected answer
+ * @param {string} props.answer - the current answer value
+ * @param {string} props.tool - the tooltip text explaining the question
+ * 
+ * @returns {React.JSX.Element} the rendered slider-style question
+ */
+
+
 
 interface SliderQuestionProps {
     order: number;

@@ -22,6 +22,19 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
+/**
+ * Renders the main App component for the CareerSprout website.
+ * 
+ * This is the root component responsible for maintaining global state and routing between
+ * different pages of the application, including the homepage, basic and detailed quizzes,
+ * and login functionality. It tracks user responses, manages login state, controls 
+ * pop-up behavior for quiz completion, and stores user data for persistence. Conditional 
+ * rendering is used to switch between the homepage, quiz pages, and authentication views.
+ * 
+ * @returns {React.JSX.Element} the main application interface
+ */
+
+
 function App() {
   const [page, setPage] = useState<string>("homepage");
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);
@@ -37,7 +50,7 @@ function App() {
 
   const [showAPIInput, setShowAPiInput] = useState<boolean>(false);
 
-  const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+  const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length < 10 ? 0 : 1), 0);
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUpD:boolean = (!detailedDone && numberDetailedCompleted===7);
   const popUpB: boolean = (!basicDone && numberBasicCompleted===7);

@@ -10,6 +10,23 @@ import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
 import { CareerData } from '../CareerData'
 
+/**
+ * Renders the basic version of the CareerSprout quiz.
+ * 
+ * This component displays a series of personality and preference questions to help guide 
+ * users toward a career fit. The quiz includes radio button, slider, and switch questions, 
+ * each with accompanying tooltips to explain their relevance. A progress bar tracks 
+ * completion, and the "Submit Responses" button is only enabled when all questions are answered.
+ * 
+ * @param {BasicProps} props - the properties passed to the component
+ * @param {string[]} props.answers - current answers to all questions
+ * @param {Function} props.setAnswers - function to update the answers array
+ * @param {number} props.completed - number of questions completed so far
+ * 
+ * @returns {React.JSX.Element} the rendered quiz interface
+ */
+
+
 interface BasicProps {
     answers: string[];
     setAnswers(answers:string[]): void;
