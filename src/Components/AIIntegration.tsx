@@ -16,11 +16,12 @@ import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestion
 // import {CareerData} from './CareerData'
 
 
-export async function AIpage(questions:Question[], populateReport:(careerString:string)=>void){
-    // let loading:boolean = true;
+export async function AIpage(questions:Question[], populateReport:(careerString:string)=>void, loading: (load:boolean)=>void){
     console.log('AI');
     console.log("Calling AIpage at", new Date().toISOString());
     let content: string = '';
+    loading(true);
+    console.log('loadingAI')
     try{
         //set to what user inputs
         const api: string | undefined = JSON.parse(localStorage.getItem('MYKEY') || 'null');
@@ -38,7 +39,12 @@ export async function AIpage(questions:Question[], populateReport:(careerString:
         {
         "title": "Career title",
         "description": "Description of given career and what jobs the user could have.",
-        "breakdown": "A brief explanation of how the user's answers to the questions affected the given career choice"
+        "breakdown": "A brief explanation of how the user's answers to the questions affected the given career choice",
+        "percentMatch": "A number between 0 and 100 that represents how well the user's answers match the career",
+        "skills": "Two relevent skills that the user has that would be useful in the career, formatted as a list of two strings",
+        "personalityTraits": "Two unique personality traits that the user has that would be useful in the career, formatted as a list",
+        "salary": "The average salary of the career as a string",
+        "potentialMajors": "Two potential majors that the user could take to get into the career"
         }
         Return only the list of JSON objects without extra text.
 
@@ -50,7 +56,10 @@ export async function AIpage(questions:Question[], populateReport:(careerString:
                 {
                 role: "user",
                 content: prompt
-                }
+                }, 
+                {
+                role: "system",
+                content: 'You are a helpful career advisor who is helping a user find their ideal career based on a questionnaire. You are friendly and casual, using a GenZ tone.'}
             ]
             });
             content=chatCompletion.choices[0].message?.content||"";
@@ -61,7 +70,9 @@ export async function AIpage(questions:Question[], populateReport:(careerString:
         // console.error("Error generating career: ", error);
     }  finally{
         // loading = false;
+        loading(false);
         populateReport(content);
+        console.log("loading done");
     }
 }
 

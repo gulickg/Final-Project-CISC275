@@ -12,6 +12,8 @@ import { USER, saveUser } from './Components/SaveFunctions';
 import { ReportPage } from './Components/ReportPage';
 import { CareerData } from './Components/CareerData';
 import { APIPopup } from './Components/APIPopup';
+import { ProfilePage } from './Components/ProfilePage';
+import {Loader} from './Components/Loader';
 
 let keyData = "";
 const saveKeyData = "MYKEY";
@@ -31,6 +33,7 @@ function App() {
   const [basicDone, setBasicDone] = useState<boolean>(false);
   const [basicReport, setBasicReport] = useState<CareerData[]>([]);
   const [detailedReport, setDetailedReport] = useState<CareerData[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [showAPIInput, setShowAPiInput] = useState<boolean>(false);
 
@@ -68,8 +71,6 @@ function App() {
     setDetailedAnswers(answers);
     if (numberDetailedCompleted === 7){
       setDetailedDone(true);
-    } if (numberDetailedCompleted !== 7){
-      setDetailedDone(false);
     }
     if (user) updateUserAnswers(answers, 'detailed');
   }
@@ -106,7 +107,7 @@ function App() {
         updatedInfo.basicAnswers = answers;
       } else{ 
       updatedInfo.detailedAnswers = answers;
-    }
+      }
       saveUser(updatedInfo);
       setUser(updatedInfo);
     }
@@ -126,8 +127,14 @@ function App() {
   }
 
   function logOut(){
+    if (page === 'profilePage'){
+      setPage('homepage');
+    }
     setUser(null);
     setDetailedAnswers(['', '', '', '', '', '', '']);
+    setBasicAnswers(['', '', '', '', '', '', '']);
+    setBasicReport([]);
+    setDetailedReport([]);
     setLoggedIn(false);
   }
   
@@ -139,15 +146,23 @@ function App() {
         <Navigation setPage={setPage} footer={false} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut}></Navigation>
       </header>
       <div id='page-content'>
+        {/* <ProfilePage user={user}></ProfilePage> */}
         {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
-        {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport} apiExists={key!==''}></BasicQuestions></div>)}
-        {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport} apiExists={key!==''}></DetailedQuestions></div>)}
+        {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport} apiExists={key!==''} loading={setLoading}></BasicQuestions></div>)}
+        {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport} apiExists={key!==''} loading={setLoading}></DetailedQuestions></div>)}
         {page === 'detailedQuestions' && popUpD && (<PopUp disablePopUp={disablePopUpD}></PopUp>)}
         {page === 'basicQuestions' && popUpB && (<PopUp disablePopUp={disablePopUpB}></PopUp>)}
         {page ==='detailedReport' && (<ReportPage careers={detailedReport} type='detailed'></ReportPage>)}
         {page ==='basicReport' && (<ReportPage careers={basicReport} type='basic'></ReportPage>)}
+        {page ==='profilePage' && (<ProfilePage user={user}></ProfilePage>)}
         {showAPIInput && (<APIPopup disablePopUp={()=>setShowAPiInput(false)} handleSubmit={handleSubmit} changeKey={changeKey}></APIPopup>)}
+        {loading && <div>
+          <div id='loader'><Loader></Loader></div>
+          <div id='screen'>
+              <div id='overlay'></div>
+          </div>
+        </div>}
       </div>
       <footer id='footer'>
         <Navigation setPage={setPage} footer={true} setShowLogin={setShowLogin} loggedIn={loggedIn} logOut={logOut} showAPI={()=>setShowAPiInput(true)}></Navigation>

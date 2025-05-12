@@ -28,6 +28,7 @@ interface DetailedProps{
     setPage: (page: string) => void
     setReport: (report: CareerData[], type:string) => void
     apiExists: boolean;
+    loading: (load:boolean)=>void;
 }
 
 /**
@@ -40,13 +41,17 @@ interface DetailedProps{
  * 
  * @returns {React.JSX.Element} - the detailed questions page
  */
-export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: DetailedProps):React.JSX.Element{
+export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists, loading}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
-
+    const blankAnswers:string[] = ['', '', '', '', '', '', ''];
+    
 
     const populateReport = React.useCallback((careerString:string) => {
         const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
+        console.log(cleanedString);
         const careerList: CareerData[] = JSON.parse(cleanedString);
+        console.log(careerList);
+        setAnswers(blankAnswers)
         setReport(careerList, 'detailed');
         setPage('detailedReport');
     }, [setReport, setPage]);
@@ -125,10 +130,13 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     }
 
     const handleSubmit = React.useCallback(() => {
-        AIpage(QUESTIONS, populateReport);
-    }, [QUESTIONS, populateReport]);
+        AIpage(QUESTIONS, populateReport, loading);
+    }, [QUESTIONS, populateReport, loading]);
+
 
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
+
+
 
     //creating a variable to hold AIpage function
         return(<div id='questions-page'>
@@ -139,7 +147,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
                     </div>
                 </div>
             </div>
-            <div id='dquestion-sect'>
+            <div id='question-sect'>
                 {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
                     <div>↓</div>
                 </Button> */}
