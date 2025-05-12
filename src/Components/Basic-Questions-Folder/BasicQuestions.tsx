@@ -17,10 +17,11 @@ interface BasicProps {
     setPage: (page: string) => void
     setReport: (report: CareerData[], type:string) => void
     apiExists: boolean;
+    loading: (load:boolean)=>void;
 }
 
 
-export function BasicQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: BasicProps):React.JSX.Element{
+export function BasicQuestions({answers, setAnswers, completed, setPage, setReport, apiExists, loading}: BasicProps):React.JSX.Element{
     const blankAnswers:string[] = ['', '', '', '', '', '', ''];
     
     const populateReport = React.useCallback((careerString:string) => {
@@ -103,8 +104,8 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
     }
 
     const handleSubmit = React.useCallback(() => {
-            AIpage(QUESTIONS, populateReport);
-        }, [QUESTIONS, populateReport]);
+            AIpage(QUESTIONS, populateReport, loading);
+        }, [QUESTIONS, populateReport, loading]);
 
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
     return(<div id='questions-page'>

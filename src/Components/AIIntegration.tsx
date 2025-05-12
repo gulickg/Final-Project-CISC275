@@ -16,11 +16,12 @@ import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestion
 // import {CareerData} from './CareerData'
 
 
-export async function AIpage(questions:Question[], populateReport:(careerString:string)=>void){
-    // let loading:boolean = true;
+export async function AIpage(questions:Question[], populateReport:(careerString:string)=>void, loading: (load:boolean)=>void){
     console.log('AI');
     console.log("Calling AIpage at", new Date().toISOString());
     let content: string = '';
+    loading(true);
+    console.log('loadingAI')
     try{
         //set to what user inputs
         const api: string | undefined = JSON.parse(localStorage.getItem('MYKEY') || 'null');
@@ -69,7 +70,9 @@ export async function AIpage(questions:Question[], populateReport:(careerString:
         // console.error("Error generating career: ", error);
     }  finally{
         // loading = false;
+        loading(false);
         populateReport(content);
+        console.log("loading done");
     }
 }
 

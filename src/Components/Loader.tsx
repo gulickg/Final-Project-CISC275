@@ -2,7 +2,7 @@ import './Loader.css'
 // import React from 'react';
 import styled from 'styled-components';
 
-const Loader = () => {
+export function Loader():React.JSX.Element {
   return (
     <StyledWrapper>
       <div className="earth">

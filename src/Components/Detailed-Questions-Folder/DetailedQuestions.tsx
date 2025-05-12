@@ -28,6 +28,7 @@ interface DetailedProps{
     setPage: (page: string) => void
     setReport: (report: CareerData[], type:string) => void
     apiExists: boolean;
+    loading: (load:boolean)=>void;
 }
 
 /**
@@ -40,7 +41,7 @@ interface DetailedProps{
  * 
  * @returns {React.JSX.Element} - the detailed questions page
  */
-export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists}: DetailedProps):React.JSX.Element{
+export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists, loading}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
     const blankAnswers:string[] = ['', '', '', '', '', '', ''];
     
@@ -129,8 +130,8 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     }
 
     const handleSubmit = React.useCallback(() => {
-        AIpage(QUESTIONS, populateReport);
-    }, [QUESTIONS, populateReport]);
+        AIpage(QUESTIONS, populateReport, loading);
+    }, [QUESTIONS, populateReport, loading]);
 
 
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
