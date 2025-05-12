@@ -2,6 +2,7 @@ import React from 'react';
 import './ProfilePage.css';
 import { USER } from './SaveFunctions';
 import { CareerData } from './CareerData';
+import {Report} from './Report';
 
 
 interface ProfilePageProps {
@@ -14,6 +15,8 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const basicReport = user?.basicReport || [];
     const detailedReport = user?.detailedReport || [];
 
+    const REPORTS: CareerData[]= React.useMemo(()=>[...basicReport, ...detailedReport], [])
+
     // const basicSkills=['coolness', 'intelligence', 'creativity'];
     // const detailedSkills=['coolness', 'intelligence', 'creativity'];
     // const basicTraits=['coolness', 'intelligence', 'creativity'];
@@ -24,6 +27,13 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const basicTraits:string[] = basicReport.map((career:CareerData) => career.personalityTraits).flat();
     const detailedTraits:string[] = detailedReport.map((career:CareerData) => career.personalityTraits).flat();
     
+    function getTopCareers(careerData: CareerData[]): CareerData[] {
+        let dupe:CareerData[] = [...careerData];
+        
+        dupe.sort((b, a) => a.percentMatch - b.percentMatch);
+        
+        return [{...dupe[0]}, {...dupe[1]}, {...dupe[2]}];
+    }
 
     return (<div id='profile'>
         <div id='pheader'>{name}'s Career Garden</div>
@@ -61,7 +71,7 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
                                 </div>
                             </div>}
                         </div>}
-                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-skill'>Take a quiz to reveal your skills!</div>}
+                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-skill' style={{justifySelf:'center', alignSelf:'center', width:'100%', maxWidth:'none', backgroundColor:'transparent', fontSize:'large'}}>Take a quiz to reveal your skills!</div>}
                 </div>
                  
                 <div id='user-traits'>Personality Traits
@@ -92,10 +102,15 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
                                 </div>
                             </div>}
                         </div>}
-                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-trait'>Take a quiz to reveal your traits!</div>}
+                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-trait' style={{justifySelf:'center', alignSelf:'center', width:'100%', maxWidth:'none', backgroundColor:'transparent', fontSize:'large'}}>Take a quiz to reveal your traits!</div>}
             </div>
             </div>
-            <div id='user-results'></div>
+            <div id='user-results'>
+                <div id='profile-results-title'>Your Top Careers</div>
+                <div id='profile-results'>
+                    {getTopCareers(REPORTS).map((report)=> <Report career={report} page='profile'></Report>)}
+                </div>
+            </div>
         </div>
     </div>)
 }

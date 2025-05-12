@@ -125,6 +125,9 @@ function App() {
   }
 
   function logOut(){
+    if (page === 'profilePage'){
+      setPage('homepage');
+    }
     setUser(null);
     setDetailedAnswers(['', '', '', '', '', '', '']);
     setBasicAnswers(['', '', '', '', '', '', '']);

@@ -14,14 +14,13 @@
     flex-direction:row;
     flex:1;;
     justify-content: center;
-    align-items: stretch; 
+    align-items: center; 
     width: 100%;     
     gap:10px;
-    padding-top: 20px;
+    height:50px;
 }
 
 #profile-content > div{
-    height:95%;
     width:auto;
     border-radius: 15px;
     background-color: #f8eed4;
@@ -41,18 +40,19 @@
     padding: 20px;
     color: #d6844b;
     font-family: Coolvetica;
-    height: 100%;
+    height:fit-content;
     
 }
 
 #user-results{
     flex: 2;
     background-color: rgb(211, 226, 43);
-    margin:0px
+    margin:0px;
+    height:fit-content;
 }
 
 #pheader{
-    padding-top:0px;
+    padding-top: 10px;
     font-family: Coolvetica;
     font-size: 40px;
     color:#d6844b;
@@ -136,4 +136,21 @@
     flex: 4;
     height:auto;
     justify-content: space-between;
+}
+
+#profile-results{
+    display:flex;
+    flex-direction:row;
+    padding: 5px 20px 20px 20px;
+    justify-content: space-between;
+    height:fit-content;
+    gap: 10px;
+}
+
+#profile-results-title{
+    font-family: Coolvetica;
+    font-size: 40px;
+    color:#d6844b;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }

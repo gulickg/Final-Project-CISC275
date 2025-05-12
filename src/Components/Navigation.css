@@ -52,10 +52,11 @@
 }
 
 #log-btn-box{
-    flex:1;;
+    flex:1;
     align-items: flex-end;
     display: flex;
     justify-content: flex-end;
+    flex-direction: row;
     
     padding-right: calc(15px - (100vw - 100%));
 }
@@ -74,7 +75,7 @@
     align-content: center;
     color: #d6844b;
     display: flex;
-    width:100%;
+    width:auto;
     padding-left: calc(15px - (100vw - 100%));
 }
 

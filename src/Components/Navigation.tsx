@@ -38,11 +38,12 @@ export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut, sho
         <div id='log-btn-box'><Button id='log-in' className='navButton' onClick={()=>setShowLogin(true)}>Log In</Button></div>
         }
         {!footer && loggedIn &&
-        <div id='log-btn-box'><Button className='navButton' onClick={()=>setPage('profilePage')}>View Profile</Button>
+        <div id='log-btn-box'>
+            <div><Button className='navButton' onClick={()=>setPage('profilePage')}>View Profile</Button></div>
             {loggedIn &&
-            <div id='log-btn-box'><Button id='log-in' className='navButton' onClick={()=>logOut()}>Log Out</Button></div>
+            <div><Button id='log-in' className='navButton' onClick={()=>logOut()}>Log Out</Button></div>
             }
-            </div>
+        </div>
         }
         
     </div>);
