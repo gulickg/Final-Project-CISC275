@@ -7,6 +7,24 @@ import './Questions.css'
 template for text input question
 */
 
+/**
+ * Renders a text input question with a tooltip for additional guidance.
+ * 
+ * This component displays a long-form question that allows the user to input 
+ * free-response answers using a textarea. It includes the question number, 
+ * a tooltip for context, and tracks updates through a passed-in response handler.
+ * 
+ * @param {TextQuestionProps} props - the properties passed to the component
+ * @param {string} props.question - the text of the question to display
+ * @param {number} props.qNumber - the question's index number
+ * @param {Function} props.response - callback to update the saved response
+ * @param {string} props.answer - current answer value for the question
+ * @param {string} props.tool - the tooltip description for the question
+ * 
+ * @returns {React.JSX.Element} the rendered text input question
+ */
+
+
 
 interface TextQuestionProps {
     question: string;
