@@ -1,5 +1,6 @@
 import React from 'react'
-import "./Report.css"
+import { CareerData } from './CareerData';
+import './Report.css'
 
 /**
  * Renders the final results page for a completed CareerSprout quiz.
@@ -16,41 +17,41 @@ import "./Report.css"
  * @returns {React.JSX.Element} the rendered report view for quiz results
  */
 
+interface ReportProps{
+    career:CareerData;
+    page: string;
+}
 
-export function Report(suggestion: string, description: string, breakdown: string, type: string):React.JSX.Element{
+export function Report({career, page}:ReportProps):React.JSX.Element{
     return(
     <div id='report'>
-        <h1 id='title'>{type} Quiz Results</h1>
-        <div id="dropdown">
-            <span>Your career suggestion is {suggestion}</span>
-            <div id="dropdown-content">
-                <p>{description}</p>
-                <p>{breakdown}</p>
+            <div id = 'careerSuggestion'>
+                {career.title}
             </div>
-        </div>
-        {/* <div id='container'>
-            <div id='box'>
-                <div id = 'careerSuggestion'>
-                    {suggestion}
-                </div>
-                <div id = 'careerDescription'>
-                    {description}
+            {page==='report' &&<div id='percentMatch'>
+                {career.percentMatch}%
+            </div>}
+            <div id='salary'>
+                Average Salary: {career.salary}
+            </div>
+            <div id = 'careerDescription'>
+                {career.description}
+            </div>
+            {page==='report' && <div id='answerBreakdown'>
+                {career.breakdown}
+            </div>}
+            {page==='report' &&<div id='skills'>
+                {career.skills.map((skill: string) => <div>{skill}</div>)}
+            </div>}
+            {page==='report' &&<div id='personalityTraits'>
+                {career.personalityTraits.map((trait: string) => <div>{trait}</div>)}
+            </div>}
+            <div id='majors'>
+                Potential Majors:
+                <div id='potentialMajors'>
+                    {career.potentialMajors.map((major: string) => <div id='major'>{major}</div>)}
                 </div>
             </div>
-            <div id='box'>
-                <div id='answerBreakdown'>
-                    {breakdown}
-                </div>
-                <div id='ai'>
-                    <h2>Still stuck? Follow up with ChatGPT.</h2>
-                    *ai stuff - do we get rid of?*
-                </div>
-            </div>
-        </div>
-            <div id="shareButton">
-                <button>Share your results</button>
-            </div>
-            </div> */}
     </div>
     );
 }
