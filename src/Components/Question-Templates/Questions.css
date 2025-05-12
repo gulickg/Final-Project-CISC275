@@ -113,3 +113,16 @@
     &::-webkit-slider-thumb { box-shadow: none }
   }
 }
+
+.form-check-input{
+    background-color: #ffffff;
+    box-shadow: none;
+}
+
+.form-check-input:checked{
+    background-color: #266d56;
+}
+
+.form-check-input:focus{
+    box-shadow: none;
+}
