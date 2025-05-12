@@ -4,6 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
 import mascot from '../graphics/mascot.png'
+import { CareerData } from './CareerData';
 
 /**
  * Renders the login and account creation popup for CareerSprout.
@@ -26,31 +27,17 @@ import mascot from '../graphics/mascot.png'
 
 interface LoginProps{
     setUser: (user:USER | null)=>void;
-    loadUser: (DA:string[], BA:string[]) => void;
+    loadUser: (DA:string[], BA:string[], BR:CareerData[], DR:CareerData[]) => void;
     dAnswers: string[];
     bAnswers: string[];
+    bReport: CareerData[];
+    dReport: CareerData[];
     setShowLogin: (show: boolean)=>void;
 }
 
-export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: LoginProps):React.JSX.Element{
+export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dReport, bReport}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
-    const [domain, setDomain] = useState<boolean>(false);
-
-    const emailDomains: string[] = [
-        "@gmail.com",
-        "@icloud.com",
-        "@outlook.com",
-        "@yahoo.com",
-        "@hotmail.com",
-        "@qq.com",
-        "@protonmail.com",
-        "@aol.com",
-        "@zoho.com",
-        "@mail.com",
-        "@udel.edu"
-      ];
-            
 
     const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
 
@@ -65,10 +52,11 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
     }
 
     function makeAccount(){
-        let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers};
+        let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers, basicReport: bReport, detailedReport: dReport};
         saveUser(newUser);
         setState('login');
-        loadUser(dAnswers, bAnswers);
+        loadUser(dAnswers, bAnswers, bReport, dReport);
+        console.log("User Created: ", newUser);
     }
 
     function login(){
@@ -76,19 +64,9 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
         if (toLog) setUser(toLog);
         let U:USER | undefined = findUser(email);
         if (U){
-            loadUser(U.detailedAnswers, U.basicAnswers);
+            loadUser(U.detailedAnswers, U.basicAnswers, U.basicReport, U.detailedReport);
         }
         setShowLogin(false);
-    }
-
-    function emailClick(event: React.ChangeEvent<HTMLInputElement>) {
-        const entered = event.target.value;
-        setEmail(entered);
-    
-        // Check if the email ends with a valid domain
-        const isValidDomain = emailDomains.some((d) => entered.endsWith(d)) && !entered.startsWith("@");
-        
-        setDomain(isValidDomain); // Update domain state properly
     }
     
 
@@ -108,11 +86,9 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                     <Form.Label>Enter your email address:</Form.Label>
                     <Form.Control
                     value = {email}
-                    onChange={(event:React.ChangeEvent<HTMLInputElement>) => emailClick(event)}/>
-                    {/* onChange={() => setDomain(email.includes(emailDomains.map(())))} */}
+                    onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
                 </Form.Group>
-                <Button className='submission' disabled={!domain} onClick={() => handleSubmission(email)}>Enter</Button>
-                <div>{domain ? "Valid Input" : "Invalid Input"}</div>
+                <Button className='submission' onClick={() => handleSubmission(email)} disabled={email.length === 0}>Enter</Button>
                 </div>}
                 {state === 'makeAccount' && <div>
                     <Form.Group>
@@ -121,7 +97,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin}: Log
                     value = {name}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}/>
                 </Form.Group>
-                <Button className='submission' onClick={()=> makeAccount()}>Make Account</Button>
+                <Button className='submission' onClick={()=> makeAccount()} disabled={name.length === 0}>Make Account</Button>
                 </div>}
                 {state=== 'login' && <div id='welcome'>
                     <div><img src={mascot} alt='' id='welcome-mascot'/></div>

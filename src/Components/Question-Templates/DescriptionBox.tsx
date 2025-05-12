@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
-import '../Homepage.css'
+import '../Homepage/Homepage.css'
 import './DescriptionBox.css'
 import basic from '../../graphics/basic-icon.png'
 import detailed from '../../graphics/detailed-icon.png'

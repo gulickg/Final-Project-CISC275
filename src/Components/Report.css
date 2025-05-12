@@ -3,37 +3,18 @@
     gap: 20px;
 }
 
-.box {
-    padding: 20px;
-    background-color: green;
-    border: 2px;
-
-}
-
-#shareButton {
-    margin: 10px;
-    background-color: lightyellow;
-    border-radius: 0%;
-    color: black;
-    border-color: black;
-}
-
-#title {
-    font-size: xx-large;
-    text-align: center;
-    color: black;
-}
 
 #careerSuggestion{
-    font-size: large;
+    font-size: x-large;
     text-align: center;
-    color: black;
+    color: rgb(129, 30, 30);
 }
 
-#careerDescriptiong{
+#careerDescription{
     font-size: medium;
-    text-align: left;
     color: black;
+    text-align: center;
+    margin-top:10px;
 }
 
 #answerBreakdown{
@@ -42,17 +23,31 @@
     color: black;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #d6844b;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px 16px;
-    z-index: 1;
-  }
+#report{
+    display:flex;
+    flex-direction:column;
+    background-color: #fbf6f2;
+    border: solid 1px#d6844b;
+    border-radius: 15px;
+    padding:5px 20px 5px 20px;
+    flex: 1;
+    justify-content: space-between;
+    font-family: Creato;
+}
+
+#potentialMajors{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#majors{
+    margin-top: 10px;
+}
+
+#major{
+    background-color: rgb(188, 238, 195);
+    padding:3px 7px 3px 7px;
+    border-radius: 15px;
+    color: rgb(28, 106, 35);
+}

@@ -67,7 +67,6 @@ export function SwitchQuestion({order, question, choices, addCompleted, answer, 
                     {question}
                 </Form.Label>
                 <Form.Check
-                    // key={question}
                     type="switch"
                     onChange={changeSwitch}
                     label={isFlexible ? choices[0] : choices[1]}

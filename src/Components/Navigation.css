@@ -46,16 +46,17 @@
 #nav-buttons{
     display: flex;
     flex-direction: row;
-    flex-basis: 72%;
+    flex: 4;
     justify-content: center;
     
 }
 
 #log-btn-box{
-    flex-basis: 14%;
+    flex:1;
     align-items: flex-end;
     display: flex;
     justify-content: flex-end;
+    flex-direction: row;
     
     padding-right: calc(15px - (100vw - 100%));
 }
@@ -67,14 +68,14 @@
 }
 
 #filler{
-    flex-basis: 14%;
+    flex:1;
     min-width: 90px;
     font-family: FlowersKingdom;
     justify-content: flex-start;
     align-content: center;
     color: #d6844b;
     display: flex;
-    width:100%;
+    width:auto;
     padding-left: calc(15px - (100vw - 100%));
 }
 
@@ -82,4 +83,9 @@
     height: 100%;
     width: 186.28px;
     display: flex;
+}
+
+#nav-buttons{
+    padding-left: calc(1 / (100vw - 100%));
+    
 }

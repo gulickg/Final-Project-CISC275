@@ -82,10 +82,16 @@ border-color: #d6844b;
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
+  position:relative;
+  top:0;
 }
 
 #page-content{
+  flex-grow:1;
+  overflow-y: auto;;
+  display: flex;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 #footer{
@@ -125,4 +131,12 @@ footer > #navbar > #nav-buttons{
   opacity: 1;
   border-color: black;
   cursor: not-allowed;
+}
+
+#loader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }

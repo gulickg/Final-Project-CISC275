@@ -1,17 +1,10 @@
-import React from "react";
-//import { Button, FormControl, FormGroup, FormLabel } from "react-bootstrap";
-//import "./AIIntegration.css"; // Create this CSS file
-//import {OPENAI_API_KEY} from 'src/Components/APIKey.env'
-import OpenAI from "openai"
-//import * as readline from 'readline';
-//import * as dotenv from 'dotenv';
-//import chalk from 'chalk';
-//import App from "./App";
+// import Loader  from "../Components/Loader";
 //import { BasicQuestions } from "./BasicQuestions";
-import {Question} from "../Detailed-Questions-Folder/DetailedQuestions"
+import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestions"
+// import {Report} from "../Components/Report"
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 //import {keyData} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/App"
-import {CareerData} from '../CareerData'
+// import {CareerData} from './CareerData'
 
 
 /**
@@ -31,18 +24,15 @@ import {CareerData} from '../CareerData'
  */
 
 
-export async function AIpage(questions:Question[],userKey:string, populateReport:(careerString:string)=>void){
-    let loading:boolean = true;
+export async function AIpage(questions:Question[], populateReport:(careerString:string)=>void, loading: (load:boolean)=>void){
     console.log('AI');
     console.log("Calling AIpage at", new Date().toISOString());
-    let errorCount = 0;
-
-
-    let Report:CareerData= {title:'', description:'', breakdown:[]}
     let content: string = '';
+    loading(true);
+    console.log('loadingAI')
     try{
         //set to what user inputs
-        const api= userKey;
+        const api: string | undefined = JSON.parse(localStorage.getItem('MYKEY') || 'null');
         const openai=new OpenAI({
             apiKey: api,
             dangerouslyAllowBrowser:true,
@@ -57,7 +47,12 @@ export async function AIpage(questions:Question[],userKey:string, populateReport
         {
         "title": "Career title",
         "description": "Description of given career and what jobs the user could have.",
-        "breakdown": "A brief explanation of how the user's answers to the questions affected the given career choice"
+        "breakdown": "A brief explanation of how the user's answers to the questions affected the given career choice",
+        "percentMatch": "A number between 0 and 100 that represents how well the user's answers match the career",
+        "skills": "Two relevent skills that the user has that would be useful in the career, formatted as a list of two strings",
+        "personalityTraits": "Two unique personality traits that the user has that would be useful in the career, formatted as a list",
+        "salary": "The average salary of the career as a string",
+        "potentialMajors": "Two potential majors that the user could take to get into the career"
         }
         Return only the list of JSON objects without extra text.
 
@@ -69,18 +64,22 @@ export async function AIpage(questions:Question[],userKey:string, populateReport
                 {
                 role: "user",
                 content: prompt
-                }
+                }, 
+                {
+                role: "system",
+                content: 'You are a helpful career advisor who is helping a user find their ideal career based on a questionnaire. You are friendly and casual, using a GenZ tone.'}
             ]
             });
             content=chatCompletion.choices[0].message?.content||"";
             console.log("AI response: ", content);
-
     }
     catch(error){
         // console.error("Error generating career: ", error);
     }  finally{
-        loading = false;
+        // loading = false;
+        loading(false);
         populateReport(content);
+        console.log("loading done");
     }
 }
 
