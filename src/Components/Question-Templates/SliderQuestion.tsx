@@ -37,11 +37,9 @@ export function SliderRangeQuestion({order, question, choices, addCompleted, ans
                 <div className='tooltiptext'>{tool}</div>
             </div>
         </div>
-        <div>
+        <div className='question-text'>{question}</div>
+        <div id='basic-container'>
             <Form.Group controlId='check-answer'>
-                <Form.Label className='question-text'>
-                    {question}
-                </Form.Label>
                 <Form.Range
                     className='slider-container'
                     min={0}
@@ -52,7 +50,7 @@ export function SliderRangeQuestion({order, question, choices, addCompleted, ans
                     // checked={selectedIndex}
                 />
             </Form.Group>
-            <div>{choices[selectedIndex]}</div>
+            {choices[selectedIndex]}
         </div>
     </div>
 }

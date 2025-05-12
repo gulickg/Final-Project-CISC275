@@ -33,6 +33,7 @@
 .question-text{
   margin: 0px 10px 10px 10px;
   font-family: Creato;
+  font-size: large;
 }
 
 .radio-choices{
@@ -125,4 +126,12 @@
 
 .form-check-input:focus{
     box-shadow: none;
+}
+
+#basic-container{
+  text-align: center;
+}
+
+.form-label{
+  text-align: left;
 }
