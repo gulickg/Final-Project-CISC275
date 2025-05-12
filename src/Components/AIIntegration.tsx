@@ -1,5 +1,6 @@
 // import Loader  from "../Components/Loader";
 //import { BasicQuestions } from "./BasicQuestions";
+import OpenAI from "openai";
 import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestions"
 // import {Report} from "../Components/Report"
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"

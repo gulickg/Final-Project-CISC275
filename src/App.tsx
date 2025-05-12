@@ -50,7 +50,7 @@ function App() {
 
   const [showAPIInput, setShowAPiInput] = useState<boolean>(false);
 
-  const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
+  const numberDetailedCompleted = detailedAnswers.reduce((ac, cv)=>ac + (cv.length < 10 ? 0 : 1), 0);
   const numberBasicCompleted = basicAnswers.reduce((ac, cv)=>ac + (cv.length === 0 ? 0 : 1), 0);
   const popUpD:boolean = (!detailedDone && numberDetailedCompleted===7);
   const popUpB: boolean = (!basicDone && numberBasicCompleted===7);

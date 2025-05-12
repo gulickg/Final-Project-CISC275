@@ -140,11 +140,15 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     function updateTaskBar(temp:string[]){
         let sum: number = 0;
         for (let answer of temp){
-            if (answer !== ''){
+            if (answer.length > 10){
                 sum++;
+                console.log("Answer length is " + answer.length);
+                // console.log("Sum is " + sum);
+                // console.log("Completed is " + completed);
             }
+            completed = sum;
+            console.log("Completed " + completed);
         }
-        completed = sum;
     }
 
     const handleSubmit = React.useCallback(() => {
