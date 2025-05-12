@@ -9,6 +9,24 @@ import { AIpage } from '../AIIntegration'
 import { keyData } from '../Homepage'
 
 
+/**
+ * Renders the detailed version of the CareerSprout quiz.
+ * 
+ * This component displays a set of open-ended questions that allow users to reflect more deeply 
+ * on their personality, values, preferences, and thought processes. Each question includes a tooltip 
+ * explaining its purpose. A progress bar tracks how many questions have been answered, and the 
+ * "Submit Responses" button becomes enabled once all inputs are complete. Upon submission, the 
+ * answers are passed to the AI integration for further processing.
+ * 
+ * @param {DetailedProps} props - the properties passed to the component
+ * @param {string[]} props.answers - current answers to all detailed questions
+ * @param {Function} props.setAnswers - function to update the detailed answers array
+ * @param {number} props.completed - number of detailed questions completed so far
+ * 
+ * @returns {React.JSX.Element} the rendered detailed quiz interface
+ */
+
+
 
 export interface Question{
     num: number;

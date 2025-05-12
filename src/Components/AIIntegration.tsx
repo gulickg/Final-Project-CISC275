@@ -14,6 +14,25 @@ import {Report} from "../Components/Report"
 //import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
 //import {keyData} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/App"
 
+
+/**
+ * Generates and displays a personalized career suggestion using OpenAI's API.
+ * 
+ * This component takes in quiz questions and user answers, formats them into a structured prompt, 
+ * and sends a request to the OpenAI API using the provided user API key. The AI returns a career 
+ * title, description, and answer breakdown, which are parsed from a JSON response. While the API 
+ * call is in progress, a loading animation is displayed. The final result is rendered through the 
+ * `Report` component.
+ * 
+ * @param {Question[]} questions - the list of questions and user-provided answers
+ * @param {string} questType - the type of quiz taken ("basic" or "detailed")
+ * @param {string} userKey - the user's OpenAI API key
+ * 
+ * @returns {React.JSX.Element} the AI integration UI (loading screen and report generation)
+ */
+
+
+
 class Career{
     title:string;
     description:string;

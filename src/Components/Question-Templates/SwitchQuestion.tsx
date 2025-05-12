@@ -7,6 +7,26 @@ import questionMark from './question-mark.png'
 template for switch box question
 */
 
+/**
+ * Renders a binary switch-style question with a tooltip.
+ * 
+ * This component presents a toggle switch for a two-option question, such as choosing 
+ * between a flexible or strict schedule. The user’s selection is reflected in the label 
+ * and passed back to the parent component via a callback. A tooltip is included to 
+ * clarify the purpose of the question.
+ * 
+ * @param {SwitchQuestionProps} props - the properties passed to the component
+ * @param {number} props.order - the question's index number
+ * @param {string} props.question - the text of the question to display
+ * @param {string[]} props.choices - two answer options shown based on the toggle state
+ * @param {Function} props.addCompleted - callback to update the selected answer
+ * @param {string} props.answer - the current answer
+ * @param {string} props.tool - the tooltip text providing question context
+ * 
+ * @returns {React.JSX.Element} the rendered switch-style question
+ */
+
+
 
 interface SwitchQuestionProps {
     order: number;

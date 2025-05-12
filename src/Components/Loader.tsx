@@ -2,6 +2,17 @@ import './Loader.css'
 import React from 'react';
 import styled from 'styled-components';
 
+/**
+ * Renders a custom animated loading screen for CareerSprout.
+ * 
+ * This component displays a rotating Earth animation using layered SVG shapes styled
+ * with CSS animations. It's intended to indicate background processing or loading
+ * while waiting for responses from the AI or external services.
+ * 
+ * @returns {React.JSX.Element} the rendered animated loader component
+ */
+
+
 const Loader = () => {
   return (
     <StyledWrapper>

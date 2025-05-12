@@ -5,6 +5,25 @@ import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
 import mascot from '../graphics/mascot.png'
 
+/**
+ * Renders the login and account creation popup for CareerSprout.
+ * 
+ * This component handles user authentication using only an email address and name. 
+ * It checks if a user already exists and either proceeds to login or prompts for account creation. 
+ * It validates email domains, loads saved quiz answers for returning users, and allows new users 
+ * to register with default answer data. The UI dynamically adjusts based on the login state.
+ * 
+ * @param {LoginProps} props - the properties passed to the component
+ * @param {Function} props.setUser - function to set the active user
+ * @param {Function} props.loadUser - function to load saved answers for a user
+ * @param {string[]} props.dAnswers - current detailed quiz answers
+ * @param {string[]} props.bAnswers - current basic quiz answers
+ * @param {Function} props.setShowLogin - function to hide the login popup
+ * 
+ * @returns {React.JSX.Element} the rendered login and account creation interface
+ */
+
+
 interface LoginProps{
     setUser: (user:USER | null)=>void;
     loadUser: (DA:string[], BA:string[]) => void;

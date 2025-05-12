@@ -7,6 +7,24 @@ import questionMark from './question-mark.png'
 template for radio box question
 */
 
+/**
+ * Renders a multiple-choice radio button question with a tooltip.
+ * 
+ * This component displays a single-select question where users can choose one option 
+ * from a list of predefined choices. A tooltip provides additional context about the 
+ * purpose of the question. The selected answer is managed via a callback to the parent component.
+ * 
+ * @param {RadioQuestionProps} props - the properties passed to the component
+ * @param {number} props.order - the question's index number
+ * @param {string} props.question - the text of the question to display
+ * @param {string[]} props.choices - the list of answer options
+ * @param {Function} props.addCompleted - callback to update the selected answer
+ * @param {string} props.answer - the current selected answer
+ * @param {string} props.tool - the tooltip description for the question
+ * 
+ * @returns {React.JSX.Element} the rendered radio button question
+ */
+
 
 interface RadioQuestionProps {
     order: number;

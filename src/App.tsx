@@ -12,6 +12,19 @@ import { Login } from './Components/Login';
 import { USER, saveUser } from './Components/SaveFunctions';
 
 
+/**
+ * Renders the main App component for the CareerSprout website.
+ * 
+ * This is the root component responsible for maintaining global state and routing between
+ * different pages of the application, including the homepage, basic and detailed quizzes,
+ * and login functionality. It tracks user responses, manages login state, controls 
+ * pop-up behavior for quiz completion, and stores user data for persistence. Conditional 
+ * rendering is used to switch between the homepage, quiz pages, and authentication views.
+ * 
+ * @returns {React.JSX.Element} the main application interface
+ */
+
+
 function App() {
   const [page, setPage] = useState<string>("homepage");
   const [detailedAnswers, setDetailedAnswers] = useState<string[]>(['', '', '', '', '', '', '']);

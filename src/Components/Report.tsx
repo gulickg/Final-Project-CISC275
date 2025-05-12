@@ -1,6 +1,22 @@
 import React from 'react'
 import "./Report.css"
 
+/**
+ * Renders the final results page for a completed CareerSprout quiz.
+ * 
+ * This component displays the user's career suggestion along with a description and a breakdown
+ * of how the result was determined. It dynamically updates based on the type of quiz completed 
+ * (e.g., "Basic" or "Detailed") and presents the information in a collapsible section for clarity.
+ * 
+ * @param {string} suggestion - the career suggestion returned by the AI model
+ * @param {string} description - a brief explanation of the suggested career
+ * @param {string} breakdown - a detailed summary of how the user's responses contributed to the suggestion
+ * @param {string} type - the type of quiz taken ("Basic" or "Detailed")
+ * 
+ * @returns {React.JSX.Element} the rendered report view for quiz results
+ */
+
+
 export function Report(suggestion: string, description: string, breakdown: string, type: string):React.JSX.Element{
     return(
     <div id='report'>
