@@ -30,11 +30,6 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
 
     const REPORTS = combinedReports();
 
-    // const basicSkills=['coolness', 'intelligence', 'creativity'];
-    // const detailedSkills=['coolness', 'intelligence', 'creativity'];
-    // const basicTraits=['coolness', 'intelligence', 'creativity'];
-    // const detailedTraits=['coolness', 'intelligence', 'creativity'];
-
     const basicSkills:string[] = basicReport.map((career:CareerData) => career.skills).flat();
     const detailedSkills:string[] = detailedReport.map((career:CareerData) => career.skills).flat();
     const basicTraits:string[] = basicReport.map((career:CareerData) => career.personalityTraits).flat();
