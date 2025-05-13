@@ -3,9 +3,6 @@ import { Form} from 'react-bootstrap'
 import './Questions.css'
 import questionMark from './question-mark.png'
 
-/*
-template for switch box question
-*/
 
 /**
  * Renders a binary switch-style question with a tooltip.
@@ -39,13 +36,6 @@ interface SwitchQuestionProps {
 
 export function SwitchQuestion({order, question, choices, addCompleted, answer, tool}: SwitchQuestionProps): React.JSX.Element {
     const [isFlexible, setIsFlexible] = useState<boolean>(true);
-
-    // function changeSwitch(event: React.ChangeEvent<HTMLInputElement>) {
-    //     // let temp: boolean = isFlexible;
-    //     // setIsFlexible(!temp);
-    //     setIsFlexible(event.target.checked);
-    //     addCompleted(order, answer);
-    // }
 
     function changeSwitch(event: React.ChangeEvent<HTMLInputElement>) {
         const newAns = event.target.checked;

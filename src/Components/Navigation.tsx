@@ -3,7 +3,6 @@ import { Button } from 'react-bootstrap';
 import "./Navigation.css"
 import Mascot from '../graphics/mascot.png'
 import { FlowerHover } from './FlowerHover';
-// import { useState } from 'react';
 
 /* 
 This is the navigation bar in the header and footer
