@@ -2,7 +2,7 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/Components/AIIntegration.test.tsx
+FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -13,7 +13,7 @@ FAIL src/Components/AIIntegration.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
+FAIL src/Components/AIIntegration.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -134,6 +134,7 @@ FAIL src/App.test.tsx
                     [0m [0m
                     [36m<div[39m
                       [33mid[39m=[32m"flower-hover"[39m
+                      [33mstyle[39m=[32m"visibility: visible;"[39m
                     [36m>[39m
                       [36m<img[39m
                         [33malt[39m=[32m"Flower 2"[39m
@@ -166,6 +167,7 @@ FAIL src/App.test.tsx
                     [36m</button>[39m
                     [36m<div[39m
                       [33mid[39m=[32m"flower-hover"[39m
+                      [33mstyle[39m=[32m"visibility: visible;"[39m
                     [36m>[39m
                       [36m<img[39m
                         [33malt[39m=[32m"Flower 2"[39m
@@ -198,6 +200,7 @@ FAIL src/App.test.tsx
                     [36m</button>[39m
                     [36m<div[39m
                       [33mid[39m=[32m"flower-hover"[39m
+                      [33mstyle[39m=[32m"visibility: visible;"[39m
                     [36m>[39m
                       [36m<img[39m
                         [33malt[39m=[32m"Flower 2"[39m
@@ -236,6 +239,7 @@ FAIL src/App.test.tsx
                     [36m</button>[39m
                     [36m<div[39m
                       [33mid[39m=[32m"flower-hover"[39m
+                      [33mstyle[39m=[32m"visibility: visible;"[39m
                     [36m>[39m
                       [36m<img[39m
                         [33malt[39m=[32m"Flower 2"[39m
@@ -316,6 +320,7 @@ FAIL src/App.test.tsx
                         [36m</button>[39m
                         [36m<div[39m
                           [33mid[39m=[32m"flower-hover"[39m
+                          [33mstyle[39m=[32m"visibility: visible;"[39m
                         [36m>[39m
                           [36m<img[39m
                             [33malt[39m=[32m"Flower 2"[39m
@@ -383,6 +388,7 @@ FAIL src/App.test.tsx
                         [36m</button>[39m
                         [36m<div[39m
                           [33mid[39m=[32m"flower-hover"[39m
+                          [33mstyle[39m=[32m"visibility: visible;"[39m
                         [36m>[39m
                           [36m<img[39m
                             [33malt[39m=[32m"Flower 2"[39m
@@ -431,6 +437,7 @@ FAIL src/App.test.tsx
                     [0m [0m
                     [36m<div[39m
                       [33mid[39m=[32m"flower-hover"[39m
+                      [33mstyle[39m=[32m"visibility: visible;"[39m
                     [36m>[39m
                       [36m<img[39m
                         [33malt[39m=[32m"Flower 2"[39m
@@ -463,6 +470,7 @@ FAIL src/App.test.tsx
                     [36m</button>[39m
                     [36m<div[39m
                       [33mid[39m=[32m"flower-hover"[39m
+                      [33mstyle[39m=[32m"visibility: visible;"[39m
                     [36m>[39m
                       [36m<img[39m
                         [33malt[39m=[32m"Flower 2"[39m
@@ -495,6 +503,7 @@ FAIL src/App.test.tsx
                     [36m</button>[39m
                     [36m<div[39m
                       [33mid[39m=[32m"flower-hover"[39m
+                      [33mstyle[39m=[32m"visibility: visible;"[39m
                     [36m>[39m
                       [36m<img[39m
                         [33malt[39m=[32m"Flower 2"[39m
@@ -585,29 +594,30 @@ go away.[0m
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |   12.84 |    22.69 |       7 |    13.3 |                   
+All files                                 |   12.95 |    23.63 |    6.86 |    13.4 |                   
  src                                      |   27.27 |    30.64 |   16.66 |    26.5 |                   
   App.tsx                                 |   31.16 |    32.75 |   18.75 |   30.55 | 22,62-151,172-181 
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
- src/Components                           |    3.88 |    15.06 |    4.16 |    4.44 |                   
+ src/Components                           |    5.12 |     18.3 |       4 |    5.76 |                   
   AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 29-83             
   API-popup.tsx                           |       0 |      100 |       0 |       0 | 11                
   APIPopup.tsx                            |       0 |      100 |       0 |       0 | 16-19             
   CareerData.tsx                          |       0 |        0 |       0 |       0 |                   
-  FlowerHover.tsx                         |     100 |      100 |     100 |     100 |                   
+  FlowerHover.tsx                         |      75 |       50 |     100 |     100 | 14-16             
   Loader.tsx                              |      50 |      100 |       0 |      50 | 6                 
   Login.tsx                               |       0 |        0 |       0 |       0 | 39-126            
   Navigation.tsx                          |      25 |    78.57 |   14.28 |      25 | 54-66             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 25                
-  ProfilePage.tsx                         |       0 |        0 |       0 |       0 | 13-110            
-  Report.tsx                              |       0 |        0 |       0 |       0 | 26-52             
-  ReportPage.tsx                          |       0 |      100 |       0 |       0 | 11-13             
+  ProfilePage.tsx                         |       0 |        0 |       0 |       0 | 13-123            
+  Report.tsx                              |       0 |        0 |       0 |       0 | 26-45             
+  ReportPage.tsx                          |       0 |      100 |       0 |       0 | 12-15             
+  ReportTemplate.tsx                      |       0 |      100 |       0 |       0 | 25-61             
   SaveFunctions.tsx                       |       0 |        0 |       0 |       0 | 13-34             
  src/Components/Basic-Questions-Folder    |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 43-145            
+  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 44-146            
  src/Components/Detailed-Questions-Folder |       0 |        0 |       0 |       0 |                   
-  DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 63-178            
+  DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 64-178            
  src/Components/Homepage                  |    87.5 |       50 |     100 |    87.5 |                   
   Homepage.tsx                            |    87.5 |       50 |     100 |    87.5 | 32                
  src/Components/Question-Templates        |      10 |       60 |    9.09 |      10 |                   
@@ -620,5 +630,5 @@ All files                                 |   12.84 |    22.69 |       7 |    13
 Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        5.353 s
+Time:        5.444 s
 Ran all test suites.
