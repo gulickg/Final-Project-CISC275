@@ -1,12 +1,6 @@
-// import Loader  from "../Components/Loader";
-//import { BasicQuestions } from "./BasicQuestions";
+
 import OpenAI from "openai";
 import {Question} from "../Components/Detailed-Questions-Folder/DetailedQuestions"
-// import {Report} from "../Components/Report"
-//import {QUESTIONS} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/Components/DetailedQuestions"
-//import {keyData} from "/Users/gracegulick/Cisc Stuff/Final-Project-CISC275/src/App"
-// import {CareerData} from './CareerData'
-
 
 /**
  * Generates and displays a personalized career suggestion using OpenAI's API.
@@ -32,7 +26,6 @@ export async function AIpage(questions:Question[], populateReport:(careerString:
     loading(true);
     console.log('loadingAI')
     try{
-        //set to what user inputs
         const api: string | undefined = JSON.parse(localStorage.getItem('MYKEY') || 'null');
         const openai=new OpenAI({
             apiKey: api,
@@ -75,13 +68,10 @@ export async function AIpage(questions:Question[], populateReport:(careerString:
             console.log("AI response: ", content);
     }
     catch(error){
-        // console.error("Error generating career: ", error);
+        console.error("AI Error: ", error);
     }  finally{
-        // loading = false;
         loading(false);
         populateReport(content);
         console.log("loading done");
     }
 }
-
-//}

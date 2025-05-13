@@ -1,7 +1,7 @@
 export interface CareerData{
     title:string;
     description:string;
-    breakdown:string[];
+    breakdown:string;
     percentMatch:number;
     skills:string[];
     personalityTraits:string[];

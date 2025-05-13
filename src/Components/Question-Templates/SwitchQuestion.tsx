@@ -3,9 +3,6 @@ import { Form} from 'react-bootstrap'
 import './Questions.css'
 import questionMark from './question-mark.png'
 
-/*
-template for switch box question
-*/
 
 /**
  * Renders a binary switch-style question with a tooltip.
@@ -40,13 +37,6 @@ interface SwitchQuestionProps {
 export function SwitchQuestion({order, question, choices, addCompleted, answer, tool}: SwitchQuestionProps): React.JSX.Element {
     const [isFlexible, setIsFlexible] = useState<boolean>(true);
 
-    // function changeSwitch(event: React.ChangeEvent<HTMLInputElement>) {
-    //     // let temp: boolean = isFlexible;
-    //     // setIsFlexible(!temp);
-    //     setIsFlexible(event.target.checked);
-    //     addCompleted(order, answer);
-    // }
-
     function changeSwitch(event: React.ChangeEvent<HTMLInputElement>) {
         const newAns = event.target.checked;
         setIsFlexible(newAns)
@@ -61,18 +51,17 @@ export function SwitchQuestion({order, question, choices, addCompleted, answer, 
                 <div className='tooltiptext'>{tool}</div>
             </div>
         </div>
-        <div>
+            <div className='question-text'>{question}</div>
+        <div id='basic-container'>
             <Form.Group>
-                <Form.Label className='question-text'>
-                    {question}
-                </Form.Label>
-                <Form.Check
-                    type="switch"
-                    onChange={changeSwitch}
-                    label={isFlexible ? choices[0] : choices[1]}
-                    checked={isFlexible}
-                />
+                    <Form.Check
+                        type="switch"
+                        onChange={changeSwitch}
+                        checked={isFlexible}
+                    />
             </Form.Group>
+            {isFlexible ? choices[0] : choices[1]}
         </div>
+        
     </div>
 }

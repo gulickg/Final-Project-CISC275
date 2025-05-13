@@ -1,0 +1,25 @@
+#reportTitle{
+    padding-top: 10px;
+    font-family: Coolvetica;
+    font-size: 40px;
+    color:#d6844b;
+}
+
+#report-page{
+    margin-top:20px;
+    margin-left:10px;
+    margin-right:10px;
+    padding:20px;
+    width:auto;
+    border-radius: 15px;
+    background-color: #f8eed4;
+    border: solid 10px;
+    border-color: #d6844b;
+}
+
+#report-display{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:20px;
+}

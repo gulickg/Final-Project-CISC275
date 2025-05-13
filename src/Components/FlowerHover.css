@@ -1,0 +1,73 @@
+@keyframes grow{
+    from {
+        transform: scale(0);
+    }
+    to {transform: scale(1);}
+}
+
+/* .flower{
+    animation: grow;
+    animation-duration: 0.5s;
+    width: 10%;
+} */
+.flower{
+    transition: opacity .7s;
+    opacity: 0%;
+}
+
+/* .flower:hover{
+    width: 20%;
+    opacity: 100%;
+} */
+
+#flower-hover{
+    pointer-events: none;
+    position: absolute;
+}
+
+#flower2{
+    transition-delay: 0.05s;
+}
+
+.flower{
+    position: absolute;
+    z-index:10;
+}
+
+
+#flower2{
+    width: 18px;
+    top: 2px;
+    left: 4px;
+
+}
+#flower3{
+    width: 20px;
+    top: 16px;
+    left: 0px;
+    z-index: 2;
+}
+#flower4{
+    width: 19px;
+    top: 29px;
+    left: 15px;
+}
+
+
+
+#flower-hover{
+    height: 40px;
+    width: 80px;
+    position: absolute;
+    z-index: 10;
+    top:5px;
+}
+
+.flower-wrapper{
+    position:relative;
+    z-index:10;
+}
+
+#sb-wrapper > #flower-hover{
+    top:0;
+}
