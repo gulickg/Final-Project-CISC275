@@ -14,7 +14,6 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const basicReport = React.useMemo(()=>user?.basicReport || [], [user?.basicReport]);
     const detailedReport = React.useMemo(()=>user?.detailedReport || [], [user?.detailedReport]);
 
-    console.log('detailedReport', detailedReport)
 
     function combinedReports(){
         let newList: CareerData[] = [];
@@ -42,19 +41,17 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const detailedTraits:string[] = detailedReport.map((career:CareerData) => career.personalityTraits).flat();
     
     function getTopCareers(): CareerData[] {
-        REPORTS.sort((b, a) => a.percentMatch - b.percentMatch);
-        return [REPORTS[0], REPORTS[1], REPORTS[2]];
-    }
+        
+            REPORTS.sort((b, a) => a.percentMatch - b.percentMatch);
+            return [REPORTS[0], REPORTS[1], REPORTS[2]];
 
+    }
 
     return (<div id='profile'>
         <div id='pheader'>{name}'s Career Garden</div>
         <div id='profile-content'>
             <div id='user-profile'>
-                <div id='user-info'>
-                    <div id='info-title'>Name:</div>
-                    <div id='info-content'>{name}</div>
-                </div>
+                
                 <div id='user-skills'>Skills
                         {(detailedSkills.length !== 0 || basicSkills.length !==0) &&
                         <div id='skills'>
@@ -83,7 +80,7 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
                                 </div>
                             </div>}
                         </div>}
-                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-skill' style={{justifySelf:'center', alignSelf:'center', width:'100%', maxWidth:'none', backgroundColor:'transparent', fontSize:'large'}}>Take a quiz to reveal your skills!</div>}
+                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-skill' style={{justifySelf:'center', alignSelf:'center', width:'100%', maxWidth:'none', backgroundColor:'transparent', fontSize:'large', boxShadow:'none', border:'none'}}>Take a quiz to reveal your skills!</div>}
                 </div>
                  
                 <div id='user-traits'>Personality Traits
@@ -114,13 +111,14 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
                                 </div>
                             </div>}
                         </div>}
-                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-trait' style={{justifySelf:'center', alignSelf:'center', width:'100%', maxWidth:'none', backgroundColor:'transparent', fontSize:'large'}}>Take a quiz to reveal your traits!</div>}
+                    {(detailedSkills.length === 0 && basicSkills.length ===0)  && <div id='user-trait' style={{justifySelf:'center', alignSelf:'center', width:'100%', maxWidth:'none', backgroundColor:'transparent', fontSize:'large', boxShadow:'none', border:'none'}}>Take a quiz to reveal your traits!</div>}
             </div>
             </div>
             <div id='user-results'>
-                <div id='profile-results-title'>Your Top Careers</div>
+                <div id='profile-results-title' >Your Top Careers</div>
+                {(detailedSkills.length === 0 && basicSkills.length ===0) && <div id='report' style={{justifySelf:'center', alignSelf:'center', width:'100%', maxWidth:'none', fontSize:'large', boxShadow:'none'}}>Take a quiz to see your suggested careers!</div>}
                 <div id='profile-results'>
-                    {getTopCareers().map((report)=> <Report career={report} page='profile'></Report>)}
+                    {(detailedSkills.length !== 0 || basicSkills.length !==0) && getTopCareers().map((report)=> <Report career={report} page='profile'></Report>)}
                 </div>
             </div>
         </div>
