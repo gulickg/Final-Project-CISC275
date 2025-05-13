@@ -11,11 +11,10 @@ interface ProfilePageProps {
 
 export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const name:string = user?.name || '';
-    const email:string = user?.email || '';
     const basicReport = user?.basicReport || [];
     const detailedReport = user?.detailedReport || [];
 
-    const REPORTS: CareerData[]= React.useMemo(()=>[...basicReport, ...detailedReport], [])
+    const REPORTS: CareerData[]= React.useMemo(()=>[...basicReport, ...detailedReport], [basicReport, detailedReport])
 
     // const basicSkills=['coolness', 'intelligence', 'creativity'];
     // const detailedSkills=['coolness', 'intelligence', 'creativity'];
