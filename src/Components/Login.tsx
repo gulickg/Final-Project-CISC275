@@ -36,7 +36,7 @@ interface LoginProps{
 }
 
 export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dReport, bReport}: LoginProps):React.JSX.Element{
-    const [email, setEmail] = useState<string>('');
+    const [email, setEmail] = useState<string>('alexisv@udel.edu');
     const [name, setName] = useState<string>('');
     
     

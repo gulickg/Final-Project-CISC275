@@ -8,20 +8,21 @@
     font-size: x-large;
     text-align: center;
     color: rgb(129, 30, 30);
+    font-family: Coolvetica;
 }
 
-#careerDescription{
+#careerDescription.profile{
     font-size: medium;
     color: black;
     text-align: center;
-    margin-top:10px;
 }
 
-#answerBreakdown{
+#answerBreakdown.profile{
     font-size: medium;
     text-align: center;
     color: black;
 }
+
 
 #report{
     display:flex;
@@ -29,25 +30,101 @@
     background-color: #fbf6f2;
     border: solid 1px#d6844b;
     border-radius: 15px;
-    padding:5px 20px 5px 20px;
+    padding:5px 10px 5px 10px;
     flex: 1;
     justify-content: space-between;
     font-family: Creato;
 }
 
-#potentialMajors{
+#potentialMajors.profile{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    gap:5px;
+        align-items: center;
+        height:60px;
+        
+        font-size: medium;
 }
 
-#majors{
+#majors.profile{
     margin-top: 10px;
+    height:80px;
+    font-size: 14px;
+    
 }
 
-#major{
+#major.profile{
     background-color: rgb(188, 238, 195);
     padding:3px 7px 3px 7px;
     border-radius: 15px;
     color: rgb(28, 106, 35);
+    height:fit-content;
+    border: solid 1px #266d562a;
+}
+
+#percent-circle{
+    position:absolute;
+    z-index: 10;
+    height:40px;
+    width: 40px;
+    border-radius: 100%;
+    background-color: #cffbcd;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    right:10px;
+    border: solid 1px #266d56;
+    
+}
+
+#report.report{
+    position: relative;
+    padding-bottom: 20px;
+}
+
+#report-page{
+    height: fit-content;
+}
+
+#salary{
+    font-size: 14px;
+    color:#d6854bc5;
+    margin-top: -3px;
+}
+
+#answerBreakdown.report, #careerDescription.report{
+    margin-top: 20px;
+}
+
+#report-section{
+    display:flex;
+    height: 6em;
+}
+#report-section > div{
+    display:flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    gap:5px;
+}
+
+#report-section-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: Creato;
+    font-size: large;
+    color:rgb(129, 30, 30);
+    margin-top: 10px;
+}
+
+#report-section > div > div{
+    background-color: #cffbcd;
+    height: fit-content;
+    width: fit-content;
+    padding: 0px 3px 0px 3px;
+    border-radius: 15px;
+    border: solid 1px #266d562a;
 }

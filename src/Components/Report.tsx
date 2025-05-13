@@ -23,33 +23,26 @@ interface ReportProps{
 }
 
 export function Report({career, page}:ReportProps):React.JSX.Element{
+console.log("potentialMajors", career.potentialMajors);
+console.log("Type of potentialMajors:", typeof career.potentialMajors);
     return(
-    <div id='report'>
-            <div id = 'careerSuggestion'>
+    <div id='report' className='profile'>
+            <div id = 'careerSuggestion' className='profile'>
                 {career.title}
             </div>
-            {page==='report' &&<div id='percentMatch'>
-                {career.percentMatch}%
-            </div>}
-            <div id='salary'>
+            <div id='salary' className='profile'>
                 Average Salary: {career.salary}
             </div>
-            <div id = 'careerDescription'>
+            {page==='report' &&<div id='percentMatch' className='profile'>
+                {career.percentMatch}%
+            </div>}
+            <div id = 'careerDescription' className='profile'>
                 {career.description}
             </div>
-            {page==='report' && <div id='answerBreakdown'>
-                {career.breakdown}
-            </div>}
-            {page==='report' &&<div id='skills'>
-                {career.skills.map((skill: string) => <div>{skill}</div>)}
-            </div>}
-            {page==='report' &&<div id='personalityTraits'>
-                {career.personalityTraits.map((trait: string) => <div>{trait}</div>)}
-            </div>}
-            <div id='majors'>
+            <div id='majors' className='profile'>
                 Potential Majors:
-                <div id='potentialMajors'>
-                    {career.potentialMajors.map((major: string) => <div id='major'>{major}</div>)}
+                <div id='potentialMajors' className='profile'>
+                   {career.potentialMajors.map((major:string) => <div id='major' className='profile'>{major}</div>)}
                 </div>
             </div>
     </div>

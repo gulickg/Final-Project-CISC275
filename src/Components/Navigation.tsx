@@ -52,7 +52,7 @@ export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut, sho
         </div>}
         <div id='nav-buttons'>
             <div className={className}><Button className='navButton' id='home' onClick={() => setPage('homepage')}>Home</Button> <FlowerHover></FlowerHover></div>
-            <div className={className}><Button className='navButton' onClick={() => setPage('basicQuestions')}>Basic Questions</Button><FlowerHover></FlowerHover></div>
+            <div className={className}><Button className='navButton' onClick={() => setPage('basicReport')}>Basic Questions</Button><FlowerHover></FlowerHover></div>
             <div className={className}><Button className='navButton' onClick={() => setPage('detailedQuestions')}> Detailed Questions</Button><FlowerHover></FlowerHover></div>
             {footer && <div><Button className='navButton' onClick={showAPI}>Input API Key</Button></div>}
         </div>
