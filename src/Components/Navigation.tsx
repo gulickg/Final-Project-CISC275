@@ -61,9 +61,9 @@ export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut, sho
         }
         {!footer && loggedIn &&
         <div id='log-btn-box'>
-            <div><Button className='navButton' onClick={()=>setPage('profilePage')}>View Profile</Button></div>
+            <div className={className}><Button className='navButton' onClick={()=>setPage('profilePage')}>View Profile</Button><FlowerHover></FlowerHover></div>
             {loggedIn &&
-            <div><Button id='log-in' className='navButton' onClick={()=>logOut()}>Log Out</Button></div>
+            <div className={className}><Button id='log-in' className='navButton' onClick={()=>logOut()}>Log Out</Button><FlowerHover></FlowerHover></div>
             }
         </div>
         }

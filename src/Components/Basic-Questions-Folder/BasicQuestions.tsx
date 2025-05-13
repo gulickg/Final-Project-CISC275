@@ -9,6 +9,7 @@ import { SwitchQuestion } from '../Question-Templates/SwitchQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
 import { CareerData } from '../CareerData'
+import { FlowerHover } from '../FlowerHover'
 
 /**
  * Renders the basic version of the CareerSprout quiz.
@@ -149,9 +150,10 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
                 {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
             {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
             <div id='s-wrapper'>
-                <div id='sb-wrapper'>
+                <div id='sb-wrapper' className='flower-wrapper'>
                     <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses
                     </Button>
+                    <FlowerHover disabled={submitDisabled ? 'true' : ''}></FlowerHover>
                 </div>
             </div>
         </div>

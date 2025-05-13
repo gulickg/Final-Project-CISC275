@@ -14,7 +14,22 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const basicReport = React.useMemo(()=>user?.basicReport || [], [user?.basicReport]);
     const detailedReport = React.useMemo(()=>user?.detailedReport || [], [user?.detailedReport]);
 
-    const REPORTS: CareerData[]= React.useMemo(()=>[...basicReport, ...detailedReport], [basicReport, detailedReport])
+    console.log('detailedReport', detailedReport)
+
+    function combinedReports(){
+        let newList: CareerData[] = [];
+        for (let report of basicReport){
+            let newItem:CareerData = {...report, potentialMajors:[...report.potentialMajors], skills:[...report.skills], personalityTraits:[...report.personalityTraits]}
+            newList.push(newItem);
+        }
+        for (let report of detailedReport){
+            let newItem:CareerData = {...report, potentialMajors:[...report.potentialMajors], skills:[...report.skills], personalityTraits:[...report.personalityTraits]}
+            newList.push(newItem);
+        }
+        return newList
+    }
+
+    const REPORTS = combinedReports();
 
     // const basicSkills=['coolness', 'intelligence', 'creativity'];
     // const detailedSkills=['coolness', 'intelligence', 'creativity'];
@@ -26,13 +41,11 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const basicTraits:string[] = basicReport.map((career:CareerData) => career.personalityTraits).flat();
     const detailedTraits:string[] = detailedReport.map((career:CareerData) => career.personalityTraits).flat();
     
-    function getTopCareers(careerData: CareerData[]): CareerData[] {
-        let dupe:CareerData[] = [...careerData];
-        
-        dupe.sort((b, a) => a.percentMatch - b.percentMatch);
-        
-        return [{...dupe[0]}, {...dupe[1]}, {...dupe[2]}];
+    function getTopCareers(): CareerData[] {
+        REPORTS.sort((b, a) => a.percentMatch - b.percentMatch);
+        return [REPORTS[0], REPORTS[1], REPORTS[2]];
     }
+
 
     return (<div id='profile'>
         <div id='pheader'>{name}'s Career Garden</div>
@@ -107,7 +120,7 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
             <div id='user-results'>
                 <div id='profile-results-title'>Your Top Careers</div>
                 <div id='profile-results'>
-                    {getTopCareers(REPORTS).map((report)=> <Report career={report} page='profile'></Report>)}
+                    {getTopCareers().map((report)=> <Report career={report} page='profile'></Report>)}
                 </div>
             </div>
         </div>

@@ -54,15 +54,8 @@
 }
 
 
-#nav-buttons > div > #flower-hover {
-    height:40px;
-    width: 80px;
-    position: absolute;
-    z-index: 10;
-    top:5px;
-}
 
-#logger > #flower-hover{
+#flower-hover{
     height: 40px;
     width: 80px;
     position: absolute;
@@ -73,4 +66,8 @@
 .flower-wrapper{
     position:relative;
     z-index:10;
+}
+
+#sb-wrapper > #flower-hover{
+    top:0;
 }

@@ -166,8 +166,8 @@ function App() {
         {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport} apiExists={key!==''} loading={setLoading}></DetailedQuestions></div>)}
         {page === 'detailedQuestions' && popUpD && (<PopUp disablePopUp={disablePopUpD}></PopUp>)}
         {page === 'basicQuestions' && popUpB && (<PopUp disablePopUp={disablePopUpB}></PopUp>)}
-        {page ==='detailedReport' && (<ReportPage careers={detailedReport} type='detailed'></ReportPage>)}
-        {page ==='basicReport' && (<ReportPage careers={basicReport} type='basic'></ReportPage>)}
+        {page ==='detailedReport' && (<ReportPage careers={detailedReport} type='etailed'></ReportPage>)}
+        {page ==='basicReport' && (<ReportPage careers={basicReport} type='Basic'></ReportPage>)}
         {page ==='profilePage' && (<ProfilePage user={user}></ProfilePage>)}
         {showAPIInput && (<APIPopup disablePopUp={()=>setShowAPiInput(false)} handleSubmit={handleSubmit} changeKey={changeKey}></APIPopup>)}
         {loading && <div>
