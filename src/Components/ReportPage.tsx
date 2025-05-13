@@ -1,6 +1,5 @@
 import React from 'react';
 import { CareerData } from './CareerData';
-import { Report } from './Report';
 import './ReportPage.css'
 import { ReportTemplate } from './ReportTemplate';
 

@@ -65,6 +65,7 @@ export function RadioButtonQuestion({order, question, choices, addCompleted, ans
                 value={c}
                 onChange={updateInput}
                 checked={c === answer}
+                key={c}
                 />
             )): " "}
             </Form.Group>
