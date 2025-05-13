@@ -7,6 +7,7 @@ import { TextInputQuestion } from '../Question-Templates/TextInputQuestion'
 import { Button } from 'react-bootstrap'
 import { AIpage } from '../AIIntegration'
 import { CareerData } from '../CareerData'
+import { FlowerHover } from '../FlowerHover'
 
 /**
  * Renders the detailed version of the CareerSprout quiz.
@@ -177,8 +178,8 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
                 {QUESTIONS.map((q:Question, index:number) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} key={index} tool={q.tooltip}></TextInputQuestion>)}
                 {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
                 <div id='s-wrapper'>
-                    <div id='sb-wrapper'>
-                        <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses</Button>
+                    <div id='sb-wrapper' className='flower-wrapper'>
+                        <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses</Button><FlowerHover disabled={submitDisabled ? 'true' : ''}></FlowerHover>
                     </div>
                 </div>
             </div>
