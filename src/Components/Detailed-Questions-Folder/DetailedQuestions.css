@@ -111,3 +111,9 @@
 #question-sect{
     padding-bottom: 20px;
 }
+
+#sb-wrapper > #flower-hover{
+    height:45px;
+    width: 170px;
+    position:absolute;
+}

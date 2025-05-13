@@ -4,6 +4,7 @@ import '../Homepage/Homepage.css'
 import './DescriptionBox.css'
 import basic from '../../graphics/basic-icon.png'
 import detailed from '../../graphics/detailed-icon.png'
+import {FlowerHover} from '../FlowerHover'
 /*
 This is the boxes that have the descriptions of each quiz
 */
@@ -40,8 +41,9 @@ export function Description({questionType, questionDescription, setPage}:Descrip
        {pageChoice==='detailedQuestions' && <img id='desc-icon' src={detailed} alt=''/>}
        <p id='question-type-title'>{questionType}</p>
         <p id='desc'>{questionDescription}</p>
-        <div id='button-box'>
+        <div id='button-box' className='flower-wrapper'>
             <Button id="continue-button" onClick={()=>setPage(pageChoice)}>Continue to {questionType} Quiz</Button>
+            <FlowerHover></FlowerHover>
         </div>
     </div>);
 

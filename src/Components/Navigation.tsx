@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap';
 import "./Navigation.css"
 import Mascot from '../graphics/mascot.png'
+import { FlowerHover } from './FlowerHover';
 // import { useState } from 'react';
 
 /* 
@@ -40,6 +41,7 @@ interface NavigationProps {
 
 
 export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut, showAPI}: NavigationProps):React.JSX.Element{
+    const className = footer ? '' : 'flower-wrapper';
 
     return(<div id='navbar'>
        { !footer && <div id='filler'>
@@ -49,13 +51,13 @@ export function Navigation({setPage, footer, setShowLogin, loggedIn, logOut, sho
         </div>
         </div>}
         <div id='nav-buttons'>
-            <div><Button className='navButton' onClick={() => setPage('homepage')}>Home</Button></div>
-            <div><Button className='navButton' onClick={() => setPage('basicQuestions')}>Basic Questions</Button></div>
-            <div><Button className='navButton' onClick={() => setPage('detailedQuestions')}> Detailed Questions</Button></div>
+            <div className={className}><Button className='navButton' id='home' onClick={() => setPage('homepage')}>Home</Button> <FlowerHover></FlowerHover></div>
+            <div className={className}><Button className='navButton' onClick={() => setPage('basicQuestions')}>Basic Questions</Button><FlowerHover></FlowerHover></div>
+            <div className={className}><Button className='navButton' onClick={() => setPage('detailedQuestions')}> Detailed Questions</Button><FlowerHover></FlowerHover></div>
             {footer && <div><Button className='navButton' onClick={showAPI}>Input API Key</Button></div>}
         </div>
         {!footer && !loggedIn &&
-        <div id='log-btn-box'><Button id='log-in' className='navButton' onClick={()=>setShowLogin(true)}>Log In</Button></div>
+        <div id='log-btn-box'><div id='logger' className={className}><Button id='log-in' className='navButton' onClick={()=>setShowLogin(true)}>Log In</Button><FlowerHover></FlowerHover></div></div>
         }
         {!footer && loggedIn &&
         <div id='log-btn-box'>
