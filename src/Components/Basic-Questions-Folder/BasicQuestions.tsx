@@ -39,17 +39,16 @@ interface BasicProps {
 
 
 export function BasicQuestions({answers, setAnswers, completed, setPage, setReport, apiExists, loading}: BasicProps):React.JSX.Element{
-    const blankAnswers:string[] = ['', '', '', '', '', '', ''];
     
     const populateReport = React.useCallback((careerString:string) => {
             const cleanedString = careerString.replace(/```json\s*|\s*```/g, '');
             console.log(cleanedString);
             const careerList: CareerData[] = JSON.parse(cleanedString);
             console.log(careerList);
-            setAnswers(blankAnswers);
+            setAnswers(['', '', '', '', '', '', '']);
             setReport(careerList, 'basic');
             setPage('basicReport');
-        }, [setReport, setPage]);
+        }, [setReport, setPage, setAnswers]);
     // constants: tracks the questions completed and the total amount of questions there is
     const totalQuestions = 7;
 

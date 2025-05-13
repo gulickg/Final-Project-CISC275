@@ -61,7 +61,6 @@ interface DetailedProps{
  */
 export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists, loading}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
-    const blankAnswers:string[] = ['', '', '', '', '', '', ''];
     
 
     const populateReport = React.useCallback((careerString:string) => {
@@ -69,10 +68,10 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         console.log(cleanedString);
         const careerList: CareerData[] = JSON.parse(cleanedString);
         console.log(careerList);
-        setAnswers(blankAnswers)
+        setAnswers(['', '', '', '', '', '', ''])
         setReport(careerList, 'detailed');
         setPage('detailedReport');
-    }, [setReport, setPage]);
+    }, [setReport, setPage, setAnswers]);
 
 
     interface Question{
