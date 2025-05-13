@@ -36,3 +36,7 @@
 .submission{
     margin-top: 10px;
 }
+
+#email-error{
+    height: 1em;
+}

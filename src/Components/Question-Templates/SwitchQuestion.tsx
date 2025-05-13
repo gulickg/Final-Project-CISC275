@@ -61,18 +61,17 @@ export function SwitchQuestion({order, question, choices, addCompleted, answer, 
                 <div className='tooltiptext'>{tool}</div>
             </div>
         </div>
-        <div>
+            <div className='question-text'>{question}</div>
+        <div id='basic-container'>
             <Form.Group>
-                <Form.Label className='question-text'>
-                    {question}
-                </Form.Label>
-                <Form.Check
-                    type="switch"
-                    onChange={changeSwitch}
-                    label={isFlexible ? choices[0] : choices[1]}
-                    checked={isFlexible}
-                />
+                    <Form.Check
+                        type="switch"
+                        onChange={changeSwitch}
+                        checked={isFlexible}
+                    />
             </Form.Group>
+            {isFlexible ? choices[0] : choices[1]}
         </div>
+        
     </div>
 }

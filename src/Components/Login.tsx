@@ -38,8 +38,26 @@ interface LoginProps{
 export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dReport, bReport}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
+    
+    
 
     const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
+
+    const emailDomains: string[] = [
+        "@gmail.com",
+        "@icloud.com",
+        "@outlook.com",
+        "@yahoo.com",
+        "@hotmail.com",
+        "@qq.com",
+        "@protonmail.com",
+        "@aol.com",
+        "@zoho.com",
+        "@mail.com",
+        "@udel.edu"
+    ];
+
+    const isValidDomain = emailDomains.some((d) => email.endsWith(d)) && !email.startsWith("@");
 
     function handleSubmission(Email:string){
         const person:USER | undefined = findUser(Email);
@@ -88,7 +106,10 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
                     value = {email}
                     onChange={(event:React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}/>
                 </Form.Group>
-                <Button className='submission' onClick={() => handleSubmission(email)} disabled={email.length === 0}>Enter</Button>
+                <div id='email-error'>
+                    {(!isValidDomain || email.length === 0) && <div>Invalid email.</div>}
+                </div>
+                <Button className='submission' onClick={() => handleSubmission(email)} disabled={!isValidDomain}>Enter</Button>
                 </div>}
                 {state === 'makeAccount' && <div>
                     <Form.Group>

@@ -111,3 +111,9 @@
 #question-sect{
     padding-bottom: 20px;
 }
+
+#instructions{
+    font-family: Creato;
+    margin-bottom: 5px;
+    font-size: medium;
+}

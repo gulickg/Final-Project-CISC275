@@ -174,6 +174,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
                     <div>↓</div>
                 </Button> */}
                 <h1 id='dtitle'>Detailed Quiz Questions</h1>
+                <div id='instructions'>To receive your results, please type at least 10 characters into each box and make sure you've entered your API key!</div>
                 
                 {QUESTIONS.map((q:Question, index:number) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} key={index} tool={q.tooltip}></TextInputQuestion>)}
                 {!apiExists && <div id='reminder'>Enter an API key to submit</div>}

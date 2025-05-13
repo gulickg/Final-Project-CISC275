@@ -135,6 +135,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         </div>
         <div id='question-sect'>
             <h1 id='dtitle'>Basic Quiz Questions</h1>
+            <div id='instructions'>To receive your results, please answer all questions and make sure you've entered your API key!</div>
 
                 {/* <RadioButtonQuestion order={1} question={"How much time do you usually dedicate per week to hobbies?"} choices={['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours']} addCompleted={addCompleted}></RadioButtonQuestion>
                 <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
