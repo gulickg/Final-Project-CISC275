@@ -2,7 +2,7 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
+FAIL src/Components/AIIntegration.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -13,7 +13,7 @@ FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/AIIntegration.test.tsx
+FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
   ● Test suite failed to run
 
     Your test suite must contain at least one test.
@@ -594,12 +594,12 @@ go away.[0m
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |   12.95 |    23.63 |    6.86 |    13.4 |                   
+All files                                 |      13 |     22.8 |    6.86 |   13.45 |                   
  src                                      |   27.27 |    30.64 |   16.66 |    26.5 |                   
   App.tsx                                 |   31.16 |    32.75 |   18.75 |   30.55 | 22,62-151,172-181 
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
- src/Components                           |    5.12 |     18.3 |       4 |    5.76 |                   
+ src/Components                           |    5.17 |    16.88 |       4 |    5.82 |                   
   AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 29-83             
   API-popup.tsx                           |       0 |      100 |       0 |       0 | 11                
   APIPopup.tsx                            |       0 |      100 |       0 |       0 | 16-19             
@@ -609,7 +609,7 @@ All files                                 |   12.95 |    23.63 |    6.86 |    13
   Login.tsx                               |       0 |        0 |       0 |       0 | 39-126            
   Navigation.tsx                          |      25 |    78.57 |   14.28 |      25 | 54-66             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 25                
-  ProfilePage.tsx                         |       0 |        0 |       0 |       0 | 13-123            
+  ProfilePage.tsx                         |       0 |        0 |       0 |       0 | 13-121            
   Report.tsx                              |       0 |        0 |       0 |       0 | 26-45             
   ReportPage.tsx                          |       0 |      100 |       0 |       0 | 12-15             
   ReportTemplate.tsx                      |       0 |      100 |       0 |       0 | 25-61             
@@ -630,5 +630,5 @@ All files                                 |   12.95 |    23.63 |    6.86 |    13
 Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        5.444 s
+Time:        5.48 s
 Ran all test suites.
