@@ -3,7 +3,8 @@
     justify-content: center;
     background-color: #024932;
     width: 100%;
-    padding-left: calc(100vw - 100%)
+    padding-left: calc(100vw - 100%);
+    overflow:none;
 }
 
 .navButton{
@@ -89,3 +90,17 @@
     padding-left: calc(1 / (100vw - 100%));
     
 }
+
+
+.flower-wrapper:hover #flower-hover .flower{
+    opacity: 100%;
+    animation: grow .6s;
+}
+
+#logger{
+    height:fit-content;
+    width:fit-content;
+    position:relative;
+    overflow:hidden;
+}
+
