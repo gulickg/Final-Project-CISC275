@@ -142,12 +142,8 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         for (let answer of temp){
             if (answer.length > 10){
                 sum++;
-                console.log("Answer length is " + answer.length);
-                // console.log("Sum is " + sum);
-                // console.log("Completed is " + completed);
             }
             completed = sum;
-            console.log("Completed " + completed);
         }
     }
 
