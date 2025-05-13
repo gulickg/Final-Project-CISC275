@@ -24,33 +24,6 @@ FAIL src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
           at Array.map (<anonymous>)
       at Emittery.emit (node_modules/emittery/index.js:258:23)
 
-FAIL src/Components/AI Integration/AIIntegration.test.tsx
-  ● Test suite failed to run
-
-    Cannot find module './Report' from 'src/Components/AI Integration/AIIntegration.test.tsx'
-
-       8 |
-       9 | jest.mock('openai');
-    > 10 | jest.mock('./Report');
-         |      ^
-      11 | /*
-      12 | const mockQuestions: Question[] = [
-      13 |   {
-
-      at Resolver.resolveModule (node_modules/jest-resolve/build/resolver.js:324:11)
-      at Object.<anonymous> (src/Components/AI Integration/AIIntegration.test.tsx:10:6)
-
-FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
-  ● Test suite failed to run
-
-    Your test suite must contain at least one test.
-
-      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
-      at node_modules/@jest/core/build/TestScheduler.js:316:17
-      at node_modules/emittery/index.js:260:13
-          at Array.map (<anonymous>)
-      at Emittery.emit (node_modules/emittery/index.js:258:23)
-
 FAIL src/Components/Homepage/Homepage.test.tsx
   ● Test suite failed to run
 
@@ -66,6 +39,17 @@ FAIL src/Components/Homepage/Homepage.test.tsx
 
       at Resolver.resolveModule (node_modules/jest-resolve/build/resolver.js:324:11)
       at Object.<anonymous> (src/Components/Homepage/Homepage.test.tsx:6:6)
+
+FAIL src/Components/Detailed-Questions-Folder/DetailedQuestions.test.tsx
+  ● Test suite failed to run
+
+    Your test suite must contain at least one test.
+
+      at onResult (node_modules/@jest/core/build/TestScheduler.js:175:18)
+      at node_modules/@jest/core/build/TestScheduler.js:316:17
+      at node_modules/emittery/index.js:260:13
+          at Array.map (<anonymous>)
+      at Emittery.emit (node_modules/emittery/index.js:258:23)
 
 FAIL src/App.test.tsx
   ● Console
@@ -137,41 +121,142 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mid[39m=[32m"nav-buttons"[39m
                 [36m>[39m
-                  [36m<div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flower-wrapper"[39m
+                  [36m>[39m
                     [36m<button[39m
                       [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mid[39m=[32m"home"[39m
                       [33mtype[39m=[32m"button"[39m
                     [36m>[39m
                       [0mHome[0m
                     [36m</button>[39m
+                    [0m [0m
+                    [36m<div[39m
+                      [33mid[39m=[32m"flower-hover"[39m
+                    [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 2"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower2"[39m
+                        [33msrc[39m=[32m"flower2.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 3"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower3"[39m
+                        [33msrc[39m=[32m"flower3.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 4"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower4"[39m
+                        [33msrc[39m=[32m"flower4.png"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
                   [36m</div>[39m
-                  [36m<div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flower-wrapper"[39m
+                  [36m>[39m
                     [36m<button[39m
                       [33mclass[39m=[32m"navButton btn btn-primary"[39m
                       [33mtype[39m=[32m"button"[39m
                     [36m>[39m
                       [0mBasic Questions[0m
                     [36m</button>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"flower-hover"[39m
+                    [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 2"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower2"[39m
+                        [33msrc[39m=[32m"flower2.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 3"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower3"[39m
+                        [33msrc[39m=[32m"flower3.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 4"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower4"[39m
+                        [33msrc[39m=[32m"flower4.png"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
                   [36m</div>[39m
-                  [36m<div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flower-wrapper"[39m
+                  [36m>[39m
                     [36m<button[39m
                       [33mclass[39m=[32m"navButton btn btn-primary"[39m
                       [33mtype[39m=[32m"button"[39m
                     [36m>[39m
                       [0m Detailed Questions[0m
                     [36m</button>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"flower-hover"[39m
+                    [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 2"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower2"[39m
+                        [33msrc[39m=[32m"flower2.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 3"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower3"[39m
+                        [33msrc[39m=[32m"flower3.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 4"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower4"[39m
+                        [33msrc[39m=[32m"flower4.png"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
                   [36m</div>[39m
                 [36m</div>[39m
                 [36m<div[39m
                   [33mid[39m=[32m"log-btn-box"[39m
                 [36m>[39m
-                  [36m<button[39m
-                    [33mclass[39m=[32m"navButton btn btn-primary"[39m
-                    [33mid[39m=[32m"log-in"[39m
-                    [33mtype[39m=[32m"button"[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"flower-wrapper"[39m
+                    [33mid[39m=[32m"logger"[39m
                   [36m>[39m
-                    [0mLog In[0m
-                  [36m</button>[39m
+                    [36m<button[39m
+                      [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mid[39m=[32m"log-in"[39m
+                      [33mtype[39m=[32m"button"[39m
+                    [36m>[39m
+                      [0mLog In[0m
+                    [36m</button>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"flower-hover"[39m
+                    [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 2"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower2"[39m
+                        [33msrc[39m=[32m"flower2.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 3"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower3"[39m
+                        [33msrc[39m=[32m"flower3.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 4"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower4"[39m
+                        [33msrc[39m=[32m"flower4.png"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
               [36m</div>[39m
             [36m</header>[39m
@@ -217,6 +302,7 @@ FAIL src/App.test.tsx
                         [0mThis assessment will quickly and efficiently evaluate what career fits your lifestyle and interests best. This assessment is great if you are short for time or do not like longer and more in depth quizzes.[0m
                       [36m</p>[39m
                       [36m<div[39m
+                        [33mclass[39m=[32m"flower-wrapper"[39m
                         [33mid[39m=[32m"button-box"[39m
                       [36m>[39m
                         [36m<button[39m
@@ -228,6 +314,28 @@ FAIL src/App.test.tsx
                           [0mBasic[0m
                           [0m Quiz[0m
                         [36m</button>[39m
+                        [36m<div[39m
+                          [33mid[39m=[32m"flower-hover"[39m
+                        [36m>[39m
+                          [36m<img[39m
+                            [33malt[39m=[32m"Flower 2"[39m
+                            [33mclass[39m=[32m"flower"[39m
+                            [33mid[39m=[32m"flower2"[39m
+                            [33msrc[39m=[32m"flower2.png"[39m
+                          [36m/>[39m
+                          [36m<img[39m
+                            [33malt[39m=[32m"Flower 3"[39m
+                            [33mclass[39m=[32m"flower"[39m
+                            [33mid[39m=[32m"flower3"[39m
+                            [33msrc[39m=[32m"flower3.png"[39m
+                          [36m/>[39m
+                          [36m<img[39m
+                            [33malt[39m=[32m"Flower 4"[39m
+                            [33mclass[39m=[32m"flower"[39m
+                            [33mid[39m=[32m"flower4"[39m
+                            [33msrc[39m=[32m"flower4.png"[39m
+                          [36m/>[39m
+                        [36m</div>[39m
                       [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
@@ -261,6 +369,7 @@ FAIL src/App.test.tsx
                         [0mThe following quiz will assess your personality and decide which career fits your lifestyle best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.[0m
                       [36m</p>[39m
                       [36m<div[39m
+                        [33mclass[39m=[32m"flower-wrapper"[39m
                         [33mid[39m=[32m"button-box"[39m
                       [36m>[39m
                         [36m<button[39m
@@ -272,6 +381,28 @@ FAIL src/App.test.tsx
                           [0mDetailed[0m
                           [0m Quiz[0m
                         [36m</button>[39m
+                        [36m<div[39m
+                          [33mid[39m=[32m"flower-hover"[39m
+                        [36m>[39m
+                          [36m<img[39m
+                            [33malt[39m=[32m"Flower 2"[39m
+                            [33mclass[39m=[32m"flower"[39m
+                            [33mid[39m=[32m"flower2"[39m
+                            [33msrc[39m=[32m"flower2.png"[39m
+                          [36m/>[39m
+                          [36m<img[39m
+                            [33malt[39m=[32m"Flower 3"[39m
+                            [33mclass[39m=[32m"flower"[39m
+                            [33mid[39m=[32m"flower3"[39m
+                            [33msrc[39m=[32m"flower3.png"[39m
+                          [36m/>[39m
+                          [36m<img[39m
+                            [33malt[39m=[32m"Flower 4"[39m
+                            [33mclass[39m=[32m"flower"[39m
+                            [33mid[39m=[32m"flower4"[39m
+                            [33msrc[39m=[32m"flower4.png"[39m
+                          [36m/>[39m
+                        [36m</div>[39m
                       [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
@@ -287,29 +418,103 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mid[39m=[32m"nav-buttons"[39m
                 [36m>[39m
-                  [36m<div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m""[39m
+                  [36m>[39m
                     [36m<button[39m
                       [33mclass[39m=[32m"navButton btn btn-primary"[39m
+                      [33mid[39m=[32m"home"[39m
                       [33mtype[39m=[32m"button"[39m
                     [36m>[39m
                       [0mHome[0m
                     [36m</button>[39m
+                    [0m [0m
+                    [36m<div[39m
+                      [33mid[39m=[32m"flower-hover"[39m
+                    [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 2"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower2"[39m
+                        [33msrc[39m=[32m"flower2.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 3"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower3"[39m
+                        [33msrc[39m=[32m"flower3.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 4"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower4"[39m
+                        [33msrc[39m=[32m"flower4.png"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
                   [36m</div>[39m
-                  [36m<div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m""[39m
+                  [36m>[39m
                     [36m<button[39m
                       [33mclass[39m=[32m"navButton btn btn-primary"[39m
                       [33mtype[39m=[32m"button"[39m
                     [36m>[39m
                       [0mBasic Questions[0m
                     [36m</button>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"flower-hover"[39m
+                    [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 2"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower2"[39m
+                        [33msrc[39m=[32m"flower2.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 3"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower3"[39m
+                        [33msrc[39m=[32m"flower3.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 4"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower4"[39m
+                        [33msrc[39m=[32m"flower4.png"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
                   [36m</div>[39m
-                  [36m<div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m""[39m
+                  [36m>[39m
                     [36m<button[39m
                       [33mclass[39m=[32m"navButton btn btn-primary"[39m
                       [33mtype[39m=[32m"button"[39m
                     [36m>[39m
                       [0m Detailed Questions[0m
                     [36m</button>[39m
+                    [36m<div[39m
+                      [33mid[39m=[32m"flower-hover"[39m
+                    [36m>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 2"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower2"[39m
+                        [33msrc[39m=[32m"flower2.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 3"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower3"[39m
+                        [33msrc[39m=[32m"flower3.png"[39m
+                      [36m/>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Flower 4"[39m
+                        [33mclass[39m=[32m"flower"[39m
+                        [33mid[39m=[32m"flower4"[39m
+                        [33msrc[39m=[32m"flower4.png"[39m
+                      [36m/>[39m
+                    [36m</div>[39m
                   [36m</div>[39m
                   [36m<div>[39m
                     [36m<button[39m
@@ -353,44 +558,67 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
-A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |    12.5 |    27.96 |    7.05 |    12.6 |                   
- src                                      |   27.38 |    29.31 |   16.66 |   26.58 |                   
-  App.tsx                                 |    31.5 |    31.48 |   18.75 |   30.88 | 20,46-131,150-153 
+All files                                 |   12.84 |    22.69 |       7 |    13.3 |                   
+ src                                      |   27.27 |    30.64 |   16.66 |    26.5 |                   
+  App.tsx                                 |   31.16 |    32.75 |   18.75 |   30.55 | 22,62-151,172-181 
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
- src/Components                           |    1.42 |       30 |    3.22 |    1.51 |                   
-  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 21-64             
+ src/Components                           |    3.88 |    15.06 |    4.16 |    4.44 |                   
+  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 29-83             
   API-popup.tsx                           |       0 |      100 |       0 |       0 | 11                
   APIPopup.tsx                            |       0 |      100 |       0 |       0 | 16-19             
   CareerData.tsx                          |       0 |        0 |       0 |       0 |                   
-  Loader.tsx                              |       0 |      100 |       0 |       0 | 5-29              
-  Login.tsx                               |       0 |        0 |       0 |       0 | 20-86             
-  Navigation.tsx                          |   16.66 |       90 |   16.66 |   16.66 | 31-40             
-  Popup.tsx                               |       0 |      100 |       0 |       0 | 11                
-  Report.tsx                              |       0 |      100 |       0 |       0 | 6                 
+  FlowerHover.tsx                         |     100 |      100 |     100 |     100 |                   
+  Loader.tsx                              |      50 |      100 |       0 |      50 | 6                 
+  Login.tsx                               |       0 |        0 |       0 |       0 | 39-126            
+  Navigation.tsx                          |      25 |    78.57 |   14.28 |      25 | 54-66             
+  Popup.tsx                               |       0 |      100 |       0 |       0 | 25                
+  ProfilePage.tsx                         |       0 |        0 |       0 |       0 | 13-110            
+  Report.tsx                              |       0 |        0 |       0 |       0 | 26-52             
   ReportPage.tsx                          |       0 |      100 |       0 |       0 | 11-13             
   SaveFunctions.tsx                       |       0 |        0 |       0 |       0 | 13-34             
- src/Components/AI Integration            |       0 |        0 |       0 |       0 |                   
-  AIIntegration.tsx                       |       0 |        0 |       0 |       0 | 18-66             
  src/Components/Basic-Questions-Folder    |       0 |        0 |       0 |       0 |                   
-  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 25-122            
+  BasicQuestions.tsx                      |       0 |        0 |       0 |       0 | 43-145            
  src/Components/Detailed-Questions-Folder |       0 |        0 |       0 |       0 |                   
-  DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 44-148            
+  DetailedQuestions.tsx                   |       0 |        0 |       0 |       0 | 63-178            
  src/Components/Homepage                  |    87.5 |       50 |     100 |    87.5 |                   
   Homepage.tsx                            |    87.5 |       50 |     100 |    87.5 | 32                
  src/Components/Question-Templates        |      10 |       60 |    9.09 |      10 |                   
-  DescriptionBox.tsx                      |   66.66 |      100 |      50 |   66.66 | 28                
-  RadioButtonsQuestion.tsx                |       0 |        0 |       0 |       0 | 23-41             
-  SliderQuestion.tsx                      |       0 |      100 |       0 |       0 | 21-32             
-  SwitchQuestion.tsx                      |       0 |        0 |       0 |       0 | 21-36             
-  TextInputQuestion.tsx                   |       0 |      100 |       0 |       0 | 40-45             
+  DescriptionBox.tsx                      |   66.66 |      100 |      50 |   66.66 | 45                
+  RadioButtonsQuestion.tsx                |       0 |        0 |       0 |       0 | 41-59             
+  SliderQuestion.tsx                      |       0 |      100 |       0 |       0 | 41-52             
+  SwitchQuestion.tsx                      |       0 |        0 |       0 |       0 | 41-56             
+  TextInputQuestion.tsx                   |       0 |      100 |       0 |       0 | 58-63             
 ------------------------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 6 failed, 6 total
+Test Suites: 5 failed, 5 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        5.778 s
+Time:        5.353 s
 Ran all test suites.
