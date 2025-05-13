@@ -11,8 +11,8 @@ interface ProfilePageProps {
 
 export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const name:string = user?.name || '';
-    const basicReport = React.useMemo(()=>user?.basicReport || [], []);
-    const detailedReport = React.useMemo(()=>user?.detailedReport || [], []);
+    const basicReport = React.useMemo(()=>user?.basicReport || [], [user?.basicReport]);
+    const detailedReport = React.useMemo(()=>user?.detailedReport || [], [user?.detailedReport]);
 
     const REPORTS: CareerData[]= React.useMemo(()=>[...basicReport, ...detailedReport], [basicReport, detailedReport])
 
