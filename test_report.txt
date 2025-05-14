@@ -3,6 +3,23 @@
 > react-scripts test --coverage
 
 PASS src/App.test.tsx
+  ● Console
+
+    console.log
+      here
+
+      at handleSubmit (src/App.tsx:59:13)
+
+    console.log
+      user before: null
+
+      at handleSubmit (src/App.tsx:60:13)
+
+    console.log
+      user after: null
+
+      at handleSubmit (src/App.tsx:64:13)
+
 PASS src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
 PASS src/Components/Homepage/Homepage.test.tsx
   ● Console
@@ -134,7 +151,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T02:43:31.041Z
+      Calling AIpage at 2025-05-14T18:32:24.866Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -159,7 +176,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T02:43:32.057Z
+      Calling AIpage at 2025-05-14T18:32:25.889Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -184,7 +201,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T02:43:33.061Z
+      Calling AIpage at 2025-05-14T18:32:26.893Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -201,19 +218,19 @@ PASS src/Components/AIIntegration.test.tsx
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
-All files                                 |   31.77 |    29.23 |   22.54 |   30.29 |                   
- src                                      |   31.81 |    41.93 |   27.77 |   31.32 |                   
-  App.tsx                                 |   36.36 |    44.82 |   31.25 |   36.11 | 20,65-146,167     
+All files                                 |   31.08 |    27.62 |   22.11 |   29.61 |                   
+ src                                      |   33.33 |    41.93 |   27.77 |   32.94 |                   
+  App.tsx                                 |   37.97 |    44.82 |   31.25 |   37.83 | 20,68-149,170     
   index.tsx                               |       0 |      100 |     100 |       0 | 7-19              
   reportWebVitals.ts                      |       0 |        0 |       0 |       0 | 3-10              
- src/Components                           |   22.22 |     7.79 |       6 |   22.11 |                   
+ src/Components                           |   20.31 |     6.89 |    5.76 |      20 |                   
   AIIntegration.tsx                       |     100 |       50 |     100 |     100 | 29-67             
   API-popup.tsx                           |       0 |      100 |       0 |       0 | 24                
   APIPopup.tsx                            |       0 |      100 |       0 |       0 | 37-40             
   CareerData.tsx                          |       0 |        0 |       0 |       0 |                   
   FlowerHover.tsx                         |     100 |      100 |     100 |     100 |                   
   Loader.tsx                              |       0 |      100 |       0 |       0 | 16-39             
-  Login.tsx                               |       0 |        0 |       0 |       0 | 39-143            
+  Login.tsx                               |       0 |        0 |       0 |       0 | 43-173            
   Navigation.tsx                          |       0 |        0 |       0 |       0 | 43-65             
   Popup.tsx                               |       0 |      100 |       0 |       0 | 25                
   ProfilePage.tsx                         |       0 |        0 |       0 |       0 | 26-138            
@@ -238,5 +255,5 @@ All files                                 |   31.77 |    29.23 |   22.54 |   30.
 Test Suites: 5 passed, 5 total
 Tests:       22 passed, 22 total
 Snapshots:   0 total
-Time:        6.22 s
+Time:        6.317 s
 Ran all test suites.
