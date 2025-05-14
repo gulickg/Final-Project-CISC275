@@ -59,6 +59,13 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
 
     const isValidDomain = emailDomains.some((d) => email.endsWith(d)) && !email.startsWith("@");
 
+    /**
+    * Either logs the user in or makes them a new account
+    * 
+    * @param {string} Email - user-entered email
+    * 
+    */
+    
     function handleSubmission(Email:string){
         const person:USER | undefined = findUser(Email);
         if (person !== undefined){
@@ -69,6 +76,11 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
         }
     }
 
+    /**
+    * Saves the user to the user's device's local storage, and sets the state to login
+    * 
+    */
+
     function makeAccount(){
         let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers, basicReport: bReport, detailedReport: dReport};
         saveUser(newUser);
@@ -76,6 +88,11 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
         loadUser(dAnswers, bAnswers, bReport, dReport);
         console.log("User Created: ", newUser);
     }
+
+    /**
+    * If defined, logs the user in; otherwise, does not log the user in
+    * 
+    */
 
     function login(){
         const toLog: USER | undefined = findUser(email);

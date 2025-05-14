@@ -20,7 +20,9 @@ interface HomepageProps{
  * 
  * @returns {React.JSX.Element} the homepage
  */
+
 export let keyData:string;
+
 export function Homepage({setPage}: HomepageProps):React.JSX.Element{
     const basicDescription:string = "This assessment will quickly and efficiently evaluate what career fits your lifestyle and interests best. This assessment is great if you are short for time or do not like longer and more in depth quizzes.";
     const detailedDescription:string = "The following quiz will assess your personality and decide which career fits your lifestyle best. This is a detailed quiz with multiple open-ended questions. Please answer as honestly and elaborately as you can.";

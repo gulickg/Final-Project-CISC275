@@ -4,6 +4,19 @@ import { USER } from './SaveFunctions';
 import { CareerData } from './CareerData';
 import {Report} from './Report';
 
+/**
+ * If logged in, shows the user's profile page.
+ * 
+ * This component takes in a user, which is necessary for the profile. If the user has
+ * taken a quiz, it will show their top career suggestions on the right side. On the 
+ * left, it will show them their strongest skills and personality traits. This information
+ * is stored in the user.
+ * 
+ * @param {ProfilePageProps} user - the user's saved information
+ * 
+ * @returns {React.JSX.Element} the profile page
+ */
+
 
 interface ProfilePageProps {
     user:USER | null;
@@ -15,6 +28,9 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const detailedReport = React.useMemo(()=>user?.detailedReport || [], [user?.detailedReport]);
 
 
+    /**
+     *  Combines the basic and detailed quiz reports into one list
+    **/
     function combinedReports(){
         let newList: CareerData[] = [];
         for (let report of basicReport){
@@ -35,6 +51,12 @@ export function ProfilePage({user}:ProfilePageProps):React.JSX.Element{
     const basicTraits:string[] = basicReport.map((career:CareerData) => career.personalityTraits).flat();
     const detailedTraits:string[] = detailedReport.map((career:CareerData) => career.personalityTraits).flat();
     
+
+    /**
+     * The top careers are shown on your profile.
+     * 
+     * @returns {CareerData[]} the top three careers
+     */
     function getTopCareers(): CareerData[] {
         
             REPORTS.sort((b, a) => a.percentMatch - b.percentMatch);

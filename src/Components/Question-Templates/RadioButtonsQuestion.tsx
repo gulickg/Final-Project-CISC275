@@ -37,6 +37,12 @@ interface RadioQuestionProps {
 
 export function RadioButtonQuestion({order, question, choices, addCompleted, answer, tool}: RadioQuestionProps):React.JSX.Element{
 
+    /**
+    * Updates the completed number of questions 
+    * 
+    * @param {React.ChangeEvent<HTMLInputElement>} event - the selected answer
+    * 
+    */
     function updateInput(event: React.ChangeEvent<HTMLInputElement>){
         const newAns = event.target.value;
         addCompleted(order, newAns);

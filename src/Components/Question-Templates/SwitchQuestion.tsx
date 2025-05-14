@@ -37,6 +37,12 @@ interface SwitchQuestionProps {
 export function SwitchQuestion({order, question, choices, addCompleted, answer, tool}: SwitchQuestionProps): React.JSX.Element {
     const [isFlexible, setIsFlexible] = useState<boolean>(true);
 
+    /**
+    * Updates the switch's value and adds to the completed questions
+    * 
+    * @param {React.ChangeEvent<HTMLInputElement>} event - selected answer
+    * 
+    */
     function changeSwitch(event: React.ChangeEvent<HTMLInputElement>) {
         const newAns = event.target.checked;
         setIsFlexible(newAns)

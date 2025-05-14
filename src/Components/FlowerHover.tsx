@@ -1,8 +1,20 @@
 import flower2 from '../graphics/flower2.png'
 import flower3 from '../graphics/flower3.png'
 import flower4 from '../graphics/flower4.png'
-
 import './FlowerHover.css';
+
+/**
+ * Displays flowers around the buttons
+ * 
+ * This component displays flowers around a button when it is hovered over. It combines three different
+ * flower images, which sprout from the button when visible. The boolean that is taken in is used to
+ * determine if the flowers will be shown or not.
+ * 
+ * @param {FlowerHoverProps} disabled? - optional variable to determine if buttons are being hovered over
+ * 
+ * @returns {React.JSX.Element} flowers appear/hide around the buttons
+ */
+
 
 interface FlowerHoverProps{
     disabled? : string;

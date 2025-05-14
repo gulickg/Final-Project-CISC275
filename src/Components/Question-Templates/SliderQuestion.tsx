@@ -40,6 +40,12 @@ interface SliderQuestionProps {
 export function SliderRangeQuestion({order, question, choices, addCompleted, answer, tool}: SliderQuestionProps): React.JSX.Element {
     const [selectedIndex, setSelectedChoice] = useState<number>(Math.floor(choices.length / 2));
 
+    /**
+    * Adds to the completed questions and selects the inputted answer
+    * 
+    * @param {React.ChangeEvent<HTMLInputElement>} event - selected answer
+    * 
+    */
     function updateInput(event: React.ChangeEvent<HTMLInputElement>){
             const newAns = event.target.value;
             addCompleted(order, newAns);
