@@ -118,30 +118,6 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
-[0;33mOne of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
-
-babel-preset-react-app is part of the create-react-app project, [1mwhich
-is not maintianed anymore[0;33m. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.[0m
-  
-[0;33mOne of your dependencies, babel-preset-react-app, is importing the
-"@babel/plugin-proposal-private-property-in-object" package without
-declaring it in its dependencies. This is currently working because
-"@babel/plugin-proposal-private-property-in-object" is already in your
-node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
-
-babel-preset-react-app is part of the create-react-app project, [1mwhich
-is not maintianed anymore[0;33m. It is thus unlikely that this bug will
-ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-your devDependencies to work around this error. This will make this message
-go away.[0m
-  
 PASS src/Components/AIIntegration.test.tsx
   ● Console
 
@@ -151,7 +127,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T18:32:24.866Z
+      Calling AIpage at 2025-05-14T19:28:44.933Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -176,7 +152,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T18:32:25.889Z
+      Calling AIpage at 2025-05-14T19:28:45.953Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -201,7 +177,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T18:32:26.893Z
+      Calling AIpage at 2025-05-14T19:28:46.956Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -215,6 +191,30 @@ PASS src/Components/AIIntegration.test.tsx
 
       at AIpage (src/Components/AIIntegration.tsx:75:17)
 
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
+[0;33mOne of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+
+babel-preset-react-app is part of the create-react-app project, [1mwhich
+is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.[0m
+  
 ------------------------------------------|---------|----------|---------|---------|-------------------
 File                                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------------------------|---------|----------|---------|---------|-------------------
@@ -255,5 +255,5 @@ All files                                 |   31.08 |    27.62 |   22.11 |   29.
 Test Suites: 5 passed, 5 total
 Tests:       22 passed, 22 total
 Snapshots:   0 total
-Time:        6.317 s
+Time:        6.052 s
 Ran all test suites.
