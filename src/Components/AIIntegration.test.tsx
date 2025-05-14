@@ -1,14 +1,9 @@
-// import React from "react";
-// import { render, screen } from "@testing-library/react";
-// import userEvent from "@testing-library/user-event";
 import { AIpage } from './AIIntegration';
 import OpenAI from 'openai';
-import { Report } from './Report';
 import { Question } from './Detailed-Questions-Folder/DetailedQuestions';
 
 jest.mock('openai');
-jest.mock('./Report');
-/*
+
 const mockQuestions: Question[] = [
   {
     num: 1,
@@ -24,21 +19,33 @@ const mockQuestions: Question[] = [
   }
 ];
 
+const mockResponseContent = JSON.stringify([
+  {
+    title: "Project Manager",
+    description: "Leads teams, creates project plans, and oversees deliverables.",
+    breakdown: "1. Tokyo implies interest in innovation and structure.\n2. Planner role matches project leadership.",
+    percentMatch: 90,
+    skills: ["Planning", "Communication"],
+    personalityTraits: ["Organized", "Strategic"],
+    salary: "$95,000",
+    potentialMajors: ["Business", "Management"]
+  }
+]);
+
 const mockChatResponse = {
   choices: [
     {
       message: {
-        content: `{
-          "title": "Project Manager",
-          "description": "Leads teams, creates project plans, and oversees deliverables.",
-          "breakdown": "1. Tokyo implies interest in innovation and structure.\\n2. Planner role matches project leadership."
-        }`
+        content: mockResponseContent
       }
     }
   ]
 };
 
 describe('AIpage()', () => {
+  const mockPopulateReport = jest.fn();
+  const mockLoading = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
     (OpenAI as unknown as jest.Mock).mockImplementation(() => ({
@@ -48,51 +55,52 @@ describe('AIpage()', () => {
         }
       }
     }));
+    Storage.prototype.getItem = jest.fn(() =>
+      JSON.stringify('fake-api-key')
+    );
   });
 
-  it('calls OpenAI and then Report with parsed JSON data', async () => {
-    await AIpage({questions: mockQuestions}, 'Structured', 'fake-api-key');
+  it('calls OpenAI and returns parsed report', async () => {
+    await AIpage(mockQuestions, mockPopulateReport, mockLoading);
 
-    expect(Report).toHaveBeenCalledWith(
-      'Project Manager',
-      'Leads teams, creates project plans, and oversees deliverables.',
-      expect.stringContaining('Tokyo implies'),
-      'Structured'
-    );
+    expect(mockLoading).toHaveBeenCalledWith(true);
+    expect(mockLoading).toHaveBeenCalledWith(false);
+    expect(mockPopulateReport).toHaveBeenCalledWith(mockResponseContent);
 
     const OpenAIInstance = (OpenAI as unknown as jest.Mock).mock.results[0].value;
     expect(OpenAIInstance.chat.completions.create).toHaveBeenCalled();
   });
 
-  it('logs error if JSON is malformed in OpenAI response', async () => {
+  it('handles malformed JSON response gracefully', async () => {
+    const malformedChatResponse = {
+      choices: [{ message: { content: 'not a json string' } }]
+    };
+
     (OpenAI as unknown as jest.Mock).mockImplementation(() => ({
       chat: {
         completions: {
-          create: jest.fn().mockResolvedValue({
-            choices: [{ message: { content: 'not JSON at all' } }]
-          })
+          create: jest.fn().mockResolvedValue(malformedChatResponse)
         }
       }
     }));
+
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    await AIpage({questions: mockQuestions}, 'Creative', 'fake-api-key');
-    expect(consoleSpy).toHaveBeenCalledWith(
-      expect.stringContaining('Error generating career'),
-      expect.any(Error)
-    );
+    await AIpage(mockQuestions, mockPopulateReport, mockLoading);
+    expect(mockPopulateReport).toHaveBeenCalledWith('not a json string');
+    expect(consoleSpy).not.toHaveBeenCalled(); // note: no JSON.parse in AIpage currently
     consoleSpy.mockRestore();
   });
-  it('logs error if API key is missing', async () => {
+
+  it('logs and handles OpenAI errors', async () => {
+    (OpenAI as unknown as jest.Mock).mockImplementation(() => {
+      throw new Error('OpenAI failed');
+    });
+
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const originalEnv = process.env.OPENAI_API_KEY;
-    (global as any).API_KEY_HERE = null;
-    await AIpage({questions: mockQuestions}, 'Technical', 'fake-api-key');
-    expect(consoleSpy).toHaveBeenCalledWith('API key not found.');
+    await AIpage(mockQuestions, mockPopulateReport, mockLoading);
+
+    expect(consoleSpy).toHaveBeenCalledWith("AI Error: ", expect.any(Error));
     consoleSpy.mockRestore();
-    process.env.OPENAI_API_KEY = originalEnv;
   });
 });
 
-
-export function AITest(){}
-*/

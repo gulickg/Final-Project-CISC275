@@ -2,6 +2,16 @@ import './Loader.css'
 // import React from 'react';
 import styled from 'styled-components';
 
+/**
+ * Renders the Loader screen while the report is made.
+ * 
+ * The Loader screen appears twice in our website. It is called when the submit buttons are clicked
+ * for either the Basic or Detailed career quizzes; the Loader screen shows the word "Loading..."
+ * and custom designed an earth image that spins until the report page is rendered.
+ * 
+ * @returns {React.JSX.Element} the loading screen between saving the answers and the report screen
+ */
+
 export function Loader():React.JSX.Element {
   return (
     <StyledWrapper>

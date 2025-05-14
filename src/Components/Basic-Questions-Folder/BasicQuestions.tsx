@@ -50,10 +50,11 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
             setReport(careerList, 'basic');
             setPage('basicReport');
         }, [setReport, setPage, setAnswers]);
-    // constants: tracks the questions completed and the total amount of questions there is
+
     const totalQuestions = 7;
 
 
+    // Setting up the Question interface for compatibility and continuity across pages
     interface Question{
         num: number;
         question:string;
@@ -72,7 +73,6 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         "Your comfort with different work settings—like remote vs. in-office or quiet vs. fast-paced—can shape your ideal job match."
     ], []);
 
-    // radio questions
     const RADIOQ: Question[] = React.useMemo(()=> [
         {num: 1, question: "How much time do you usually dedicate per week to hobbies?", choices: ['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours'], answer:answers[0], tooltip: TOOLTIPS[0]},
         {num: 2, question: "Which subject did you perform the best in school?", choices: ['English', 'Math', 'Science', 'Art', 'Social Studies'], answer: answers[1], tooltip: TOOLTIPS[1]},
@@ -92,16 +92,27 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
 
      // find the percent of questions completed and math for the progress bar
      const progressPercent:number = updatePercents(completed, totalQuestions);
-     // let progressBarSize = progressPercent / 100 * 185 > 185 ? 185 : Math.ceil(progressPercent / 100 * 185);
+
      const size: string = progressPercent + '%';
 
-    // pass to each question: updates the percent for the progress bar
+    /**
+    * Calculates the percent of questions completed
+    * 
+    * @param {number} completed - the number of questions that have input
+    * @param {number} total - the total number of questions on the page
+    * 
+    * @returns {React.JSX.Element} - the percent of questions completed
+    */
     function updatePercents(completed: number, total: number) {
         return Math.ceil(completed / totalQuestions * 100);
     }
 
-
-    // update the completed function
+    /**
+     * Updates the saved answers list
+     * 
+     * @param {number} qNum - the question number
+     * @param {string} newA - the new answer from the user
+     */
     function updateCompleted(qNum: number, newA: string) {
         let temp: string[] = [...answers];
         temp.splice(qNum-1, 1, newA);
@@ -109,7 +120,11 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         updateTaskBar(temp);
     }
 
-    // updates num of questions completed
+    /**
+     * Updates the number of questions completed
+     * 
+     * @param {string[]} temp - the list of answers
+     */
     function updateTaskBar(temp: string[]){
         let sum: number = 0;
         for (let answer of temp) {
@@ -120,6 +135,7 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         completed = sum;
     }
 
+    // Submitting the answers and creating the report
     const handleSubmit = React.useCallback(() => {
             AIpage(QUESTIONS, populateReport, loading);
         }, [QUESTIONS, populateReport, loading]);
@@ -136,18 +152,12 @@ export function BasicQuestions({answers, setAnswers, completed, setPage, setRepo
         <div id='question-sect'>
             <h1 id='dtitle'>Basic Quiz Questions</h1>
             <div id='instructions'>To receive your results, please answer all questions and make sure you've entered your API key!</div>
-
-                {/* <RadioButtonQuestion order={1} question={"How much time do you usually dedicate per week to hobbies?"} choices={['One Hour', 'Two Hours', 'Three Hours', 'Four or More Hours']} addCompleted={addCompleted}></RadioButtonQuestion>
-                <RadioButtonQuestion order={2} question={"Which subject did you perform the best in school?"} choices={['English', 'Math', 'Science', 'Art', 'Social Studies']} addCompleted={addCompleted}></RadioButtonQuestion>
-                <RadioButtonQuestion order={3} question={"What is your preferred form of media?"} choices={['Books', 'Podcasts', 'Movies']} addCompleted={addCompleted}></RadioButtonQuestion>
-                <RadioButtonQuestion order={4} question={"What Hogwarts house do you belong to? If this is not applicable, what house do you think you belong to?"} choices={['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin']} addCompleted={addCompleted}></RadioButtonQuestion> */}
                 {RADIOQ.map((rq: Question, index:number) => <RadioButtonQuestion order={rq.num} question={rq.question} choices={rq.choices} addCompleted={updateCompleted} answer={rq.answer} tool={rq.tooltip} key={index}></RadioButtonQuestion>)}
 
                 {SLIDERQ.map((sq: Question, index:number) => <SliderRangeQuestion order={sq.num} question={sq.question} choices={sq.choices} addCompleted={updateCompleted} answer={sq.answer} tool={sq.tooltip} key={index}></SliderRangeQuestion>)}
 
                 <SwitchQuestion order={SWITCHQ.num} question={SWITCHQ.question} choices={SWITCHQ.choices} addCompleted={updateCompleted} answer={SWITCHQ.answer} tool={SWITCHQ.tooltip}></SwitchQuestion>
                 
-                {/* <SwitchQuestion order={7} question={"What working environment do you prefer?"}></SwitchQuestion> */}
             {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
             <div id='s-wrapper'>
                 <div id='sb-wrapper' className='flower-wrapper'>

@@ -1,11 +1,9 @@
 import { useState } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import {Navigation} from './Components/Navigation'
 import { Homepage } from './Components/Homepage/Homepage';
 import { DetailedQuestions } from './Components/Detailed-Questions-Folder/DetailedQuestions';
 import { BasicQuestions } from './Components/Basic-Questions-Folder/BasicQuestions';
-// import { Report } from './Components/Report';
 import { PopUp } from './Components/Popup';
 import { Login } from './Components/Login';
 import { USER, saveUser } from './Components/SaveFunctions';
@@ -17,12 +15,12 @@ import {Loader} from './Components/Loader';
 
 let keyData = "";
 const saveKeyData = "MYKEY";
-const prevKey = localStorage.getItem(saveKeyData); //so it'll look like: MYKEY: <api_key_value here> in the local storage when you inspect
+const prevKey = localStorage.getItem(saveKeyData);
 if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-/**
+/** @function
  * Renders the main App component for the CareerSprout website.
  * 
  * This is the root component responsible for maintaining global state and routing between
@@ -55,17 +53,17 @@ function App() {
   const popUpD:boolean = (!detailedDone && numberDetailedCompleted===7);
   const popUpB: boolean = (!basicDone && numberBasicCompleted===7);
   
-  const [key, setKey] = useState<string>(keyData); //for api key input
-  
-  //sets the local storage item to the api key the user inputed
+  const [key, setKey] = useState<string>(keyData); 
+
   function handleSubmit() {
+    console.log('here');
+    console.log('user before:' ,user);
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variabl\
-    setShowAPiInput(false); //closes the api key input box
+    // window.location.reload(); 
+    setShowAPiInput(false); 
+    console.log('user after:' ,user);
   }
 
-
-  //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: string) {
     setKey(event);
   }
@@ -160,7 +158,7 @@ function App() {
       </header>
       <div id='page-content'>
         {/* <ProfilePage user={user}></ProfilePage> */}
-        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin}></Login>}
+        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin} handleSubmit={handleSubmit} changeKey={changeKey}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport} apiExists={key!==''} loading={setLoading}></BasicQuestions></div>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport} apiExists={key!==''} loading={setLoading}></DetailedQuestions></div>)}

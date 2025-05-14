@@ -27,7 +27,7 @@ import { FlowerHover } from '../FlowerHover'
  */
 
 
-
+// Question interface for compatibility and continuity across pages
 export interface Question{
     num: number;
     question:string;
@@ -35,11 +35,7 @@ export interface Question{
     tooltip:string;
 }
 
-/*
-This is the detailed questions page
-*/
-
-//interface for the Detailed Page properties
+// Interface for the Detailed Questions page
 interface DetailedProps{
     answers:string[];
     setAnswers: (answers:string[]) => void
@@ -50,16 +46,7 @@ interface DetailedProps{
     loading: (load:boolean)=>void;
 }
 
-/**
- * Renders the app's detailed questions page
- * 
- * @param {DetailedProps} properties - the properties of the detailed page
- * @param {string[]} properties.answers - the list of the current answers
- * @param {Function} properties.setAnswers - the function to set the app's detailed answers
- * @param {number} properties.completed - the number of completed detailed questions
- * 
- * @returns {React.JSX.Element} - the detailed questions page
- */
+
 export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists, loading}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
   
@@ -74,6 +61,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     }, [setReport, setPage, setAnswers]);
 
 
+    // Question interface for compatibility and continuity across pages
     interface Question{
         num: number;
         question:string;
@@ -91,7 +79,6 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         "This scenario helps explore whether you're drawn to care and service or exploration and originality—both valuable in different careers."
     ], []);
 
-    // list of questions to be mapped onto the page
     const QUESTIONS: Question[] = React.useMemo(() => [
     { num: 1, question: 'If you could live anywhere in the world where would you live and why?', answer: answers[0], tooltip: TOOLTIPS[0] },
     { num: 2, question: 'In group settings, what role do you find yourself taking?', answer: answers[1], tooltip: TOOLTIPS[1] },
@@ -102,7 +89,6 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     { num: 7, question: "Imagine you’re on a forked path. The path to the left has a hospital at the end of it. The path to the right leads to a city of innovation and creativity. Which path do you choose and why?", answer: answers[6], tooltip: TOOLTIPS[6] }
 ], [answers, TOOLTIPS]);
 
-    //updates the progress bar
     const progressPercent:number = updatePercents(completed, totalQuestions);
     const size: string = progressPercent + '%';
 
@@ -141,12 +127,8 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         for (let answer of temp){
             if (answer.length > 10){
                 sum++;
-                console.log("Answer length is " + answer.length);
-                // console.log("Sum is " + sum);
-                // console.log("Completed is " + completed);
             }
             completed = sum;
-            console.log("Completed " + completed);
         }
     }
 
@@ -158,31 +140,26 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     const submitDisabled = progressPercent === 100 ? apiExists? false: true: true;
 
 
-
-    //creating a variable to hold AIpage function
-        return(<div id='questions-page'>
-            <div id='prog-bar'>
-                <div id='progress-bar-box'>
-                    <div id='wrapper'>
-                        <div id='progress-bar' style={{ width: size}}></div>
-                    </div>
+    return(<div id='questions-page'>
+        <div id='prog-bar'>
+            <div id='progress-bar-box'>
+                <div id='wrapper'>
+                    <div id='progress-bar' style={{ width: size}}></div>
                 </div>
             </div>
-            <div id='question-sect'>
-                {/* <Button id='scroll-down' className='dbutton' onClick={()=> document.getElementById('detailed-submit')?.scrollIntoView()}>
-                    <div>↓</div>
-                </Button> */}
-                <h1 id='dtitle'>Detailed Quiz Questions</h1>
-                <div id='instructions'>To receive your results, please type at least 10 characters into each box and make sure you've entered your API key!</div>
-                
-                {QUESTIONS.map((q:Question, index:number) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} key={index} tool={q.tooltip}></TextInputQuestion>)}
-                {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
-                <div id='s-wrapper'>
-                    <div id='sb-wrapper' className='flower-wrapper'>
-                        <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses</Button><FlowerHover disabled={submitDisabled ? 'true' : ''}></FlowerHover>
-                    </div>
+        </div>
+        <div id='question-sect'>
+            <h1 id='dtitle'>Detailed Quiz Questions</h1>
+            <div id='instructions'>To receive your results, please type at least 10 characters into each box and make sure you've entered your API key!</div>
+            
+            {QUESTIONS.map((q:Question, index:number) => <TextInputQuestion question={q.question} qNumber={q.num} response={updateCompleted} answer={q.answer} key={index} tool={q.tooltip}></TextInputQuestion>)}
+            {!apiExists && <div id='reminder'>Enter an API key to submit</div>}
+            <div id='s-wrapper'>
+                <div id='sb-wrapper' className='flower-wrapper'>
+                    <Button id='quiz-submit' disabled={submitDisabled} onClick={handleSubmit}>Submit Responses</Button><FlowerHover disabled={submitDisabled ? 'true' : ''}></FlowerHover>
                 </div>
             </div>
-        </div>);
+        </div>
+    </div>);
 
 }
