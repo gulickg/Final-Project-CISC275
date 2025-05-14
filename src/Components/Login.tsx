@@ -5,6 +5,7 @@ import './Login.css'
 import { USER, saveUser, findUser } from './SaveFunctions';
 import mascot from '../graphics/mascot.png'
 import { CareerData } from './CareerData';
+import { APIPopup } from './APIPopup';
 
 /**
  * Renders the login and account creation popup for CareerSprout.
@@ -33,15 +34,18 @@ interface LoginProps{
     bReport: CareerData[];
     dReport: CareerData[];
     setShowLogin: (show: boolean)=>void;
+
+    changeKey: (event: string) => void;
+    handleSubmit: () => void;
 }
 
-export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dReport, bReport}: LoginProps):React.JSX.Element{
+export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dReport, bReport, changeKey, handleSubmit}: LoginProps):React.JSX.Element{
     const [email, setEmail] = useState<string>('');
     const [name, setName] = useState<string>('');
     
     
 
-    const [state, setState] = useState<'email'| 'makeAccount'| 'login'>('email');   
+    const [state, setState] = useState<'email'| 'makeAccount'| 'login' | 'API'>('email');   
 
     const emailDomains: string[] = [
         "@gmail.com",
@@ -68,9 +72,14 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
     
     function handleSubmission(Email:string){
         const person:USER | undefined = findUser(Email);
+        const api: string | undefined = JSON.parse(localStorage.getItem('MYKEY') || 'null');
         if (person !== undefined){
             setName(person.name)
-            setState('login');
+            if (api !== null){
+                setState('login');
+            } else {
+                setState('API')
+            }
         } else {
             setState('makeAccount');
         }
@@ -84,8 +93,14 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
     function makeAccount(){
         let newUser: USER = {name: name, email:email, basicAnswers:bAnswers, detailedAnswers: dAnswers, basicReport: bReport, detailedReport: dReport};
         saveUser(newUser);
-        setState('login');
-        loadUser(dAnswers, bAnswers, bReport, dReport);
+        const api: string | undefined = JSON.parse(localStorage.getItem('MYKEY') || 'null');
+        console.log("api: ", api);
+        if (api !== null){
+            setState('login');
+            loadUser(dAnswers, bAnswers, bReport, dReport);
+        } else {
+            setState('API')
+        }
         console.log("User Created: ", newUser);
     }
 
@@ -103,7 +118,21 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
         }
         setShowLogin(false);
     }
+
+    /**
+    * If defined, logs the user in; otherwise, does not log the user in
+    * 
+    */
+
+    function API(){
+        handleSubmit();
+        setState('login');
+    }
     
+    function cancel(){
+        setShowLogin(false);
+        setState('email');
+    }
 
     return(<div>
         <div>
@@ -137,6 +166,7 @@ export function Login({setUser, loadUser, bAnswers, dAnswers, setShowLogin, dRep
                 </Form.Group>
                 <Button className='submission' onClick={()=> makeAccount()} disabled={name.length === 0}>Make Account</Button>
                 </div>}
+                {state === 'API' && <APIPopup disablePopUp={cancel} handleSubmit={API} changeKey={changeKey}></APIPopup>}
                 {state=== 'login' && <div id='welcome'>
                     <div><img src={mascot} alt='' id='welcome-mascot'/></div>
                     <div>Welcome {name}!</div>
