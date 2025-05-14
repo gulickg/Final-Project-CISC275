@@ -27,7 +27,7 @@ import { FlowerHover } from '../FlowerHover'
  */
 
 
-
+// Question interface for compatibility and continuity across pages
 export interface Question{
     num: number;
     question:string;
@@ -35,10 +35,7 @@ export interface Question{
     tooltip:string;
 }
 
-/*
-This is the detailed questions page
-*/
-
+// Interface for the Detailed Questions page
 interface DetailedProps{
     answers:string[];
     setAnswers: (answers:string[]) => void
@@ -49,16 +46,7 @@ interface DetailedProps{
     loading: (load:boolean)=>void;
 }
 
-/**
- * Renders the app's detailed questions page
- * 
- * @param {DetailedProps} properties - the properties of the detailed page
- * @param {string[]} properties.answers - the list of the current answers
- * @param {Function} properties.setAnswers - the function to set the app's detailed answers
- * @param {number} properties.completed - the number of completed detailed questions
- * 
- * @returns {React.JSX.Element} - the detailed questions page
- */
+
 export function DetailedQuestions({answers, setAnswers, completed, setPage, setReport, apiExists, loading}: DetailedProps):React.JSX.Element{
     const totalQuestions = 7;
   
@@ -73,6 +61,7 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
     }, [setReport, setPage, setAnswers]);
 
 
+    // Question interface for compatibility and continuity across pages
     interface Question{
         num: number;
         question:string;
@@ -138,10 +127,8 @@ export function DetailedQuestions({answers, setAnswers, completed, setPage, setR
         for (let answer of temp){
             if (answer.length > 10){
                 sum++;
-                console.log("Answer length is " + answer.length);
             }
             completed = sum;
-            console.log("Completed " + completed);
         }
     }
 
