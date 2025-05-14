@@ -27,7 +27,7 @@ export function saveUser(user: USER){
  * Saves users to the local storage.
  * 
  * This component takes in a list of users, and adds it to the local storage. It
- * 'stringifies' the users, and saves them.
+ * 'stringifies' the users, and saves them. 
  * 
  * @param {ProfilePageProps} user - the user's saved information
  */
