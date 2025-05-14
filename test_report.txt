@@ -2,8 +2,8 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-PASS src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
 PASS src/App.test.tsx
+PASS src/Components/Basic-Questions-Folder/BasicQuestions.test.tsx
 PASS src/Components/Homepage/Homepage.test.tsx
   ● Console
 
@@ -134,7 +134,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T02:42:27.461Z
+      Calling AIpage at 2025-05-14T02:43:31.041Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -159,7 +159,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T02:42:28.476Z
+      Calling AIpage at 2025-05-14T02:43:32.057Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -184,7 +184,7 @@ PASS src/Components/AIIntegration.test.tsx
       at AIpage (src/Components/AIIntegration.tsx:23:13)
 
     console.log
-      Calling AIpage at 2025-05-14T02:42:29.480Z
+      Calling AIpage at 2025-05-14T02:43:33.061Z
 
       at AIpage (src/Components/AIIntegration.tsx:24:13)
 
@@ -238,5 +238,5 @@ All files                                 |   31.77 |    29.23 |   22.54 |   30.
 Test Suites: 5 passed, 5 total
 Tests:       22 passed, 22 total
 Snapshots:   0 total
-Time:        6.135 s
+Time:        6.22 s
 Ran all test suites.
