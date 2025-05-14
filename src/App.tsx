@@ -20,7 +20,7 @@ if (prevKey !== null) {
   keyData = JSON.parse(prevKey);
 }
 
-/**
+/** @function
  * Renders the main App component for the CareerSprout website.
  * 
  * This is the root component responsible for maintaining global state and routing between
@@ -56,9 +56,12 @@ function App() {
   const [key, setKey] = useState<string>(keyData); 
 
   function handleSubmit() {
+    console.log('here');
+    console.log('user before:' ,user);
     localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); 
+    // window.location.reload(); 
     setShowAPiInput(false); 
+    console.log('user after:' ,user);
   }
 
   function changeKey(event: string) {
@@ -155,7 +158,7 @@ function App() {
       </header>
       <div id='page-content'>
         {/* <ProfilePage user={user}></ProfilePage> */}
-        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin}></Login>}
+        {showLogin && <Login  setUser={setUser} loadUser={loadUser} dAnswers={detailedAnswers} bAnswers={basicAnswers} bReport={basicReport} dReport={detailedReport} setShowLogin={setShowLogin} handleSubmit={handleSubmit} changeKey={changeKey}></Login>}
         {page === 'homepage' && (<Homepage setPage={setPage}></Homepage>)}
         {page === 'basicQuestions' && (<div><BasicQuestions setPage={setPage} answers={basicAnswers} setAnswers={updateBasic} completed={numberBasicCompleted} setReport={updateReport} apiExists={key!==''} loading={setLoading}></BasicQuestions></div>)}
         {page === 'detailedQuestions' && (<div><DetailedQuestions setPage={setPage} answers={detailedAnswers} setAnswers={updateDetailed} completed={numberDetailedCompleted} setReport={updateReport} apiExists={key!==''} loading={setLoading}></DetailedQuestions></div>)}
